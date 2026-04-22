@@ -1207,7 +1207,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 [stage_2_1:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_1_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_00_baseline__qwen3 --tag iter_00_baseline__qwen3 --curated /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_1_2/stage_1_2_processed.jsonl --extracted /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_extracted.jsonl
 [stage_2_2:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_00_baseline__glm --tag iter_00_baseline__glm --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_2_clusters.jsonl
 --- [stage_2_2:glm] begin ---
-[stage_2_2 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_2 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   clusters_total=10 sampled=10 (dropped '일반')
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__glm
 [0001] OK  cluster_000 '일상' coh=True fit=4 ko=True split=False fm=[]
@@ -1233,7 +1233,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 [stage_2_2:glm] DONE in 17.0s
 [stage_2_2:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_00_baseline__deepseek --tag iter_00_baseline__deepseek --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_2_clusters.jsonl
 --- [stage_2_2:deepseek] begin ---
-[stage_2_2 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_2 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   clusters_total=10 sampled=10 (dropped '일반')
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__deepseek
 [0001] OK  cluster_000 '일상' coh=True fit=5 ko=True split=True fm=[]
@@ -1259,7 +1259,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 [stage_2_2:deepseek] DONE in 24.5s
 [stage_2_2:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_00_baseline__qwen3 --tag iter_00_baseline__qwen3 --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_2_clusters.jsonl
 --- [stage_2_2:qwen3] begin ---
-[stage_2_2 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_2 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   clusters_total=10 sampled=10 (dropped '일반')
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__qwen3
 [0001] OK  cluster_000 '일상' coh=True fit=4 ko=True split=False fm=[]
@@ -1285,7 +1285,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 [stage_2_2:qwen3] DONE in 50.5s
 [stage_2_3:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_00_baseline__glm --tag iter_00_baseline__glm --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_3_analyzed_intents.jsonl
 --- [stage_2_3:glm] begin ---
-[stage_2_3 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_3 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   intents_total=11 sampled=11
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__glm
 [0001] OK  일상 use=5 reliable=True subj=0 wrong=0 dup=0 fm=[]
@@ -1309,7 +1309,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 [stage_2_3:glm] DONE in 27.3s
 [stage_2_3:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_00_baseline__deepseek --tag iter_00_baseline__deepseek --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_3_analyzed_intents.jsonl
 --- [stage_2_1:glm] begin ---
-[stage_2_1 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_1 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   curated=42 extracted=42 sampled=42
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__glm
 [0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=5 tv=True fm=[] sr=True
@@ -1364,7 +1364,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 [stage_2_1:glm] DONE in 132.0s
 [stage_2_3:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_00_baseline__qwen3 --tag iter_00_baseline__qwen3 --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_3_analyzed_intents.jsonl
 --- [stage_2_3:deepseek] begin ---
-[stage_2_3 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_3 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   intents_total=11 sampled=11
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__deepseek
 [0001] OK  일상 use=1 reliable=True subj=0 wrong=0 dup=7 fm=['non_fashion_intent']
@@ -1386,7 +1386,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 [stage_2_3:deepseek] FAILED rc=1 in 17.5s
 [stage_2_4:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_00_baseline__glm --tag iter_00_baseline__glm --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl
 --- [stage_2_1:deepseek] begin ---
-[stage_2_1 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_1 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   curated=42 extracted=42 sampled=42
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__deepseek
 [0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=1 tv=True fm=['invalid_input'] sr=True
@@ -1441,7 +1441,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 [stage_2_1:deepseek] DONE in 157.8s
 [stage_2_4:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_00_baseline__deepseek --tag iter_00_baseline__deepseek --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl
 --- [stage_2_4:glm] begin ---
-[stage_2_4 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_4 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   input=/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl total=11 sampled=11
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_4/eval/runs/iter_00_baseline__glm
 [0001] OK  일상 use=4 div=4 weave=4 fm=[]
@@ -1461,7 +1461,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 [stage_2_4:glm] DONE in 45.8s
 [stage_2_4:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_00_baseline__qwen3 --tag iter_00_baseline__qwen3 --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl
 --- [stage_2_3:qwen3] begin ---
-[stage_2_3 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_3 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   intents_total=11 sampled=11
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__qwen3
 [0001] OK  일상 use=5 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
@@ -1484,7 +1484,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 --- [stage_2_3:qwen3] end rc=0 ---
 [stage_2_3:qwen3] DONE in 105.7s
 --- [stage_2_4:deepseek] begin ---
-[stage_2_4 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_4 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   input=/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl total=11 sampled=11
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_4/eval/runs/iter_00_baseline__deepseek
 [0001] OK  일상 use=4 div=4 weave=1 fm=['attribute_ungrounded']
@@ -1503,7 +1503,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 --- [stage_2_4:deepseek] end rc=0 ---
 [stage_2_4:deepseek] DONE in 90.5s
 --- [stage_2_1:qwen3] begin ---
-[stage_2_1 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_1 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   curated=42 extracted=42 sampled=42
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__qwen3
 [0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=5 tv=True fm=[] sr=True
@@ -1557,7 +1557,7 @@ $ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/expe
 --- [stage_2_1:qwen3] end rc=0 ---
 [stage_2_1:qwen3] DONE in 298.2s
 --- [stage_2_4:qwen3] begin ---
-[stage_2_4 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_2_4 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   input=/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl total=11 sampled=11
   -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_4/eval/runs/iter_00_baseline__qwen3
 [0001] OK  일상 use=5 div=4 weave=4 fm=[]

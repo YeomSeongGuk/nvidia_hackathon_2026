@@ -470,7 +470,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 [stage_1_0:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_21_dedup_v2__qwen3 --tag iter_21_dedup_v2__qwen3 --input /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_0_seed.jsonl --stage-override stage_1_0
 [stage_1_1:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_21_dedup_v2__glm --tag iter_21_dedup_v2__glm --input /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_synthetic.jsonl
 --- [stage_1_0:glm] begin ---
-[stage_1_2 judge] run_id=iter_21_dedup_v2__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_2 judge] run_id=iter_21_dedup_v2__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   total=50 sampled=50
   -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_0/eval/runs/iter_21_dedup_v2__glm
 [0001] OK  seed_00000 fashion=True tpo=False q=3 lang=ko noise=low fm=['too_short']
@@ -533,7 +533,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 [stage_1_0:glm] DONE in 76.9s
 [stage_1_1:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_21_dedup_v2__deepseek --tag iter_21_dedup_v2__deepseek --input /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_synthetic.jsonl
 --- [stage_1_0:qwen3] begin ---
-[stage_1_2 judge] run_id=iter_21_dedup_v2__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_2 judge] run_id=iter_21_dedup_v2__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   total=50 sampled=50
   -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_0/eval/runs/iter_21_dedup_v2__qwen3
 [0001] OK  seed_00000 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
@@ -596,7 +596,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 [stage_1_0:qwen3] DONE in 87.5s
 [stage_1_1:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_21_dedup_v2__qwen3 --tag iter_21_dedup_v2__qwen3 --input /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_synthetic.jsonl
 --- [stage_1_0:deepseek] begin ---
-[stage_1_2 judge] run_id=iter_21_dedup_v2__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_2 judge] run_id=iter_21_dedup_v2__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   total=50 sampled=50
   -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_0/eval/runs/iter_21_dedup_v2__deepseek
 [0001] OK  seed_00000 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
@@ -659,7 +659,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 [stage_1_0:deepseek] DONE in 89.4s
 [stage_1_1_5:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_21_dedup_v2__glm --tag iter_21_dedup_v2__glm --before /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_5_deduped.jsonl
 --- [stage_1_1_5:glm] begin ---
-[stage_1_1_5 judge] run_id=iter_21_dedup_v2__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1_5 judge] run_id=iter_21_dedup_v2__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   before=42 after=42 (prompt will show 42 / 42)
 
 [stage_1_1_5 judge] reduction=0.0 miss=9 (0.214) groups=8 largest=3 -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_1_5/eval/runs/iter_21_dedup_v2__glm/report.md
@@ -667,7 +667,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 [stage_1_1_5:glm] DONE in 9.5s
 [stage_1_1_5:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_21_dedup_v2__deepseek --tag iter_21_dedup_v2__deepseek --before /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_5_deduped.jsonl
 --- [stage_1_1_5:deepseek] begin ---
-[stage_1_1_5 judge] run_id=iter_21_dedup_v2__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1_5 judge] run_id=iter_21_dedup_v2__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   before=42 after=42 (prompt will show 42 / 42)
 
 [stage_1_1_5 judge] reduction=0.0 miss=5 (0.119) groups=5 largest=2 -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_1_5/eval/runs/iter_21_dedup_v2__deepseek/report.md
@@ -675,7 +675,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 [stage_1_1_5:deepseek] DONE in 9.8s
 [stage_1_1_5:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_21_dedup_v2__qwen3 --tag iter_21_dedup_v2__qwen3 --before /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_5_deduped.jsonl
 --- [stage_1_1:glm] begin ---
-[stage_1_1 judge] run_id=iter_21_dedup_v2__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1 judge] run_id=iter_21_dedup_v2__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   input=/home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_synthetic.jsonl total=42 sampled=42
   -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_1/eval/runs/iter_21_dedup_v2__glm
 [0001] OK  rv55c231c059c4400c875a613f24edbb5d fash=True tspec=False tleak=False nat=2 persona=1 fm=['title_format_violation', 'persona_drift', 'language_issue']
@@ -726,7 +726,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 [stage_1_1:glm] DONE in 111.5s
 [stage_1_2:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_21_dedup_v2__glm --tag iter_21_dedup_v2__glm --input /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_2_processed.jsonl
 --- [stage_1_1_5:qwen3] begin ---
-[stage_1_1_5 judge] run_id=iter_21_dedup_v2__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1_5 judge] run_id=iter_21_dedup_v2__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   before=42 after=42 (prompt will show 42 / 42)
 
 [stage_1_1_5 judge] reduction=0.0 miss=5 (0.119) groups=5 largest=2 -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_1_5/eval/runs/iter_21_dedup_v2__qwen3/report.md
@@ -734,7 +734,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 [stage_1_1_5:qwen3] DONE in 12.4s
 [stage_1_2:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_21_dedup_v2__deepseek --tag iter_21_dedup_v2__deepseek --input /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_2_processed.jsonl
 --- [stage_1_2:glm] begin ---
-[stage_1_2 judge] run_id=iter_21_dedup_v2__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_2 judge] run_id=iter_21_dedup_v2__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   total=42 sampled=42
   -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_2/eval/runs/iter_21_dedup_v2__glm
 [0001] OK  rv55c231c059c4400c875a613f24edbb5d fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
@@ -789,7 +789,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 [stage_1_2:glm] DONE in 76.5s
 [stage_1_2:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_21_dedup_v2__qwen3 --tag iter_21_dedup_v2__qwen3 --input /home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_2_processed.jsonl
 --- [stage_1_2:deepseek] begin ---
-[stage_1_2 judge] run_id=iter_21_dedup_v2__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_2 judge] run_id=iter_21_dedup_v2__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   total=42 sampled=42
   -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_2/eval/runs/iter_21_dedup_v2__deepseek
 [0001] OK  rv55c231c059c4400c875a613f24edbb5d fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
@@ -843,7 +843,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 --- [stage_1_2:deepseek] end rc=0 ---
 [stage_1_2:deepseek] DONE in 74.7s
 --- [stage_1_1:deepseek] begin ---
-[stage_1_1 judge] run_id=iter_21_dedup_v2__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1 judge] run_id=iter_21_dedup_v2__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   input=/home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_synthetic.jsonl total=42 sampled=42
   -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_1/eval/runs/iter_21_dedup_v2__deepseek
 [0001] OK  rv55c231c059c4400c875a613f24edbb5d fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
@@ -893,7 +893,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 --- [stage_1_1:deepseek] end rc=0 ---
 [stage_1_1:deepseek] DONE in 137.7s
 --- [stage_1_2:qwen3] begin ---
-[stage_1_2 judge] run_id=iter_21_dedup_v2__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_2 judge] run_id=iter_21_dedup_v2__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   total=42 sampled=42
   -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_2/eval/runs/iter_21_dedup_v2__qwen3
 [0001] OK  rv55c231c059c4400c875a613f24edbb5d fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
@@ -947,7 +947,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_2
 --- [stage_1_2:qwen3] end rc=0 ---
 [stage_1_2:qwen3] DONE in 95.0s
 --- [stage_1_1:qwen3] begin ---
-[stage_1_1 judge] run_id=iter_21_dedup_v2__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1 judge] run_id=iter_21_dedup_v2__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   input=/home/nvidia/experiments_data/iter_21_dedup_v2/output/stage_1_1_synthetic.jsonl total=42 sampled=42
   -> /home/nvidia/experiments_data/iter_21_dedup_v2/data_eval/stage_1_1/eval/runs/iter_21_dedup_v2__qwen3
 [0001] OK  rv55c231c059c4400c875a613f24edbb5d fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']

@@ -525,7 +525,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_0
 [stage_1_0:glm] FAILED rc=1 in 0.6s
 [stage_1_1_5:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_08_persona_binding_prompt__glm --tag iter_08_persona_binding_prompt__glm --before /home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_1_5_deduped.jsonl
 --- [stage_1_1_5:glm] begin ---
-[stage_1_1_5 judge] run_id=iter_08_persona_binding_prompt__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1_5 judge] run_id=iter_08_persona_binding_prompt__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   before=50 after=50 (prompt will show 50 / 50)
 
 [stage_1_1_5 judge] reduction=0.0 miss=16 (0.32) groups=10 largest=3 -> /home/nvidia/experiments_data/iter_08_persona_binding_prompt/data_eval/stage_1_1_5/eval/runs/iter_08_persona_binding_prompt__glm/report.md
@@ -533,7 +533,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_0
 [stage_1_1_5:glm] DONE in 12.5s
 [stage_1_1_5:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_08_persona_binding_prompt__deepseek --tag iter_08_persona_binding_prompt__deepseek --before /home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_1_5_deduped.jsonl
 --- [stage_1_1_5:deepseek] begin ---
-[stage_1_1_5 judge] run_id=iter_08_persona_binding_prompt__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1_5 judge] run_id=iter_08_persona_binding_prompt__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   before=50 after=50 (prompt will show 50 / 50)
 
 [stage_1_1_5 judge] reduction=0.0 miss=12 (0.24) groups=8 largest=3 -> /home/nvidia/experiments_data/iter_08_persona_binding_prompt/data_eval/stage_1_1_5/eval/runs/iter_08_persona_binding_prompt__deepseek/report.md
@@ -541,7 +541,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_0
 [stage_1_1_5:deepseek] DONE in 17.2s
 [stage_1_1_5:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_08_persona_binding_prompt__qwen3 --tag iter_08_persona_binding_prompt__qwen3 --before /home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_1_5_deduped.jsonl
 --- [stage_1_1_5:qwen3] begin ---
-[stage_1_1_5 judge] run_id=iter_08_persona_binding_prompt__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1_5 judge] run_id=iter_08_persona_binding_prompt__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   before=50 after=50 (prompt will show 50 / 50)
 
 [stage_1_1_5 judge] reduction=0.0 miss=6 (0.12) groups=4 largest=3 -> /home/nvidia/experiments_data/iter_08_persona_binding_prompt/data_eval/stage_1_1_5/eval/runs/iter_08_persona_binding_prompt__qwen3/report.md
@@ -549,7 +549,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_0
 [stage_1_1_5:qwen3] DONE in 11.6s
 [stage_1_2:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_08_persona_binding_prompt__glm --tag iter_08_persona_binding_prompt__glm --input /home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_2_processed.jsonl
 --- [stage_1_2:glm] begin ---
-[stage_1_2 judge] run_id=iter_08_persona_binding_prompt__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_2 judge] run_id=iter_08_persona_binding_prompt__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   total=0 sampled=0
   -> /home/nvidia/experiments_data/iter_08_persona_binding_prompt/data_eval/stage_1_2/eval/runs/iter_08_persona_binding_prompt__glm
 
@@ -562,7 +562,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_0
 [stage_1_2:glm] DONE in 0.6s
 [stage_1_2:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_08_persona_binding_prompt__deepseek --tag iter_08_persona_binding_prompt__deepseek --input /home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_2_processed.jsonl
 --- [stage_1_2:deepseek] begin ---
-[stage_1_2 judge] run_id=iter_08_persona_binding_prompt__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_2 judge] run_id=iter_08_persona_binding_prompt__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   total=0 sampled=0
   -> /home/nvidia/experiments_data/iter_08_persona_binding_prompt/data_eval/stage_1_2/eval/runs/iter_08_persona_binding_prompt__deepseek
 
@@ -575,7 +575,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_0
 [stage_1_2:deepseek] DONE in 0.6s
 [stage_1_2:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_08_persona_binding_prompt__qwen3 --tag iter_08_persona_binding_prompt__qwen3 --input /home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_2_processed.jsonl
 --- [stage_1_2:qwen3] begin ---
-[stage_1_2 judge] run_id=iter_08_persona_binding_prompt__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_2 judge] run_id=iter_08_persona_binding_prompt__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   total=0 sampled=0
   -> /home/nvidia/experiments_data/iter_08_persona_binding_prompt/data_eval/stage_1_2/eval/runs/iter_08_persona_binding_prompt__qwen3
 
@@ -587,7 +587,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_0
 --- [stage_1_2:qwen3] end rc=0 ---
 [stage_1_2:qwen3] DONE in 0.6s
 --- [stage_1_1:glm] begin ---
-[stage_1_1 judge] run_id=iter_08_persona_binding_prompt__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1 judge] run_id=iter_08_persona_binding_prompt__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   input=/home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_1_synthetic.jsonl total=50 sampled=50
   -> /home/nvidia/experiments_data/iter_08_persona_binding_prompt/data_eval/stage_1_1/eval/runs/iter_08_persona_binding_prompt__glm
 [0001] OK  rv1b46535535d949ddb625b1364fbce7bf fash=True tspec=False tleak=True nat=2 persona=5 fm=['title_reasoning_leak', 'title_format_violation', 'language_issue']
@@ -645,7 +645,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_0
 --- [stage_1_1:glm] end rc=0 ---
 [stage_1_1:glm] DONE in 160.1s
 --- [stage_1_1:deepseek] begin ---
-[stage_1_1 judge] run_id=iter_08_persona_binding_prompt__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1 judge] run_id=iter_08_persona_binding_prompt__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   input=/home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_1_synthetic.jsonl total=50 sampled=50
   -> /home/nvidia/experiments_data/iter_08_persona_binding_prompt/data_eval/stage_1_1/eval/runs/iter_08_persona_binding_prompt__deepseek
 [0001] OK  rv1b46535535d949ddb625b1364fbce7bf fash=True tspec=False tleak=True nat=5 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
@@ -703,7 +703,7 @@ $ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_0
 --- [stage_1_1:deepseek] end rc=0 ---
 [stage_1_1:deepseek] DONE in 180.0s
 --- [stage_1_1:qwen3] begin ---
-[stage_1_1 judge] run_id=iter_08_persona_binding_prompt__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[stage_1_1 judge] run_id=iter_08_persona_binding_prompt__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=DUMMY_KEY... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
   input=/home/nvidia/experiments_data/iter_08_persona_binding_prompt/output/stage_1_1_synthetic.jsonl total=50 sampled=50
   -> /home/nvidia/experiments_data/iter_08_persona_binding_prompt/data_eval/stage_1_1/eval/runs/iter_08_persona_binding_prompt__qwen3
 [0001] OK  rv1b46535535d949ddb625b1364fbce7bf fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']

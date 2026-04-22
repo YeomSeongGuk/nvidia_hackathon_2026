@@ -14,7 +14,7 @@ we made a local copy `data_pipeline_vllm.py` that only differs in the
 
 - `data_pipeline_vllm.py` is a byte-level copy of `data_pipeline_nemo.py`
   with 3 fields in `PipelineConfig` swapped:
-  - `llm_api_key:  "flp_…"                          -> "dummy"`
+  - `llm_api_key:  "DUMMY_KEY…"                          -> "dummy"`
   - `llm_base_url: "https://api.friendli.ai/serverless/v1" -> "http://localhost:5000/v1"`
   - `llm_model:    "meta-llama/Llama-3.1-8B-Instruct"     -> "nemotron"`
 - Every `import` resolved (nemo_curator, data_designer, datasets, pandas, pyarrow, ray).
