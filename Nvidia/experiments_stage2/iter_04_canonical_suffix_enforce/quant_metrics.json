@@ -1,0 +1,71 @@
+{
+  "stage_2_1": {
+    "n": 42,
+    "general_wear_rate": 0.19,
+    "attr_concrete_rate": {
+      "material": 0.119,
+      "fit": 0.262,
+      "color": 0.81,
+      "style": 0.738,
+      "season": 0.024
+    },
+    "avg_keywords_per_doc": 4.74
+  },
+  "stage_2_1_5": {
+    "input_rows": 42,
+    "kept_rows": 42,
+    "semdedup_retention_rate": 1.0,
+    "semdedup_removed_count": 0,
+    "semdedup_pairs_above_threshold": 0,
+    "semdedup_avg_cosine_of_kept": null,
+    "semdedup_selected_threshold": 0.9,
+    "semdedup_signature_builder_used": "full",
+    "semdedup_mode": "pass_through"
+  },
+  "stage_2_2": {
+    "n": 9,
+    "n_real_clusters": 8,
+    "canonical_count": 9,
+    "canonical_hangul_pure_rate": 0.875,
+    "canonical_suffix_compliance_rate": 0.625,
+    "canonical_non_fashion_rate": 0.0,
+    "canonical_non_fashion_count": 0,
+    "evidence_one_count": 7,
+    "canonical_names": [
+      "주말룩",
+      "등산복",
+      "일하며 등산",
+      "일상룩",
+      "출근복",
+      "여름원피스",
+      "루즈핏티",
+      "일식집데이트룩"
+    ]
+  },
+  "stage_2_3": {
+    "n": 9,
+    "total_attr_count": 27,
+    "avg_attrs_per_intent": 3.0,
+    "duplicate_value_count": 0
+  },
+  "stage_2_4": {
+    "n_intents": 9,
+    "total_queries": 45,
+    "query_dedup_ratio": 1.0,
+    "query_repeat_within_intent_count": 0,
+    "query_avg_length_chars": 24.1,
+    "query_non_hangul_chars_count": 0,
+    "query_non_hangul_chars_rate": 0.0,
+    "garbled_count": 0,
+    "canonical_repeat_rate": 0.0
+  },
+  "e2e": {
+    "rows_by_stage": [
+      42,
+      42,
+      9,
+      9,
+      9
+    ]
+  }
+}

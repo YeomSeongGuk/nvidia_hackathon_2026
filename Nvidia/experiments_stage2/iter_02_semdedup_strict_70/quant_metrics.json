@@ -1,0 +1,77 @@
+{
+  "stage_2_1": {
+    "n": 42,
+    "general_wear_rate": 0.119,
+    "attr_concrete_rate": {
+      "material": 0.119,
+      "fit": 0.262,
+      "color": 0.881,
+      "style": 0.738,
+      "season": 0.024
+    },
+    "avg_keywords_per_doc": 4.79
+  },
+  "stage_2_1_5": {
+    "input_rows": 42,
+    "kept_rows": 26,
+    "semdedup_retention_rate": 0.619,
+    "semdedup_removed_count": 16,
+    "semdedup_pairs_above_threshold": 62,
+    "semdedup_avg_cosine_of_kept": 0.6642,
+    "semdedup_selected_threshold": 0.7,
+    "semdedup_signature_builder_used": "full",
+    "semdedup_mode": "active"
+  },
+  "stage_2_2": {
+    "n": 15,
+    "n_real_clusters": 14,
+    "canonical_count": 15,
+    "canonical_hangul_pure_rate": 0.929,
+    "canonical_suffix_compliance_rate": 0.643,
+    "canonical_non_fashion_rate": 0.0,
+    "canonical_non_fashion_count": 0,
+    "evidence_one_count": 11,
+    "canonical_names": [
+      "주말룩",
+      "외출복",
+      "산책룩",
+      "풍경사진",
+      "출근복",
+      "홈웨어",
+      "데이트룩",
+      "잠옷",
+      "수락산 드라이브",
+      "등산복",
+      "주짓수",
+      "배드민턴",
+      "민요룩",
+      "스포티룩"
+    ]
+  },
+  "stage_2_3": {
+    "n": 15,
+    "total_attr_count": 44,
+    "avg_attrs_per_intent": 2.93,
+    "duplicate_value_count": 0
+  },
+  "stage_2_4": {
+    "n_intents": 15,
+    "total_queries": 75,
+    "query_dedup_ratio": 1.0,
+    "query_repeat_within_intent_count": 0,
+    "query_avg_length_chars": 23.3,
+    "query_non_hangul_chars_count": 1,
+    "query_non_hangul_chars_rate": 0.013,
+    "garbled_count": 0,
+    "canonical_repeat_rate": 0.0
+  },
+  "e2e": {
+    "rows_by_stage": [
+      42,
+      26,
+      15,
+      15,
+      15
+    ]
+  }
+}

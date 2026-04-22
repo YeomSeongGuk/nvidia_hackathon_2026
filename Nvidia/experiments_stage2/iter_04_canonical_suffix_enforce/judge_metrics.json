@@ -1,0 +1,247 @@
+{
+  "run_id": "iter_04_canonical_suffix_enforce",
+  "provider": "friendli",
+  "judges": [
+    "zai-org/GLM-5.1",
+    "deepseek-ai/DeepSeek-V3.2",
+    "Qwen/Qwen3-235B-A22B-Instruct-2507"
+  ],
+  "stages": [
+    "stage_2_1",
+    "stage_2_2",
+    "stage_2_3",
+    "stage_2_4"
+  ],
+  "max_workers": 4,
+  "duration_sec": 180.7,
+  "errors": [],
+  "ensemble": {
+    "stage_2_1": {
+      "avg_intent_groundedness": {
+        "mean": 2.84,
+        "glm": 3.76,
+        "deepseek": 1.0,
+        "qwen3": 3.76,
+        "range": 2.76
+      },
+      "general_wear_false_negative_rate": {
+        "mean": 0.667,
+        "glm": 1.0,
+        "deepseek": 0.0,
+        "qwen3": 1.0,
+        "range": 1.0,
+        "agreement_approx": 0.0
+      },
+      "general_wear_rate": {
+        "mean": 0.19,
+        "glm": 0.19,
+        "deepseek": 0.19,
+        "qwen3": 0.19,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "intent_type_valid_rate": {
+        "mean": 0.913,
+        "glm": 0.88,
+        "deepseek": 1.0,
+        "qwen3": 0.86,
+        "range": 0.14,
+        "agreement_approx": 0.86
+      },
+      "sentiment_rating_agreement_rate": {
+        "mean": 0.86,
+        "glm": 0.86,
+        "deepseek": 0.86,
+        "qwen3": 0.86,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "n_evaluated": 42,
+      "failure_modes": {
+        "missed_tpo": 17,
+        "product_type_as_intent": 12,
+        "subjective_attribute_value": 7,
+        "sentiment_rating_mismatch": 8,
+        "hallucinated_intent": 12,
+        "noise_attribute_value": 3,
+        "general_wear_with_attrs": 8,
+        "language_issue": 31,
+        "system_error": 1
+      }
+    },
+    "stage_2_2": {
+      "avg_canonical_fit": {
+        "mean": 4.623,
+        "glm": 4.75,
+        "deepseek": 4.62,
+        "qwen3": 4.5,
+        "range": 0.25
+      },
+      "coherent_rate": {
+        "mean": 0.96,
+        "glm": 0.88,
+        "deepseek": 1.0,
+        "qwen3": 1.0,
+        "range": 0.12,
+        "agreement_approx": 0.88
+      },
+      "duplicate_pairs_found": {
+        "mean": 0.333,
+        "glm": 0.0,
+        "deepseek": 1.0,
+        "qwen3": 0.0,
+        "range": 1.0
+      },
+      "non_korean_canonical_count": {
+        "mean": 0.0,
+        "glm": 0.0,
+        "deepseek": 0.0,
+        "qwen3": 0.0,
+        "range": 0.0
+      },
+      "should_split_count": {
+        "mean": 2.667,
+        "glm": 1.0,
+        "deepseek": 7.0,
+        "qwen3": 0.0,
+        "range": 7.0
+      },
+      "n_clusters": 8,
+      "failure_modes": {
+        "heterogeneous_cluster": 1,
+        "wrong_canonical": 1,
+        "should_split": 1,
+        "non_korean_canonical": 0,
+        "too_broad_canonical": 1,
+        "duplicate_with_other": 0
+      }
+    },
+    "stage_2_3": {
+      "attr_concrete_rate": {
+        "mean": 0.973,
+        "glm": 0.96,
+        "deepseek": 1.0,
+        "qwen3": 0.96,
+        "range": 0.04
+      },
+      "attr_fits_intent_rate": {
+        "mean": 0.94,
+        "glm": 0.93,
+        "deepseek": 1.0,
+        "qwen3": 0.89,
+        "range": 0.11,
+        "agreement_approx": 0.89
+      },
+      "avg_overall_usefulness": {
+        "mean": 2.187,
+        "glm": 3.0,
+        "deepseek": 1.0,
+        "qwen3": 2.56,
+        "range": 2.0
+      },
+      "duplicate_value_count": {
+        "mean": 5.0,
+        "glm": 0.0,
+        "deepseek": 15.0,
+        "qwen3": 0.0,
+        "range": 15.0
+      },
+      "evidence_reliable_rate": {
+        "mean": 0.553,
+        "glm": 0.44,
+        "deepseek": 1.0,
+        "qwen3": 0.22,
+        "range": 0.78
+      },
+      "n_intents": 9,
+      "failure_modes": {
+        "non_fashion_intent": 3,
+        "low_evidence_high_weight": 7,
+        "wrong_attribute_for_intent": 2,
+        "subjective_value": 1,
+        "noise_value": 0,
+        "duplicate_values": 0
+      }
+    },
+    "stage_2_4": {
+      "avg_attribute_weaving": {
+        "mean": 2.63,
+        "glm": 2.67,
+        "deepseek": 1.0,
+        "qwen3": 4.22,
+        "range": 3.22
+      },
+      "avg_canonical_coverage": {
+        "mean": 3.593,
+        "glm": 3.22,
+        "deepseek": 3.0,
+        "qwen3": 4.56,
+        "range": 1.56
+      },
+      "avg_overall_usefulness": {
+        "mean": 3.89,
+        "glm": 3.22,
+        "deepseek": 3.56,
+        "qwen3": 4.89,
+        "range": 1.67
+      },
+      "avg_query_diversity": {
+        "mean": 3.557,
+        "glm": 3.11,
+        "deepseek": 3.67,
+        "qwen3": 3.89,
+        "range": 0.78
+      },
+      "canonical_repeat_rate": {
+        "mean": 0.02,
+        "glm": 0.04,
+        "deepseek": 0.0,
+        "qwen3": 0.02,
+        "range": 0.04
+      },
+      "garbled_count": {
+        "mean": 0.0,
+        "glm": 0.0,
+        "deepseek": 0.0,
+        "qwen3": 0.0,
+        "range": 0.0
+      },
+      "n_queries_total": {
+        "mean": 45.0,
+        "glm": 45.0,
+        "deepseek": 45.0,
+        "qwen3": 45.0,
+        "range": 0.0
+      },
+      "per_query_fits_intent_rate": {
+        "mean": 1.0,
+        "glm": 1.0,
+        "deepseek": 1.0,
+        "qwen3": 1.0,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "per_query_natural_rate": {
+        "mean": 1.0,
+        "glm": 1.0,
+        "deepseek": 1.0,
+        "qwen3": 1.0,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "n_intents": 9,
+      "failure_modes": {
+        "canonical_name_repeat": 2,
+        "low_query_diversity": 3,
+        "attribute_overlisting": 7,
+        "too_generic": 1,
+        "unnatural_korean": 0,
+        "attribute_ungrounded": 0,
+        "not_korean": 0,
+        "garbled_output": 0,
+        "wrong_intent": 0,
+        "product_listing": 0
+      }
+    }
+  }
+}

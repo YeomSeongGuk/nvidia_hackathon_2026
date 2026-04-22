@@ -1,0 +1,1 @@
+C1 (PLAN §5): patch CANONICAL_SYSTEM in pipelines/prompts.py to force canonical names to end in 룩/웨어/복/스타일/캐주얼/패션/유형 suffix, OR fall back to '일반' for non-fashion groups (지명/인물/날씨/음식/활동). Expected: canonical_suffix_compliance_rate 0.70 → 0.90+; canonical_non_fashion_rate stays at 0; stage_2_2.avg_canonical_fit goes up. No SD applied — pure prompt patch on baseline's pipeline.

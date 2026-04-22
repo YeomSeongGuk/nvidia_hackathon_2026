@@ -1,0 +1,77 @@
+{
+  "stage_2_1": {
+    "n": 42,
+    "general_wear_rate": 0.19,
+    "attr_concrete_rate": {
+      "material": 0.119,
+      "fit": 0.262,
+      "color": 0.81,
+      "style": 0.738,
+      "season": 0.024
+    },
+    "avg_keywords_per_doc": 4.74
+  },
+  "stage_2_1_5": {
+    "input_rows": 42,
+    "kept_rows": 16,
+    "semdedup_retention_rate": 0.381,
+    "semdedup_removed_count": 26,
+    "semdedup_pairs_above_threshold": 227,
+    "semdedup_avg_cosine_of_kept": 0.7174,
+    "semdedup_selected_threshold": 0.75,
+    "semdedup_signature_builder_used": "signature_combo",
+    "semdedup_mode": "active"
+  },
+  "stage_2_2": {
+    "n": 15,
+    "n_real_clusters": 14,
+    "canonical_count": 15,
+    "canonical_hangul_pure_rate": 0.929,
+    "canonical_suffix_compliance_rate": 0.571,
+    "canonical_non_fashion_rate": 0.071,
+    "canonical_non_fashion_count": 1,
+    "evidence_one_count": 13,
+    "canonical_names": [
+      "주말룩",
+      "출근복",
+      "해질녘",
+      "주점",
+      "중식당룩",
+      "풍경사진",
+      "산책룩",
+      "수락산 드라이브",
+      "등산복",
+      "주짓수",
+      "주말나들이",
+      "운전복",
+      "민요룩",
+      "등산복"
+    ]
+  },
+  "stage_2_3": {
+    "n": 14,
+    "total_attr_count": 36,
+    "avg_attrs_per_intent": 2.57,
+    "duplicate_value_count": 0
+  },
+  "stage_2_4": {
+    "n_intents": 14,
+    "total_queries": 70,
+    "query_dedup_ratio": 1.0,
+    "query_repeat_within_intent_count": 0,
+    "query_avg_length_chars": 24.2,
+    "query_non_hangul_chars_count": 0,
+    "query_non_hangul_chars_rate": 0.0,
+    "garbled_count": 0,
+    "canonical_repeat_rate": 0.0
+  },
+  "e2e": {
+    "rows_by_stage": [
+      42,
+      16,
+      15,
+      14,
+      14
+    ]
+  }
+}

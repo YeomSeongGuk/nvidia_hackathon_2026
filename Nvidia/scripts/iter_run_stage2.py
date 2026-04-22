@@ -86,6 +86,9 @@ STAGE2_SNAPSHOT_FILES = (
     "stage_2_2_canonicalize.py",
     "stage_2_3_aggregate.py",
     "stage_2_4_expand.py",
+    # prompts.py is the shared prompt bank for 2.1/2.2/2.4 LLM calls.
+    # Snapshotted per-iter so C/E/X patches can overlay it on coupang.
+    "prompts.py",
 )
 
 FIVE_OUTPUT_FILES = (
@@ -331,6 +334,7 @@ def _upload_iter_scaffold(
 def _remote_pipeline_cmd(
     iter_full: str,
     semdedup: str,  # "off" or a float string (as a threshold)
+    signature_builder: str,  # full | signature_combo | intent_only
     stage22_mode: str,  # "full" only for now on the driver side
     provider: str,  # "vllm"
 ) -> str:
@@ -343,7 +347,7 @@ def _remote_pipeline_cmd(
     sd_cmd = (
         "--off"
         if semdedup == "off"
-        else f"--threshold {float(semdedup)}"
+        else f"--threshold {float(semdedup)} --signature-builder {signature_builder}"
     )
     # stage 2.2: --stage full is default; --refine --cross-merge are
     # canonical Stage 2 settings from the main branch.
@@ -361,6 +365,7 @@ def _remote_pipeline_cmd(
         f"cp {COUPANG_ROOT}/{iter_full}/snapshot/stage_2_2_canonicalize.py pipelines/stage_2_2_canonicalize.py && "
         f"cp {COUPANG_ROOT}/{iter_full}/snapshot/stage_2_3_aggregate.py pipelines/stage_2_3_aggregate.py && "
         f"cp {COUPANG_ROOT}/{iter_full}/snapshot/stage_2_4_expand.py pipelines/stage_2_4_expand.py && "
+        f"cp {COUPANG_ROOT}/{iter_full}/snapshot/prompts.py pipelines/prompts.py && "
         # Stage 2.1
         f"PYTHONPATH=. {COUPANG_VENV_PY} -m pipelines.stage_2_1_extract "
         f"  --input  $STAGE_DATA_ROOT/stage_1_2 "
@@ -404,6 +409,7 @@ def _remote_pipeline_cmd(
 def _run_pipeline_remote(
     iter_full: str,
     semdedup: str,
+    signature_builder: str,
     stage22_mode: str,
     provider: str,
     log_fh,
@@ -411,6 +417,7 @@ def _run_pipeline_remote(
     remote = _remote_pipeline_cmd(
         iter_full=iter_full,
         semdedup=semdedup,
+        signature_builder=signature_builder,
         stage22_mode=stage22_mode,
         provider=provider,
     )
@@ -620,6 +627,7 @@ def _assemble_metrics_json(
     judge_metrics: Dict[str, Any],
     quant_metrics: Dict[str, Any],
     semdedup: str,
+    signature_builder: str,
     stage22_mode: str,
 ) -> Dict[str, Any]:
     hashes = {
@@ -637,6 +645,7 @@ def _assemble_metrics_json(
         "run_id": run_id,
         "tag": tag,
         "semdedup": semdedup,
+        "signature_builder": signature_builder,
         "stage22_mode": stage22_mode,
         "output_hashes": hashes,
         "stage_2_1":   (judge_metrics.get("ensemble") or {}).get("stage_2_1") or {},
@@ -708,6 +717,21 @@ def _write_judge_report_stub(iter_dir: Path, metrics: Dict[str, Any]) -> None:
     )
 
 
+def _revert_pipelines_to_head(log_fh) -> None:
+    """After a patched iter is committed, restore pipelines/ to HEAD so
+    the next iter starts from a clean base. The snapshot + remote
+    overlay already captured the patched state, so downstream needs
+    nothing from the dirty working tree.
+    """
+    _run(
+        [
+            "git", "checkout", "HEAD", "--",
+            str(REPO_ROOT / "pipelines"),
+        ],
+        log_fh=log_fh,
+    )
+
+
 def _git_commit(iter_dir: Path, iter_full: str, headline: str) -> None:
     _run(
         [
@@ -740,6 +764,17 @@ def main(argv: List[str] | None = None) -> int:
         "--semdedup",
         default="off",
         help="'off' (pass-through) or a float threshold (e.g. 0.90)",
+    )
+    parser.add_argument(
+        "--signature-builder",
+        default="full",
+        choices=["full", "signature_combo", "intent_only"],
+        help=(
+            "Stage 2.1.5 signature builder (PLAN §5). Ignored when "
+            "--semdedup off. full = raw_intent + keywords + attrs; "
+            "signature_combo = raw_intent + attrs; intent_only = "
+            "raw_intent."
+        ),
     )
     parser.add_argument(
         "--stage22-mode",
@@ -776,7 +811,7 @@ def main(argv: List[str] | None = None) -> int:
     with log_path.open("a", encoding="utf-8") as log_fh:
         log_fh.write(f"\n# --- iter_run_stage2 @ {_now()} ---\n")
         log_fh.write(f"# iter={iter_full} parent={args.parent_iter}\n")
-        log_fh.write(f"# semdedup={args.semdedup} stage22_mode={args.stage22_mode}\n")
+        log_fh.write(f"# semdedup={args.semdedup} signature_builder={args.signature_builder} stage22_mode={args.stage22_mode}\n")
         log_fh.write(f"# pinned input sha256={_sha256(PINNED_INPUT)}\n\n")
 
         # step 2 / 3 — hypothesis + patch
@@ -796,6 +831,7 @@ def main(argv: List[str] | None = None) -> int:
             rc = _run_pipeline_remote(
                 iter_full=iter_full,
                 semdedup=args.semdedup,
+                signature_builder=args.signature_builder,
                 stage22_mode=args.stage22_mode,
                 provider=args.provider,
                 log_fh=log_fh,
@@ -843,6 +879,7 @@ def main(argv: List[str] | None = None) -> int:
             judge_metrics=judge_metrics,
             quant_metrics=quant,
             semdedup=args.semdedup,
+            signature_builder=args.signature_builder,
             stage22_mode=args.stage22_mode,
         )
         _write_judge_report_stub(iter_dir, metrics)
@@ -864,6 +901,13 @@ def main(argv: List[str] | None = None) -> int:
                 iter_full=iter_full,
                 headline=args.headline or f"stage2 {iter_full}",
             )
+
+        # If the iter applied a patch to pipelines/* (C/E/X series
+        # prompt patches), revert pipelines/ to HEAD so the next iter
+        # starts clean. The snapshot and the remote overlay already
+        # captured the patched version.
+        if args.patch:
+            _revert_pipelines_to_head(log_fh)
 
         print(
             f"\n[iter_run_stage2] DONE iter={iter_full} "

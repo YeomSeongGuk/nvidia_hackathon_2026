@@ -1,205 +1,130 @@
-# Analyzed-Data Pipeline (Hackathon PoC)
+# Customer Driven Discovery — NeMo Curator Hackathon PoC
 
-**Customer Driven Discovery using NeMo Curator** — a proof-of-concept pipeline
-that turns curated Korean/English fashion reviews into a *Semantic Bridge*:
-canonical TPO (Time/Place/Occasion) intents mapped to concrete product
-attributes with data-lineage back to the source documents.
+**Korean fashion reviews → canonical TPO intents → attribute-aware queries.**
+An NVIDIA-stack-powered curation pipeline that mines the *semantic bridge*
+between how shoppers talk (*"내일 하객 갈 때 입을 옷"*) and how the
+catalog is indexed (material / fit / color).
 
-This repository owns the **analyzed-data generation** stage of the hackathon
-project. It takes the output of the upstream NeMo Curator curation pipeline
-and produces analyzed records such as:
+Key stack: **NeMo Curator** · **NeMo Data Designer** (+ 7-field Korean
+persona) · **Nemotron-Super 120B FP8** on vLLM / Brev H100 ·
+**Friendli tri-judge ensemble** (GLM-5.1 + DeepSeek-V3.2 + Qwen3-235B-A22B).
 
-```json
-{
-  "intent_keyword": "하객룩",
-  "mapped_attributes": [
-    {"attribute_key": "material", "attribute_value": "tweed", "weight": 0.91},
-    {"attribute_key": "fit",      "attribute_value": "neat",  "weight": 0.46},
-    {"attribute_key": "fit",      "attribute_value": "tailored", "weight": 0.45}
-  ],
-  "data_lineage": {
-    "total_evidence_count": 2,
-    "source_doc_ids": ["curated_blog_en_001", "curated_rv_en_003"]
-  },
-  "last_updated": "2026-04-21T05:49:32Z"
-}
-```
+**Headline result (Stage 1, best iter_21_dedup_v2)**: 10 promote gates,
+8/10 passed, up from 1/10 at baseline. 260 canonical TPO intents from
+10 K Korean reviews.
 
-## Why this is interesting
+---
 
-- **Cross-lingual intent merging** — the English phrases "wedding" and
-  "wedding guest look" and the Korean phrase "사무실룩" all land in the correct
-  Korean canonical intents ("하객룩" and "오피스룩").
-- **Synonym collapsing** — "데일리 캐주얼", "스트리트 캐주얼", "일상캐주얼",
-  "캐주얼", and the English "everyday casual" collapse into the single
-  canonical intent "캐주얼".
-- **Two-stage LLM refinement** — an embedding-based first pass handles obvious
-  duplicates quickly; a second LLM pass splits over-merged clusters and merges
-  semantically equivalent but embedding-distant clusters.
-
-## Pipeline overview
-
-This project owns **Stage 2** (analysis). Stage 1 (data collection + NeMo
-Curator curation) lives in a different session / repo; we only consume its
-output at `/data/stage_1_2/`.
-
-```
-(upstream - out of scope)
-  Stage 1.1: raw collection
-  Stage 1.2: NeMo Curator curation
-          │
-          ▼
-/data/stage_1_2/*.jsonl            (CuratedDoc: curated_id, clean_text, pipeline_metadata)
-          │
-          ▼
-  Stage 2.1: stage_2_1_extract.py         (per-document LLM extraction)
-     - async batch (default concurrency=10)
-     - provider: NIM / Friendli / vLLM  (OpenAI-compatible)
-          │
-          ▼
-/data/stage_2_1/stage_2_1_extracted.jsonl  (ExtractedIntent per doc)
-          │
-          ▼
-  Stage 2.2: stage_2_2_canonicalize.py    (dedup & canonicalize intents)
-     2.2a embed     (sentence-transformers, CUDA when available, default BGE-M3)
-     2.2b cluster   (sklearn Agglomerative, cosine)
-     2.2c refine    (LLM splits heterogeneous clusters)
-     2.2d canonical (LLM picks one Korean name per cluster)
-     2.2e cross-merge (LLM merges duplicate canonicals across clusters)
-          │
-          ▼
-/data/stage_2_2/stage_2_2_clusters.jsonl   (canonical intents + source doc ids)
-          │
-          ▼
-  Stage 2.3: stage_2_3_aggregate.py       (attribute aggregation)
-     2.3a merge-by-canonical (post-hoc safety net)
-     2.3b rank attribute-values by quality-weighted frequency
-          │
-          ▼
-/data/stage_2_3/analyzed_intents.jsonl     (final analyzed data, demo-ready)
-          │
-          ▼
-  Stage 2.4: stage_2_4_expand.py          (natural-language query expansion)
-     - expand each canonical into N realistic chatbot queries
-     - NeMo Data Designer path if available, else direct LLM call
-          │
-          ▼
-/data/stage_2_4/expanded_intents.jsonl     (canonical → list of natural user queries)
-```
-
-### LLM backends
-
-Stage 2.1 / 2.2 share `pipelines.config` to switch between OpenAI-compatible
-endpoints. Select via `--provider` flag or `LLM_PROVIDER` env var:
-
-| Provider   | Base URL                                         | Required env                                                  |
-|------------|--------------------------------------------------|---------------------------------------------------------------|
-| `nim`      | `https://integrate.api.nvidia.com/v1`            | `NVIDIA_API_KEY`                                              |
-| `friendli` | `https://api.friendli.ai/serverless/v1`          | `FRIENDLI_API_KEY`                                            |
-| `vllm`     | `$VLLM_BASE_URL` (default `http://localhost:8000/v1`) | `VLLM_MODEL` (served model id); `VLLM_API_KEY` optional  |
-
-Model id can be overridden via `LLM_MODEL`, `NIM_MODEL`, `FRIENDLI_MODEL`, or
-`VLLM_MODEL` depending on provider, or via the `--llm-model` CLI flag.
-
-### Self-hosted vLLM (Nemotron-3 Nano 30B A3B)
-
-The full extraction + eval pipeline can target a vLLM OpenAI-compatible
-server on the GPU node. Nemotron-3 Nano is a **reasoning model** and emits
-a `reasoning_content` pass by default; `pipelines.config` recognises this
-family and auto-injects `chat_template_kwargs.enable_thinking=False` on
-every call, so extraction and judge JSON comes back clean.
-
-Start the vLLM server on the GPU box:
+## Quick start `(3 commands after setup)`
 
 ```bash
-# BF16 (higher quality, ~60GB VRAM)
-vllm serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 \
-    --trust-remote-code --dtype auto --port 8000 \
-    --enable-reasoning --reasoning-parser nemotron \
-    --guided-decoding-backend outlines
+# 0. environment (detailed setup below)
+uv venv --python 3.12 .venv && source .venv/bin/activate
+uv pip install --native-tls -r requirements.txt
+echo "NVIDIA_API_KEY=...\nFRIENDLI_API_KEY=..." > .env
 
-# FP8 (faster, ~30GB VRAM)
-vllm serve nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8 \
-    --trust-remote-code --dtype auto --port 8000 \
-    --enable-reasoning --reasoning-parser nemotron \
-    --guided-decoding-backend outlines
-```
-
-Point the pipeline / eval scripts at it:
-
-```bash
-export LLM_PROVIDER=vllm
-export VLLM_BASE_URL=http://<gpu-host>:8000/v1
-export VLLM_MODEL=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16   # or -FP8
-# export VLLM_API_KEY=<only-if-you-configured-one>             # optional
-
-# extraction (async)
-python -m pipelines.stage_2_1_extract
-
-# canonicalization + aggregation (use same provider for the LLM refine/canonical calls)
-python -m pipelines.stage_2_2_canonicalize --refine --cross-merge
+# 1. run Stage 2 end-to-end on the already-curated iter_21 seed (42 rows)
+export LLM_PROVIDER=vllm VLLM_BASE_URL=http://localhost:5000/v1 VLLM_MODEL=nemotron
+python -m pipelines.stage_2_1_extract      --input experiments/iter_21_dedup_v2/output/stage_1_2_processed.jsonl
+python -m pipelines.stage_2_2_canonicalize --refine --cross-merge --embed-device cpu
 python -m pipelines.stage_2_3_aggregate
+python -m pipelines.stage_2_4_expand       --n-queries 5
 
-# eval (per-stage judges; default provider=nim unless you pass --provider vllm)
-python -m pipelines.eval.stage_2_1_judge --provider vllm \
-    --judge-model nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16
+# 2. evaluate with tri-judge ensemble  (needs FRIENDLI_API_KEY)
+python scripts/tri_judge_run_stage2.py --output-dir data/stage_2_run
+
+# 3. inspect
+cat data/stage_2_run/metrics.json          # all tri-judge + quant probes
+cat data/stage_2_run/judge_report.md       # human-readable summary
+cat experiments/REPORT.md                  # full 23-iter story (Stage 1)
 ```
 
-Notes:
-- `--enable-reasoning --reasoning-parser nemotron` lets vLLM surface the
-  thinking pass in a separate `reasoning_content` field; combined with the
-  baked-in `enable_thinking=False`, content stays JSON and cheap to parse.
-- `--guided-decoding-backend outlines` enables strict JSON mode via
-  `response_format={"type":"json_object"}` (the extraction stage relies on
-  this to keep output shape stable).
-- For the judge model you can either point to the same vLLM-served
-  Nemotron-Nano, or keep the judge on NIM Cloud (Nemotron-Ultra / Llama-3.3)
-  so that the judge and the extractor are different models (less self-bias).
+---
 
-### Algorithm parity with NeMo Curator SemDeDup
-
-Stage 2.2 implements the same `embed → cluster → within-cluster similarity
-threshold` algorithm that `nemo_curator.modules.SemDedup` uses on GPU. The
-default embedding model is `BAAI/bge-m3` (1024-d multilingual) and runs on
-CUDA when available (override with `--embed-device cpu`). Inline markers
-`# [NEMO-CURATOR]` in `pipelines/stage_2_2_canonicalize.py` show where to
-swap `sentence-transformers` for `nemo_curator.EmbeddingCreator` +
-`ClusteringModel` when moving to true multi-GPU scale.
-
-## Layout
+## What's in this repository
 
 ```
 Nvidia/
-├── pipelines/
-│   ├── __init__.py
-│   ├── schemas.py                    # Pydantic models for every stage's IO
-│   ├── prompts.py                    # LLM prompt templates (Korean by design)
-│   ├── llm_client.py                 # NIM / Friendli / vLLM client + load_env
-│   ├── config.py                     # provider/env resolution, data_root()
-│   ├── vllm_adapter.py               # in-process vLLM offline adapter + batch helpers
-│   ├── stage_2_1_extract.py          # Stage 2.1 - per-doc extraction
-│   ├── stage_2_2_canonicalize.py     # Stage 2.2 - embed/cluster/refine/canonical/cross-merge
-│   ├── stage_2_3_aggregate.py        # Stage 2.3 - attribute aggregation
-│   ├── stage_2_4_expand.py           # Stage 2.4 - canonical → natural queries
-│   └── eval/                         # Stage 2 LLM-as-Judge tooling (separate session)
+├── pipelines/                   # pipeline + eval modules
+│   ├── stage_1/                 # Stage 1: seed → synth → dedup → filter
+│   ├── stage_2/                 # Stage 2 helper modules
+│   ├── stage_2_1_extract.py     # 2.1 per-doc extract
+│   ├── stage_2_1_5_semdedup.py  # 2.1.5 semantic dedup (SD-series)
+│   ├── stage_2_2_canonicalize.py# 2.2 embed + cluster + refine + canonical + cross-merge
+│   ├── stage_2_3_aggregate.py   # 2.3 attribute aggregation
+│   ├── stage_2_4_expand.py      # 2.4 natural-language query expansion
+│   ├── eval/                    # 7 judge modules (one per sub-stage)
+│   ├── config.py                # provider / env / data_root resolution
+│   ├── llm_client.py            # OpenAI-compatible client (NIM / Friendli / vLLM)
+│   ├── vllm_adapter.py          # in-process vLLM batching
+│   ├── prompts.py               # Korean prompt templates
+│   └── schemas.py               # Pydantic IO schemas for every stage
 ├── scripts/
-│   ├── make_curated_sample.py        # build curated_sample.jsonl from raw reviews
-│   ├── tune_threshold.py             # sweep agglomerative thresholds
-│   ├── run_stage_2_1_vllm.py         # Stage 2.1 via in-process vLLM (GPU node)
-│   ├── run_stage_2_2_vllm.py         # Stage 2.2 via in-process vLLM (GPU node)
-│   └── run_stage_2_4_vllm.py         # Stage 2.4 via in-process vLLM (GPU node)
-├── data/                             # all JSONL artefacts live here
-├── .env                              # NVIDIA_API_KEY / FRIENDLI_API_KEY (not committed)
-└── README.md
+│   ├── iter_run.py              # Stage 1 iteration driver (pipeline → judge → commit)
+│   ├── iter_run_stage2.py       # Stage 2 iteration driver
+│   ├── tri_judge_run.py         # Stage 1 tri-judge ensemble orchestrator
+│   ├── tri_judge_run_stage2.py  # Stage 2 tri-judge ensemble orchestrator
+│   ├── quant_stage1_report.py   # deterministic probes for Stage 1
+│   ├── quant_stage2_report.py   # deterministic probes for Stage 2
+│   ├── make_comparison.py       # iter_NN vs parent iter diff report
+│   ├── make_curated_sample.py   # build curated_sample.jsonl from raw reviews
+│   ├── run_stage_2_*_vllm.py    # in-process vLLM variants for GPU box
+│   └── demo_es_search*          # Elasticsearch demo (for demo time)
+├── experiments/                 # Stage 1 iter_00 → iter_27, one folder per iter
+│   ├── PLAN.md                  # Stage 1 iteration plan
+│   ├── REPORT.md                # 23-iter narrative + outcomes
+│   └── iter_NN_<slug>/          # per-iter artefacts (see §"Results inspection")
+├── experiments_stage2/          # Stage 2 iteration branch (running)
+│   ├── PLAN.md                  # 14-step per-iter recipe, SD+C+E+A+X queue
+│   └── README.md                # operational quick-start
+├── data/                        # runtime JSONL artefacts (gitignored)
+├── presentation/                # hackathon deck + scripts (this section is separate)
+├── .env                         # NVIDIA_API_KEY / FRIENDLI_API_KEY (not committed)
+├── requirements.txt
+└── requirements-lock.txt        # exact CPU venv reproduction
 ```
 
-## Prerequisites
+---
 
-- Python 3.12 (the project was developed with the venv `/Users/sgyeom/Nvidia/.venv`)
-- `uv` for dependency management
-- Hackathon NIM Cloud API key exported as `NVIDIA_API_KEY`
+## End-to-end pipeline
 
-## Setup
+```
+[raw Korean reviews, 10K]   ← Naver Shopping + Musinsa + YouTube
+        │
+        ▼
+Stage 1  ▌ NeMo Curator on Brev H100, Nemotron-Super 120B FP8
+  1.0    ▌ seed                      ← judge: text_quality, diversity
+  1.1    ▌ NeMo Data Designer synth  ← 7-field Korean persona conditioning
+  1.1.5  ▌ dedup                     ← probe: dedup_miss_rate
+  1.2    ▌ filter + format           ← judge: retention, fashion_rate, attr_grounded
+        │                              5 497 curated synthetic reviews
+        ▼
+Stage 2  ▌ same vLLM backend
+  2.1    ▌ per-doc intent + attr extract      ← judge: intent_groundedness, attr_concrete
+  2.1.5  ▌ semantic dedup (optional, SD-series) ← probe: retention, avg_cosine
+  2.2    ▌ embed + cluster + refine +          ← judge: coherent, canonical_fit, non-fashion
+         ▌ canonical naming + cross-merge
+  2.3    ▌ weighted attribute aggregation     ← judge: overall_usefulness, attr_fits
+  2.4    ▌ natural-language query expansion   ← judge: natural_rate, query_diversity
+        │                              260 canonical TPO intents × 5 queries
+        ▼
+[Semantic Bridge output]   analyzed_intents.jsonl + expanded_intents.jsonl
+```
+
+**Stage 1** has already been curated into `main` at its `iter_21_dedup_v2`
+best-known pipeline (see `experiments/REPORT.md`). For Stage 2 iteration
+work, Stage 1's output is **pinned** at
+`experiments/iter_21_dedup_v2/output/stage_1_2_processed.jsonl`.
+
+---
+
+## Environment setup
+
+### Prerequisites
+- Python 3.12
+- `uv` for dependency management (`brew install uv`)
+- An NVIDIA NIM API key (Nemotron Cloud) OR a running vLLM server
+- A Friendli API key (for the tri-judge ensemble)
 
 ### Local / macOS (CPU path)
 
@@ -207,102 +132,305 @@ Nvidia/
 uv venv --python 3.12 .venv
 source .venv/bin/activate
 
-# Loose requirements (recommended for local dev)
+# loose requirements
 uv pip install --native-tls -r requirements.txt
 
-# OR reproduce the exact CPU venv used to produce the demo output
+# OR exactly reproduce the CPU venv used for the demo
 uv pip install --native-tls -r requirements-lock.txt
 
-# Put the NIM key in .env (or export it before running the stages)
-echo "NVIDIA_API_KEY=<your-key>" > .env
+# credentials (not committed)
+cat > .env <<EOF
+NVIDIA_API_KEY=<nim-key>
+FRIENDLI_API_KEY=<friendli-key>
+LLM_PROVIDER=nim          # or friendli, vllm
+EOF
 ```
 
-### Brev GPU image (Ubuntu + CUDA + NeMo Curator pre-installed)
+### Brev GPU image (Ubuntu + CUDA + NeMo Curator)
 
-The Brev hackathon image ships a Python 3.12 venv at `~/.venv` together with:
+The hackathon image ships `nemo-curator 1.1.0`, CUDA-torch, ray, pyarrow,
+openai, pydantic, huggingface_hub in `~/.venv`. Two gotchas:
 
-- `nemo-curator 1.1.0`
-- `torch` (CUDA build, originally CUDA 12.6)
-- `ray`, `pyarrow`
-- `openai`, `pydantic`, `huggingface_hub`
-
-It is missing the embedding + clustering stack. Two non-obvious gotchas:
-
-1. New shells do **not** export `VIRTUAL_ENV`. The interpreter at
-   `~/.venv/bin/python` works, but `pip` will write to the Python 3.10
-   user-site instead of the venv. You must `source` the activate script.
-2. Even with the venv active, `pip install` will see the same package in
-   user-site and short-circuit. Use `--ignore-installed`.
+1. **New shells do not export `VIRTUAL_ENV`.** The interpreter at
+   `~/.venv/bin/python` works, but `pip` writes to user-site. Always
+   `source ~/.venv/bin/activate` first.
+2. **`pip install` short-circuits** on user-site duplicates; use
+   `--ignore-installed`.
 
 ```bash
-# 1) activate the pre-shipped venv so VIRTUAL_ENV is exported
 source ~/.venv/bin/activate
-
-# 2) install client + Stage 2 deps into the venv
 python -m pip install --ignore-installed -r requirements.txt
-
-# 3) sanity check imports
-python -c "import openai, pydantic, httpx, sentence_transformers, sklearn, numpy, nemo_curator; print('ok')"
+python -c "import openai, pydantic, sentence_transformers, sklearn, nemo_curator; print('ok')"
 ```
 
-`requirements.txt` intentionally omits `nemo-curator` and `torch` so it stays
-safe on both the laptop (CPU, `nemo-curator` is Linux-only) and the Brev
-image (GPU, already provisioned).
+### Self-hosted vLLM (Nemotron-Super 120B FP8)
 
-**CUDA version note**: installing `sentence-transformers` may pull a newer
-torch that bundles CUDA 13 wheels (`nvidia-*-cu13`), which conflicts with
-the image's CUDA 12.6. If you need to keep the Curator GPU stack working,
-pin torch instead:
+This is the configuration used for every reported result.
 
 ```bash
-python -m pip install --ignore-installed -r requirements.txt   torch==2.11.0
+# on the GPU node (coupang / H100 NVL × 2)
+vllm serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8 \
+    --trust-remote-code --dtype auto --tensor-parallel-size 2 \
+    --port 5000 --served-model-name nemotron \
+    --enable-reasoning --reasoning-parser nemotron \
+    --guided-decoding-backend outlines
+
+# from any client
+export LLM_PROVIDER=vllm
+export VLLM_BASE_URL=http://<gpu-host>:5000/v1
+export VLLM_MODEL=nemotron
+export LLM_EXTRA_BODY='{"chat_template_kwargs":{"enable_thinking":false}}'
 ```
+
+**Critical**: `enable_thinking=false` is required. Nemotron-Super returns
+an empty `content` field with the answer in a separate `reasoning` field
+otherwise. This env var propagates through both ModelProvider and
+per-request params in `pipelines.config`.
+
+### Provider switching cheat sheet
+
+| Provider | Base URL | Required env | Typical use |
+|---|---|---|---|
+| `nim` | `https://integrate.api.nvidia.com/v1` | `NVIDIA_API_KEY` | quick local dev |
+| `friendli` | `https://api.friendli.ai/serverless/v1` | `FRIENDLI_API_KEY` | **tri-judge ensemble** (always) |
+| `vllm` | `$VLLM_BASE_URL` (e.g. `http://localhost:5000/v1`) | `VLLM_MODEL` | production pipeline runs |
 
 ### Corporate network / SSL interception
 
-Stage 1/2/3 each read HTTP certificates from env vars so that corporate TLS
-interception does not break the HuggingFace Hub download or the NIM request.
-
 ```bash
-# macOS keychain export is a one-time step
-security find-certificate -a -p /Library/Keychains/System.keychain           > /tmp/sys_certs.pem
-security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates.keychain         >> /tmp/sys_certs.pem
+# one-time macOS keychain export
+security find-certificate -a -p /Library/Keychains/System.keychain \
+    > /tmp/sys_certs.pem
+security find-certificate -a -p \
+    /System/Library/Keychains/SystemRootCertificates.keychain \
+    >> /tmp/sys_certs.pem
 
 export SSL_CERT_FILE=/tmp/sys_certs.pem
 export REQUESTS_CA_BUNDLE=/tmp/sys_certs.pem
-export LLM_VERIFY_SSL=0   # OpenAI SDK skips TLS verify (hackathon network only)
+export LLM_VERIFY_SSL=0      # OpenAI SDK skip-verify (hackathon network only)
 ```
+
+---
 
 ## Running the pipeline
 
+### Stage 1 (if re-running from scratch)
+
+Stage 1 is already promoted into `main` as the **iter_21_dedup_v2**
+pipeline. To re-run it end-to-end:
+
 ```bash
-# 0. build a 50-doc sample from raw Naver shopping reviews (+ English blog seeds)
-python3 scripts/make_curated_sample.py --n-korean 45
-
-# 2.1 per-document extraction (~5s per doc with Nemotron-3 Nano)
-python3 -m pipelines.stage_2_1_extract
-
-# 2.2 canonicalization (embed + cluster + LLM refine + cross-cluster merge)
-python3 -m pipelines.stage_2_2_canonicalize \
-    --threshold 0.35 --refine --cross-merge
-
-# 2.3 attribute aggregation and final analyzed-data JSONL
-python3 -m pipelines.stage_2_3_aggregate
-
-# 2.4 expand each canonical into 5 natural-language chatbot queries
-python3 -m pipelines.stage_2_4_expand --n-queries 5
+# bundled driver that replays Stage 1's best pipeline from scratch
+python scripts/run_stage1_generator_local.py \
+    --n 50 --output data/stage_1/
 ```
 
-### Stage 2.4 - why we need it
+Artefacts land at:
+```
+data/stage_1/
+├── stage_1_0_seed.jsonl
+├── stage_1_1_synthetic.jsonl
+├── stage_1_1_5_deduped.jsonl
+└── stage_1_2_processed.jsonl
+```
 
-Everything up to Stage 2.3 produces *canonical* intents like `하객룩`,
-`오피스룩`, `캠핑룩`. These are compact and great for indexing, but a
-shopping chatbot receives conversational queries like **"결혼식에 뭐 입지?"**
-or **"주말 피크닉 갈 때 입기 좋은 옷 추천해줘"**. Stage 2.4 closes that
-gap: for each canonical, the LLM generates N realistic user queries, which
-the retrieval layer indexes alongside the canonical itself.
+### Stage 2 (the main pipeline)
 
-Output shape (one record per canonical):
+```bash
+# sample the Stage 1 output (or use experiments/iter_21_dedup_v2/output/)
+export STAGE_DATA_ROOT=data/stage_2_run
+
+# 2.1 per-doc extraction (async, ~5s per doc)
+python -m pipelines.stage_2_1_extract \
+    --input experiments/iter_21_dedup_v2/output/stage_1_2_processed.jsonl \
+    --output $STAGE_DATA_ROOT/stage_2_1_extracted.jsonl
+
+# 2.1.5 semantic dedup (optional, SD-series hypothesis)
+python -m pipelines.stage_2_1_5_semdedup \
+    --input     $STAGE_DATA_ROOT/stage_2_1_extracted.jsonl \
+    --output    $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl \
+    --threshold 0.90 \
+    --embed-model BAAI/bge-m3
+
+# 2.2 canonicalize  (embed + cluster + LLM refine + LLM canonical + cross-merge)
+python -m pipelines.stage_2_2_canonicalize \
+    --input  $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl \
+    --output $STAGE_DATA_ROOT/stage_2_2_clusters.jsonl \
+    --threshold 0.35 --refine --cross-merge --embed-device cpu
+
+# 2.3 attribute aggregation
+python -m pipelines.stage_2_3_aggregate \
+    --input  $STAGE_DATA_ROOT/stage_2_2_clusters.jsonl \
+    --output $STAGE_DATA_ROOT/stage_2_3_analyzed_intents.jsonl
+
+# 2.4 expand each canonical into N natural-language queries
+python -m pipelines.stage_2_4_expand --n-queries 5 \
+    --input  $STAGE_DATA_ROOT/stage_2_3_analyzed_intents.jsonl \
+    --output $STAGE_DATA_ROOT/stage_2_4_expanded_intents.jsonl
+```
+
+### Full end-to-end on GPU with in-process vLLM
+
+```bash
+# convenience wrappers that batch via in-process vLLM (offline mode)
+VLLM_OFFLINE_MODEL=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 \
+    python scripts/run_stage_2_pipeline_vllm.py
+```
+
+---
+
+## Evaluation
+
+Evaluation runs **independently of the pipeline**, after it finishes.
+Two layers:
+
+### 1. LLM-as-Judge · tri-judge ensemble (Wisdom of the Crowd)
+
+Every stage has a dedicated Pydantic-typed judge module under
+`pipelines/eval/`. Each one is run by three **foreign** judges hosted
+on Friendli serverless — no model ever grades its own output.
+
+| Judge | Vendor | Friendli model id |
+|---|---|---|
+| GLM-5.1 | Z.AI | `zai-org/GLM-5.1` |
+| DeepSeek-V3.2 | DeepSeek | `deepseek-ai/DeepSeek-V3.2` |
+| Qwen3-235B-A22B | Alibaba | `Qwen/Qwen3-235B-A22B-Instruct-2507` |
+
+Run the ensemble for all four Stage 2 sub-stages in one shot:
+
+```bash
+python scripts/tri_judge_run_stage2.py \
+    --output-dir data/stage_2_run \
+    --parallel 4
+```
+
+Writes per-judge raw outputs to `data/stage_2_run/judge_raw/`
+(12 files = 4 stages × 3 judges) and aggregates into `metrics.json`
+and `judge_report.md`.
+
+Stage 1 has its own driver `scripts/tri_judge_run.py` (3 stages × 3
+judges).
+
+Individual-stage judges can also run standalone:
+
+```bash
+python -m pipelines.eval.stage_2_2_judge \
+    --input data/stage_2_run/stage_2_2_clusters.jsonl \
+    --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2
+```
+
+### 2. Deterministic quant probes
+
+Catch regressions LLMs miss (character-level leaks, dedup ratio, format):
+
+```bash
+python scripts/quant_stage2_report.py --output-dir data/stage_2_run
+```
+
+Probes include `semdedup_retention_rate`, `canonical_non_fashion_rate`,
+`canonical_suffix_compliance_rate`, `query_non_hangul_chars_rate`,
+`query_dedup_ratio` — see `experiments_stage2/PLAN.md §4e` for the
+full probe list.
+
+### 3. Promotion gates
+
+A run "passes" only when the **tri-judge mean AND the quant probes**
+cross their thresholds. Stage 1 had 10 gates (see
+`experiments/PLAN.md §6`), Stage 2 has 12 across the four sub-stages
+(`experiments_stage2/PLAN.md §6`).
+
+**`HIGH_VARIANCE`** (range > 0.15 across the three judges on a
+headline metric) blocks auto-promote — reviewer decides manually.
+
+### 4. One-shot iteration driver
+
+`scripts/iter_run_stage2.py` chains everything:
+patch apply → pipeline → tri-judge → quant probes → comparison → commit.
+This is how the iteration loop actually runs:
+
+```bash
+python scripts/iter_run_stage2.py \
+    --iter iter_01_semdedup_cosine_90 \
+    --parent iter_00_baseline \
+    --patch patches/SD1_intent_cosine_90.diff \
+    --hypothesis "embed Stage 2.1 rows and drop cosine >= 0.90 duplicates"
+```
+
+---
+
+## Results inspection
+
+### Per-iter folder (the canonical unit of work)
+
+```
+experiments/iter_21_dedup_v2/
+├── hypothesis.md                one-paragraph: what we're testing
+├── patch.diff                   minimal code delta vs parent iter
+├── pipeline_script.py           frozen pipeline snapshot (reruns verbatim)
+├── metrics.json                 tri-judge ensemble + quant probes + sha256
+├── judge_report.md              human-readable judge summary
+├── quant_report.md              deterministic probes report
+├── comparison.md                delta table vs parent
+├── run_log.txt                  iteration stdout
+└── output/                      (gitignored) JSONL artefacts
+    ├── stage_1_0_seed.jsonl
+    ├── stage_1_1_synthetic.jsonl
+    ├── stage_1_1_5_deduped.jsonl
+    └── stage_1_2_processed.jsonl
+```
+
+### `metrics.json` schema (Stage 1 example)
+
+```json
+{
+  "iter_id": "iter_21_dedup_v2",
+  "parent_iter": "iter_20_title_fix_stack",
+  "output_hashes": { "stage_1_2_processed.jsonl": "5e513bc7…" },
+  "stage_1_0": { "avg_text_quality": {"glm": 2.8, "deepseek": 2.9, "qwen3": 2.7, "mean": 2.80, "range": 0.2}, ... },
+  "stage_1_1": { ... },
+  "stage_1_2": { ... },
+  "quant": { "title_reasoning_leak_rate": 0.013, ... },
+  "promote": true,
+  "promote_checks": { "passed": 8, "total": 10, "failed": ["avg_text_quality", "dedup_miss_rate"] },
+  "high_variance": []
+}
+```
+
+### Higher-level narratives
+
+| Document | What's in it |
+|---|---|
+| `experiments/PLAN.md` | Stage 1 hypothesis queue, metric thresholds, iteration plan |
+| `experiments/REPORT.md` | **23-iter full narrative** — wins, losses, blockers, scaling story |
+| `experiments/summary.md` | rolling leaderboard across all iters |
+| `experiments_stage2/PLAN.md` | Stage 2 hypothesis queue (SD + C + E + A + X) |
+| `experiments_stage2/README.md` | Stage 2 operational quick-start |
+| `presentation/` | hackathon deck + scripts (see `presentation/README` files for deck vs briefing) |
+
+### Browse the best-known iter
+
+```bash
+# the best Stage 1 pipeline to date
+cat experiments/iter_21_dedup_v2/metrics.json     | jq .promote_checks
+cat experiments/iter_21_dedup_v2/judge_report.md
+cat experiments/iter_21_dedup_v2/comparison.md
+```
+
+---
+
+## Example final output (50-doc sample)
+
+```
+[캐주얼]   (evidence=12)  cotton 0.117, 린넨 0.071, 길이감 0.071, loose 0.067, ...
+[하객룩]   (evidence=2)   material=tweed 0.91, fit=neat 0.46, fit=tailored 0.45
+[오피스룩] (evidence=2)   material=linen blend 0.44, fit=relaxed 0.44, color=light beige 0.44
+[홈웨어]   (evidence=2)   fit=이상한 재단 0.3
+[스크린골프] (evidence=3) style=기능성 0.55, fit=slim 0.45, material=stretch 0.33
+[필라테스 레이어] (evidence=2) fit=slim 0.6, style=layered 0.5
+[일반]     (evidence=22)  general-wear fallback bucket
+```
+
+Stage 2.4 then expands each of these into 5 natural-language queries:
 
 ```json
 {
@@ -318,97 +446,86 @@ Output shape (one record per canonical):
     {"attribute_key": "material", "attribute_value": "트위드", "weight": 0.67},
     {"attribute_key": "color",    "attribute_value": "네이비", "weight": 0.67}
   ],
-  "data_lineage": {"total_evidence_count": 6, "source_doc_ids": ["rv-wed-001", ...]},
-  "last_updated": "2025-04-21T00:00:00Z",
-  "expansion_meta": {"model": "...", "tokens": 675, "strategy": "direct-call"}
+  "data_lineage": {"total_evidence_count": 6, "source_doc_ids": ["rv-wed-001", ...]}
 }
 ```
 
-Two execution paths live behind the same CLI and produce identical output:
+---
 
-1. **NeMo Data Designer** (`pipelines.stage_2_4_expand` picks this first)
-   — `SamplerColumn(intent_keyword) → SamplerColumn(attrs) → LLMStructuredColumn(queries)`.
-   Skipped automatically when `nemo_curator.synthetic` is missing or its API
-   does not expose the expected classes.
-2. **Direct fallback** — plain `pipelines.llm_client.call_json` loop per
-   canonical. Works identically on NIM / Friendli / vLLM OpenAI-compatible
-   endpoints. Forced with `--force-fallback`.
+## Known limitations
 
-For the full-fidelity GPU path (in-process vLLM offline batching), use
-`scripts/run_stage_2_4_vllm.py`:
+1. **`stage_1_0.avg_text_quality ≥ 3.5`** — the raw Naver corpus is
+   structurally low-quality (all three judges score seeds 2.7–2.9
+   regardless of sampling). Clearing this requires a curated seed
+   corpus, which was out of scope for a hackathon.
+2. **`stage_1_1_5.dedup_miss_rate ≤ 0.05`** — pure-Python Jaccard
+   fallbacks fired zero removals. The real fix is semantic dedup,
+   now queued in Stage 2.1.5 (SD-series) and running on the Stage 2
+   iteration branch.
+3. **NeMo Data Designer API skew** — Stage 2.4 prefers the structured
+   `SamplerColumn → LLMStructuredColumn` path, but falls back to a
+   direct-call loop when the Curator synthetic API signature drifts.
+   Force the fallback with `--force-fallback`.
 
-```bash
-VLLM_OFFLINE_MODEL=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 \
-  STAGE_N_QUERIES=5 \
-  python scripts/run_stage_2_4_vllm.py
-```
+---
 
-## CLI options
+## CLI reference (reference only — see §Running the pipeline above for typical use)
 
 ### `pipelines.stage_2_1_extract`
 
-| flag          | default                                | meaning                          |
-|---------------|-----------------------------------------|----------------------------------|
-| `--input`     | `data/curated_sample.jsonl`             | curated JSONL                    |
-| `--output`    | `data/stage_2_1_extracted.jsonl`        |                                  |
-| `--model`     | `nvidia/nemotron-3-nano-30b-a3b`        | NIM Cloud model id               |
-| `--limit`     | `0`                                     | 0 = process every input          |
-| `--sleep`     | `0.3`                                   | seconds between calls            |
+| flag | default | meaning |
+|---|---|---|
+| `--input` | `data/curated_sample.jsonl` | curated JSONL |
+| `--output` | `data/stage_2_1_extracted.jsonl` | |
+| `--limit` | `0` | 0 = every input |
+| `--sleep` | `0.3` | seconds between async calls |
+
+### `pipelines.stage_2_1_5_semdedup` *(new)*
+
+| flag | default | meaning |
+|---|---|---|
+| `--input` | `data/stage_2_1_extracted.jsonl` | |
+| `--output` | `data/stage_2_1_5_deduped.jsonl` | + writes `stage_2_1_5_stats.json` side-car |
+| `--threshold` | `0.90` | cosine threshold; higher = more conservative |
+| `--embed-model` | `BAAI/bge-m3` | |
+| `--signature-builder` | `full` | `full` = intent + keywords + attrs; `signature_combo` = intent + attrs |
 
 ### `pipelines.stage_2_2_canonicalize`
 
-| flag                | default                                                           | meaning                                              |
-|---------------------|-------------------------------------------------------------------|------------------------------------------------------|
-| `--input`           | `data/stage_2_1_extracted.jsonl`                                 |                                                      |
-| `--output`          | `data/stage_2_2_clusters.jsonl`                                  |                                                      |
-| `--embed-model`     | `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`    | local embedding model                                |
-| `--threshold`       | `0.35`                                                            | cosine distance cutoff for Agglomerative clustering  |
-| `--refine`          | off                                                               | LLM splits over-merged clusters into clean subgroups |
-| `--refine-min-size` | `3`                                                               | only refine clusters of this size or larger          |
-| `--cross-merge`     | off                                                               | LLM merges canonicals that mean the same thing       |
-| `--skip-canonical`  | off                                                               | skip LLM canonical naming (shortest member as name)  |
+| flag | default | meaning |
+|---|---|---|
+| `--input` | `data/stage_2_1_extracted.jsonl` | |
+| `--output` | `data/stage_2_2_clusters.jsonl` | |
+| `--embed-model` | `BAAI/bge-m3` | |
+| `--threshold` | `0.35` | cosine distance cutoff for Agglomerative clustering |
+| `--refine` | off | LLM splits over-merged clusters |
+| `--cross-merge` | off | LLM merges duplicate canonicals |
+| `--skip-canonical` | off | skip LLM canonical naming |
+| `--stage` | `full` | `full` \| `embed_cluster_only` \| `llm_finalize` (phase-split mode) |
 
 ### `pipelines.stage_2_3_aggregate`
 
-| flag              | default                           | meaning                                |
-|-------------------|-----------------------------------|----------------------------------------|
-| `--top-k`         | `3`                            | top-N attribute values per key         |
-| `--skip-general`  | off                            | drop the "일반" cluster from output     |
+| flag | default | meaning |
+|---|---|---|
+| `--top-k` | `3` | top-N attribute values per key |
+| `--skip-general` | off | drop the "일반" cluster |
 
 ### `pipelines.stage_2_4_expand`
 
-| flag                | default                                            | meaning                                                            |
-|---------------------|----------------------------------------------------|--------------------------------------------------------------------|
-| `--input`           | `$STAGE_DATA_ROOT/stage_2_3/analyzed_intents.jsonl` | Stage 2.3 output                                                   |
-| `--output`          | `$STAGE_DATA_ROOT/stage_2_4/expanded_intents.jsonl` |                                                                    |
-| `--provider`        | `$LLM_PROVIDER` (default nim)                      | `nim` / `friendli` / `vllm`                                        |
-| `--n-queries`       | `5`                                                | queries generated per canonical                                    |
-| `--force-fallback`  | off                                                | skip NeMo Data Designer path even when it is importable            |
+| flag | default | meaning |
+|---|---|---|
+| `--n-queries` | `5` | queries per canonical |
+| `--force-fallback` | off | skip Data Designer path, always use direct call |
+| `--provider` | `$LLM_PROVIDER` | `nim` / `friendli` / `vllm` |
 
-## Example final output (50-doc sample)
+---
 
-```
-[캐주얼]   (evidence=12)  cotton 0.117, 린넨 0.071, 길이감 0.071, loose 0.067, ...
-[하객룩]   (evidence=2)   material=tweed 0.91, fit=neat 0.46, fit=tailored 0.45
-[오피스룩] (evidence=2)   material=linen blend 0.44, fit=relaxed 0.44, color=light beige 0.44, style=casual 0.44, season=summer 0.44
-[홈웨어]   (evidence=2)   fit=이상한 재단 0.3
-[여름룩]   (evidence=1)   fit=just right length 0.95, season=summer 0.95
-[겨울룩]   (evidence=1)   material=부드러운 0.95, fit=이쁜 0.95, season=겨울 0.95
-[교복]     (evidence=1)   fit=좁은 0.5, style=셔츠 0.5
-[운동룩]   (evidence=1)   fit=작음 0.6
-[운동복]   (evidence=1)   fit=small chest 0.6
-[언더웨어] (evidence=1)   fit=타이트함 0.6
-[일반]     (evidence=22)  general-wear fallback bucket
-```
+## Further reading
 
-## Next steps
-
-- Increase input scale (500+ curated docs) to exercise cross-cluster merge at scale
-- Wire Stage 2.4 `expanded_intents.jsonl` into the retrieval index so chatbot
-  queries like "결혼식 갈 때 뭐 입지?" route to the canonical "하객룩"
-- When GPU is available, swap Stage 2 embedding and clustering for
-  `nemo_curator.SemDedup` at the `# [NEMO-CURATOR]` comment markers
-- Pin the exact NeMo Data Designer API once confirmed in the hackathon
-  internal docs, so Stage 2.4 prefers the structured-column path over the
-  direct-call fallback
-- Add the judge module (`pipelines/eval/`) to the pipeline once its API is stable
+- **`experiments/PLAN.md`** + **`experiments/REPORT.md`** — Stage 1
+  iteration plan and its 23-iter outcome narrative
+- **`experiments_stage2/PLAN.md`** — Stage 2 iteration plan
+  (SD + C + E + A + X hypothesis queues)
+- **`presentation/`** — hackathon deck (9 slides) + 5-min pitch script
+  (Korean) + 10-min expert briefing (English) + 1.5-min walk-through
+  card (English)

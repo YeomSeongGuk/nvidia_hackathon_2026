@@ -1,0 +1,6 @@
+   42 /home/nvidia/experiments_data_stage2/iter_04_canonical_suffix_enforce/output/stage_2_1_5_deduped.jsonl
+   42 /home/nvidia/experiments_data_stage2/iter_04_canonical_suffix_enforce/output/stage_2_1_extracted.jsonl
+    9 /home/nvidia/experiments_data_stage2/iter_04_canonical_suffix_enforce/output/stage_2_2_clusters.jsonl
+    9 /home/nvidia/experiments_data_stage2/iter_04_canonical_suffix_enforce/output/stage_2_3_analyzed_intents.jsonl
+    9 /home/nvidia/experiments_data_stage2/iter_04_canonical_suffix_enforce/output/stage_2_4_expanded_intents.jsonl
+  111 total
