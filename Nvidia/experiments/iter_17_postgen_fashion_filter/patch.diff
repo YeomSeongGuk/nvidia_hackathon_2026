@@ -1,0 +1,40 @@
+--- experiments/iter_16_tighter_leak_regex/pipeline_script.py	2026-04-22 06:01:39
++++ experiments/iter_17_postgen_fashion_filter/pipeline_script.py	2026-04-22 06:13:55
+@@ -439,7 +439,37 @@
+ 
+     if "product_title" in result_df.columns:
+         result_df["product_title"] = result_df["product_title"].map(_clean_title)
++
++    # H12: post-gen fashion filter. Some synthetic records have
++    # non-fashion product_titles (e.g. "신발 정리함 2단", "옷걸이 세트")
++    # because the seed review mentioned a fashion-adjacent object even
++    # though the product is not apparel. Drop those after generation.
++    # Also drops records with empty / fallback titles from H3v2+ regex.
++    _POST_GEN_EXCLUDE = [
++        "정리함", "정리대", "수납함", "보관함", "신발장", "옷걸이", "행거", "선반",
++        "세탁볼", "세탁망", "세제", "린스", "탈취제", "향수",
++        "드라이기", "고데기", "면도기",
++        "기저귀", "13개월", "아기옷", "베이비",
++    ]
++
++    def _is_fashion_title(t: Any) -> bool:
++        if not isinstance(t, str) or not t.strip():
++            return False
++        if t.strip() == "패션 상품":  # fallback from H3v2 sanity regex
++            return False
++        for bad in _POST_GEN_EXCLUDE:
++            if bad in t:
++                return False
++        return True
+ 
++    before = len(result_df)
++    result_df = result_df[result_df["product_title"].apply(_is_fashion_title)].reset_index(drop=True)
++    dropped = before - len(result_df)
++    print(
++        f"  [H12 post-gen fashion filter] dropped {dropped} non-fashion "
++        f"records, kept {len(result_df)}."
++    )
++
+     # 5. Save intermediate
+     os.makedirs(config.stage_1_1_dir, exist_ok=True)
+     save_to_jsonl(result_df, os.path.join(config.stage_1_1_dir, "synthetic_data.jsonl"), config.text_field)

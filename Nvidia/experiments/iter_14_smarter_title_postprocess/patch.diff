@@ -1,0 +1,63 @@
+--- experiments/iter_13_combo_plus_attr_mention/pipeline_script.py	2026-04-22 04:49:27
++++ experiments/iter_14_smarter_title_postprocess/pipeline_script.py	2026-04-22 05:13:22
+@@ -394,17 +394,25 @@
+     stage = DataDesignerStage(builder, config.llm_base_url, config.llm_api_key, config.generate_size)
+     result_df = stage.process(DocumentBatch(task_id="g", dataset_name="f", data=pd.DataFrame())).to_pandas()
+ 
+-    # H3: deterministic title postprocessor.
+-    # Removes the reasoning-leak that slips past even a well-constrained
+-    # title_prompt. The model tends to append "(22자)" or a multi-line
+-    # "**수정 사항:**" block. Keep the first non-empty line, strip the
+-    # char-count annotation, and truncate to 30 chars.
++    # H3v2: smarter title postprocessor.
++    # iter_12/13 showed `title_format_violation=39/50` even with H3 in
++    # place. The root cause is H3's hard 30-char cap: Korean titles
++    # often need 25-35 chars and H3 was chopping mid-word, producing
++    # artifacts like "유니클로 오버핏 니트 스웨" (truncated mid-word).
++    # H3v2 widens to 45 chars, truncates at last whitespace boundary,
++    # and adds a sanity regex: if the remaining string doesn't match
++    # Korean / Latin + digits + spaces + basic punctuation, replace
++    # with a conservative fallback "브랜드명 패션 상품".
+     _LEAK_SUFFIX_RE = re.compile(r"\s*[\(\[]\s*\d+\s*자\s*[\)\]]\s*$")
+     _ARROW_RE = re.compile(r"\s*(?:→|->|=>)\s*.*$", re.DOTALL)
++    _MARKDOWN_META_RE = re.compile(r"\s*\*\*[^*]+\*\*.*$", re.DOTALL)
++    _SANE_TITLE_RE = re.compile(
++        r"^[\s가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\-&+\(\)/\.\,\!]+$"
++    )
+ 
+     def _clean_title(raw: Any) -> str:
+         if not isinstance(raw, str):
+-            return ""
++            return "패션 상품"
+         s = raw.strip()
+         # First non-empty line only.
+         for line in s.splitlines():
+@@ -414,14 +422,24 @@
+                 break
+         # Drop anything after a "→" or "->" arrow (reasoning chain).
+         s = _ARROW_RE.sub("", s)
++        # Drop trailing **marked** reasoning blocks.
++        s = _MARKDOWN_META_RE.sub("", s)
+         # Drop trailing char-count annotation.
+         s = _LEAK_SUFFIX_RE.sub("", s)
+         # Strip markdown emphasis wrappers.
+         s = s.strip("*_`\"' ").strip()
+-        # Cap to 30 chars — hard stop to prevent runaway.
+-        if len(s) > 30:
+-            s = s[:30]
+-        return s.strip()
++        # Truncate at last whitespace within 45 chars (not mid-word).
++        if len(s) > 45:
++            head = s[:45]
++            last_sp = head.rfind(" ")
++            if last_sp >= 20:
++                s = head[:last_sp].strip()
++            else:
++                s = head.strip()
++        # Regex sanity; replace with fallback if title has odd chars.
++        if not s or not _SANE_TITLE_RE.match(s):
++            return "패션 상품"
++        return s
+ 
+     if "product_title" in result_df.columns:
+         result_df["product_title"] = result_df["product_title"].map(_clean_title)

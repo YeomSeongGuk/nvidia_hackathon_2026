@@ -1,0 +1,261 @@
+{
+  "iter_id": "iter_05_title_max_tokens_short",
+  "parent_iter": "iter_00_baseline",
+  "timestamp": "2026-04-21T18:22:38+00:00",
+  "run_id": "iter_05_title_max_tokens_short",
+  "tag": "iter_05_title_max_tokens_short",
+  "output_hashes": {
+    "stage_1_0_seed.jsonl": "sha256:42dbc866bdb796968ee245e4fca0d480683ae7889fc81b44787e23c507f4c738",
+    "stage_1_1_synthetic.jsonl": "sha256:e0a65720afb071b0ad613e72ac2318315f515fa2860b48106939d4bb2f756078",
+    "stage_1_1_5_deduped.jsonl": "sha256:e0a65720afb071b0ad613e72ac2318315f515fa2860b48106939d4bb2f756078",
+    "stage_1_2_processed.jsonl": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stage_1_0": {
+    "failure_modes": {}
+  },
+  "stage_1_1": {
+    "attr_grounded_rate": {
+      "mean": 0.43,
+      "glm": 0.41,
+      "deepseek": 0.41,
+      "qwen3": 0.47,
+      "range": 0.06
+    },
+    "avg_persona_reflection": {
+      "mean": 3.92,
+      "glm": 3.54,
+      "deepseek": 3.9,
+      "qwen3": 4.32,
+      "range": 0.78
+    },
+    "avg_raw_text_naturalness": {
+      "mean": 4.013,
+      "glm": 3.62,
+      "deepseek": 4.14,
+      "qwen3": 4.28,
+      "range": 0.66
+    },
+    "fashion_rate": {
+      "mean": 0.853,
+      "glm": 0.9,
+      "deepseek": 0.84,
+      "qwen3": 0.82,
+      "range": 0.08,
+      "agreement_approx": 0.92
+    },
+    "has_tpo_rate": {
+      "mean": 0.967,
+      "glm": 0.96,
+      "deepseek": 0.96,
+      "qwen3": 0.98,
+      "range": 0.02,
+      "agreement_approx": 0.98
+    },
+    "rating_sentiment_consistent_rate": {
+      "mean": 0.773,
+      "glm": 0.76,
+      "deepseek": 0.78,
+      "qwen3": 0.78,
+      "range": 0.02,
+      "agreement_approx": 0.98
+    },
+    "raw_text_within_spec_rate": {
+      "mean": 0.88,
+      "glm": 0.9,
+      "deepseek": 0.82,
+      "qwen3": 0.92,
+      "range": 0.1,
+      "agreement_approx": 0.9
+    },
+    "title_format_ok_rate": {
+      "mean": 0.367,
+      "glm": 0.28,
+      "deepseek": 0.5,
+      "qwen3": 0.32,
+      "range": 0.22,
+      "agreement_approx": 0.78
+    },
+    "title_reasoning_leak_rate": {
+      "mean": 0.267,
+      "glm": 0.32,
+      "deepseek": 0.2,
+      "qwen3": 0.28,
+      "range": 0.12,
+      "agreement_approx": 0.88
+    },
+    "title_within_spec_rate": {
+      "mean": 0.393,
+      "glm": 0.16,
+      "deepseek": 0.68,
+      "qwen3": 0.34,
+      "range": 0.52,
+      "agreement_approx": 0.48
+    },
+    "n_evaluated": 50,
+    "failure_modes": {
+      "title_reasoning_leak": 17,
+      "title_format_violation": 36,
+      "title_length_violation": 33,
+      "non_fashion_item": 9,
+      "attr_ungrounded": 26,
+      "persona_drift": 12,
+      "length_violation": 9,
+      "rating_sentiment_mismatch": 12,
+      "missing_tpo": 16,
+      "language_issue": 6,
+      "attr_mono_value": 4,
+      "raw_text_within_spec": 1
+    }
+  },
+  "stage_1_1_5": {
+    "dedup_miss_rate": {
+      "mean": 0.227,
+      "glm": 0.2,
+      "deepseek": 0.16,
+      "qwen3": 0.32,
+      "range": 0.16
+    },
+    "dedup_reduction_rate": {
+      "mean": 0.0,
+      "glm": 0.0,
+      "deepseek": 0.0,
+      "qwen3": 0.0,
+      "range": 0.0
+    },
+    "dedup_in_count": 50,
+    "dedup_out_count": 50,
+    "dedup_miss_count": 10,
+    "largest_miss_cluster_size": 2,
+    "failure_modes": {
+      "near_duplicate_missed": 10,
+      "low_dedup_reduction": 1,
+      "wrong_removal": 0
+    }
+  },
+  "stage_1_2": {
+    "fashion_rate": {
+      "mean": 0.0,
+      "glm": 0.0,
+      "deepseek": 0.0,
+      "qwen3": 0.0,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "has_tpo_rate": {
+      "mean": 0.0,
+      "glm": 0.0,
+      "deepseek": 0.0,
+      "qwen3": 0.0,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "pii_rate": {
+      "mean": 0.0,
+      "glm": 0.0,
+      "deepseek": 0.0,
+      "qwen3": 0.0,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "n_evaluated": 0,
+    "failure_modes": {
+      "non_fashion_item": 0,
+      "too_short": 0,
+      "noise_text": 0,
+      "pii_leak": 0,
+      "language_issue": 0,
+      "duplicate_suspect": 0
+    }
+  },
+  "quant": {
+    "stage_1_0": {
+      "n": 50,
+      "rating_hist": {
+        "1": 10,
+        "2": 16,
+        "4": 3,
+        "5": 21
+      },
+      "rating_3_share": 0.0
+    },
+    "stage_1_1": {
+      "n": 50,
+      "title_len_min": 11,
+      "title_len_median": 24,
+      "title_len_p90": 124,
+      "title_len_p99": 140,
+      "title_len_max": 148,
+      "title_reasoning_leak_rate": 0.16,
+      "title_newline_rate": 0.16,
+      "raw_text_len_min": 52,
+      "raw_text_len_median": 92,
+      "raw_text_len_p90": 169,
+      "raw_text_len_max": 197,
+      "rating_hist": {
+        "1": 12,
+        "2": 17,
+        "4": 3,
+        "5": 18
+      },
+      "rating_3_share": 0.0,
+      "style_unique": 5,
+      "style_top1_value": "캐주얼",
+      "style_top1_share": 0.88,
+      "color_unique": 8,
+      "color_top2_share": 0.64,
+      "color_white_black_share": 0.64,
+      "size_unique": 4,
+      "size_suspicious_rate": 0.0
+    },
+    "stage_1_1_5": {
+      "dedup_in_count": 50,
+      "dedup_out_count": 50,
+      "dedup_reduction_rate": 0.0
+    },
+    "stage_1_2": {
+      "n": 0,
+      "retention_from_stage_1_1_5": 0.0
+    },
+    "e2e": {
+      "input_rows_seed": 50,
+      "output_rows_by_stage": [
+        50,
+        50,
+        50,
+        0
+      ],
+      "e2e_retention": 0.0
+    }
+  },
+  "e2e": {
+    "input_rows_seed": 50,
+    "output_rows_by_stage": [
+      50,
+      50,
+      50,
+      0
+    ],
+    "e2e_retention": 0.0
+  },
+  "judges": [
+    "zai-org/GLM-5.1",
+    "deepseek-ai/DeepSeek-V3.2",
+    "Qwen/Qwen3-235B-A22B-Instruct-2507"
+  ],
+  "judge_duration_sec": 411.83,
+  "judge_errors": [],
+  "high_variance": false,
+  "promote": false,
+  "promote_checks": {
+    "stage_1_0.fashion_rate_ge_0.90": false,
+    "stage_1_0.avg_text_quality_ge_3.5": false,
+    "stage_1_1.title_leak_le_0.02": false,
+    "stage_1_1.fashion_rate_ge_0.95": false,
+    "stage_1_1.attr_grounded_ge_0.70": false,
+    "stage_1_1.persona_ge_3.5": true,
+    "quant.rating_3_share_gt_0": false,
+    "stage_1_1_5.dedup_miss_rate_le_0.05": false,
+    "stage_1_2.retention_ge_0.85": false,
+    "stage_1_2.fashion_rate_ge_0.95": false
+  }
+}

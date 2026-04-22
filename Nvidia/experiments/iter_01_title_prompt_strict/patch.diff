@@ -1,0 +1,38 @@
+--- experiments/iter_00_baseline/pipeline_script.py	2026-04-22 00:18:59
++++ experiments/iter_01_title_prompt_strict/pipeline_script.py	2026-04-22 02:15:43
+@@ -248,16 +248,28 @@
+     )
+     
+     # B. Generate Product Title
+-    title_prompt = """리뷰 내용을 참고하여 해당 패션 상품의 제목을 생성하세요.
++    # H1: rewrite to avoid char-count self-verification reasoning leak.
++    # - drop explicit 15-30 char rule (model would "check" by printing "(22자)")
++    # - show concrete good/bad examples so model sees format & brevity
++    # - tell it explicitly NOT to self-check, explain, or output multiple lines
++    title_prompt = """리뷰를 보고 해당 패션 상품의 제목을 한 줄로만 작성하세요.
+ 
+-[리뷰 내용]: {{ seed_review }}
++[리뷰]: {{ seed_review }}
+ 
+-요구사항:
+-1. 반드시 한국어로 작성
+-2. 브랜드명 + 상품 종류 + 특징 형식 (예: "유니클로 오버핏 니트 스웨터", "자라 슬림핏 청바지")
+-3. 15-30자 이내
+-4. 상품 제목만 출력 (설명 없이)"""
++좋은 예시 (이 형식 그대로):
++- 유니클로 오버핏 니트 스웨터
++- 자라 슬림핏 블랙 청바지
++- 무신사 기본 면 티셔츠
++- H&M 플리츠 미디 원피스
+ 
++절대 하지 말 것:
++- 글자수 세기나 "(18자)" 같은 표기
++- 수정 사항, 설명, 주석, 번호 매기기
++- 여러 줄 출력 (줄바꿈 금지)
++- 이유, 근거, 분석 등 reasoning 출력
++
++출력은 한국어 상품명 한 줄만. 다른 텍스트 금지."""
++
+     builder.add_column(
+         name="product_title",
+         column_type="llm-text",

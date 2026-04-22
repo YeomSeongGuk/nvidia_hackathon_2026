@@ -1,0 +1,1907 @@
+
+
+=== iter_run.py iter_12_combo_all_plus_rating_sampler @ 2026-04-21T19:48:45+00:00 ===
+$ brev exec coupang 'mkdir -p /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output'
+coupang
+$ brev copy /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/pipeline_script.py coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_pipeline_vllm.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K2026/04/22 04:49:00 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/pipeline_script.py → coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_pipeline_vllm.py (1.975s)
+
+$ brev exec coupang 'export LLM_EXTRA_BODY='"'"'{"chat_template_kwargs":{"enable_thinking":false}}'"'"'; cd /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler && /home/nvidia/coupang/.venv/bin/python data_pipeline_vllm.py --data-path /home/nvidia/stage1_work/data/naver_shopping.txt --generate-size 50 2>&1 | tee /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/run_pipeline.log ; mkdir -p /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output; cp /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data/stage_1_0/seed_data.jsonl             /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl 2>/dev/null || true; cp /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data/stage_1_1/synthetic_data.jsonl        /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl 2>/dev/null || true; [ -f /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data/stage_1_1_5/deduped.jsonl ] && cp /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data/stage_1_1_5/deduped.jsonl /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl || cp /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl; cp /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data/stage_1_2/processed_reviews.jsonl     /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl 2>/dev/null || true; wc -l /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/*.jsonl'
+2026-04-21 19:49:17.606 | WARNING  | nemo_curator.tasks.document:validate:73 - Task g has no items
+[19:49:17] [INFO] 📺 Preview generation in progress
+[19:49:17] [INFO]   |-- 🔒 Jinja rendering engine: secure
+[19:49:18] [INFO] ✅ Validation passed
+[19:49:18] [INFO] ⛓️ Sorting column configs into a Directed Acyclic Graph
+[19:49:18] [INFO] 🩺 Running health checks for models...
+[19:49:18] [INFO]   |-- ⏭️  Skipping health check for model alias 'nemotron' (skip_health_check=True)
+[19:49:18] [INFO] 🌱 Sampling 50 records from seed dataset
+[19:49:18] [INFO]   |-- seed dataset size: 500 records
+[19:49:18] [INFO]   |-- sampling strategy: ordered
+[19:49:18] [INFO] 🎲 Preparing samplers to generate 50 records across 4 columns
+[19:49:18] [INFO] (💾 + 💾) Concatenating 2 datasets
+[19:49:18] [INFO] 🔧 Custom column config for column 'naver_context'
+[19:49:18] [INFO]   |-- generator_function: 'inject_naver_review'
+[19:49:18] [INFO]   |-- generation_strategy: <GenerationStrategy.CELL_BY_CELL: 'cell_by_cell'>
+[19:49:18] [INFO]   |-- required_columns: []
+[19:49:18] [INFO]   |-- side_effect_columns: ['seed_review', 'seed_rating']
+[19:49:18] [INFO]   |-- generator_params: reviews=[{'rating': 2, 'text': '가방이생각보다넘크고 싼티가많이나요'}, {'rating': 5, 'text': '편해요 정말 정말 핵편해요. 그럴때 있잖아요. 근사한 풍경에 커피한잔. 가방에 티안나게 가져가서 근사한 추억하나 더 만들었어요 너무 간편하고 좋네요'}, {'rating': 1, 'text': '리얼 쓰레기 옷걸이 바지걸이는 됐고 옷걸이 미끄럼방지부분 손만스처도 떨어짐 30개 샀는데 다 그냥 쓰레기 조만간 버리고 다시사겠음 반성하세요 진짜 이딴거처파는거아닙니다 내가 실수한거면 전화하세요 받아드립니다'}, {'rating': 5, 'text': '좋아요 운동할때좋아요. 뒤에 주름도안지고 일단 안입은듯편합니다~ 여름에 얇은옷빼고는 다 입어질것같아요'}, {'rating': 5, 'text': '잘되요ㅎ옷걸이 부분이 잘걸리지않는 모양이지만 그건 방향을 잘하믄 됩니다 굿'}, {'rating': 1, 'text': '검수도 안하는지 가방 끈 누락시키는 것도 모자라 톡 보내도 보통 하루나 이틀 지나서 겨우 답하고 하고 사과의 말도 없고 기다리는 소비자는 안중에도 없는지ㆍㆍ 아무리 저렴해도 이곳에서 다시는 안사렵니다.'}, {'rating': 2, 'text': '복대보다는 만족도 많이 떨어지네요… 팔뚝은 괜히 사따싶어요 착용하고 운동 이틀째인데 그냥 그래요 열심히 써보긴 할께요'}, {'rating': 2, 'text': '일단 디자인은 깔끔하고 이쁜데요..남자 신발 특히 270이상 사이즈 신발 수납하면 수납장 깊이때문에 문이 꽉 안닫히네요...그걸 확인 안한 제잘못인지...ㅠㅠ 오래 기다렸는데 좀 그래요.'}, {'rating': 1, 'text': '큰 기대를 한 건 아니지만 마감이 너무 안좋은 옷이 와서 집에서도 입을 수 있을지 모르겠어요. 몇만원짜리면 바로 환불할 텐데 싼 가격이라 그것도 번거로워서 그냥 구매확정해요.'}, {'rating': 5, 'text': '작아서 가방에 넣고 다니기에 좋네요'}, {'rating': 2, 'text': '바지통이 너무 커서 옹맵시가 없네요'}, {'rating': 1, 'text': '일주일 착용하고, 알러지 생겨서 허리에 잔뜩 오돌오돌 간지러워요. ㅠㅠ 전 그다지 민간한 피부는 아닌데, 두드러기가 잔뜩 올라왔어요. ㅠㅠ'}, {'rating': 5, 'text': '배송도 빠르고 옷은 딱맞구 이뻐요'}, {'rating': 5, 'text': '이뻐요 워낙 가볍고 좋은 옷이라'}, {'rating': 2, 'text': '가방이 틀이 안잡혀잇어서 흐물흐물하네요'}, {'rating': 5, 'text': '신발보관하기도 편하고 좋아요'}, {'rating': 5, 'text': '멋집니다 해외여행용으로 구매를했는데 화물용은 가방을 던져서 쉽게 깨진다고 하더라고요 그래서 소재에대해서 엄청 민감해있었는데 외부충격에도 쉽게 깨지지않을것같습니다 감사합니다'}, {'rating': 5, 'text': '남편 애장신발 보관하라고 선물 했더니 아주 좋아 하며 바로 신발 정리 하네요 ㅎㅎ 이중 제칸은 아직 한칸이지만 추가로 더 구매 하려구요'}, {'rating': 2, 'text': '쿠션감도없고 신발이 불편해요'}, {'rating': 2, 'text': '가방에서 나는 특유의 냄새가 넘 심해서 반품하고 싶었어요. 두번이나 세탁해서 말리는데두 냄새 지독합니다. 가방안에 옷넣어두면 옷까지 냄새베여서 못 입을정도예요~ 냄새제거 방법 좀 가르켜주세요 ㅠㅠ'}, {'rating': 2, 'text': '깔끔하고 이쁜데 접착력이 영부실하네요 애기신발에 붙이니 그냥떨어져버리네요 이건 어디에다가 붙여야 안떨어질런지...'}, {'rating': 2, 'text': '보라색 좋아해서 시켰는데 잠옷 자체는 예쁘고 맘에들어요! 근데 한번 빨았더니 7부 됐어요ㅠㅠ 최대한 다려봤는데.. 저게 최선이네요 ㅠ 바지는 더 짧습니다 하하.. (키 165) 그것만 아니면 괜찮은데! 너무 치명적인 단점이네요 아쉬워요 ㅠ'}, {'rating': 1, 'text': '전에 사서 잘 신어서 또 2켤레 구매를 했는데..신고 다닐때 마다 찍..찍..소리가 나요. 식구들이 애기들 찍찍이 신발이냐고..ㅠ 소리가 엄청 거슬려 못신고 버려야 할 것 같아요..이번에는 실망입니다..ㅠ'}, {'rating': 5, 'text': '몸무게13.5kg 남안데 이 사이즈가 제일 무난해요~~~~ 배쪽이 찡기지도 않고 그렇다고 막 너무 크게 여유있는것도 아니고 적당히 느슨하니 잘 맞아요. 옷으로 치면 프리사이즈라고나 할까요?'}, {'rating': 1, 'text': '하루입엇는데 빵꾸낫어요 보정기능도 거의 없다시피 치수작은옷 그냥 억지로 입는 느낌이네요'}, {'rating': 5, 'text': '바지 구매하고 소재가 좋아서 상의도 추가 구매했어요~'}, {'rating': 1, 'text': '싼게 비지떡.....아니 바지입니다'}, {'rating': 4, 'text': '사이즈가 너무 커요 13개월 11키로대 남자아기입니다 옷 자체는 좋아요'}, {'rating': 2, 'text': '흘러내려서 걍 가방에 넣고씀,,'}, {'rating': 2, 'text': '그냥 그래요 옷 재질은 좋은데 사이즈가 평균 이상이라서 입으면 부담되네요 해외꺼라 그런지 옷이 많이 커요'}, {'rating': 5, 'text': '배송도 빠르고 정말 좋아요 다른 옷구매하고 믿고 재구매했어요'}, {'rating': 2, 'text': '반지 싸이즈 하나 작게 구매하세요 네 반째 손가락 호수에 맞게 신청했는데 반지 너무 커요.... 사진 찍을 때 이외에는 네반째 손가락에 착용불가할듯요.'}, {'rating': 1, 'text': '깜짝 놀랐습니다. 정말 한번 밖에 입을수가 없어요 두개를 사서 하나는 세탁기에 하나는 손빨래를 했는데도 불구.. 둘다 줄어 듭니다... 둘다 버렸어요 한번 잘 입었습니다.. 바지도 삿는데 바지는 무서워서 빨지도 못하고 있어요 .'}, {'rating': 4, 'text': '아직은 사용하지 못했지만 정리의 달인의 아이디어를 따라하고자 구매했어요~ 겨울 롱패딩 넣어서 보관하려고요~^^ 대자는 어른용~ 중자는 아이들용으로 구매했네요~ 근데 냄새가 좀 심해서 세탁했어요~ㅠㅠ'}, {'rating': 1, 'text': '정품 아닌 것 같네요 마감 상태도 엉망이고, 비 오는날 신었다 미끄러졌어요 나이키 운동화 많은데 이런 건 처음 보네요 ㅡㅡ'}, {'rating': 4, 'text': '조금 낮았어요 대형은 옷걸어보니 겨울옷이여서 생각보다 많이 안걸리네요 그래도 깔끔하니 방이 정리된 느낌입니다'}, {'rating': 1, 'text': '별로 그냥 옷걸이에 걸려있습니다'}, {'rating': 2, 'text': '저한테는 안맞는것 같아요 사이즈 교환했음에도 불구하고 착용하면 가슴이 벌어지고 너무 봉긋한 느낌이 나요'}, {'rating': 2, 'text': '소재가 그렇게 시원하지 않아요 땀이 많이 차요 착용감은 참 편한데... 그리고 이염이 너무 쉽게 되네요 절대 짙은 색의 옷이랑 같이 세탁하면 안돼요'}, {'rating': 5, 'text': '밀가루옷이 적어서 너무 좋았어요 일반 오징어튀김보다 덜 느끼하고 더 바삭하고 맛있었습니다'}, {'rating': 2, 'text': '재구매는 없을거같아요.. 둘레가 너무 작게 나와서 착용할때 느낌이 불편해요. 재질자체는 가벼워서 그렇게 더울 것 같진 않구요. 싼 가격에 사보긴 했는데 싼건 다 이유가 잇는것 같네욤.'}, {'rating': 5, 'text': '뱀줄발찌 디자인이 군더더기없이 심플하고 아무래도 발찌는 계속 착용하는 악세사리이기때문에 차고 자도 이불에 걸린다거나 발목에 자국나는것도 없고 은은한 포인트용으로 딱인듯해요'}, {'rating': 5, 'text': '생각보다 길이가 좀 짧긴 했는데 잠옷으로 최고에요'}, {'rating': 5, 'text': '괜찮은거같아요 니트세탁'}, {'rating': 2, 'text': '생각보다 약해요ㅜ 옷걸때 한쪽 어깨부분?만 잡으면 휘청휘청 휘어질 것 같아요ㅜ'}, {'rating': 5, 'text': '배송 늦단 얘기 듣고 걱정했는데 바로 왔습니다. 넉넉한 스타일이구요..가격대비 고급스럽습니다. 입으면 더 폼나는 옷이에요..많이 파세요~'}, {'rating': 5, 'text': '잘도착했어요 리폼할 가방이너무늦네요 빨리넣고싶은데 감사합니다많이파세욤!'}, {'rating': 5, 'text': '면소재라 부드럽고 착용감도 좋아요'}, {'rating': 5, 'text': '배송도 빠르고 가방상태도 좋습니다. 일단 큼지막하고 넣을대도 많아 좋네요'}, {'rating': 5, 'text': '완전 맘에듭니다. 남친선물 고르던 중 클러치백 찾아보다가 블랙으로 선물했어요. 깔끔하고 고급져보이고 아무 옷이나 다 잘 어울리네요~ 남친이 좋아해요~~ 성공이요~^^!!'}]
+[19:49:18] [INFO] ⚡️ Processing custom column 'naver_context' with 4 concurrent workers
+[19:49:18] [INFO] ⏱️ custom column 'naver_context' will report progress every 5 records
+[19:49:18] [INFO]   |-- 🌑 custom column 'naver_context' progress: 5/50 (10%) complete, 5 ok, 0 failed, 3392.90 rec/s, eta 0.0s
+[19:49:18] [INFO]   |-- 🌑 custom column 'naver_context' progress: 10/50 (20%) complete, 10 ok, 0 failed, 4296.80 rec/s, eta 0.0s
+[19:49:18] [INFO]   |-- 🌘 custom column 'naver_context' progress: 15/50 (30%) complete, 15 ok, 0 failed, 5338.10 rec/s, eta 0.0s
+[19:49:18] [INFO]   |-- 🌘 custom column 'naver_context' progress: 20/50 (40%) complete, 20 ok, 0 failed, 6158.39 rec/s, eta 0.0s
+[19:49:18] [INFO]   |-- 🌗 custom column 'naver_context' progress: 25/50 (50%) complete, 25 ok, 0 failed, 6952.39 rec/s, eta 0.0s
+[19:49:18] [INFO]   |-- 🌗 custom column 'naver_context' progress: 30/50 (60%) complete, 30 ok, 0 failed, 7548.93 rec/s, eta 0.0s
+[19:49:18] [INFO]   |-- 🌗 custom column 'naver_context' progress: 35/50 (70%) complete, 35 ok, 0 failed, 8141.33 rec/s, eta 0.0s
+[19:49:18] [INFO]   |-- 🌖 custom column 'naver_context' progress: 40/50 (80%) complete, 40 ok, 0 failed, 8670.24 rec/s, eta 0.0s
+[19:49:18] [INFO]   |-- 🌖 custom column 'naver_context' progress: 45/50 (90%) complete, 45 ok, 0 failed, 9153.08 rec/s, eta 0.0s
+[19:49:18] [INFO]   |-- 🌕 custom column 'naver_context' progress: 50/50 (100%) complete, 50 ok, 0 failed, 9219.51 rec/s, eta 0.0s
+[19:49:18] [INFO] 📝 llm-text model config for column 'product_title'
+[19:49:18] [INFO]   |-- model: 'nemotron'
+[19:49:18] [INFO]   |-- model alias: 'nemotron'
+[19:49:18] [INFO]   |-- model provider: 'friendli'
+[19:49:18] [INFO]   |-- inference parameters:
+[19:49:18] [INFO]   |  |-- generation_type=chat-completion
+[19:49:18] [INFO]   |  |-- max_parallel_requests=32
+[19:49:18] [INFO]   |  |-- extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[19:49:18] [INFO]   |  |-- temperature=0.80
+[19:49:18] [INFO]   |  |-- max_tokens=500
+[19:49:18] [INFO] ⚡️ Processing llm-text column 'product_title' with 32 concurrent workers
+[19:49:18] [INFO] ⏱️ llm-text column 'product_title' will report progress every 5 records
+[19:49:18] [INFO]   |-- 🥚 llm-text column 'product_title' progress: 5/50 (10%) complete, 5 ok, 0 failed, 7.39 rec/s, eta 6.1s
+[19:49:19] [INFO]   |-- 🥚 llm-text column 'product_title' progress: 10/50 (20%) complete, 10 ok, 0 failed, 12.60 rec/s, eta 3.2s
+[19:49:19] [INFO]   |-- 🐣 llm-text column 'product_title' progress: 15/50 (30%) complete, 15 ok, 0 failed, 17.29 rec/s, eta 2.0s
+[19:49:19] [INFO]   |-- 🐣 llm-text column 'product_title' progress: 20/50 (40%) complete, 20 ok, 0 failed, 20.13 rec/s, eta 1.5s
+[19:49:19] [INFO]   |-- 🐥 llm-text column 'product_title' progress: 25/50 (50%) complete, 25 ok, 0 failed, 20.93 rec/s, eta 1.2s
+[19:49:19] [INFO]   |-- 🐥 llm-text column 'product_title' progress: 30/50 (60%) complete, 30 ok, 0 failed, 21.75 rec/s, eta 0.9s
+[19:49:20] [INFO]   |-- 🐥 llm-text column 'product_title' progress: 35/50 (70%) complete, 35 ok, 0 failed, 19.31 rec/s, eta 0.8s
+[19:49:26] [INFO]   |-- 🐤 llm-text column 'product_title' progress: 40/50 (80%) complete, 40 ok, 0 failed, 5.14 rec/s, eta 1.9s
+[19:49:26] [INFO]   |-- 🐤 llm-text column 'product_title' progress: 45/50 (90%) complete, 45 ok, 0 failed, 5.76 rec/s, eta 0.9s
+[19:49:26] [INFO]   |-- 🐔 llm-text column 'product_title' progress: 50/50 (100%) complete, 50 ok, 0 failed, 6.24 rec/s, eta 0.0s
+[19:49:26] [INFO] 🗂️ llm-structured model config for column 'product_attributes'
+[19:49:26] [INFO]   |-- model: 'nemotron'
+[19:49:26] [INFO]   |-- model alias: 'nemotron'
+[19:49:26] [INFO]   |-- model provider: 'friendli'
+[19:49:26] [INFO]   |-- inference parameters:
+[19:49:26] [INFO]   |  |-- generation_type=chat-completion
+[19:49:26] [INFO]   |  |-- max_parallel_requests=32
+[19:49:26] [INFO]   |  |-- extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[19:49:26] [INFO]   |  |-- temperature=0.80
+[19:49:26] [INFO]   |  |-- max_tokens=500
+[19:49:26] [INFO] ⚡️ Processing llm-structured column 'product_attributes' with 32 concurrent workers
+[19:49:26] [INFO] ⏱️ llm-structured column 'product_attributes' will report progress every 5 records
+[19:49:27] [INFO]   |-- 🌑 llm-structured column 'product_attributes' progress: 5/50 (10%) complete, 5 ok, 0 failed, 3.06 rec/s, eta 14.7s
+[19:49:27] [INFO]   |-- 🌑 llm-structured column 'product_attributes' progress: 10/50 (20%) complete, 10 ok, 0 failed, 6.03 rec/s, eta 6.6s
+[19:49:28] [INFO]   |-- 🌘 llm-structured column 'product_attributes' progress: 15/50 (30%) complete, 15 ok, 0 failed, 8.65 rec/s, eta 4.0s
+[19:49:28] [INFO]   |-- 🌘 llm-structured column 'product_attributes' progress: 20/50 (40%) complete, 20 ok, 0 failed, 11.28 rec/s, eta 2.7s
+[19:49:28] [INFO]   |-- 🌗 llm-structured column 'product_attributes' progress: 25/50 (50%) complete, 25 ok, 0 failed, 13.66 rec/s, eta 1.8s
+[19:49:28] [INFO]   |-- 🌗 llm-structured column 'product_attributes' progress: 30/50 (60%) complete, 30 ok, 0 failed, 15.86 rec/s, eta 1.3s
+[19:49:29] [INFO]   |-- 🌗 llm-structured column 'product_attributes' progress: 35/50 (70%) complete, 35 ok, 0 failed, 12.59 rec/s, eta 1.2s
+[19:49:29] [INFO]   |-- 🌖 llm-structured column 'product_attributes' progress: 40/50 (80%) complete, 40 ok, 0 failed, 14.19 rec/s, eta 0.7s
+[19:49:29] [INFO]   |-- 🌖 llm-structured column 'product_attributes' progress: 45/50 (90%) complete, 45 ok, 0 failed, 15.82 rec/s, eta 0.3s
+[19:49:29] [INFO]   |-- 🌕 llm-structured column 'product_attributes' progress: 50/50 (100%) complete, 50 ok, 0 failed, 17.44 rec/s, eta 0.0s
+[19:49:29] [INFO] 📝 llm-text model config for column 'raw_text'
+[19:49:29] [INFO]   |-- model: 'nemotron'
+[19:49:29] [INFO]   |-- model alias: 'nemotron'
+[19:49:29] [INFO]   |-- model provider: 'friendli'
+[19:49:29] [INFO]   |-- inference parameters:
+[19:49:29] [INFO]   |  |-- generation_type=chat-completion
+[19:49:29] [INFO]   |  |-- max_parallel_requests=32
+[19:49:29] [INFO]   |  |-- extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[19:49:29] [INFO]   |  |-- temperature=0.80
+[19:49:29] [INFO]   |  |-- max_tokens=500
+[19:49:29] [INFO] ⚡️ Processing llm-text column 'raw_text' with 32 concurrent workers
+[19:49:29] [INFO] ⏱️ llm-text column 'raw_text' will report progress every 5 records
+[19:49:31] [INFO]   |-- 🚶 llm-text column 'raw_text' progress: 5/50 (10%) complete, 5 ok, 0 failed, 1.87 rec/s, eta 24.1s
+[19:49:32] [INFO]   |-- 🚶 llm-text column 'raw_text' progress: 10/50 (20%) complete, 10 ok, 0 failed, 3.11 rec/s, eta 12.9s
+[19:49:32] [INFO]   |-- 🐴 llm-text column 'raw_text' progress: 15/50 (30%) complete, 15 ok, 0 failed, 4.20 rec/s, eta 8.3s
+[19:49:33] [INFO]   |-- 🐴 llm-text column 'raw_text' progress: 20/50 (40%) complete, 20 ok, 0 failed, 5.00 rec/s, eta 6.0s
+[19:49:33] [INFO]   |-- 🚗 llm-text column 'raw_text' progress: 25/50 (50%) complete, 25 ok, 0 failed, 5.76 rec/s, eta 4.3s
+[19:49:33] [INFO]   |-- 🚗 llm-text column 'raw_text' progress: 30/50 (60%) complete, 30 ok, 0 failed, 6.50 rec/s, eta 3.1s
+[19:49:34] [INFO]   |-- 🚗 llm-text column 'raw_text' progress: 35/50 (70%) complete, 35 ok, 0 failed, 7.02 rec/s, eta 2.1s
+[19:49:34] [INFO]   |-- ✈️ llm-text column 'raw_text' progress: 40/50 (80%) complete, 40 ok, 0 failed, 7.71 rec/s, eta 1.3s
+[19:49:34] [INFO]   |-- ✈️ llm-text column 'raw_text' progress: 45/50 (90%) complete, 45 ok, 0 failed, 8.31 rec/s, eta 0.6s
+[19:49:35] [INFO]   |-- 🚀 llm-text column 'raw_text' progress: 50/50 (100%) complete, 50 ok, 0 failed, 7.64 rec/s, eta 0.0s
+[19:49:35] [INFO] 📊 Model usage summary:
+[19:49:35] [INFO]   |-- model: nemotron
+[19:49:35] [INFO]   |-- tokens: input=94782, output=13896, total=108678, tps=6125
+[19:49:35] [INFO]   |-- requests: success=150, failed=0, total=150, rpm=507
+[19:49:35] [INFO] 📐 Measuring dataset column statistics:
+[19:49:35] [INFO]   |-- 🔧 column: 'naver_context'
+[19:49:35] [INFO]   |-- 🎲 column: 'rating'
+[19:49:36] [INFO]   |-- 📝 column: 'product_title'
+[19:49:36] [INFO]   |-- 🗂️ column: 'product_attributes'
+[19:49:36] [INFO]   |-- 📝 column: 'raw_text'
+[19:49:36] [INFO]   |-- 🎲 column: 'doc_id'
+[19:49:36] [INFO]   |-- 🎲 column: 'product_id'
+[19:49:36] [INFO]   |-- 🎲 column: 'timestamp'
+[19:49:36] [INFO] 🏆 Preview complete!
+
+Step 1: Loading & Filtering Fashion Seed Data (Stage 1.0)
+[Volume] Stage 1.0 (Seed Data): 50
+
+Step 2: Generating Personalized Fashion Synthetic Data (Stage 1.1)
+[Volume] Stage 1.1 (Synthetic Data): 50
+
+Step 3: Fuzzy Deduplication (Stage 1.1.5)
+[Warning] Fuzzy Dedup fallback (Exact Dedup): No module named 'cudf'
+[Volume] Stage 1.1.5 (Deduped Data): 50
+
+Step 4: Quality Filtering (Stage 1.2)
+  After Korean-aware quality filter: 50 records (dropped 0).
+[Volume] Stage 1.2 (Filtered Results): 50
+
+Pipeline Complete. Final results in data/stage_1_2
+    50 /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl
+    50 /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl
+    50 /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl
+    50 /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl
+   200 total
+coupang
+$ brev copy coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K2026/04/22 04:49:51 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl → /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl (1.806s)
+
+$ brev copy coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K2026/04/22 04:50:18 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl → /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl (1.822s)
+
+$ brev copy coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K2026/04/22 04:50:45 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl → /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl (2.038s)
+
+$ brev copy coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K2026/04/22 04:51:13 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl → /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl (2.318s)
+
+$ brev exec coupang 'export STAGE_DATA_ROOT=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval; export LLM_EXTRA_BODY='"'"'{"chat_template_kwargs":{"enable_thinking":false}}'"'"'; mkdir -p $STAGE_DATA_ROOT; cd /home/nvidia/stage2_work && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python scripts/tri_judge_run.py --output-dir    /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output --stage-data-root $STAGE_DATA_ROOT --judge-raw-dir /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/judge_raw --metrics-out   /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/judge_metrics.json --provider friendli --run-id iter_12_combo_all_plus_rating_sampler --tag iter_12_combo_all_plus_rating_sampler --skip-on-error 2>&1 | tee -a /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/run_pipeline.log'
+[tri_judge] output_dir=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output  stage_data_root=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval
+            judge_raw_dir=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/judge_raw  metrics_out=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/judge_metrics.json
+            stages=['stage_1_0', 'stage_1_1', 'stage_1_1_5', 'stage_1_2']  pairs=12  max_workers=4  run_id=iter_12_combo_all_plus_rating_sampler
+[stage_1_0:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_12_combo_all_plus_rating_sampler__glm --tag iter_12_combo_all_plus_rating_sampler__glm --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl --stage-override stage_1_0
+[stage_1_0:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_12_combo_all_plus_rating_sampler__deepseek --tag iter_12_combo_all_plus_rating_sampler__deepseek --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl --stage-override stage_1_0
+[stage_1_0:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_12_combo_all_plus_rating_sampler__qwen3 --tag iter_12_combo_all_plus_rating_sampler__qwen3 --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl --stage-override stage_1_0
+[stage_1_1:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_12_combo_all_plus_rating_sampler__glm --tag iter_12_combo_all_plus_rating_sampler__glm --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl
+--- [stage_1_0:glm] begin ---
+[stage_1_2 judge] run_id=iter_12_combo_all_plus_rating_sampler__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__glm
+[0001] OK  seed_00000 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0002] OK  seed_00001 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0003] OK  seed_00002 fashion=False tpo=False q=1 lang=ko noise=low fm=['non_fashion_item']
+[0004] OK  seed_00003 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0005] OK  seed_00004 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item']
+[0006] OK  seed_00005 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0007] OK  seed_00006 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0008] OK  seed_00007 fashion=False tpo=False q=3 lang=ko noise=low fm=['non_fashion_item']
+[0009] OK  seed_00008 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0010] OK  seed_00009 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0011] OK  seed_00010 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0012] OK  seed_00011 fashion=True tpo=False q=2 lang=ko noise=none fm=[]
+[0013] OK  seed_00012 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0014] OK  seed_00013 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0015] OK  seed_00014 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0016] OK  seed_00015 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0017] OK  seed_00016 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0018] OK  seed_00017 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0019] OK  seed_00018 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0020] OK  seed_00019 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0021] OK  seed_00020 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0022] OK  seed_00021 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0023] OK  seed_00022 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0024] OK  seed_00023 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0025] OK  seed_00024 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0026] OK  seed_00025 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0027] OK  seed_00026 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0028] OK  seed_00027 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0029] OK  seed_00028 fashion=True tpo=False q=2 lang=ko noise=low fm=['too_short']
+[0030] OK  seed_00029 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0031] OK  seed_00030 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0032] OK  seed_00031 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0033] OK  seed_00032 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0034] OK  seed_00033 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0035] OK  seed_00034 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0036] OK  seed_00035 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0037] OK  seed_00036 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0038] OK  seed_00037 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0039] OK  seed_00038 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0040] OK  seed_00039 fashion=False tpo=False q=1 lang=ko noise=none fm=['non_fashion_item']
+[0041] OK  seed_00040 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0042] OK  seed_00041 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0043] OK  seed_00042 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0044] OK  seed_00043 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0045] OK  seed_00044 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0046] OK  seed_00045 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0047] OK  seed_00046 fashion=True tpo=False q=2 lang=ko noise=low fm=['too_short']
+[0048] OK  seed_00047 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0049] OK  seed_00048 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0050] OK  seed_00049 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+
+[done] ok=50 fail=0 time=99.4s
+  judge.jsonl: /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_0:glm] end rc=0 ---
+[stage_1_0:glm] DONE in 100.0s
+[stage_1_1:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_12_combo_all_plus_rating_sampler__deepseek --tag iter_12_combo_all_plus_rating_sampler__deepseek --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl
+--- [stage_1_0:qwen3] begin ---
+[stage_1_2 judge] run_id=iter_12_combo_all_plus_rating_sampler__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3
+[0001] OK  seed_00000 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0002] OK  seed_00001 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0003] OK  seed_00002 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item', 'noise_text']
+[0004] OK  seed_00003 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0005] OK  seed_00004 fashion=False tpo=False q=1 lang=ko noise=low fm=['non_fashion_item', 'too_short']
+[0006] OK  seed_00005 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0007] OK  seed_00006 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item', 'too_short']
+[0008] OK  seed_00007 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0009] OK  seed_00008 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0010] OK  seed_00009 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0011] OK  seed_00010 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0012] OK  seed_00011 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0013] OK  seed_00012 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0014] OK  seed_00013 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0015] OK  seed_00014 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0016] OK  seed_00015 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0017] OK  seed_00016 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0018] OK  seed_00017 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0019] OK  seed_00018 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0020] OK  seed_00019 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0021] OK  seed_00020 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item', 'language_issue']
+[0022] OK  seed_00021 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0023] OK  seed_00022 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0024] OK  seed_00023 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0025] OK  seed_00024 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0026] OK  seed_00025 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0027] OK  seed_00026 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0028] OK  seed_00027 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0029] OK  seed_00028 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item', 'too_short']
+[0030] OK  seed_00029 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0031] OK  seed_00030 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0032] OK  seed_00031 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0033] OK  seed_00032 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0034] OK  seed_00033 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0035] OK  seed_00034 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0036] OK  seed_00035 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0037] OK  seed_00036 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0038] OK  seed_00037 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0039] OK  seed_00038 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0040] OK  seed_00039 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0041] OK  seed_00040 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0042] OK  seed_00041 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0043] OK  seed_00042 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0044] OK  seed_00043 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0045] OK  seed_00044 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0046] OK  seed_00045 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0047] OK  seed_00046 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0048] OK  seed_00047 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0049] OK  seed_00048 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0050] OK  seed_00049 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+
+[done] ok=50 fail=0 time=111.8s
+  judge.jsonl: /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_0:qwen3] end rc=0 ---
+[stage_1_0:qwen3] DONE in 112.4s
+[stage_1_1:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_12_combo_all_plus_rating_sampler__qwen3 --tag iter_12_combo_all_plus_rating_sampler__qwen3 --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl
+--- [stage_1_1:glm] begin ---
+[stage_1_1 judge] run_id=iter_12_combo_all_plus_rating_sampler__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__glm
+[0001] OK  rvab4fa674b32e4036a5574e4cc5922f98 fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0002] OK  rva73b4fa9c02f4720ad2552222c6b26bc fash=False tspec=False tleak=False nat=4 persona=4 fm=['non_fashion_item', 'title_format_violation', 'title_length_violation']
+[0003] OK  rv66b8189ee1aa4ac5843c3d6bbacc27c2 fash=True tspec=False tleak=False nat=3 persona=4 fm=['title_format_violation']
+[0004] OK  rv1cf4f05f3f0f4a43a8cbfe4c1c34db86 fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0005] OK  rv39895fa0950a4ad683d30eaf557f0c70 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0006] OK  rvb914326f3df34b609325d9929bdc7aae fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_format_violation', 'title_length_violation', 'language_issue']
+[0007] OK  rv76e19dcac8264d268e35ec7875f9cd59 fash=True tspec=False tleak=True nat=3 persona=4 fm=['title_reasoning_leak', 'title_format_violation']
+[0008] OK  rv860070d7f97c4f26b6c19b70450bb39f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0009] OK  rve9e4c6d644f24135aa2205ed1bf52833 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0010] OK  rv667576297bf2471290fe66438af23235 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_format_violation', 'title_length_violation', 'attr_ungrounded', 'rating_sentiment_mismatch']
+[0011] OK  rv04477662018d46fa85b8b590996cf7b4 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0012] OK  rvfbb06fad487e4ab28c9ca7fa83dbc561 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'persona_drift']
+[0013] OK  rv2bbed1e70cc84e1a82c7d71b4985675d fash=True tspec=False tleak=False nat=2 persona=4 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded', 'language_issue']
+[0014] OK  rv0ec9f8744e964cdda8552ac8feba889f fash=True tspec=False tleak=True nat=5 persona=5 fm=['title_reasoning_leak', 'title_format_violation', 'title_length_violation']
+[0015] OK  rv4f9005ad95e24c4bafcedf0f17564e22 fash=True tspec=True tleak=False nat=3 persona=5 fm=['language_issue']
+[0016] OK  rv8e88a175ebb5467c97e7b1a54f8c0edd fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0017] OK  rv7fd07523bc6240b7947654374c705625 fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0018] OK  rv2eea38af481b41538da8b09cad8c54ac fash=True tspec=False tleak=False nat=3 persona=4 fm=['title_format_violation', 'title_length_violation']
+[0019] OK  rve16663ea7ab74b40bb0589627465f5a6 fash=True tspec=True tleak=False nat=4 persona=5 fm=['attr_ungrounded']
+[0020] OK  rv7fcae603ad1f4838aed07988499b7574 fash=True tspec=True tleak=False nat=2 persona=5 fm=['attr_ungrounded', 'language_issue']
+[0021] OK  rvd2367a7a5e754ca18fda69b04a9a7f23 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0022] OK  rv8850819f73274034a02cb3573fd501d6 fash=False tspec=False tleak=False nat=3 persona=4 fm=['non_fashion_item', 'title_format_violation', 'title_length_violation']
+[0023] OK  rv6ecdfdad11de46478ae83ec08269d669 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0024] OK  rv9d40d30affec4773bc2005ecfd85c3f3 fash=True tspec=False tleak=False nat=4 persona=4 fm=['title_format_violation', 'title_length_violation']
+[0025] OK  rv6b836c29e3ef46698cec7948e711e72d fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0026] OK  rv8d5bd04cf6974bd79c03cf5707afcebb fash=True tspec=True tleak=False nat=4 persona=5 fm=['attr_ungrounded']
+[0027] OK  rv8f44b51eaaeb4f84859bfca36aa020ab fash=True tspec=True tleak=False nat=3 persona=5 fm=[]
+[0028] OK  rv087c7778a1e946a3960b6a705d98f36f fash=True tspec=False tleak=True nat=4 persona=4 fm=['title_reasoning_leak', 'title_format_violation', 'attr_ungrounded']
+[0029] OK  rv5ba1df05359e49aea7bc5aec9a67beb9 fash=True tspec=False tleak=False nat=2 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0030] OK  rv0751256a20524d7db91cfd1b081c880e fash=True tspec=False tleak=True nat=5 persona=5 fm=['title_reasoning_leak', 'title_format_violation', 'attr_ungrounded']
+[0031] OK  rv13d71c043298441f9de7c430af580058 fash=True tspec=False tleak=False nat=2 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'language_issue']
+[0032] OK  rva1453a85a8224577b127f1f9701c3dac fash=False tspec=False tleak=True nat=3 persona=2 fm=['non_fashion_item', 'title_reasoning_leak', 'title_format_violation', 'title_length_violation', 'persona_drift', 'attr_ungrounded', 'missing_tpo']
+[0033] OK  rv7a26775815e040e394c253ae12398bda fash=True tspec=False tleak=False nat=2 persona=1 fm=['title_format_violation', 'title_length_violation', 'persona_drift', 'attr_ungrounded']
+[0034] OK  rv579be56403064a1eb2fc25adaaf35072 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0035] OK  rv2f4271c661484686bd20a6bdeacc1e7b fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0036] OK  rv37e7163fe6b14288b493c88abf0cdc1b fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0037] OK  rv33f42d9d582f42a8828bfa59644a88d2 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0038] OK  rvc3dd400733cf4ca8ab61236491d59fb6 fash=True tspec=False tleak=False nat=2 persona=1 fm=['title_length_violation', 'title_format_violation', 'persona_drift', 'language_issue']
+[0039] OK  rv2c6e8958a6124874b4112277b33f9fdd fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_format_violation']
+[0040] OK  rv1013553c502440d3aa92caec0c4075c0 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0041] OK  rv0b80f3b8046348629d2a8af64da8c725 fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_length_violation', 'title_format_violation', 'persona_drift', 'language_issue']
+[0042] OK  rv0fae6d1dc0974445bfbdb1b638f067b4 fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation']
+[0043] OK  rvdf421492938b44eabfbc9b903567a808 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0044] OK  rv0bd2b963a4414d99b7b14c6c9d984ca3 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0045] OK  rv9ec62228d0ca4361994b9721ad4fb571 fash=True tspec=False tleak=False nat=2 persona=1 fm=['title_format_violation', 'title_length_violation', 'language_issue']
+[0046] OK  rv6e29cf64cc054a218073d7df81cad413 fash=True tspec=False tleak=False nat=3 persona=4 fm=['title_format_violation', 'title_length_violation', 'attr_ungrounded']
+[0047] OK  rv60bdd0aeb11f4f62a86f502e91e406ab fash=True tspec=False tleak=True nat=4 persona=3 fm=['title_reasoning_leak', 'title_format_violation', 'title_length_violation', 'attr_ungrounded', 'rating_sentiment_mismatch']
+[0048] OK  rv5d9b3314ca9b418dbdb1dd259d7ce605 fash=True tspec=True tleak=False nat=3 persona=4 fm=['attr_ungrounded']
+[0049] OK  rv0a6b3f5aeef342fba0d66c33affd7d97 fash=True tspec=True tleak=False nat=2 persona=3 fm=['language_issue', 'attr_ungrounded']
+[0050] OK  rv6171a50e58fb484c83eb86c8f82893b3 fash=True tspec=True tleak=False nat=3 persona=5 fm=['attr_ungrounded']
+
+[stage_1_1 judge] ok=50 fail=0 duration=149.2s -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/report.md
+--- [stage_1_1:glm] end rc=0 ---
+[stage_1_1:glm] DONE in 149.9s
+[stage_1_1_5:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_12_combo_all_plus_rating_sampler__glm --tag iter_12_combo_all_plus_rating_sampler__glm --before /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl
+--- [stage_1_1_5:glm] begin ---
+[stage_1_1_5 judge] run_id=iter_12_combo_all_plus_rating_sampler__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  before=50 after=50 (prompt will show 50 / 50)
+
+[stage_1_1_5 judge] reduction=0.0 miss=5 (0.1) groups=5 largest=2 -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1_5/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/report.md
+--- [stage_1_1_5:glm] end rc=0 ---
+[stage_1_1_5:glm] DONE in 7.7s
+[stage_1_1_5:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_12_combo_all_plus_rating_sampler__deepseek --tag iter_12_combo_all_plus_rating_sampler__deepseek --before /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl
+--- [stage_1_1_5:deepseek] begin ---
+[stage_1_1_5 judge] run_id=iter_12_combo_all_plus_rating_sampler__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  before=50 after=50 (prompt will show 50 / 50)
+
+[stage_1_1_5 judge] reduction=0.0 miss=5 (0.1) groups=5 largest=2 -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1_5/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/report.md
+--- [stage_1_1_5:deepseek] end rc=0 ---
+[stage_1_1_5:deepseek] DONE in 18.2s
+[stage_1_1_5:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_12_combo_all_plus_rating_sampler__qwen3 --tag iter_12_combo_all_plus_rating_sampler__qwen3 --before /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl
+--- [stage_1_1_5:qwen3] begin ---
+[stage_1_1_5 judge] run_id=iter_12_combo_all_plus_rating_sampler__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  before=50 after=50 (prompt will show 50 / 50)
+
+[stage_1_1_5 judge] reduction=0.0 miss=2 (0.04) groups=2 largest=2 -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1_5/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/report.md
+--- [stage_1_1_5:qwen3] end rc=0 ---
+[stage_1_1_5:qwen3] DONE in 7.6s
+[stage_1_2:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_12_combo_all_plus_rating_sampler__glm --tag iter_12_combo_all_plus_rating_sampler__glm --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl
+--- [stage_1_0:deepseek] begin ---
+[stage_1_2 judge] run_id=iter_12_combo_all_plus_rating_sampler__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek
+[0001] OK  seed_00000 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0002] OK  seed_00001 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0003] OK  seed_00002 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0004] OK  seed_00003 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0005] OK  seed_00004 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0006] OK  seed_00005 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0007] OK  seed_00006 fashion=True tpo=True q=2 lang=ko noise=low fm=['non_fashion_item']
+[0008] OK  seed_00007 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0009] OK  seed_00008 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0010] OK  seed_00009 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0011] OK  seed_00010 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0012] OK  seed_00011 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0013] OK  seed_00012 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0014] OK  seed_00013 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0015] OK  seed_00014 fashion=True tpo=False q=2 lang=ko noise=low fm=['too_short']
+[0016] OK  seed_00015 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0017] OK  seed_00016 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0018] OK  seed_00017 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0019] OK  seed_00018 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0020] OK  seed_00019 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0021] OK  seed_00020 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0022] OK  seed_00021 fashion=True tpo=False q=4 lang=ko noise=low fm=[]
+[0023] OK  seed_00022 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0024] OK  seed_00023 fashion=True tpo=True q=2 lang=ko noise=low fm=['non_fashion_item']
+[0025] OK  seed_00024 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0026] OK  seed_00025 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0027] OK  seed_00026 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0028] OK  seed_00027 fashion=True tpo=True q=3 lang=ko noise=none fm=['too_short']
+[0029] OK  seed_00028 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0030] OK  seed_00029 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0031] OK  seed_00030 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0032] OK  seed_00031 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0033] OK  seed_00032 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0034] OK  seed_00033 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0035] OK  seed_00034 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0036] OK  seed_00035 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0037] OK  seed_00036 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0038] OK  seed_00037 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0039] OK  seed_00038 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0040] OK  seed_00039 fashion=True tpo=True q=2 lang=ko noise=none fm=['non_fashion_item']
+[0041] OK  seed_00040 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0042] OK  seed_00041 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0043] OK  seed_00042 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0044] OK  seed_00043 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0045] OK  seed_00044 fashion=True tpo=False q=3 lang=ko noise=low fm=['too_short']
+[0046] OK  seed_00045 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0047] OK  seed_00046 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0048] OK  seed_00047 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0049] OK  seed_00048 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0050] OK  seed_00049 fashion=True tpo=False q=4 lang=ko noise=low fm=[]
+
+[done] ok=50 fail=0 time=240.2s
+  judge.jsonl: /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_0:deepseek] end rc=0 ---
+[stage_1_0:deepseek] DONE in 240.9s
+[stage_1_2:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_12_combo_all_plus_rating_sampler__deepseek --tag iter_12_combo_all_plus_rating_sampler__deepseek --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl
+--- [stage_1_2:glm] begin ---
+[stage_1_2 judge] run_id=iter_12_combo_all_plus_rating_sampler__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__glm
+[0001] OK  rvab4fa674b32e4036a5574e4cc5922f98 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0002] OK  rva73b4fa9c02f4720ad2552222c6b26bc fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0003] OK  rv66b8189ee1aa4ac5843c3d6bbacc27c2 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0004] OK  rv1cf4f05f3f0f4a43a8cbfe4c1c34db86 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0005] OK  rv39895fa0950a4ad683d30eaf557f0c70 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0006] OK  rvb914326f3df34b609325d9929bdc7aae fashion=True tpo=True q=5 lang=mixed noise=none fm=['pii_leak']
+[0007] OK  rv76e19dcac8264d268e35ec7875f9cd59 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0008] OK  rv860070d7f97c4f26b6c19b70450bb39f fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0009] OK  rve9e4c6d644f24135aa2205ed1bf52833 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0010] OK  rv667576297bf2471290fe66438af23235 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0011] OK  rv04477662018d46fa85b8b590996cf7b4 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0012] OK  rvfbb06fad487e4ab28c9ca7fa83dbc561 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0013] OK  rv2bbed1e70cc84e1a82c7d71b4985675d fashion=True tpo=False q=3 lang=mixed noise=none fm=[]
+[0014] OK  rv0ec9f8744e964cdda8552ac8feba889f fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0015] OK  rv4f9005ad95e24c4bafcedf0f17564e22 fashion=True tpo=True q=4 lang=mixed noise=none fm=['pii_leak']
+[0016] OK  rv8e88a175ebb5467c97e7b1a54f8c0edd fashion=True tpo=True q=5 lang=ko noise=none fm=['pii_leak']
+[0017] OK  rv7fd07523bc6240b7947654374c705625 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0018] OK  rv2eea38af481b41538da8b09cad8c54ac fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0019] OK  rve16663ea7ab74b40bb0589627465f5a6 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0020] OK  rv7fcae603ad1f4838aed07988499b7574 fashion=True tpo=True q=4 lang=mixed noise=low fm=['pii_leak']
+[0021] OK  rvd2367a7a5e754ca18fda69b04a9a7f23 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0022] OK  rv8850819f73274034a02cb3573fd501d6 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0023] OK  rv6ecdfdad11de46478ae83ec08269d669 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0024] OK  rv9d40d30affec4773bc2005ecfd85c3f3 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0025] OK  rv6b836c29e3ef46698cec7948e711e72d fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0026] OK  rv8d5bd04cf6974bd79c03cf5707afcebb fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0027] OK  rv8f44b51eaaeb4f84859bfca36aa020ab fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0028] OK  rv087c7778a1e946a3960b6a705d98f36f fashion=True tpo=True q=4 lang=mixed noise=none fm=[]
+[0029] OK  rv5ba1df05359e49aea7bc5aec9a67beb9 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0030] OK  rv0751256a20524d7db91cfd1b081c880e fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0031] OK  rv13d71c043298441f9de7c430af580058 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0032] OK  rva1453a85a8224577b127f1f9701c3dac fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0033] OK  rv7a26775815e040e394c253ae12398bda fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0034] OK  rv579be56403064a1eb2fc25adaaf35072 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0035] OK  rv2f4271c661484686bd20a6bdeacc1e7b fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0036] OK  rv37e7163fe6b14288b493c88abf0cdc1b fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0037] OK  rv33f42d9d582f42a8828bfa59644a88d2 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0038] OK  rvc3dd400733cf4ca8ab61236491d59fb6 fashion=True tpo=True q=3 lang=ko noise=none fm=['pii_leak']
+[0039] OK  rv2c6e8958a6124874b4112277b33f9fdd fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0040] OK  rv1013553c502440d3aa92caec0c4075c0 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0041] OK  rv0b80f3b8046348629d2a8af64da8c725 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0042] OK  rv0fae6d1dc0974445bfbdb1b638f067b4 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0043] OK  rvdf421492938b44eabfbc9b903567a808 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0044] OK  rv0bd2b963a4414d99b7b14c6c9d984ca3 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0045] OK  rv9ec62228d0ca4361994b9721ad4fb571 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0046] OK  rv6e29cf64cc054a218073d7df81cad413 fashion=True tpo=True q=4 lang=ko noise=low fm=['pii_leak']
+[0047] OK  rv60bdd0aeb11f4f62a86f502e91e406ab fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0048] OK  rv5d9b3314ca9b418dbdb1dd259d7ce605 fashion=True tpo=True q=3 lang=ko noise=none fm=['pii_leak']
+[0049] OK  rv0a6b3f5aeef342fba0d66c33affd7d97 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0050] OK  rv6171a50e58fb484c83eb86c8f82893b3 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+
+[done] ok=50 fail=0 time=86.4s
+  judge.jsonl: /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_2:glm] end rc=0 ---
+[stage_1_2:glm] DONE in 87.1s
+[stage_1_2:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_12_combo_all_plus_rating_sampler__qwen3 --tag iter_12_combo_all_plus_rating_sampler__qwen3 --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl
+--- [stage_1_2:deepseek] begin ---
+[stage_1_2 judge] run_id=iter_12_combo_all_plus_rating_sampler__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek
+[0001] OK  rvab4fa674b32e4036a5574e4cc5922f98 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0002] OK  rva73b4fa9c02f4720ad2552222c6b26bc fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0003] OK  rv66b8189ee1aa4ac5843c3d6bbacc27c2 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0004] OK  rv1cf4f05f3f0f4a43a8cbfe4c1c34db86 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0005] OK  rv39895fa0950a4ad683d30eaf557f0c70 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0006] OK  rvb914326f3df34b609325d9929bdc7aae fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0007] OK  rv76e19dcac8264d268e35ec7875f9cd59 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0008] OK  rv860070d7f97c4f26b6c19b70450bb39f fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0009] OK  rve9e4c6d644f24135aa2205ed1bf52833 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0010] OK  rv667576297bf2471290fe66438af23235 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0011] OK  rv04477662018d46fa85b8b590996cf7b4 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0012] OK  rvfbb06fad487e4ab28c9ca7fa83dbc561 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0013] OK  rv2bbed1e70cc84e1a82c7d71b4985675d fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0014] OK  rv0ec9f8744e964cdda8552ac8feba889f fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0015] OK  rv4f9005ad95e24c4bafcedf0f17564e22 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0016] OK  rv8e88a175ebb5467c97e7b1a54f8c0edd fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0017] OK  rv7fd07523bc6240b7947654374c705625 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0018] OK  rv2eea38af481b41538da8b09cad8c54ac fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0019] OK  rve16663ea7ab74b40bb0589627465f5a6 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0020] OK  rv7fcae603ad1f4838aed07988499b7574 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0021] OK  rvd2367a7a5e754ca18fda69b04a9a7f23 fashion=True tpo=True q=2 lang=ko noise=none fm=['non_fashion_item']
+[0022] OK  rv8850819f73274034a02cb3573fd501d6 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0023] OK  rv6ecdfdad11de46478ae83ec08269d669 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0024] OK  rv9d40d30affec4773bc2005ecfd85c3f3 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0025] OK  rv6b836c29e3ef46698cec7948e711e72d fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0026] OK  rv8d5bd04cf6974bd79c03cf5707afcebb fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0027] OK  rv8f44b51eaaeb4f84859bfca36aa020ab fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0028] OK  rv087c7778a1e946a3960b6a705d98f36f fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0029] OK  rv5ba1df05359e49aea7bc5aec9a67beb9 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0030] OK  rv0751256a20524d7db91cfd1b081c880e fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0031] OK  rv13d71c043298441f9de7c430af580058 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0032] OK  rva1453a85a8224577b127f1f9701c3dac fashion=True tpo=True q=3 lang=ko noise=none fm=['non_fashion_item']
+[0033] OK  rv7a26775815e040e394c253ae12398bda fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0034] OK  rv579be56403064a1eb2fc25adaaf35072 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0035] OK  rv2f4271c661484686bd20a6bdeacc1e7b fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0036] OK  rv37e7163fe6b14288b493c88abf0cdc1b fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0037] OK  rv33f42d9d582f42a8828bfa59644a88d2 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0038] OK  rvc3dd400733cf4ca8ab61236491d59fb6 fashion=True tpo=True q=3 lang=ko noise=none fm=['pii_leak']
+[0039] OK  rv2c6e8958a6124874b4112277b33f9fdd fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0040] OK  rv1013553c502440d3aa92caec0c4075c0 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0041] OK  rv0b80f3b8046348629d2a8af64da8c725 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0042] OK  rv0fae6d1dc0974445bfbdb1b638f067b4 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0043] OK  rvdf421492938b44eabfbc9b903567a808 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0044] OK  rv0bd2b963a4414d99b7b14c6c9d984ca3 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0045] OK  rv9ec62228d0ca4361994b9721ad4fb571 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0046] OK  rv6e29cf64cc054a218073d7df81cad413 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0047] OK  rv60bdd0aeb11f4f62a86f502e91e406ab fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0048] OK  rv5d9b3314ca9b418dbdb1dd259d7ce605 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0049] OK  rv0a6b3f5aeef342fba0d66c33affd7d97 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0050] OK  rv6171a50e58fb484c83eb86c8f82893b3 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+
+[done] ok=50 fail=0 time=186.7s
+  judge.jsonl: /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_2:deepseek] end rc=0 ---
+[stage_1_2:deepseek] DONE in 187.4s
+--- [stage_1_1:deepseek] begin ---
+[stage_1_1 judge] run_id=iter_12_combo_all_plus_rating_sampler__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek
+[0001] OK  rvab4fa674b32e4036a5574e4cc5922f98 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0002] OK  rva73b4fa9c02f4720ad2552222c6b26bc fash=False tspec=True tleak=False nat=5 persona=5 fm=['non_fashion_item', 'title_format_violation', 'missing_tpo']
+[0003] OK  rv66b8189ee1aa4ac5843c3d6bbacc27c2 fash=True tspec=True tleak=False nat=4 persona=1 fm=['title_format_violation', 'persona_drift']
+[0004] OK  rv1cf4f05f3f0f4a43a8cbfe4c1c34db86 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0005] OK  rv39895fa0950a4ad683d30eaf557f0c70 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0006] OK  rvb914326f3df34b609325d9929bdc7aae fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'language_issue']
+[0007] OK  rv76e19dcac8264d268e35ec7875f9cd59 fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0008] OK  rv860070d7f97c4f26b6c19b70450bb39f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0009] OK  rve9e4c6d644f24135aa2205ed1bf52833 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0010] OK  rv667576297bf2471290fe66438af23235 fash=True tspec=False tleak=False nat=4 persona=4 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0011] OK  rv04477662018d46fa85b8b590996cf7b4 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_format_violation', 'title_length_violation', 'attr_ungrounded']
+[0012] OK  rvfbb06fad487e4ab28c9ca7fa83dbc561 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'non_fashion_item']
+[0013] OK  rv2bbed1e70cc84e1a82c7d71b4985675d fash=True tspec=True tleak=False nat=3 persona=4 fm=['attr_ungrounded', 'attr_mono_value', 'non_fashion_item']
+[0014] OK  rv0ec9f8744e964cdda8552ac8feba889f fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_format_violation', 'title_length_violation', 'attr_ungrounded']
+[0015] OK  rv4f9005ad95e24c4bafcedf0f17564e22 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0016] OK  rv8e88a175ebb5467c97e7b1a54f8c0edd fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0017] OK  rv7fd07523bc6240b7947654374c705625 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0018] OK  rv2eea38af481b41538da8b09cad8c54ac fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0019] OK  rve16663ea7ab74b40bb0589627465f5a6 fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0020] OK  rv7fcae603ad1f4838aed07988499b7574 fash=True tspec=True tleak=False nat=4 persona=5 fm=['attr_ungrounded']
+[0021] OK  rvd2367a7a5e754ca18fda69b04a9a7f23 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0022] OK  rv8850819f73274034a02cb3573fd501d6 fash=False tspec=False tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_length_violation', 'title_format_violation', 'missing_tpo']
+[0023] OK  rv6ecdfdad11de46478ae83ec08269d669 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0024] OK  rv9d40d30affec4773bc2005ecfd85c3f3 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'persona_drift']
+[0025] OK  rv6b836c29e3ef46698cec7948e711e72d fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0026] OK  rv8d5bd04cf6974bd79c03cf5707afcebb fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0027] OK  rv8f44b51eaaeb4f84859bfca36aa020ab fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0028] OK  rv087c7778a1e946a3960b6a705d98f36f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0029] OK  rv5ba1df05359e49aea7bc5aec9a67beb9 fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0030] OK  rv0751256a20524d7db91cfd1b081c880e fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0031] OK  rv13d71c043298441f9de7c430af580058 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'non_fashion_item']
+[0032] OK  rva1453a85a8224577b127f1f9701c3dac fash=False tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'non_fashion_item', 'attr_ungrounded', 'missing_tpo']
+[0033] OK  rv7a26775815e040e394c253ae12398bda fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0034] OK  rv579be56403064a1eb2fc25adaaf35072 fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_format_violation', 'attr_ungrounded', 'missing_tpo']
+[0035] OK  rv2f4271c661484686bd20a6bdeacc1e7b fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0036] OK  rv37e7163fe6b14288b493c88abf0cdc1b fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0037] OK  rv33f42d9d582f42a8828bfa59644a88d2 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'attr_ungrounded', 'attr_mono_value']
+[0038] OK  rvc3dd400733cf4ca8ab61236491d59fb6 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'missing_tpo']
+[0039] OK  rv2c6e8958a6124874b4112277b33f9fdd fash=False tspec=True tleak=False nat=5 persona=5 fm=['non_fashion_item', 'title_format_violation', 'attr_ungrounded']
+[0040] OK  rv1013553c502440d3aa92caec0c4075c0 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'missing_tpo']
+[0041] OK  rv0b80f3b8046348629d2a8af64da8c725 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0042] OK  rv0fae6d1dc0974445bfbdb1b638f067b4 fash=True tspec=False tleak=True nat=5 persona=5 fm=['title_reasoning_leak', 'title_length_violation']
+[0043] OK  rvdf421492938b44eabfbc9b903567a808 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'missing_tpo']
+[0044] OK  rv0bd2b963a4414d99b7b14c6c9d984ca3 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'missing_tpo']
+[0045] OK  rv9ec62228d0ca4361994b9721ad4fb571 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'title_length_violation', 'attr_ungrounded']
+[0046] OK  rv6e29cf64cc054a218073d7df81cad413 fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0047] OK  rv60bdd0aeb11f4f62a86f502e91e406ab fash=True tspec=False tleak=True nat=3 persona=2 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation', 'attr_ungrounded', 'persona_drift', 'missing_tpo']
+[0048] OK  rv5d9b3314ca9b418dbdb1dd259d7ce605 fash=True tspec=True tleak=False nat=4 persona=5 fm=['attr_ungrounded']
+[0049] OK  rv0a6b3f5aeef342fba0d66c33affd7d97 fash=True tspec=True tleak=False nat=4 persona=5 fm=['attr_ungrounded']
+[0050] OK  rv6171a50e58fb484c83eb86c8f82893b3 fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+
+[stage_1_1 judge] ok=50 fail=0 duration=341.3s -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/report.md
+--- [stage_1_1:deepseek] end rc=0 ---
+[stage_1_1:deepseek] DONE in 342.0s
+--- [stage_1_1:qwen3] begin ---
+[stage_1_1 judge] run_id=iter_12_combo_all_plus_rating_sampler__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3
+[0001] OK  rvab4fa674b32e4036a5574e4cc5922f98 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0002] OK  rva73b4fa9c02f4720ad2552222c6b26bc fash=False tspec=True tleak=False nat=5 persona=5 fm=['non_fashion_item', 'title_format_violation', 'attr_ungrounded', 'attr_mono_value']
+[0003] OK  rv66b8189ee1aa4ac5843c3d6bbacc27c2 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0004] OK  rv1cf4f05f3f0f4a43a8cbfe4c1c34db86 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0005] OK  rv39895fa0950a4ad683d30eaf557f0c70 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0006] OK  rvb914326f3df34b609325d9929bdc7aae fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0007] OK  rv76e19dcac8264d268e35ec7875f9cd59 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0008] OK  rv860070d7f97c4f26b6c19b70450bb39f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0009] OK  rve9e4c6d644f24135aa2205ed1bf52833 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0010] OK  rv667576297bf2471290fe66438af23235 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded', 'rating_sentiment_mismatch']
+[0011] OK  rv04477662018d46fa85b8b590996cf7b4 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0012] OK  rvfbb06fad487e4ab28c9ca7fa83dbc561 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0013] OK  rv2bbed1e70cc84e1a82c7d71b4985675d fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded', 'attr_mono_value']
+[0014] OK  rv0ec9f8744e964cdda8552ac8feba889f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0015] OK  rv4f9005ad95e24c4bafcedf0f17564e22 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0016] OK  rv8e88a175ebb5467c97e7b1a54f8c0edd fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0017] OK  rv7fd07523bc6240b7947654374c705625 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0018] OK  rv2eea38af481b41538da8b09cad8c54ac fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0019] OK  rve16663ea7ab74b40bb0589627465f5a6 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0020] OK  rv7fcae603ad1f4838aed07988499b7574 fash=True tspec=True tleak=False nat=4 persona=5 fm=['attr_ungrounded']
+[0021] OK  rvd2367a7a5e754ca18fda69b04a9a7f23 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0022] OK  rv8850819f73274034a02cb3573fd501d6 fash=False tspec=False tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0023] OK  rv6ecdfdad11de46478ae83ec08269d669 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0024] OK  rv9d40d30affec4773bc2005ecfd85c3f3 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0025] OK  rv6b836c29e3ef46698cec7948e711e72d fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0026] OK  rv8d5bd04cf6974bd79c03cf5707afcebb fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0027] OK  rv8f44b51eaaeb4f84859bfca36aa020ab fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0028] OK  rv087c7778a1e946a3960b6a705d98f36f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0029] OK  rv5ba1df05359e49aea7bc5aec9a67beb9 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0030] OK  rv0751256a20524d7db91cfd1b081c880e fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0031] OK  rv13d71c043298441f9de7c430af580058 fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0032] OK  rva1453a85a8224577b127f1f9701c3dac fash=False tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation', 'attr_ungrounded', 'attr_mono_value', 'non_fashion_item', 'missing_tpo']
+[0033] OK  rv7a26775815e040e394c253ae12398bda fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0034] OK  rv579be56403064a1eb2fc25adaaf35072 fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_format_violation', 'attr_ungrounded']
+[0035] OK  rv2f4271c661484686bd20a6bdeacc1e7b fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0036] OK  rv37e7163fe6b14288b493c88abf0cdc1b fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0037] OK  rv33f42d9d582f42a8828bfa59644a88d2 fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation', 'attr_ungrounded', 'attr_mono_value', 'length_violation']
+[0038] OK  rvc3dd400733cf4ca8ab61236491d59fb6 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0039] OK  rv2c6e8958a6124874b4112277b33f9fdd fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_format_violation', 'attr_ungrounded', 'attr_mono_value']
+[0040] OK  rv1013553c502440d3aa92caec0c4075c0 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0041] OK  rv0b80f3b8046348629d2a8af64da8c725 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0042] OK  rv0fae6d1dc0974445bfbdb1b638f067b4 fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation']
+[0043] OK  rvdf421492938b44eabfbc9b903567a808 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0044] OK  rv0bd2b963a4414d99b7b14c6c9d984ca3 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0045] OK  rv9ec62228d0ca4361994b9721ad4fb571 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0046] OK  rv6e29cf64cc054a218073d7df81cad413 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0047] OK  rv60bdd0aeb11f4f62a86f502e91e406ab fash=True tspec=False tleak=False nat=4 persona=3 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded', 'rating_sentiment_mismatch']
+[0048] OK  rv5d9b3314ca9b418dbdb1dd259d7ce605 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0049] OK  rv0a6b3f5aeef342fba0d66c33affd7d97 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0050] OK  rv6171a50e58fb484c83eb86c8f82893b3 fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+
+[stage_1_1 judge] ok=50 fail=0 duration=370.6s -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/report.md
+--- [stage_1_1:qwen3] end rc=0 ---
+[stage_1_1:qwen3] DONE in 371.3s
+Connection failed, checking instance status...
+2026/04/22 05:01:40 external nodes: skipping (list failed): not_found: not found
+[K
+⣷ waiting for SSH connection to be available [K
+⣯ waiting for SSH connection to be available [K
+⣟ waiting for SSH connection to be available [K
+⡿ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣾ waiting for SSH connection to be available [K
+⣷ waiting for SSH connection to be available [K
+⣯ waiting for SSH connection to be available [K
+⣟ waiting for SSH connection to be available [K
+⡿ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣾ waiting for SSH connection to be available [K
+⣷ waiting for SSH connection to be available [K
+⣯ waiting for SSH connection to be available [K
+⣟ waiting for SSH connection to be available [K
+⡿ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K[tri_judge] output_dir=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output  stage_data_root=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval
+            judge_raw_dir=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/judge_raw  metrics_out=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/judge_metrics.json
+            stages=['stage_1_0', 'stage_1_1', 'stage_1_1_5', 'stage_1_2']  pairs=12  max_workers=4  run_id=iter_12_combo_all_plus_rating_sampler
+[stage_1_0:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_12_combo_all_plus_rating_sampler__glm --tag iter_12_combo_all_plus_rating_sampler__glm --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl --stage-override stage_1_0
+[stage_1_0:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_12_combo_all_plus_rating_sampler__deepseek --tag iter_12_combo_all_plus_rating_sampler__deepseek --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl --stage-override stage_1_0
+[stage_1_0:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_12_combo_all_plus_rating_sampler__qwen3 --tag iter_12_combo_all_plus_rating_sampler__qwen3 --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_0_seed.jsonl --stage-override stage_1_0
+[stage_1_1:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_12_combo_all_plus_rating_sampler__glm --tag iter_12_combo_all_plus_rating_sampler__glm --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl
+--- [stage_1_0:glm] begin ---
+[stage_1_2 judge] run_id=iter_12_combo_all_plus_rating_sampler__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__glm
+[0001] OK  seed_00000 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0002] OK  seed_00001 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0003] OK  seed_00002 fashion=False tpo=False q=1 lang=ko noise=low fm=['non_fashion_item']
+[0004] OK  seed_00003 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0005] OK  seed_00004 fashion=True tpo=False q=2 lang=ko noise=low fm=['too_short']
+[0006] OK  seed_00005 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0007] OK  seed_00006 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item']
+[0008] OK  seed_00007 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item']
+[0009] OK  seed_00008 fashion=True tpo=False q=2 lang=ko noise=none fm=[]
+[0010] OK  seed_00009 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0011] OK  seed_00010 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0012] OK  seed_00011 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0013] OK  seed_00012 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0014] OK  seed_00013 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0015] OK  seed_00014 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0016] OK  seed_00015 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0017] OK  seed_00016 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0018] OK  seed_00017 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0019] OK  seed_00018 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0020] OK  seed_00019 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0021] OK  seed_00020 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item']
+[0022] OK  seed_00021 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0023] OK  seed_00022 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0024] OK  seed_00023 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0025] OK  seed_00024 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0026] OK  seed_00025 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0027] OK  seed_00026 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0028] OK  seed_00027 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0029] OK  seed_00028 fashion=True tpo=False q=2 lang=ko noise=low fm=['too_short']
+[0030] OK  seed_00029 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0031] OK  seed_00030 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0032] OK  seed_00031 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0033] OK  seed_00032 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0034] OK  seed_00033 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0035] OK  seed_00034 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0036] OK  seed_00035 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0037] OK  seed_00036 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0038] OK  seed_00037 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0039] OK  seed_00038 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0040] OK  seed_00039 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0041] OK  seed_00040 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0042] OK  seed_00041 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0043] OK  seed_00042 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0044] OK  seed_00043 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0045] OK  seed_00044 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0046] OK  seed_00045 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0047] OK  seed_00046 fashion=True tpo=False q=2 lang=ko noise=low fm=['too_short']
+[0048] OK  seed_00047 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0049] OK  seed_00048 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0050] OK  seed_00049 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+
+[done] ok=50 fail=0 time=139.1s
+  judge.jsonl: /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_0:glm] end rc=0 ---
+[stage_1_0:glm] DONE in 139.7s
+[stage_1_1:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_12_combo_all_plus_rating_sampler__deepseek --tag iter_12_combo_all_plus_rating_sampler__deepseek --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl
+--- [stage_1_0:qwen3] begin ---
+[stage_1_2 judge] run_id=iter_12_combo_all_plus_rating_sampler__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3
+[0001] OK  seed_00000 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0002] OK  seed_00001 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0003] OK  seed_00002 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item', 'noise_text']
+[0004] OK  seed_00003 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0005] OK  seed_00004 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item', 'too_short']
+[0006] OK  seed_00005 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0007] OK  seed_00006 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item', 'too_short']
+[0008] OK  seed_00007 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0009] OK  seed_00008 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0010] OK  seed_00009 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0011] OK  seed_00010 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0012] OK  seed_00011 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item', 'too_short']
+[0013] OK  seed_00012 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0014] OK  seed_00013 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0015] OK  seed_00014 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0016] OK  seed_00015 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0017] OK  seed_00016 fashion=True tpo=True q=1 lang=ko noise=none fm=[]
+[0018] OK  seed_00017 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0019] OK  seed_00018 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0020] OK  seed_00019 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0021] OK  seed_00020 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item', 'too_short']
+[0022] OK  seed_00021 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0023] OK  seed_00022 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0024] OK  seed_00023 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0025] OK  seed_00024 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0026] OK  seed_00025 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0027] OK  seed_00026 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0028] OK  seed_00027 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0029] OK  seed_00028 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item', 'too_short']
+[0030] OK  seed_00029 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0031] OK  seed_00030 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0032] OK  seed_00031 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0033] OK  seed_00032 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0034] OK  seed_00033 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0035] OK  seed_00034 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0036] OK  seed_00035 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0037] OK  seed_00036 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0038] OK  seed_00037 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0039] OK  seed_00038 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0040] OK  seed_00039 fashion=False tpo=False q=1 lang=ko noise=none fm=['non_fashion游戏副本', 'too_short']
+[0041] OK  seed_00040 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0042] OK  seed_00041 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0043] OK  seed_00042 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0044] OK  seed_00043 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0045] OK  seed_00044 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0046] OK  seed_00045 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0047] OK  seed_00046 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0048] OK  seed_00047 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0049] OK  seed_00048 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0050] OK  seed_00049 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+
+[done] ok=50 fail=0 time=168.2s
+  judge.jsonl: /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_0:qwen3] end rc=0 ---
+[stage_1_0:qwen3] DONE in 168.9s
+[stage_1_1:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_12_combo_all_plus_rating_sampler__qwen3 --tag iter_12_combo_all_plus_rating_sampler__qwen3 --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl
+--- [stage_1_0:deepseek] begin ---
+[stage_1_2 judge] run_id=iter_12_combo_all_plus_rating_sampler__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek
+[0001] OK  seed_00000 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0002] OK  seed_00001 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0003] OK  seed_00002 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0004] OK  seed_00003 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0005] OK  seed_00004 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0006] OK  seed_00005 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0007] OK  seed_00006 fashion=True tpo=True q=2 lang=ko noise=low fm=['non_fashion_item']
+[0008] OK  seed_00007 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0009] OK  seed_00008 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0010] OK  seed_00009 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0011] OK  seed_00010 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0012] OK  seed_00011 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0013] OK  seed_00012 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0014] OK  seed_00013 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0015] OK  seed_00014 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0016] OK  seed_00015 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0017] OK  seed_00016 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0018] OK  seed_00017 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0019] OK  seed_00018 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0020] OK  seed_00019 fashion=True tpo=False q=2 lang=ko noise=low fm=['too_short']
+[0021] OK  seed_00020 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0022] OK  seed_00021 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0023] OK  seed_00022 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0024] OK  seed_00023 fashion=True tpo=True q=2 lang=ko noise=low fm=['non_fashion_item']
+[0025] OK  seed_00024 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0026] OK  seed_00025 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0027] OK  seed_00026 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0028] OK  seed_00027 fashion=True tpo=True q=3 lang=ko noise=none fm=['too_short']
+[0029] OK  seed_00028 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0030] OK  seed_00029 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0031] OK  seed_00030 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0032] OK  seed_00031 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0033] OK  seed_00032 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0034] OK  seed_00033 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0035] OK  seed_00034 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0036] OK  seed_00035 fashion=True tpo=True q=3 lang=ko noise=none fm=['too_short']
+[0037] OK  seed_00036 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0038] OK  seed_00037 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0039] OK  seed_00038 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0040] OK  seed_00039 fashion=True tpo=True q=2 lang=ko noise=none fm=['non_fashion_item']
+[0041] OK  seed_00040 fashion=True tpo=True q=3 lang=ko noise=low fm=['too_short']
+[0042] OK  seed_00041 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0043] OK  seed_00042 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0044] OK  seed_00043 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0045] OK  seed_00044 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0046] OK  seed_00045 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0047] OK  seed_00046 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0048] OK  seed_00047 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0049] OK  seed_00048 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0050] OK  seed_00049 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+
+[done] ok=50 fail=0 time=210.2s
+  judge.jsonl: /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_0/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_0:deepseek] end rc=0 ---
+[stage_1_0:deepseek] DONE in 210.9s
+[stage_1_1_5:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_12_combo_all_plus_rating_sampler__glm --tag iter_12_combo_all_plus_rating_sampler__glm --before /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl
+--- [stage_1_1_5:glm] begin ---
+[stage_1_1_5 judge] run_id=iter_12_combo_all_plus_rating_sampler__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  before=50 after=50 (prompt will show 50 / 50)
+
+[stage_1_1_5 judge] reduction=0.0 miss=5 (0.1) groups=5 largest=2 -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1_5/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/report.md
+--- [stage_1_1_5:glm] end rc=0 ---
+[stage_1_1_5:glm] DONE in 7.6s
+[stage_1_1_5:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_12_combo_all_plus_rating_sampler__deepseek --tag iter_12_combo_all_plus_rating_sampler__deepseek --before /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl
+--- [stage_1_1_5:deepseek] begin ---
+[stage_1_1_5 judge] run_id=iter_12_combo_all_plus_rating_sampler__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  before=50 after=50 (prompt will show 50 / 50)
+
+[stage_1_1_5 judge] reduction=0.0 miss=10 (0.2) groups=10 largest=2 -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1_5/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/report.md
+--- [stage_1_1_5:deepseek] end rc=0 ---
+[stage_1_1_5:deepseek] DONE in 18.7s
+[stage_1_1_5:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_12_combo_all_plus_rating_sampler__qwen3 --tag iter_12_combo_all_plus_rating_sampler__qwen3 --before /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_5_deduped.jsonl
+--- [stage_1_1_5:qwen3] begin ---
+[stage_1_1_5 judge] run_id=iter_12_combo_all_plus_rating_sampler__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  before=50 after=50 (prompt will show 50 / 50)
+
+[stage_1_1_5 judge] reduction=0.0 miss=2 (0.04) groups=2 largest=2 -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1_5/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/report.md
+--- [stage_1_1_5:qwen3] end rc=0 ---
+[stage_1_1_5:qwen3] DONE in 10.2s
+[stage_1_2:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_12_combo_all_plus_rating_sampler__glm --tag iter_12_combo_all_plus_rating_sampler__glm --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl
+--- [stage_1_1:glm] begin ---
+[stage_1_1 judge] run_id=iter_12_combo_all_plus_rating_sampler__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__glm
+[0001] OK  rvab4fa674b32e4036a5574e4cc5922f98 fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_format_violation', 'title_length_violation', 'attr_ungrounded']
+[0002] OK  rva73b4fa9c02f4720ad2552222c6b26bc fash=False tspec=True tleak=False nat=4 persona=4 fm=['non_fashion_item', 'title_format_violation']
+[0003] OK  rv66b8189ee1aa4ac5843c3d6bbacc27c2 fash=True tspec=False tleak=False nat=2 persona=3 fm=['title_format_violation', 'language_issue']
+[0004] OK  rv1cf4f05f3f0f4a43a8cbfe4c1c34db86 fash=True tspec=False tleak=False nat=2 persona=5 fm=['title_format_violation', 'title_length_violation', 'attr_ungrounded', 'language_issue']
+[0005] OK  rv39895fa0950a4ad683d30eaf557f0c70 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0006] OK  rvb914326f3df34b609325d9929bdc7aae fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_format_violation', 'title_length_violation', 'language_issue']
+[0007] OK  rv76e19dcac8264d268e35ec7875f9cd59 fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0008] OK  rv860070d7f97c4f26b6c19b70450bb39f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0009] OK  rve9e4c6d644f24135aa2205ed1bf52833 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0010] OK  rv667576297bf2471290fe66438af23235 fash=True tspec=False tleak=False nat=5 persona=4 fm=['title_format_violation', 'title_length_violation', 'rating_sentiment_mismatch']
+[0011] OK  rv04477662018d46fa85b8b590996cf7b4 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0012] OK  rvfbb06fad487e4ab28c9ca7fa83dbc561 fash=True tspec=False tleak=True nat=3 persona=5 fm=['title_reasoning_leak', 'title_format_violation', 'title_length_violation']
+[0013] OK  rv2bbed1e70cc84e1a82c7d71b4985675d fash=True tspec=False tleak=False nat=2 persona=4 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded', 'language_issue']
+[0014] OK  rv0ec9f8744e964cdda8552ac8feba889f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_format_violation', 'title_length_violation']
+[0015] OK  rv4f9005ad95e24c4bafcedf0f17564e22 fash=True tspec=True tleak=False nat=3 persona=5 fm=['language_issue']
+[0016] OK  rv8e88a175ebb5467c97e7b1a54f8c0edd fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0017] OK  rv7fd07523bc6240b7947654374c705625 fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0018] OK  rv2eea38af481b41538da8b09cad8c54ac fash=True tspec=False tleak=False nat=3 persona=4 fm=['title_length_violation', 'title_format_violation']
+[0019] OK  rve16663ea7ab74b40bb0589627465f5a6 fash=True tspec=True tleak=False nat=3 persona=5 fm=['attr_ungrounded']
+[0020] OK  rv7fcae603ad1f4838aed07988499b7574 fash=True tspec=False tleak=False nat=2 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'language_issue']
+[0021] OK  rvd2367a7a5e754ca18fda69b04a9a7f23 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0022] OK  rv8850819f73274034a02cb3573fd501d6 fash=False tspec=False tleak=False nat=3 persona=4 fm=['non_fashion_item', 'title_format_violation', 'title_length_violation']
+[0023] OK  rv6ecdfdad11de46478ae83ec08269d669 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0024] OK  rv9d40d30affec4773bc2005ecfd85c3f3 fash=True tspec=False tleak=False nat=3 persona=4 fm=['title_format_violation', 'title_length_violation']
+[0025] OK  rv6b836c29e3ef46698cec7948e711e72d fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0026] OK  rv8d5bd04cf6974bd79c03cf5707afcebb fash=True tspec=True tleak=False nat=3 persona=4 fm=['attr_ungrounded']
+[0027] OK  rv8f44b51eaaeb4f84859bfca36aa020ab fash=True tspec=True tleak=False nat=3 persona=4 fm=[]
+[0028] OK  rv087c7778a1e946a3960b6a705d98f36f fash=True tspec=False tleak=True nat=4 persona=4 fm=['title_reasoning_leak', 'title_format_violation', 'attr_ungrounded']
+[0029] OK  rv5ba1df05359e49aea7bc5aec9a67beb9 fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0030] OK  rv0751256a20524d7db91cfd1b081c880e fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_format_violation', 'attr_ungrounded']
+[0031] OK  rv13d71c043298441f9de7c430af580058 fash=True tspec=False tleak=False nat=2 persona=5 fm=['title_format_violation', 'title_length_violation', 'non_fashion_item', 'persona_drift']
+[0032] OK  rva1453a85a8224577b127f1f9701c3dac fash=False tspec=False tleak=True nat=2 persona=3 fm=['non_fashion_item', 'title_reasoning_leak', 'title_format_violation', 'title_length_violation', 'persona_drift', 'missing_tpo', 'attr_ungrounded']
+[0033] OK  rv7a26775815e040e394c253ae12398bda fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_format_violation', 'title_length_violation', 'attr_ungrounded', 'persona_drift', 'language_issue']
+[0034] OK  rv579be56403064a1eb2fc25adaaf35072 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0035] OK  rv2f4271c661484686bd20a6bdeacc1e7b fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0036] OK  rv37e7163fe6b14288b493c88abf0cdc1b fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0037] OK  rv33f42d9d582f42a8828bfa59644a88d2 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0038] OK  rvc3dd400733cf4ca8ab61236491d59fb6 fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_length_violation', 'title_format_violation', 'persona_drift', 'language_issue']
+[0039] OK  rv2c6e8958a6124874b4112277b33f9fdd fash=False tspec=False tleak=False nat=3 persona=2 fm=['non_fashion_item', 'title_format_violation', 'title_length_violation', 'persona_drift']
+[0040] OK  rv1013553c502440d3aa92caec0c4075c0 fash=True tspec=False tleak=False nat=2 persona=4 fm=['title_format_violation', 'attr_ungrounded', 'length_violation', 'language_issue']
+[0041] OK  rv0b80f3b8046348629d2a8af64da8c725 fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_length_violation', 'title_format_violation', 'persona_drift']
+[0042] OK  rv0fae6d1dc0974445bfbdb1b638f067b4 fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation']
+[0043] OK  rvdf421492938b44eabfbc9b903567a808 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0044] OK  rv0bd2b963a4414d99b7b14c6c9d984ca3 fash=True tspec=True tleak=False nat=3 persona=4 fm=['title_format_violation']
+[0045] OK  rv9ec62228d0ca4361994b9721ad4fb571 fash=True tspec=False tleak=False nat=2 persona=1 fm=['title_format_violation', 'title_length_violation', 'language_issue']
+[0046] OK  rv6e29cf64cc054a218073d7df81cad413 fash=True tspec=False tleak=False nat=3 persona=4 fm=['title_format_violation', 'attr_ungrounded']
+[0047] OK  rv60bdd0aeb11f4f62a86f502e91e406ab fash=True tspec=False tleak=True nat=4 persona=3 fm=['title_reasoning_leak', 'title_format_violation', 'title_length_violation', 'attr_ungrounded', 'rating_sentiment_mismatch']
+[0048] OK  rv5d9b3314ca9b418dbdb1dd259d7ce605 fash=True tspec=True tleak=False nat=3 persona=5 fm=['attr_ungrounded']
+[0049] OK  rv0a6b3f5aeef342fba0d66c33affd7d97 fash=True tspec=True tleak=False nat=2 persona=3 fm=['language_issue', 'attr_ungrounded']
+[0050] OK  rv6171a50e58fb484c83eb86c8f82893b3 fash=True tspec=True tleak=False nat=3 persona=5 fm=['attr_ungrounded']
+
+[stage_1_1 judge] ok=50 fail=0 duration=276.4s -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/report.md
+--- [stage_1_1:glm] end rc=0 ---
+[stage_1_1:glm] DONE in 277.1s
+[stage_1_2:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_12_combo_all_plus_rating_sampler__deepseek --tag iter_12_combo_all_plus_rating_sampler__deepseek --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl
+--- [stage_1_2:glm] begin ---
+[stage_1_2 judge] run_id=iter_12_combo_all_plus_rating_sampler__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__glm
+[0001] OK  rvab4fa674b32e4036a5574e4cc5922f98 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0002] OK  rva73b4fa9c02f4720ad2552222c6b26bc fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0003] OK  rv66b8189ee1aa4ac5843c3d6bbacc27c2 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0004] OK  rv1cf4f05f3f0f4a43a8cbfe4c1c34db86 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0005] OK  rv39895fa0950a4ad683d30eaf557f0c70 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0006] OK  rvb914326f3df34b609325d9929bdc7aae fashion=True tpo=True q=5 lang=mixed noise=none fm=[]
+[0007] OK  rv76e19dcac8264d268e35ec7875f9cd59 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0008] OK  rv860070d7f97c4f26b6c19b70450bb39f fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0009] OK  rve9e4c6d644f24135aa2205ed1bf52833 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0010] OK  rv667576297bf2471290fe66438af23235 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0011] OK  rv04477662018d46fa85b8b590996cf7b4 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0012] OK  rvfbb06fad487e4ab28c9ca7fa83dbc561 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0013] OK  rv2bbed1e70cc84e1a82c7d71b4985675d fashion=True tpo=True q=3 lang=mixed noise=none fm=[]
+[0014] OK  rv0ec9f8744e964cdda8552ac8feba889f fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0015] OK  rv4f9005ad95e24c4bafcedf0f17564e22 fashion=True tpo=True q=4 lang=mixed noise=none fm=['pii_leak']
+[0016] OK  rv8e88a175ebb5467c97e7b1a54f8c0edd fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0017] OK  rv7fd07523bc6240b7947654374c705625 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0018] OK  rv2eea38af481b41538da8b09cad8c54ac fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0019] OK  rve16663ea7ab74b40bb0589627465f5a6 fashion=True tpo=True q=3 lang=ko noise=none fm=['pii_leak']
+[0020] OK  rv7fcae603ad1f4838aed07988499b7574 fashion=True tpo=True q=4 lang=mixed noise=low fm=['pii_leak']
+[0021] OK  rvd2367a7a5e754ca18fda69b04a9a7f23 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0022] OK  rv8850819f73274034a02cb3573fd501d6 fashion=False tpo=True q=4 lang=ko noise=none fm=['non_fashion_item', 'pii_leak']
+[0023] OK  rv6ecdfdad11de46478ae83ec08269d669 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0024] OK  rv9d40d30affec4773bc2005ecfd85c3f3 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0025] OK  rv6b836c29e3ef46698cec7948e711e72d fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0026] OK  rv8d5bd04cf6974bd79c03cf5707afcebb fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0027] OK  rv8f44b51eaaeb4f84859bfca36aa020ab fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0028] OK  rv087c7778a1e946a3960b6a705d98f36f fashion=True tpo=True q=4 lang=mixed noise=none fm=[]
+[0029] OK  rv5ba1df05359e49aea7bc5aec9a67beb9 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0030] OK  rv0751256a20524d7db91cfd1b081c880e fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0031] OK  rv13d71c043298441f9de7c430af580058 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0032] OK  rva1453a85a8224577b127f1f9701c3dac fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0033] OK  rv7a26775815e040e394c253ae12398bda fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0034] OK  rv579be56403064a1eb2fc25adaaf35072 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0035] OK  rv2f4271c661484686bd20a6bdeacc1e7b fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0036] OK  rv37e7163fe6b14288b493c88abf0cdc1b fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0037] OK  rv33f42d9d582f42a8828bfa59644a88d2 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0038] OK  rvc3dd400733cf4ca8ab61236491d59fb6 fashion=True tpo=True q=3 lang=ko noise=none fm=['pii_leak']
+[0039] OK  rv2c6e8958a6124874b4112277b33f9fdd fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0040] OK  rv1013553c502440d3aa92caec0c4075c0 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0041] OK  rv0b80f3b8046348629d2a8af64da8c725 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0042] OK  rv0fae6d1dc0974445bfbdb1b638f067b4 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0043] OK  rvdf421492938b44eabfbc9b903567a808 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0044] OK  rv0bd2b963a4414d99b7b14c6c9d984ca3 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0045] OK  rv9ec62228d0ca4361994b9721ad4fb571 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0046] OK  rv6e29cf64cc054a218073d7df81cad413 fashion=True tpo=True q=4 lang=ko noise=low fm=['pii_leak']
+[0047] OK  rv60bdd0aeb11f4f62a86f502e91e406ab fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0048] OK  rv5d9b3314ca9b418dbdb1dd259d7ce605 fashion=True tpo=True q=3 lang=ko noise=none fm=['pii_leak']
+[0049] OK  rv0a6b3f5aeef342fba0d66c33affd7d97 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0050] OK  rv6171a50e58fb484c83eb86c8f82893b3 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+
+[done] ok=50 fail=0 time=92.9s
+  judge.jsonl: /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_2:glm] end rc=0 ---
+[stage_1_2:glm] DONE in 93.5s
+[stage_1_2:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_12_combo_all_plus_rating_sampler__qwen3 --tag iter_12_combo_all_plus_rating_sampler__qwen3 --input /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_2_processed.jsonl
+--- [stage_1_2:deepseek] begin ---
+[stage_1_2 judge] run_id=iter_12_combo_all_plus_rating_sampler__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek
+[0001] OK  rvab4fa674b32e4036a5574e4cc5922f98 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0002] OK  rva73b4fa9c02f4720ad2552222c6b26bc fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0003] OK  rv66b8189ee1aa4ac5843c3d6bbacc27c2 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0004] OK  rv1cf4f05f3f0f4a43a8cbfe4c1c34db86 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0005] OK  rv39895fa0950a4ad683d30eaf557f0c70 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0006] OK  rvb914326f3df34b609325d9929bdc7aae fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0007] OK  rv76e19dcac8264d268e35ec7875f9cd59 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0008] OK  rv860070d7f97c4f26b6c19b70450bb39f fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0009] OK  rve9e4c6d644f24135aa2205ed1bf52833 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0010] OK  rv667576297bf2471290fe66438af23235 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0011] OK  rv04477662018d46fa85b8b590996cf7b4 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0012] OK  rvfbb06fad487e4ab28c9ca7fa83dbc561 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0013] OK  rv2bbed1e70cc84e1a82c7d71b4985675d fashion=True tpo=True q=4 lang=mixed noise=low fm=['language_issue']
+[0014] OK  rv0ec9f8744e964cdda8552ac8feba889f fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0015] OK  rv4f9005ad95e24c4bafcedf0f17564e22 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0016] OK  rv8e88a175ebb5467c97e7b1a54f8c0edd fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0017] OK  rv7fd07523bc6240b7947654374c705625 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0018] OK  rv2eea38af481b41538da8b09cad8c54ac fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0019] OK  rve16663ea7ab74b40bb0589627465f5a6 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0020] OK  rv7fcae603ad1f4838aed07988499b7574 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0021] OK  rvd2367a7a5e754ca18fda69b04a9a7f23 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0022] OK  rv8850819f73274034a02cb3573fd501d6 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0023] OK  rv6ecdfdad11de46478ae83ec08269d669 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0024] OK  rv9d40d30affec4773bc2005ecfd85c3f3 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0025] OK  rv6b836c29e3ef46698cec7948e711e72d fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0026] OK  rv8d5bd04cf6974bd79c03cf5707afcebb fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0027] OK  rv8f44b51eaaeb4f84859bfca36aa020ab fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0028] OK  rv087c7778a1e946a3960b6a705d98f36f fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0029] OK  rv5ba1df05359e49aea7bc5aec9a67beb9 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0030] OK  rv0751256a20524d7db91cfd1b081c880e fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0031] OK  rv13d71c043298441f9de7c430af580058 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0032] OK  rva1453a85a8224577b127f1f9701c3dac fashion=True tpo=True q=2 lang=ko noise=none fm=['non_fashion_item']
+[0033] OK  rv7a26775815e040e394c253ae12398bda fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0034] OK  rv579be56403064a1eb2fc25adaaf35072 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0035] OK  rv2f4271c661484686bd20a6bdeacc1e7b fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0036] OK  rv37e7163fe6b14288b493c88abf0cdc1b fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0037] OK  rv33f42d9d582f42a8828bfa59644a88d2 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0038] OK  rvc3dd400733cf4ca8ab61236491d59fb6 fashion=True tpo=True q=3 lang=ko noise=none fm=['pii_leak']
+[0039] OK  rv2c6e8958a6124874b4112277b33f9fdd fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0040] OK  rv1013553c502440d3aa92caec0c4075c0 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0041] OK  rv0b80f3b8046348629d2a8af64da8c725 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0042] OK  rv0fae6d1dc0974445bfbdb1b638f067b4 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0043] OK  rvdf421492938b44eabfbc9b903567a808 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0044] OK  rv0bd2b963a4414d99b7b14c6c9d984ca3 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0045] OK  rv9ec62228d0ca4361994b9721ad4fb571 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0046] OK  rv6e29cf64cc054a218073d7df81cad413 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0047] OK  rv60bdd0aeb11f4f62a86f502e91e406ab fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0048] OK  rv5d9b3314ca9b418dbdb1dd259d7ce605 fashion=True tpo=True q=3 lang=ko noise=none fm=['pii_leak']
+[0049] OK  rv0a6b3f5aeef342fba0d66c33affd7d97 fashion=True tpo=True q=4 lang=ko noise=low fm=['pii_leak']
+[0050] OK  rv6171a50e58fb484c83eb86c8f82893b3 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+
+[done] ok=50 fail=0 time=103.6s
+  judge.jsonl: /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_2:deepseek] end rc=0 ---
+[stage_1_2:deepseek] DONE in 104.3s
+--- [stage_1_1:deepseek] begin ---
+[stage_1_1 judge] run_id=iter_12_combo_all_plus_rating_sampler__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek
+[0001] OK  rvab4fa674b32e4036a5574e4cc5922f98 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'missing_tpo']
+[0002] OK  rva73b4fa9c02f4720ad2552222c6b26bc fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_format_violation', 'missing_tpo']
+[0003] OK  rv66b8189ee1aa4ac5843c3d6bbacc27c2 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'missing_tpo']
+[0004] OK  rv1cf4f05f3f0f4a43a8cbfe4c1c34db86 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0005] OK  rv39895fa0950a4ad683d30eaf557f0c70 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'missing_tpo']
+[0006] OK  rvb914326f3df34b609325d9929bdc7aae fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0007] OK  rv76e19dcac8264d268e35ec7875f9cd59 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0008] OK  rv860070d7f97c4f26b6c19b70450bb39f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0009] OK  rve9e4c6d644f24135aa2205ed1bf52833 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0010] OK  rv667576297bf2471290fe66438af23235 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'attr_ungrounded', 'missing_tpo']
+[0011] OK  rv04477662018d46fa85b8b590996cf7b4 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0012] OK  rvfbb06fad487e4ab28c9ca7fa83dbc561 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0013] OK  rv2bbed1e70cc84e1a82c7d71b4985675d fash=True tspec=True tleak=False nat=2 persona=4 fm=['attr_ungrounded', 'language_issue']
+[0014] OK  rv0ec9f8744e964cdda8552ac8feba889f fash=True tspec=False tleak=True nat=5 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0015] OK  rv4f9005ad95e24c4bafcedf0f17564e22 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0016] OK  rv8e88a175ebb5467c97e7b1a54f8c0edd fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0017] OK  rv7fd07523bc6240b7947654374c705625 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'missing_tpo']
+[0018] OK  rv2eea38af481b41538da8b09cad8c54ac fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0019] OK  rve16663ea7ab74b40bb0589627465f5a6 fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0020] OK  rv7fcae603ad1f4838aed07988499b7574 fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0021] OK  rvd2367a7a5e754ca18fda69b04a9a7f23 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0022] OK  rv8850819f73274034a02cb3573fd501d6 fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_format_violation', 'attr_ungrounded', 'missing_tpo']
+[0023] OK  rv6ecdfdad11de46478ae83ec08269d669 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0024] OK  rv9d40d30affec4773bc2005ecfd85c3f3 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'persona_drift']
+[0025] OK  rv6b836c29e3ef46698cec7948e711e72d fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'missing_tpo']
+[0026] OK  rv8d5bd04cf6974bd79c03cf5707afcebb fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0027] OK  rv8f44b51eaaeb4f84859bfca36aa020ab fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0028] OK  rv087c7778a1e946a3960b6a705d98f36f fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0029] OK  rv5ba1df05359e49aea7bc5aec9a67beb9 fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0030] OK  rv0751256a20524d7db91cfd1b081c880e fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'missing_tpo']
+[0031] OK  rv13d71c043298441f9de7c430af580058 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0032] OK  rva1453a85a8224577b127f1f9701c3dac fash=False tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation', 'non_fashion_item', 'attr_ungrounded', 'missing_tpo']
+[0033] OK  rv7a26775815e040e394c253ae12398bda fash=True tspec=True tleak=False nat=4 persona=5 fm=['attr_ungrounded']
+[0034] OK  rv579be56403064a1eb2fc25adaaf35072 fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_format_violation', 'attr_ungrounded']
+[0035] OK  rv2f4271c661484686bd20a6bdeacc1e7b fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0036] OK  rv37e7163fe6b14288b493c88abf0cdc1b fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0037] OK  rv33f42d9d582f42a8828bfa59644a88d2 fash=True tspec=False tleak=False nat=4 persona=1 fm=['title_length_violation', 'attr_ungrounded', 'attr_mono_value', 'persona_drift']
+[0038] OK  rvc3dd400733cf4ca8ab61236491d59fb6 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'missing_tpo']
+[0039] OK  rv2c6e8958a6124874b4112277b33f9fdd fash=False tspec=True tleak=False nat=5 persona=5 fm=['non_fashion_item', 'title_format_violation', 'attr_ungrounded']
+[0040] OK  rv1013553c502440d3aa92caec0c4075c0 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'missing_tpo']
+[0041] OK  rv0b80f3b8046348629d2a8af64da8c725 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0042] OK  rv0fae6d1dc0974445bfbdb1b638f067b4 fash=True tspec=False tleak=True nat=5 persona=5 fm=['title_reasoning_leak', 'title_length_violation']
+[0043] OK  rvdf421492938b44eabfbc9b903567a808 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded', 'missing_tpo']
+[0044] OK  rv0bd2b963a4414d99b7b14c6c9d984ca3 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0045] OK  rv9ec62228d0ca4361994b9721ad4fb571 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'title_length_violation', 'attr_ungrounded']
+[0046] OK  rv6e29cf64cc054a218073d7df81cad413 fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0047] OK  rv60bdd0aeb11f4f62a86f502e91e406ab fash=True tspec=False tleak=False nat=3 persona=2 fm=['title_length_violation', 'title_format_violation', 'persona_drift', 'attr_ungrounded']
+[0048] OK  rv5d9b3314ca9b418dbdb1dd259d7ce605 fash=True tspec=True tleak=False nat=4 persona=5 fm=['attr_ungrounded']
+[0049] OK  rv0a6b3f5aeef342fba0d66c33affd7d97 fash=True tspec=True tleak=False nat=3 persona=5 fm=['attr_ungrounded']
+[0050] OK  rv6171a50e58fb484c83eb86c8f82893b3 fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+
+[stage_1_1 judge] ok=50 fail=0 duration=245.0s -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__deepseek/report.md
+--- [stage_1_1:deepseek] end rc=0 ---
+[stage_1_1:deepseek] DONE in 245.7s
+--- [stage_1_1:qwen3] begin ---
+[stage_1_1 judge] run_id=iter_12_combo_all_plus_rating_sampler__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/output/stage_1_1_synthetic.jsonl total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3
+[0001] OK  rvab4fa674b32e4036a5574e4cc5922f98 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0002] OK  rva73b4fa9c02f4720ad2552222c6b26bc fash=False tspec=True tleak=False nat=5 persona=5 fm=['non_fashion_item', 'title_format_violation', 'attr_ungrounded', 'attr_mono_value']
+[0003] OK  rv66b8189ee1aa4ac5843c3d6bbacc27c2 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0004] OK  rv1cf4f05f3f0f4a43a8cbfe4c1c34db86 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0005] OK  rv39895fa0950a4ad683d30eaf557f0c70 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0006] OK  rvb914326f3df34b609325d9929bdc7aae fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0007] OK  rv76e19dcac8264d268e35ec7875f9cd59 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0008] OK  rv860070d7f97c4f26b6c19b70450bb39f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0009] OK  rve9e4c6d644f24135aa2205ed1bf52833 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0010] OK  rv667576297bf2471290fe66438af23235 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded', 'rating_sentiment_mismatch']
+[0011] OK  rv04477662018d46fa85b8b590996cf7b4 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0012] OK  rvfbb06fad487e4ab28c9ca7fa83dbc561 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0013] OK  rv2bbed1e70cc84e1a82c7d71b4985675d fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_mono_value', 'attr_ungrounded']
+[0014] OK  rv0ec9f8744e964cdda8552ac8feba889f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0015] OK  rv4f9005ad95e24c4bafcedf0f17564e22 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0016] OK  rv8e88a175ebb5467c97e7b1a54f8c0edd fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0017] OK  rv7fd07523bc6240b7947654374c705625 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0018] OK  rv2eea38af481b41538da8b09cad8c54ac fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0019] OK  rve16663ea7ab74b40bb0589627465f5a6 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0020] OK  rv7fcae603ad1f4838aed07988499b7574 fash=True tspec=True tleak=False nat=4 persona=5 fm=['attr_ungrounded']
+[0021] OK  rvd2367a7a5e754ca18fda69b04a9a7f23 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation']
+[0022] OK  rv8850819f73274034a02cb3573fd501d6 fash=False tspec=False tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_length_violation', 'title_format_violation', 'attr_ungrounded', 'attr_mono_value']
+[0023] OK  rv6ecdfdad11de46478ae83ec08269d669 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0024] OK  rv9d40d30affec4773bc2005ecfd85c3f3 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0025] OK  rv6b836c29e3ef46698cec7948e711e72d fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0026] OK  rv8d5bd04cf6974bd79c03cf5707afcebb fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0027] OK  rv8f44b51eaaeb4f84859bfca36aa020ab fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0028] OK  rv087c7778a1e946a3960b6a705d98f36f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0029] OK  rv5ba1df05359e49aea7bc5aec9a67beb9 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0030] OK  rv0751256a20524d7db91cfd1b081c880e fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0031] OK  rv13d71c043298441f9de7c430af580058 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0032] OK  rva1453a85a8224577b127f1f9701c3dac fash=False tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation', 'attr_ungrounded', 'attr_mono_value', 'non_fashion_item', 'missing_tpo']
+[0033] OK  rv7a26775815e040e394c253ae12398bda fash=True tspec=True tleak=False nat=4 persona=5 fm=['attr_ungrounded']
+[0034] OK  rv579be56403064a1eb2fc25adaaf35072 fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_format_violation', 'attr_ungrounded']
+[0035] OK  rv2f4271c661484686bd20a6bdeacc1e7b fash=True tspec=True tleak=False nat=5 persona=5 fm=['attr_ungrounded']
+[0036] OK  rv37e7163fe6b14288b493c88abf0cdc1b fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0037] OK  rv33f42d9d582f42a8828bfa59644a88d2 fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation', 'attr_ungrounded', 'attr_mono_value']
+[0038] OK  rvc3dd400733cf4ca8ab61236491d59fb6 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0039] OK  rv2c6e8958a6124874b4112277b33f9fdd fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_format_violation', 'attr_ungrounded', 'attr_mono_value']
+[0040] OK  rv1013553c502440d3aa92caec0c4075c0 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0041] OK  rv0b80f3b8046348629d2a8af64da8c725 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0042] OK  rv0fae6d1dc0974445bfbdb1b638f067b4 fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation']
+[0043] OK  rvdf421492938b44eabfbc9b903567a808 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0044] OK  rv0bd2b963a4414d99b7b14c6c9d984ca3 fash=True tspec=True tleak=False nat=4 persona=5 fm=['attr_ungrounded']
+[0045] OK  rv9ec62228d0ca4361994b9721ad4fb571 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0046] OK  rv6e29cf64cc054a218073d7df81cad413 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0047] OK  rv60bdd0aeb11f4f62a86f502e91e406ab fash=False tspec=False tleak=False nat=4 persona=3 fm=['non_fashion_item', 'title_length_violation', 'title_format_violation', 'attr_ungrounded', 'missing_tpo', 'rating_sentiment_mismatch']
+[0048] OK  rv5d9b3314ca9b418dbdb1dd259d7ce605 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'attr_ungrounded']
+[0049] OK  rv0a6b3f5aeef342fba0d66c33affd7d97 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0050] OK  rv6171a50e58fb484c83eb86c8f82893b3 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+
+[stage_1_1 judge] ok=50 fail=0 duration=285.9s -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_1/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/report.md
+--- [stage_1_1:qwen3] end rc=0 ---
+[stage_1_1:qwen3] DONE in 286.6s
+--- [stage_1_2:qwen3] begin ---
+[stage_1_2 judge] run_id=iter_12_combo_all_plus_rating_sampler__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3
+[0001] OK  rvab4fa674b32e4036a5574e4cc5922f98 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0002] OK  rva73b4fa9c02f4720ad2552222c6b26bc fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item', 'language_issue']
+[0003] OK  rv66b8189ee1aa4ac5843c3d6bbacc27c2 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0004] OK  rv1cf4f05f3f0f4a43a8cbfe4c1c34db86 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0005] OK  rv39895fa0950a4ad683d30eaf557f0c70 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0006] OK  rvb914326f3df34b609325d9929bdc7aae fashion=True tpo=False q=4 lang=ko noise=low fm=[]
+[0007] OK  rv76e19dcac8264d268e35ec7875f9cd59 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0008] OK  rv860070d7f97c4f26b6c19b70450bb39f fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0009] OK  rve9e4c6d644f24135aa2205ed1bf52833 fashion=True tpo=False q=4 lang=ko noise=low fm=['pii_leak']
+[0010] OK  rv667576297bf2471290fe66438af23235 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0011] OK  rv04477662018d46fa85b8b590996cf7b4 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0012] OK  rvfbb06fad487e4ab28c9ca7fa83dbc561 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0013] OK  rv2bbed1e70cc84e1a82c7d71b4985675d fashion=True tpo=False q=3 lang=mixed noise=low fm=[]
+[0014] OK  rv0ec9f8744e964cdda8552ac8feba889f fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0015] OK  rv4f9005ad95e24c4bafcedf0f17564e22 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0016] OK  rv8e88a175ebb5467c97e7b1a54f8c0edd fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0017] OK  rv7fd07523bc6240b7947654374c705625 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0018] OK  rv2eea38af481b41538da8b09cad8c54ac fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0019] OK  rve16663ea7ab74b40bb0589627465f5a6 fashion=True tpo=False q=3 lang=ko noise=none fm=['pii_leak']
+[0020] OK  rv7fcae603ad1f4838aed07988499b7574 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0021] OK  rvd2367a7a5e754ca18fda69b04a9a7f23 fashion=False tpo=False q=1 lang=ko noise=none fm=['non_fashion_item', 'too_short']
+[0022] OK  rv8850819f73274034a02cb3573fd501d6 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion游戏副本', 'pii_leak']
+[0023] OK  rv6ecdfdad11de46478ae83ec08269d669 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0024] OK  rv9d40d30affec4773bc2005ecfd85c3f3 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0025] OK  rv6b836c29e3ef46698cec7948e711e72d fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0026] OK  rv8d5bd04cf6974bd79c03cf5707afcebb fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0027] OK  rv8f44b51eaaeb4f84859bfca36aa020ab fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0028] OK  rv087c7778a1e946a3960b6a705d98f36f fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0029] OK  rv5ba1df05359e49aea7bc5aec9a67beb9 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0030] OK  rv0751256a20524d7db91cfd1b081c880e fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0031] OK  rv13d71c043298441f9de7c430af580058 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0032] OK  rva1453a85a8224577b127f1f9701c3dac fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion游戏副本', 'too_short']
+[0033] OK  rv7a26775815e040e394c253ae12398bda fashion=True tpo=False q=1 lang=ko noise=none fm=['pii_leak']
+[0034] OK  rv579be56403064a1eb2fc25adaaf35072 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0035] OK  rv2f4271c661484686bd20a6bdeacc1e7b fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0036] OK  rv37e7163fe6b14288b493c88abf0cdc1b fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0037] OK  rv33f42d9d582f42a8828bfa59644a88d2 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0038] OK  rvc3dd400733cf4ca8ab61236491d59fb6 fashion=True tpo=True q=1 lang=ko noise=none fm=[]
+[0039] OK  rv2c6e8958a6124874b4112277b33f9fdd fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0040] OK  rv1013553c502440d3aa92caec0c4075c0 fashion=True tpo=False q=3 lang=ko noise=none fm=['pii_leak']
+[0041] OK  rv0b80f3b8046348629d2a8af64da8c725 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0042] OK  rv0fae6d1dc0974445bfbdb1b638f067b4 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0043] OK  rvdf421492938b44eabfbc9b903567a808 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0044] OK  rv0bd2b963a4414d99b7b14c6c9d984ca3 fashion=True tpo=False q=3 lang=ko noise=none fm=['pii_leak']
+[0045] OK  rv9ec62228d0ca4361994b9721ad4fb571 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0046] OK  rv6e29cf64cc054a218073d7df81cad413 fashion=True tpo=False q=3 lang=ko noise=none fm=['pii_leak']
+[0047] OK  rv60bdd0aeb11f4f62a86f502e91e406ab fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0048] OK  rv5d9b3314ca9b418dbdb1dd259d7ce605 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item', 'pii_leak']
+[0049] OK  rv0a6b3f5aeef342fba0d66c33affd7d97 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion游戏副本', 'pii_leak']
+[0050] OK  rv6171a50e58fb484c83eb86c8f82893b3 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+
+[done] ok=50 fail=0 time=118.4s
+  judge.jsonl: /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/data_eval/stage_1_2/eval/runs/iter_12_combo_all_plus_rating_sampler__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_2:qwen3] end rc=0 ---
+[stage_1_2:qwen3] DONE in 119.1s
+
+[tri_judge] wrote /home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/judge_metrics.json  errors=0 duration=460.2s
+coupang
+$ brev copy coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/judge_metrics.json /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/judge_metrics.json
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 05:09:49 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+⡿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/judge_metrics.json → /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/judge_metrics.json (1.787s)
+
+$ brev copy coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/judge_raw /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/judge_raw
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K2026/04/22 05:10:39 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/judge_raw → /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/judge_raw (10.093s)
+
+$ brev copy coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/run_pipeline.log /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/run_pipeline_remote.log
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 05:11:16 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data/iter_12_combo_all_plus_rating_sampler/run_pipeline.log → /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/run_pipeline_remote.log (1.777s)
+
+$ /Users/sgyeom/Nvidia/.venv/bin/python /Users/sgyeom/Nvidia/scripts/quant_stage1_report.py --output-dir /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/output --json-out /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/quant_metrics.json --md-out /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/quant_report.md
+
+[quant_stage1_report] wrote /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/quant_report.md
+$ /Users/sgyeom/Nvidia/.venv/bin/python /Users/sgyeom/Nvidia/scripts/make_comparison.py --this /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/metrics.json --out /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/comparison.md --summary /Users/sgyeom/Nvidia/experiments/summary.md --parent /Users/sgyeom/Nvidia/experiments/iter_11_combo_h3_h9_h5_h8/metrics.json
+[make_comparison] wrote /Users/sgyeom/Nvidia/experiments/iter_12_combo_all_plus_rating_sampler/comparison.md
+[make_comparison] updated leaderboard: /Users/sgyeom/Nvidia/experiments/summary.md
+
+[iter_run] total duration: 1364.8s
+[iter_run] promote=False  high_variance=False

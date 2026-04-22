@@ -1,0 +1,710 @@
+2026-04-21 20:13:19.619 | WARNING  | nemo_curator.tasks.document:validate:73 - Task g has no items
+[20:13:19] [INFO] 📺 Preview generation in progress
+[20:13:19] [INFO]   |-- 🔒 Jinja rendering engine: secure
+[20:13:20] [INFO] ✅ Validation passed
+[20:13:20] [INFO] ⛓️ Sorting column configs into a Directed Acyclic Graph
+[20:13:20] [INFO] 🩺 Running health checks for models...
+[20:13:20] [INFO]   |-- ⏭️  Skipping health check for model alias 'nemotron' (skip_health_check=True)
+[20:13:20] [INFO] 🌱 Sampling 50 records from seed dataset
+[20:13:20] [INFO]   |-- seed dataset size: 500 records
+[20:13:20] [INFO]   |-- sampling strategy: ordered
+[20:13:20] [INFO] 🎲 Preparing samplers to generate 50 records across 4 columns
+[20:13:20] [INFO] (💾 + 💾) Concatenating 2 datasets
+[20:13:20] [INFO] 🔧 Custom column config for column 'naver_context'
+[20:13:20] [INFO]   |-- generator_function: 'inject_naver_review'
+[20:13:20] [INFO]   |-- generation_strategy: <GenerationStrategy.CELL_BY_CELL: 'cell_by_cell'>
+[20:13:20] [INFO]   |-- required_columns: []
+[20:13:20] [INFO]   |-- side_effect_columns: ['seed_review', 'seed_rating']
+[20:13:20] [INFO]   |-- generator_params: reviews=[{'rating': 2, 'text': '가방이생각보다넘크고 싼티가많이나요'}, {'rating': 5, 'text': '편해요 정말 정말 핵편해요. 그럴때 있잖아요. 근사한 풍경에 커피한잔. 가방에 티안나게 가져가서 근사한 추억하나 더 만들었어요 너무 간편하고 좋네요'}, {'rating': 1, 'text': '리얼 쓰레기 옷걸이 바지걸이는 됐고 옷걸이 미끄럼방지부분 손만스처도 떨어짐 30개 샀는데 다 그냥 쓰레기 조만간 버리고 다시사겠음 반성하세요 진짜 이딴거처파는거아닙니다 내가 실수한거면 전화하세요 받아드립니다'}, {'rating': 5, 'text': '좋아요 운동할때좋아요. 뒤에 주름도안지고 일단 안입은듯편합니다~ 여름에 얇은옷빼고는 다 입어질것같아요'}, {'rating': 5, 'text': '잘되요ㅎ옷걸이 부분이 잘걸리지않는 모양이지만 그건 방향을 잘하믄 됩니다 굿'}, {'rating': 1, 'text': '검수도 안하는지 가방 끈 누락시키는 것도 모자라 톡 보내도 보통 하루나 이틀 지나서 겨우 답하고 하고 사과의 말도 없고 기다리는 소비자는 안중에도 없는지ㆍㆍ 아무리 저렴해도 이곳에서 다시는 안사렵니다.'}, {'rating': 2, 'text': '복대보다는 만족도 많이 떨어지네요… 팔뚝은 괜히 사따싶어요 착용하고 운동 이틀째인데 그냥 그래요 열심히 써보긴 할께요'}, {'rating': 2, 'text': '일단 디자인은 깔끔하고 이쁜데요..남자 신발 특히 270이상 사이즈 신발 수납하면 수납장 깊이때문에 문이 꽉 안닫히네요...그걸 확인 안한 제잘못인지...ㅠㅠ 오래 기다렸는데 좀 그래요.'}, {'rating': 1, 'text': '큰 기대를 한 건 아니지만 마감이 너무 안좋은 옷이 와서 집에서도 입을 수 있을지 모르겠어요. 몇만원짜리면 바로 환불할 텐데 싼 가격이라 그것도 번거로워서 그냥 구매확정해요.'}, {'rating': 5, 'text': '작아서 가방에 넣고 다니기에 좋네요'}, {'rating': 2, 'text': '바지통이 너무 커서 옹맵시가 없네요'}, {'rating': 1, 'text': '일주일 착용하고, 알러지 생겨서 허리에 잔뜩 오돌오돌 간지러워요. ㅠㅠ 전 그다지 민간한 피부는 아닌데, 두드러기가 잔뜩 올라왔어요. ㅠㅠ'}, {'rating': 5, 'text': '배송도 빠르고 옷은 딱맞구 이뻐요'}, {'rating': 5, 'text': '이뻐요 워낙 가볍고 좋은 옷이라'}, {'rating': 2, 'text': '가방이 틀이 안잡혀잇어서 흐물흐물하네요'}, {'rating': 5, 'text': '신발보관하기도 편하고 좋아요'}, {'rating': 5, 'text': '멋집니다 해외여행용으로 구매를했는데 화물용은 가방을 던져서 쉽게 깨진다고 하더라고요 그래서 소재에대해서 엄청 민감해있었는데 외부충격에도 쉽게 깨지지않을것같습니다 감사합니다'}, {'rating': 5, 'text': '남편 애장신발 보관하라고 선물 했더니 아주 좋아 하며 바로 신발 정리 하네요 ㅎㅎ 이중 제칸은 아직 한칸이지만 추가로 더 구매 하려구요'}, {'rating': 2, 'text': '쿠션감도없고 신발이 불편해요'}, {'rating': 2, 'text': '가방에서 나는 특유의 냄새가 넘 심해서 반품하고 싶었어요. 두번이나 세탁해서 말리는데두 냄새 지독합니다. 가방안에 옷넣어두면 옷까지 냄새베여서 못 입을정도예요~ 냄새제거 방법 좀 가르켜주세요 ㅠㅠ'}, {'rating': 2, 'text': '깔끔하고 이쁜데 접착력이 영부실하네요 애기신발에 붙이니 그냥떨어져버리네요 이건 어디에다가 붙여야 안떨어질런지...'}, {'rating': 2, 'text': '보라색 좋아해서 시켰는데 잠옷 자체는 예쁘고 맘에들어요! 근데 한번 빨았더니 7부 됐어요ㅠㅠ 최대한 다려봤는데.. 저게 최선이네요 ㅠ 바지는 더 짧습니다 하하.. (키 165) 그것만 아니면 괜찮은데! 너무 치명적인 단점이네요 아쉬워요 ㅠ'}, {'rating': 1, 'text': '전에 사서 잘 신어서 또 2켤레 구매를 했는데..신고 다닐때 마다 찍..찍..소리가 나요. 식구들이 애기들 찍찍이 신발이냐고..ㅠ 소리가 엄청 거슬려 못신고 버려야 할 것 같아요..이번에는 실망입니다..ㅠ'}, {'rating': 5, 'text': '몸무게13.5kg 남안데 이 사이즈가 제일 무난해요~~~~ 배쪽이 찡기지도 않고 그렇다고 막 너무 크게 여유있는것도 아니고 적당히 느슨하니 잘 맞아요. 옷으로 치면 프리사이즈라고나 할까요?'}, {'rating': 1, 'text': '하루입엇는데 빵꾸낫어요 보정기능도 거의 없다시피 치수작은옷 그냥 억지로 입는 느낌이네요'}, {'rating': 5, 'text': '바지 구매하고 소재가 좋아서 상의도 추가 구매했어요~'}, {'rating': 1, 'text': '싼게 비지떡.....아니 바지입니다'}, {'rating': 4, 'text': '사이즈가 너무 커요 13개월 11키로대 남자아기입니다 옷 자체는 좋아요'}, {'rating': 2, 'text': '흘러내려서 걍 가방에 넣고씀,,'}, {'rating': 2, 'text': '그냥 그래요 옷 재질은 좋은데 사이즈가 평균 이상이라서 입으면 부담되네요 해외꺼라 그런지 옷이 많이 커요'}, {'rating': 5, 'text': '배송도 빠르고 정말 좋아요 다른 옷구매하고 믿고 재구매했어요'}, {'rating': 2, 'text': '반지 싸이즈 하나 작게 구매하세요 네 반째 손가락 호수에 맞게 신청했는데 반지 너무 커요.... 사진 찍을 때 이외에는 네반째 손가락에 착용불가할듯요.'}, {'rating': 1, 'text': '깜짝 놀랐습니다. 정말 한번 밖에 입을수가 없어요 두개를 사서 하나는 세탁기에 하나는 손빨래를 했는데도 불구.. 둘다 줄어 듭니다... 둘다 버렸어요 한번 잘 입었습니다.. 바지도 삿는데 바지는 무서워서 빨지도 못하고 있어요 .'}, {'rating': 4, 'text': '아직은 사용하지 못했지만 정리의 달인의 아이디어를 따라하고자 구매했어요~ 겨울 롱패딩 넣어서 보관하려고요~^^ 대자는 어른용~ 중자는 아이들용으로 구매했네요~ 근데 냄새가 좀 심해서 세탁했어요~ㅠㅠ'}, {'rating': 1, 'text': '정품 아닌 것 같네요 마감 상태도 엉망이고, 비 오는날 신었다 미끄러졌어요 나이키 운동화 많은데 이런 건 처음 보네요 ㅡㅡ'}, {'rating': 4, 'text': '조금 낮았어요 대형은 옷걸어보니 겨울옷이여서 생각보다 많이 안걸리네요 그래도 깔끔하니 방이 정리된 느낌입니다'}, {'rating': 1, 'text': '별로 그냥 옷걸이에 걸려있습니다'}, {'rating': 2, 'text': '저한테는 안맞는것 같아요 사이즈 교환했음에도 불구하고 착용하면 가슴이 벌어지고 너무 봉긋한 느낌이 나요'}, {'rating': 2, 'text': '소재가 그렇게 시원하지 않아요 땀이 많이 차요 착용감은 참 편한데... 그리고 이염이 너무 쉽게 되네요 절대 짙은 색의 옷이랑 같이 세탁하면 안돼요'}, {'rating': 5, 'text': '밀가루옷이 적어서 너무 좋았어요 일반 오징어튀김보다 덜 느끼하고 더 바삭하고 맛있었습니다'}, {'rating': 2, 'text': '재구매는 없을거같아요.. 둘레가 너무 작게 나와서 착용할때 느낌이 불편해요. 재질자체는 가벼워서 그렇게 더울 것 같진 않구요. 싼 가격에 사보긴 했는데 싼건 다 이유가 잇는것 같네욤.'}, {'rating': 5, 'text': '뱀줄발찌 디자인이 군더더기없이 심플하고 아무래도 발찌는 계속 착용하는 악세사리이기때문에 차고 자도 이불에 걸린다거나 발목에 자국나는것도 없고 은은한 포인트용으로 딱인듯해요'}, {'rating': 5, 'text': '생각보다 길이가 좀 짧긴 했는데 잠옷으로 최고에요'}, {'rating': 5, 'text': '괜찮은거같아요 니트세탁'}, {'rating': 2, 'text': '생각보다 약해요ㅜ 옷걸때 한쪽 어깨부분?만 잡으면 휘청휘청 휘어질 것 같아요ㅜ'}, {'rating': 5, 'text': '배송 늦단 얘기 듣고 걱정했는데 바로 왔습니다. 넉넉한 스타일이구요..가격대비 고급스럽습니다. 입으면 더 폼나는 옷이에요..많이 파세요~'}, {'rating': 5, 'text': '잘도착했어요 리폼할 가방이너무늦네요 빨리넣고싶은데 감사합니다많이파세욤!'}, {'rating': 5, 'text': '면소재라 부드럽고 착용감도 좋아요'}, {'rating': 5, 'text': '배송도 빠르고 가방상태도 좋습니다. 일단 큼지막하고 넣을대도 많아 좋네요'}, {'rating': 5, 'text': '완전 맘에듭니다. 남친선물 고르던 중 클러치백 찾아보다가 블랙으로 선물했어요. 깔끔하고 고급져보이고 아무 옷이나 다 잘 어울리네요~ 남친이 좋아해요~~ 성공이요~^^!!'}]
+[20:13:20] [INFO] ⚡️ Processing custom column 'naver_context' with 4 concurrent workers
+[20:13:20] [INFO] ⏱️ custom column 'naver_context' will report progress every 5 records
+[20:13:20] [INFO]   |-- 🌑 custom column 'naver_context' progress: 5/50 (10%) complete, 5 ok, 0 failed, 2379.14 rec/s, eta 0.0s
+[20:13:20] [INFO]   |-- 🌑 custom column 'naver_context' progress: 10/50 (20%) complete, 10 ok, 0 failed, 3285.43 rec/s, eta 0.0s
+[20:13:20] [INFO]   |-- 🌘 custom column 'naver_context' progress: 15/50 (30%) complete, 15 ok, 0 failed, 3995.10 rec/s, eta 0.0s
+[20:13:20] [INFO]   |-- 🌘 custom column 'naver_context' progress: 20/50 (40%) complete, 20 ok, 0 failed, 4792.56 rec/s, eta 0.0s
+[20:13:20] [INFO]   |-- 🌗 custom column 'naver_context' progress: 25/50 (50%) complete, 25 ok, 0 failed, 5101.18 rec/s, eta 0.0s
+[20:13:20] [INFO]   |-- 🌗 custom column 'naver_context' progress: 30/50 (60%) complete, 30 ok, 0 failed, 5698.39 rec/s, eta 0.0s
+[20:13:20] [INFO]   |-- 🌗 custom column 'naver_context' progress: 35/50 (70%) complete, 35 ok, 0 failed, 6108.50 rec/s, eta 0.0s
+[20:13:20] [INFO]   |-- 🌖 custom column 'naver_context' progress: 40/50 (80%) complete, 40 ok, 0 failed, 6580.58 rec/s, eta 0.0s
+[20:13:20] [INFO]   |-- 🌖 custom column 'naver_context' progress: 45/50 (90%) complete, 45 ok, 0 failed, 6741.09 rec/s, eta 0.0s
+[20:13:20] [INFO]   |-- 🌕 custom column 'naver_context' progress: 50/50 (100%) complete, 50 ok, 0 failed, 6780.62 rec/s, eta 0.0s
+[20:13:20] [INFO] 📝 llm-text model config for column 'product_title'
+[20:13:20] [INFO]   |-- model: 'nemotron'
+[20:13:20] [INFO]   |-- model alias: 'nemotron'
+[20:13:20] [INFO]   |-- model provider: 'friendli'
+[20:13:20] [INFO]   |-- inference parameters:
+[20:13:20] [INFO]   |  |-- generation_type=chat-completion
+[20:13:20] [INFO]   |  |-- max_parallel_requests=32
+[20:13:20] [INFO]   |  |-- extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[20:13:20] [INFO]   |  |-- temperature=0.80
+[20:13:20] [INFO]   |  |-- max_tokens=500
+[20:13:20] [INFO] ⚡️ Processing llm-text column 'product_title' with 32 concurrent workers
+[20:13:20] [INFO] ⏱️ llm-text column 'product_title' will report progress every 5 records
+[20:13:20] [INFO]   |-- 🥚 llm-text column 'product_title' progress: 5/50 (10%) complete, 5 ok, 0 failed, 6.92 rec/s, eta 6.5s
+[20:13:21] [INFO]   |-- 🥚 llm-text column 'product_title' progress: 10/50 (20%) complete, 10 ok, 0 failed, 13.18 rec/s, eta 3.0s
+[20:13:21] [INFO]   |-- 🐣 llm-text column 'product_title' progress: 15/50 (30%) complete, 15 ok, 0 failed, 16.62 rec/s, eta 2.1s
+[20:13:21] [INFO]   |-- 🐣 llm-text column 'product_title' progress: 20/50 (40%) complete, 20 ok, 0 failed, 18.74 rec/s, eta 1.6s
+[20:13:21] [INFO]   |-- 🐥 llm-text column 'product_title' progress: 25/50 (50%) complete, 25 ok, 0 failed, 19.49 rec/s, eta 1.3s
+[20:13:21] [INFO]   |-- 🐥 llm-text column 'product_title' progress: 30/50 (60%) complete, 30 ok, 0 failed, 21.13 rec/s, eta 0.9s
+[20:13:21] [INFO]   |-- 🐥 llm-text column 'product_title' progress: 35/50 (70%) complete, 35 ok, 0 failed, 21.48 rec/s, eta 0.7s
+[20:13:26] [INFO]   |-- 🐤 llm-text column 'product_title' progress: 40/50 (80%) complete, 40 ok, 0 failed, 6.88 rec/s, eta 1.5s
+[20:13:28] [INFO]   |-- 🐤 llm-text column 'product_title' progress: 45/50 (90%) complete, 45 ok, 0 failed, 5.81 rec/s, eta 0.9s
+[20:13:28] [INFO]   |-- 🐔 llm-text column 'product_title' progress: 50/50 (100%) complete, 50 ok, 0 failed, 6.33 rec/s, eta 0.0s
+[20:13:28] [INFO] 🗂️ llm-structured model config for column 'product_attributes'
+[20:13:28] [INFO]   |-- model: 'nemotron'
+[20:13:28] [INFO]   |-- model alias: 'nemotron'
+[20:13:28] [INFO]   |-- model provider: 'friendli'
+[20:13:28] [INFO]   |-- inference parameters:
+[20:13:28] [INFO]   |  |-- generation_type=chat-completion
+[20:13:28] [INFO]   |  |-- max_parallel_requests=32
+[20:13:28] [INFO]   |  |-- extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[20:13:28] [INFO]   |  |-- temperature=0.80
+[20:13:28] [INFO]   |  |-- max_tokens=500
+[20:13:28] [INFO] ⚡️ Processing llm-structured column 'product_attributes' with 32 concurrent workers
+[20:13:28] [INFO] ⏱️ llm-structured column 'product_attributes' will report progress every 5 records
+[20:13:29] [INFO]   |-- 🌑 llm-structured column 'product_attributes' progress: 5/50 (10%) complete, 5 ok, 0 failed, 3.05 rec/s, eta 14.7s
+[20:13:29] [INFO]   |-- 🌑 llm-structured column 'product_attributes' progress: 10/50 (20%) complete, 10 ok, 0 failed, 5.90 rec/s, eta 6.8s
+[20:13:29] [INFO]   |-- 🌘 llm-structured column 'product_attributes' progress: 15/50 (30%) complete, 15 ok, 0 failed, 8.54 rec/s, eta 4.1s
+[20:13:29] [INFO]   |-- 🌘 llm-structured column 'product_attributes' progress: 20/50 (40%) complete, 20 ok, 0 failed, 11.10 rec/s, eta 2.7s
+[20:13:29] [INFO]   |-- 🌗 llm-structured column 'product_attributes' progress: 25/50 (50%) complete, 25 ok, 0 failed, 13.64 rec/s, eta 1.8s
+[20:13:30] [INFO]   |-- 🌗 llm-structured column 'product_attributes' progress: 30/50 (60%) complete, 30 ok, 0 failed, 15.99 rec/s, eta 1.3s
+[20:13:30] [INFO]   |-- 🌗 llm-structured column 'product_attributes' progress: 35/50 (70%) complete, 35 ok, 0 failed, 12.32 rec/s, eta 1.2s
+[20:13:31] [INFO]   |-- 🌖 llm-structured column 'product_attributes' progress: 40/50 (80%) complete, 40 ok, 0 failed, 13.87 rec/s, eta 0.7s
+[20:13:31] [INFO]   |-- 🌖 llm-structured column 'product_attributes' progress: 45/50 (90%) complete, 45 ok, 0 failed, 15.47 rec/s, eta 0.3s
+[20:13:31] [INFO]   |-- 🌕 llm-structured column 'product_attributes' progress: 50/50 (100%) complete, 50 ok, 0 failed, 17.06 rec/s, eta 0.0s
+[20:13:31] [INFO] 📝 llm-text model config for column 'raw_text'
+[20:13:31] [INFO]   |-- model: 'nemotron'
+[20:13:31] [INFO]   |-- model alias: 'nemotron'
+[20:13:31] [INFO]   |-- model provider: 'friendli'
+[20:13:31] [INFO]   |-- inference parameters:
+[20:13:31] [INFO]   |  |-- generation_type=chat-completion
+[20:13:31] [INFO]   |  |-- max_parallel_requests=32
+[20:13:31] [INFO]   |  |-- extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[20:13:31] [INFO]   |  |-- temperature=0.80
+[20:13:31] [INFO]   |  |-- max_tokens=500
+[20:13:31] [INFO] ⚡️ Processing llm-text column 'raw_text' with 32 concurrent workers
+[20:13:31] [INFO] ⏱️ llm-text column 'raw_text' will report progress every 5 records
+[20:13:33] [INFO]   |-- 🚶 llm-text column 'raw_text' progress: 5/50 (10%) complete, 5 ok, 0 failed, 1.76 rec/s, eta 25.6s
+[20:13:34] [INFO]   |-- 🚶 llm-text column 'raw_text' progress: 10/50 (20%) complete, 10 ok, 0 failed, 2.93 rec/s, eta 13.7s
+[20:13:34] [INFO]   |-- 🐴 llm-text column 'raw_text' progress: 15/50 (30%) complete, 15 ok, 0 failed, 4.00 rec/s, eta 8.7s
+[20:13:35] [INFO]   |-- 🐴 llm-text column 'raw_text' progress: 20/50 (40%) complete, 20 ok, 0 failed, 4.79 rec/s, eta 6.3s
+[20:13:35] [INFO]   |-- 🚗 llm-text column 'raw_text' progress: 25/50 (50%) complete, 25 ok, 0 failed, 5.61 rec/s, eta 4.5s
+[20:13:36] [INFO]   |-- 🚗 llm-text column 'raw_text' progress: 30/50 (60%) complete, 30 ok, 0 failed, 6.05 rec/s, eta 3.3s
+[20:13:36] [INFO]   |-- 🚗 llm-text column 'raw_text' progress: 35/50 (70%) complete, 35 ok, 0 failed, 6.53 rec/s, eta 2.3s
+[20:13:36] [INFO]   |-- ✈️ llm-text column 'raw_text' progress: 40/50 (80%) complete, 40 ok, 0 failed, 7.14 rec/s, eta 1.4s
+[20:13:36] [INFO]   |-- ✈️ llm-text column 'raw_text' progress: 45/50 (90%) complete, 45 ok, 0 failed, 7.82 rec/s, eta 0.6s
+[20:13:37] [INFO]   |-- 🚀 llm-text column 'raw_text' progress: 50/50 (100%) complete, 50 ok, 0 failed, 8.21 rec/s, eta 0.0s
+[20:13:37] [INFO] 📊 Model usage summary:
+[20:13:37] [INFO]   |-- model: nemotron
+[20:13:37] [INFO]   |-- tokens: input=100293, output=13501, total=113794, tps=6600
+[20:13:37] [INFO]   |-- requests: success=150, failed=0, total=150, rpm=522
+[20:13:37] [INFO] 📐 Measuring dataset column statistics:
+[20:13:37] [INFO]   |-- 🔧 column: 'naver_context'
+[20:13:37] [INFO]   |-- 🎲 column: 'rating'
+[20:13:37] [INFO]   |-- 📝 column: 'product_title'
+[20:13:37] [INFO]   |-- 🗂️ column: 'product_attributes'
+[20:13:37] [INFO]   |-- 📝 column: 'raw_text'
+[20:13:37] [INFO]   |-- 🎲 column: 'doc_id'
+[20:13:37] [INFO]   |-- 🎲 column: 'product_id'
+[20:13:37] [INFO]   |-- 🎲 column: 'timestamp'
+[20:13:37] [INFO] 🏆 Preview complete!
+
+Step 1: Loading & Filtering Fashion Seed Data (Stage 1.0)
+[Volume] Stage 1.0 (Seed Data): 50
+
+Step 2: Generating Personalized Fashion Synthetic Data (Stage 1.1)
+[Volume] Stage 1.1 (Synthetic Data): 50
+
+Step 3: Fuzzy Deduplication (Stage 1.1.5)
+[Warning] Fuzzy Dedup fallback (Exact Dedup): No module named 'cudf'
+[Volume] Stage 1.1.5 (Deduped Data): 50
+
+Step 4: Quality Filtering (Stage 1.2)
+  After Korean-aware quality filter: 50 records (dropped 0).
+[Volume] Stage 1.2 (Filtered Results): 50
+
+Pipeline Complete. Final results in data/stage_1_2
+[tri_judge] output_dir=/home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output  stage_data_root=/home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval
+            judge_raw_dir=/home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/judge_raw  metrics_out=/home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/judge_metrics.json
+            stages=['stage_1_0', 'stage_1_1', 'stage_1_1_5', 'stage_1_2']  pairs=12  max_workers=4  run_id=iter_13_combo_plus_attr_mention
+[stage_1_0:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_13_combo_plus_attr_mention__glm --tag iter_13_combo_plus_attr_mention__glm --input /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_0_seed.jsonl --stage-override stage_1_0
+[stage_1_0:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_13_combo_plus_attr_mention__deepseek --tag iter_13_combo_plus_attr_mention__deepseek --input /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_0_seed.jsonl --stage-override stage_1_0
+[stage_1_0:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_13_combo_plus_attr_mention__qwen3 --tag iter_13_combo_plus_attr_mention__qwen3 --input /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_0_seed.jsonl --stage-override stage_1_0
+[stage_1_1:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_13_combo_plus_attr_mention__glm --tag iter_13_combo_plus_attr_mention__glm --input /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_synthetic.jsonl
+--- [stage_1_0:glm] begin ---
+[stage_1_2 judge] run_id=iter_13_combo_plus_attr_mention__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__glm
+[0001] OK  seed_00000 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0002] OK  seed_00001 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0003] OK  seed_00002 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item']
+[0004] OK  seed_00003 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0005] OK  seed_00004 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item']
+[0006] OK  seed_00005 fashion=True tpo=False q=2 lang=ko noise=none fm=[]
+[0007] OK  seed_00006 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0008] OK  seed_00007 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0009] OK  seed_00008 fashion=True tpo=False q=2 lang=ko noise=none fm=[]
+[0010] OK  seed_00009 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0011] OK  seed_00010 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0012] OK  seed_00011 fashion=True tpo=False q=2 lang=ko noise=none fm=[]
+[0013] OK  seed_00012 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0014] OK  seed_00013 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0015] OK  seed_00014 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0016] OK  seed_00015 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0017] OK  seed_00016 fashion=False tpo=False q=3 lang=ko noise=low fm=['non_fashion_item']
+[0018] OK  seed_00017 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0019] OK  seed_00018 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0020] OK  seed_00019 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0021] OK  seed_00020 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0022] OK  seed_00021 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0023] OK  seed_00022 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0024] OK  seed_00023 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0025] OK  seed_00024 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0026] OK  seed_00025 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0027] OK  seed_00026 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0028] OK  seed_00027 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0029] OK  seed_00028 fashion=True tpo=False q=2 lang=ko noise=low fm=['too_short']
+[0030] OK  seed_00029 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0031] OK  seed_00030 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0032] OK  seed_00031 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0033] OK  seed_00032 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0034] OK  seed_00033 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0035] OK  seed_00034 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0036] OK  seed_00035 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0037] OK  seed_00036 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0038] OK  seed_00037 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0039] OK  seed_00038 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0040] OK  seed_00039 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0041] OK  seed_00040 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0042] OK  seed_00041 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0043] OK  seed_00042 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0044] OK  seed_00043 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0045] OK  seed_00044 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0046] OK  seed_00045 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0047] OK  seed_00046 fashion=True tpo=False q=2 lang=ko noise=low fm=['too_short']
+[0048] OK  seed_00047 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0049] OK  seed_00048 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0050] OK  seed_00049 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+
+[done] ok=50 fail=0 time=75.3s
+  judge.jsonl: /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__glm/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_0:glm] end rc=0 ---
+[stage_1_0:glm] DONE in 76.0s
+[stage_1_1:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_13_combo_plus_attr_mention__deepseek --tag iter_13_combo_plus_attr_mention__deepseek --input /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_synthetic.jsonl
+--- [stage_1_0:deepseek] begin ---
+[stage_1_2 judge] run_id=iter_13_combo_plus_attr_mention__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__deepseek
+[0001] OK  seed_00000 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0002] OK  seed_00001 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0003] OK  seed_00002 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0004] OK  seed_00003 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0005] OK  seed_00004 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0006] OK  seed_00005 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0007] OK  seed_00006 fashion=True tpo=True q=2 lang=ko noise=low fm=['non_fashion_item']
+[0008] OK  seed_00007 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0009] OK  seed_00008 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0010] OK  seed_00009 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0011] OK  seed_00010 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0012] OK  seed_00011 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0013] OK  seed_00012 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0014] OK  seed_00013 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0015] OK  seed_00014 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0016] OK  seed_00015 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0017] OK  seed_00016 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0018] OK  seed_00017 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0019] OK  seed_00018 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0020] OK  seed_00019 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0021] OK  seed_00020 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0022] OK  seed_00021 fashion=True tpo=False q=4 lang=ko noise=low fm=[]
+[0023] OK  seed_00022 fashion=True tpo=False q=3 lang=ko noise=low fm=['too_short']
+[0024] OK  seed_00023 fashion=True tpo=True q=2 lang=ko noise=low fm=['non_fashion_item']
+[0025] OK  seed_00024 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0026] OK  seed_00025 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0027] OK  seed_00026 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0028] OK  seed_00027 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0029] OK  seed_00028 fashion=True tpo=True q=2 lang=ko noise=low fm=['too_short']
+[0030] OK  seed_00029 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0031] OK  seed_00030 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0032] OK  seed_00031 fashion=True tpo=True q=3 lang=ko noise=low fm=[]
+[0033] OK  seed_00032 fashion=True tpo=True q=3 lang=ko noise=low fm=['too_short']
+[0034] OK  seed_00033 fashion=True tpo=True q=4 lang=ko noise=low fm=[]
+[0035] OK  seed_00034 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0036] OK  seed_00035 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0037] OK  seed_00036 fashion=True tpo=True q=2 lang=ko noise=none fm=['too_short']
+[0038] OK  seed_00037 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0039] OK  seed_00038 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0040] OK  seed_00039 fashion=True tpo=True q=2 lang=ko noise=none fm=['non_fashion_item']
+[0041] OK  seed_00040 fashion=True tpo=False q=3 lang=ko noise=low fm=['too_short']
+[0042] OK  seed_00041 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0043] OK  seed_00042 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0044] OK  seed_00043 fashion=True tpo=False q=3 lang=ko noise=low fm=['too_short']
+[0045] OK  seed_00044 fashion=True tpo=False q=3 lang=ko noise=low fm=['too_short']
+[0046] OK  seed_00045 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0047] OK  seed_00046 fashion=True tpo=False q=2 lang=ko noise=low fm=['too_short']
+[0048] OK  seed_00047 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0049] OK  seed_00048 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0050] OK  seed_00049 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+
+[done] ok=50 fail=0 time=76.5s
+  judge.jsonl: /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_0:deepseek] end rc=0 ---
+[stage_1_0:deepseek] DONE in 77.2s
+[stage_1_1:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_13_combo_plus_attr_mention__qwen3 --tag iter_13_combo_plus_attr_mention__qwen3 --input /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_synthetic.jsonl
+--- [stage_1_0:qwen3] begin ---
+[stage_1_2 judge] run_id=iter_13_combo_plus_attr_mention__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__qwen3
+[0001] OK  seed_00000 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0002] OK  seed_00001 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion游戏副本', 'too_short']
+[0003] OK  seed_00002 fashion=False tpo=False q=1 lang=ko noise=medium fm=['non_fashion_item', 'noise_text']
+[0004] OK  seed_00003 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0005] OK  seed_00004 fashion=False tpo=False q=1 lang=ko noise=low fm=['non_fashion_item', 'too_short']
+[0006] OK  seed_00005 fashion=True tpo=False q=1 lang=ko noise=none fm=[]
+[0007] OK  seed_00006 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item', 'too_short']
+[0008] OK  seed_00007 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0009] OK  seed_00008 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0010] OK  seed_00009 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0011] OK  seed_00010 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0012] OK  seed_00011 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0013] OK  seed_00012 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0014] OK  seed_00013 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0015] OK  seed_00014 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0016] OK  seed_00015 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0017] OK  seed_00016 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0018] OK  seed_00017 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0019] OK  seed_00018 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0020] OK  seed_00019 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0021] OK  seed_00020 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0022] OK  seed_00021 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0023] OK  seed_00022 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0024] OK  seed_00023 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0025] OK  seed_00024 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0026] OK  seed_00025 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0027] OK  seed_00026 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0028] OK  seed_00027 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0029] OK  seed_00028 fashion=False tpo=False q=2 lang=ko noise=low fm=['non_fashion_item', 'too_short']
+[0030] OK  seed_00029 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0031] OK  seed_00030 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0032] OK  seed_00031 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0033] OK  seed_00032 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0034] OK  seed_00033 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0035] OK  seed_00034 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0036] OK  seed_00035 fashion=False tpo=False q=1 lang=ko noise=none fm=['non_fashion_item']
+[0037] OK  seed_00036 fashion=True tpo=False q=2 lang=ko noise=none fm=['too_short']
+[0038] OK  seed_00037 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0039] OK  seed_00038 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0040] OK  seed_00039 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item']
+[0041] OK  seed_00040 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0042] OK  seed_00041 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0043] OK  seed_00042 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0044] OK  seed_00043 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0045] OK  seed_00044 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0046] OK  seed_00045 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0047] OK  seed_00046 fashion=True tpo=False q=3 lang=ko noise=low fm=[]
+[0048] OK  seed_00047 fashion=True tpo=False q=3 lang=ko noise=none fm=[]
+[0049] OK  seed_00048 fashion=True tpo=False q=3 lang=ko noise=none fm=['too_short']
+[0050] OK  seed_00049 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+
+[done] ok=50 fail=0 time=112.8s
+  judge.jsonl: /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_0/eval/runs/iter_13_combo_plus_attr_mention__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_0:qwen3] end rc=0 ---
+[stage_1_0:qwen3] DONE in 113.5s
+[stage_1_1_5:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_13_combo_plus_attr_mention__glm --tag iter_13_combo_plus_attr_mention__glm --before /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_5_deduped.jsonl
+--- [stage_1_1_5:glm] begin ---
+[stage_1_1_5 judge] run_id=iter_13_combo_plus_attr_mention__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  before=50 after=50 (prompt will show 50 / 50)
+
+[stage_1_1_5 judge] reduction=0.0 miss=10 (0.2) groups=10 largest=2 -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_1_5/eval/runs/iter_13_combo_plus_attr_mention__glm/report.md
+--- [stage_1_1_5:glm] end rc=0 ---
+[stage_1_1_5:glm] DONE in 12.0s
+[stage_1_1_5:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_13_combo_plus_attr_mention__deepseek --tag iter_13_combo_plus_attr_mention__deepseek --before /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_5_deduped.jsonl
+--- [stage_1_1_5:deepseek] begin ---
+[stage_1_1_5 judge] run_id=iter_13_combo_plus_attr_mention__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  before=50 after=50 (prompt will show 50 / 50)
+
+[stage_1_1_5 judge] reduction=0.0 miss=4 (0.08) groups=4 largest=2 -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_1_5/eval/runs/iter_13_combo_plus_attr_mention__deepseek/report.md
+--- [stage_1_1_5:deepseek] end rc=0 ---
+[stage_1_1_5:deepseek] DONE in 9.0s
+[stage_1_1_5:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_1_5_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_13_combo_plus_attr_mention__qwen3 --tag iter_13_combo_plus_attr_mention__qwen3 --before /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_synthetic.jsonl --after /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_5_deduped.jsonl
+--- [stage_1_1_5:qwen3] begin ---
+[stage_1_1_5 judge] run_id=iter_13_combo_plus_attr_mention__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  before=50 after=50 (prompt will show 50 / 50)
+
+[stage_1_1_5 judge] reduction=0.0 miss=7 (0.14) groups=6 largest=3 -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_1_5/eval/runs/iter_13_combo_plus_attr_mention__qwen3/report.md
+--- [stage_1_1_5:qwen3] end rc=0 ---
+[stage_1_1_5:qwen3] DONE in 11.0s
+[stage_1_2:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_13_combo_plus_attr_mention__glm --tag iter_13_combo_plus_attr_mention__glm --input /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_2_processed.jsonl
+--- [stage_1_1:glm] begin ---
+[stage_1_1 judge] run_id=iter_13_combo_plus_attr_mention__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_synthetic.jsonl total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_1/eval/runs/iter_13_combo_plus_attr_mention__glm
+[0001] OK  rv97463667d4c84ce4a98dd8952f3a807c fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_format_violation', 'title_length_violation', 'persona_drift']
+[0002] OK  rv91d6e441380f4c7c8ca8330932a7093b fash=False tspec=False tleak=False nat=4 persona=4 fm=['non_fashion_item', 'title_format_violation', 'title_length_violation']
+[0003] OK  rvc21d577ec51844c98361d3528a6486f1 fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_format_violation', 'persona_drift', 'language_issue']
+[0004] OK  rvf89e5a617f1e49fa8fb80d9c3b46cdf4 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0005] OK  rv4fdac593181b46a690ad3ec70ca875c7 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0006] OK  rvb1c80a28860546718d371611b2d989a3 fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_format_violation', 'title_length_violation', 'persona_drift', 'language_issue']
+[0007] OK  rv54203bf802a14fd3a147059a03694b49 fash=True tspec=True tleak=False nat=2 persona=5 fm=['language_issue']
+[0008] OK  rv94d63a2d8b8a452ea7a0578f94d805a4 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0009] OK  rv10038dc10b864235bfac3fc90fca0250 fash=True tspec=False tleak=False nat=2 persona=3 fm=['title_format_violation', 'title_length_violation', 'persona_drift', 'language_issue']
+[0010] OK  rvb60f6c4ed9da4bf78e3aa59039e8a6e7 fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_format_violation', 'title_length_violation', 'persona_drift', 'language_issue']
+[0011] OK  rvcf989e06c13b46dcb656247fa324ee3a fash=True tspec=False tleak=False nat=2 persona=1 fm=['title_format_violation', 'title_length_violation', 'rating_sentiment_mismatch', 'persona_drift']
+[0012] OK  rvc6b35775958a4369a3bb3e228a356263 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0013] OK  rv2d36b5cb32fc4ba8ae1a4880329ecbb0 fash=True tspec=False tleak=False nat=2 persona=3 fm=['title_format_violation', 'attr_mono_value', 'language_issue', 'persona_drift']
+[0014] OK  rv6d7512da28de40db9d350be7411c43d7 fash=False tspec=False tleak=False nat=4 persona=4 fm=['non_fashion_item', 'title_format_violation']
+[0015] OK  rvbb0ccbce080d4e96a2305c05bf5e15db fash=True tspec=False tleak=False nat=3 persona=4 fm=['title_format_violation', 'title_length_violation']
+[0016] OK  rv6a3966d598504f9da71e425e56bfa7a1 fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_format_violation', 'persona_drift']
+[0017] OK  rv4239470685cd4c3d81aa28607e533fb7 fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0018] OK  rve1534d42d1e6421ca607b8a8cb8efe92 fash=True tspec=True tleak=False nat=2 persona=2 fm=['persona_drift']
+[0019] OK  rvdba7855f63ab4b929acc77d82dcd4123 fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_format_violation']
+[0020] OK  rvbdd6d222218447da854a544145d0a6b1 fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_length_violation', 'title_format_violation', 'length_violation']
+[0021] OK  rv27291f1fef6c4258b0894b82ed42d934 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0022] OK  rv7568d2e9cc7841ca8634d5b9537c6bda fash=False tspec=False tleak=False nat=3 persona=4 fm=['non_fashion_item', 'title_format_violation', 'title_length_violation']
+[0023] OK  rv0a750e2c4061441fb5a21d2e7ebf8226 fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_format_violation', 'title_length_violation', 'attr_ungrounded', 'persona_drift']
+[0024] OK  rv23287b6f84b8454c91bed64cff32451c fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0025] OK  rv6b055a2cc91043a6a8521d2b7d58cf37 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0026] OK  rv5df449f6400f43c7a1d6eab61356550c fash=True tspec=False tleak=False nat=2 persona=5 fm=['title_format_violation', 'title_length_violation', 'language_issue']
+[0027] OK  rveb669db18f8c4c78b2ac41348ec02e9e fash=True tspec=False tleak=False nat=2 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0028] OK  rv689ac67daed143eb99d8fa74b7e0207f fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0029] OK  rv0bf92ab94535467b8af368a038bb12e7 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0030] OK  rvd79d39cea6744ee290aff91469108f39 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0031] OK  rvf67b064cbe1744f8b074e74acb4fabad fash=True tspec=False tleak=False nat=2 persona=5 fm=['title_length_violation', 'title_format_violation', 'language_issue']
+[0032] OK  rv2d3e004791aa4ec6847cd6963e4da7d8 fash=False tspec=False tleak=False nat=3 persona=2 fm=['non_fashion_item', 'title_format_violation', 'title_length_violation', 'persona_drift']
+[0033] OK  rv76306ef142b54856828272862e988ba5 fash=True tspec=True tleak=False nat=2 persona=3 fm=['language_issue']
+[0034] OK  rvc042abad42ab495986023a7363578983 fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0035] OK  rv38d938f2e66345bcaa33c56ed7fbef1c fash=True tspec=False tleak=True nat=3 persona=5 fm=['title_reasoning_leak', 'title_format_violation', 'title_length_violation']
+[0036] OK  rvd8b2d53b4d1c4ccebf0ee5409faf6172 fash=True tspec=False tleak=False nat=2 persona=3 fm=['title_format_violation', 'title_length_violation', 'language_issue']
+[0037] OK  rvde89deb0d47e43a181e633118c44d307 fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded', 'persona_drift', 'missing_tpo', 'non_fashion_item']
+[0038] OK  rv8ff7ec39f06444149b7d627c344ee4ab fash=True tspec=False tleak=False nat=3 persona=4 fm=['title_format_violation', 'title_length_violation']
+[0039] OK  rv4b8b23238b5f4a4381791b258d4db712 fash=False tspec=False tleak=False nat=3 persona=4 fm=['non_fashion_item', 'title_format_violation', 'title_length_violation']
+[0040] OK  rvda2fea1f578a48ad81ef68fbbc5e5bd4 fash=True tspec=False tleak=False nat=3 persona=4 fm=['title_format_violation', 'title_length_violation']
+[0041] OK  rv62f44d659de245e98b6f60878e1eaa6d fash=True tspec=False tleak=False nat=2 persona=2 fm=['title_length_violation', 'title_format_violation', 'persona_drift', 'language_issue']
+[0042] OK  rv74f6aba9eddd4c46919f7320a853752e fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0043] OK  rv3539a4ab74d149f18e37bf199d0f0d87 fash=True tspec=False tleak=False nat=3 persona=2 fm=['title_length_violation', 'title_format_violation', 'persona_drift']
+[0044] OK  rv4af95f96536042e2a441bbe3a9dd7844 fash=True tspec=False tleak=False nat=3 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0045] OK  rv7dea4b4197f34f83869ba4ab400f2971 fash=True tspec=False tleak=False nat=2 persona=1 fm=['title_format_violation', 'title_length_violation', 'rating_sentiment_mismatch', 'persona_drift', 'language_issue']
+[0046] OK  rv42c735801bbf47868e45b891108fc2c1 fash=True tspec=False tleak=False nat=2 persona=3 fm=['title_format_violation', 'non_fashion_item', 'persona_drift', 'language_issue']
+[0047] OK  rv28d1136f442f4683820fb7ec62457dc0 fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item']
+[0048] OK  rva02c6a3ad30a4ba88a3a76569a5c3c43 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0049] OK  rvf13addfe443b4da381648a64e6119a2f fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0050] OK  rv9e93ac9dfb5f4a4abedbfbb7f85eb96f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_format_violation', 'title_length_violation']
+
+[stage_1_1 judge] ok=50 fail=0 duration=228.5s -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_1/eval/runs/iter_13_combo_plus_attr_mention__glm/report.md
+--- [stage_1_1:glm] end rc=0 ---
+[stage_1_1:glm] DONE in 229.1s
+[stage_1_2:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_13_combo_plus_attr_mention__deepseek --tag iter_13_combo_plus_attr_mention__deepseek --input /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_2_processed.jsonl
+--- [stage_1_1:deepseek] begin ---
+[stage_1_1 judge] run_id=iter_13_combo_plus_attr_mention__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_synthetic.jsonl total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_1/eval/runs/iter_13_combo_plus_attr_mention__deepseek
+[0001] OK  rv97463667d4c84ce4a98dd8952f3a807c fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0002] OK  rv91d6e441380f4c7c8ca8330932a7093b fash=False tspec=False tleak=False nat=4 persona=4 fm=['non_fashion_item', 'title_length_violation', 'title_format_violation', 'missing_tpo']
+[0003] OK  rvc21d577ec51844c98361d3528a6486f1 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'missing_tpo']
+[0004] OK  rvf89e5a617f1e49fa8fb80d9c3b46cdf4 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0005] OK  rv4fdac593181b46a690ad3ec70ca875c7 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0006] OK  rvb1c80a28860546718d371611b2d989a3 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'missing_tpo']
+[0007] OK  rv54203bf802a14fd3a147059a03694b49 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0008] OK  rv94d63a2d8b8a452ea7a0578f94d805a4 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0009] OK  rv10038dc10b864235bfac3fc90fca0250 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0010] OK  rvb60f6c4ed9da4bf78e3aa59039e8a6e7 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0011] OK  rvcf989e06c13b46dcb656247fa324ee3a fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0012] OK  rvc6b35775958a4369a3bb3e228a356263 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0013] OK  rv2d36b5cb32fc4ba8ae1a4880329ecbb0 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0014] OK  rv6d7512da28de40db9d350be7411c43d7 fash=False tspec=True tleak=False nat=4 persona=4 fm=['non_fashion_item', 'title_format_violation', 'missing_tpo']
+[0015] OK  rvbb0ccbce080d4e96a2305c05bf5e15db fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'missing_tpo']
+[0016] OK  rv6a3966d598504f9da71e425e56bfa7a1 fash=True tspec=True tleak=False nat=5 persona=5 fm=['rating_sentiment_mismatch']
+[0017] OK  rv4239470685cd4c3d81aa28607e533fb7 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0018] OK  rve1534d42d1e6421ca607b8a8cb8efe92 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0019] OK  rvdba7855f63ab4b929acc77d82dcd4123 fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation', 'missing_tpo']
+[0020] OK  rvbdd6d222218447da854a544145d0a6b1 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation']
+[0021] OK  rv27291f1fef6c4258b0894b82ed42d934 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0022] OK  rv7568d2e9cc7841ca8634d5b9537c6bda fash=False tspec=False tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_length_violation', 'title_format_violation']
+[0023] OK  rv0a750e2c4061441fb5a21d2e7ebf8226 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'non_fashion_item', 'persona_drift']
+[0024] OK  rv23287b6f84b8454c91bed64cff32451c fash=True tspec=True tleak=False nat=4 persona=5 fm=['persona_drift']
+[0025] OK  rv6b055a2cc91043a6a8521d2b7d58cf37 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0026] OK  rv5df449f6400f43c7a1d6eab61356550c fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation', 'attr_ungrounded']
+[0027] OK  rveb669db18f8c4c78b2ac41348ec02e9e fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0028] OK  rv689ac67daed143eb99d8fa74b7e0207f fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation']
+[0029] OK  rv0bf92ab94535467b8af368a038bb12e7 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0030] OK  rvd79d39cea6744ee290aff91469108f39 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0031] OK  rvf67b064cbe1744f8b074e74acb4fabad fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation']
+[0032] OK  rv2d3e004791aa4ec6847cd6963e4da7d8 fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_format_violation', 'missing_tpo']
+[0033] OK  rv76306ef142b54856828272862e988ba5 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0034] OK  rvc042abad42ab495986023a7363578983 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0035] OK  rv38d938f2e66345bcaa33c56ed7fbef1c fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation', 'language_issue']
+[0036] OK  rvd8b2d53b4d1c4ccebf0ee5409faf6172 fash=True tspec=True tleak=False nat=4 persona=4 fm=['title_format_violation', 'missing_tpo']
+[0037] OK  rvde89deb0d47e43a181e633118c44d307 fash=True tspec=False tleak=False nat=2 persona=4 fm=['title_length_violation', 'attr_ungrounded', 'persona_drift', 'missing_tpo', 'language_issue']
+[0038] OK  rv8ff7ec39f06444149b7d627c344ee4ab fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation', 'missing_tpo']
+[0039] OK  rv4b8b23238b5f4a4381791b258d4db712 fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_format_violation', 'missing_tpo']
+[0040] OK  rvda2fea1f578a48ad81ef68fbbc5e5bd4 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'missing_tpo']
+[0041] OK  rv62f44d659de245e98b6f60878e1eaa6d fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0042] OK  rv74f6aba9eddd4c46919f7320a853752e fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0043] OK  rv3539a4ab74d149f18e37bf199d0f0d87 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0044] OK  rv4af95f96536042e2a441bbe3a9dd7844 fash=True tspec=False tleak=False nat=4 persona=1 fm=['title_length_violation', 'title_format_violation', 'persona_drift']
+[0045] OK  rv7dea4b4197f34f83869ba4ab400f2971 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_format_violation', 'rating_sentiment_mismatch']
+[0046] OK  rv42c735801bbf47868e45b891108fc2c1 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_format_violation', 'title_length_violation']
+[0047] OK  rv28d1136f442f4683820fb7ec62457dc0 fash=False tspec=True tleak=False nat=5 persona=5 fm=['non_fashion_item']
+[0048] OK  rva02c6a3ad30a4ba88a3a76569a5c3c43 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0049] OK  rvf13addfe443b4da381648a64e6119a2f fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0050] OK  rv9e93ac9dfb5f4a4abedbfbb7f85eb96f fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_format_violation', 'title_length_violation']
+
+[stage_1_1 judge] ok=50 fail=0 duration=171.3s -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_1/eval/runs/iter_13_combo_plus_attr_mention__deepseek/report.md
+--- [stage_1_1:deepseek] end rc=0 ---
+[stage_1_1:deepseek] DONE in 171.9s
+[stage_1_2:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_1_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_13_combo_plus_attr_mention__qwen3 --tag iter_13_combo_plus_attr_mention__qwen3 --input /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_2_processed.jsonl
+--- [stage_1_2:glm] begin ---
+[stage_1_2 judge] run_id=iter_13_combo_plus_attr_mention__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__glm
+[0001] OK  rv97463667d4c84ce4a98dd8952f3a807c fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0002] OK  rv91d6e441380f4c7c8ca8330932a7093b fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0003] OK  rvc21d577ec51844c98361d3528a6486f1 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0004] OK  rvf89e5a617f1e49fa8fb80d9c3b46cdf4 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0005] OK  rv4fdac593181b46a690ad3ec70ca875c7 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0006] OK  rvb1c80a28860546718d371611b2d989a3 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0007] OK  rv54203bf802a14fd3a147059a03694b49 fashion=True tpo=True q=4 lang=mixed noise=none fm=[]
+[0008] OK  rv94d63a2d8b8a452ea7a0578f94d805a4 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0009] OK  rv10038dc10b864235bfac3fc90fca0250 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0010] OK  rvb60f6c4ed9da4bf78e3aa59039e8a6e7 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0011] OK  rvcf989e06c13b46dcb656247fa324ee3a fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0012] OK  rvc6b35775958a4369a3bb3e228a356263 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0013] OK  rv2d36b5cb32fc4ba8ae1a4880329ecbb0 fashion=True tpo=True q=4 lang=mixed noise=none fm=[]
+[0014] OK  rv6d7512da28de40db9d350be7411c43d7 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item']
+[0015] OK  rvbb0ccbce080d4e96a2305c05bf5e15db fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0016] OK  rv6a3966d598504f9da71e425e56bfa7a1 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0017] OK  rv4239470685cd4c3d81aa28607e533fb7 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0018] OK  rve1534d42d1e6421ca607b8a8cb8efe92 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0019] OK  rvdba7855f63ab4b929acc77d82dcd4123 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0020] OK  rvbdd6d222218447da854a544145d0a6b1 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0021] OK  rv27291f1fef6c4258b0894b82ed42d934 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0022] OK  rv7568d2e9cc7841ca8634d5b9537c6bda fashion=False tpo=True q=4 lang=ko noise=none fm=['non_fashion_item', 'pii_leak']
+[0023] OK  rv0a750e2c4061441fb5a21d2e7ebf8226 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0024] OK  rv23287b6f84b8454c91bed64cff32451c fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0025] OK  rv6b055a2cc91043a6a8521d2b7d58cf37 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0026] OK  rv5df449f6400f43c7a1d6eab61356550c fashion=True tpo=True q=3 lang=ko noise=none fm=['pii_leak']
+[0027] OK  rveb669db18f8c4c78b2ac41348ec02e9e fashion=True tpo=True q=5 lang=ko noise=none fm=['pii_leak']
+[0028] OK  rv689ac67daed143eb99d8fa74b7e0207f fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0029] OK  rv0bf92ab94535467b8af368a038bb12e7 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0030] OK  rvd79d39cea6744ee290aff91469108f39 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0031] OK  rvf67b064cbe1744f8b074e74acb4fabad fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0032] OK  rv2d3e004791aa4ec6847cd6963e4da7d8 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item', 'pii_leak']
+[0033] OK  rv76306ef142b54856828272862e988ba5 fashion=True tpo=True q=5 lang=ko noise=low fm=['pii_leak']
+[0034] OK  rvc042abad42ab495986023a7363578983 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0035] OK  rv38d938f2e66345bcaa33c56ed7fbef1c fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0036] OK  rvd8b2d53b4d1c4ccebf0ee5409faf6172 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0037] OK  rvde89deb0d47e43a181e633118c44d307 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0038] OK  rv8ff7ec39f06444149b7d627c344ee4ab fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0039] OK  rv4b8b23238b5f4a4381791b258d4db712 fashion=False tpo=False q=3 lang=mixed noise=none fm=['non_fashion_item']
+[0040] OK  rvda2fea1f578a48ad81ef68fbbc5e5bd4 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0041] OK  rv62f44d659de245e98b6f60878e1eaa6d fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0042] OK  rv74f6aba9eddd4c46919f7320a853752e fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0043] OK  rv3539a4ab74d149f18e37bf199d0f0d87 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0044] OK  rv4af95f96536042e2a441bbe3a9dd7844 fashion=False tpo=False q=3 lang=mixed noise=none fm=['non_fashion_item', 'pii_leak']
+[0045] OK  rv7dea4b4197f34f83869ba4ab400f2971 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0046] OK  rv42c735801bbf47868e45b891108fc2c1 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0047] OK  rv28d1136f442f4683820fb7ec62457dc0 fashion=False tpo=True q=4 lang=ko noise=none fm=['non_fashion_item']
+[0048] OK  rva02c6a3ad30a4ba88a3a76569a5c3c43 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0049] OK  rvf13addfe443b4da381648a64e6119a2f fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0050] OK  rv9e93ac9dfb5f4a4abedbfbb7f85eb96f fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+
+[done] ok=50 fail=0 time=103.2s
+  judge.jsonl: /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__glm/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_2:glm] end rc=0 ---
+[stage_1_2:glm] DONE in 103.9s
+--- [stage_1_2:deepseek] begin ---
+[stage_1_2 judge] run_id=iter_13_combo_plus_attr_mention__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__deepseek
+[0001] OK  rv97463667d4c84ce4a98dd8952f3a807c fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0002] OK  rv91d6e441380f4c7c8ca8330932a7093b fashion=True tpo=True q=3 lang=ko noise=none fm=['non_fashion_item']
+[0003] OK  rvc21d577ec51844c98361d3528a6486f1 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0004] OK  rvf89e5a617f1e49fa8fb80d9c3b46cdf4 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0005] OK  rv4fdac593181b46a690ad3ec70ca875c7 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0006] OK  rvb1c80a28860546718d371611b2d989a3 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0007] OK  rv54203bf802a14fd3a147059a03694b49 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0008] OK  rv94d63a2d8b8a452ea7a0578f94d805a4 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0009] OK  rv10038dc10b864235bfac3fc90fca0250 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0010] OK  rvb60f6c4ed9da4bf78e3aa59039e8a6e7 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0011] OK  rvcf989e06c13b46dcb656247fa324ee3a fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0012] OK  rvc6b35775958a4369a3bb3e228a356263 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0013] OK  rv2d36b5cb32fc4ba8ae1a4880329ecbb0 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0014] OK  rv6d7512da28de40db9d350be7411c43d7 fashion=True tpo=True q=3 lang=ko noise=none fm=['non_fashion_item']
+[0015] OK  rvbb0ccbce080d4e96a2305c05bf5e15db fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0016] OK  rv6a3966d598504f9da71e425e56bfa7a1 fashion=True tpo=True q=5 lang=ko noise=none fm=['pii_leak']
+[0017] OK  rv4239470685cd4c3d81aa28607e533fb7 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0018] OK  rve1534d42d1e6421ca607b8a8cb8efe92 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0019] OK  rvdba7855f63ab4b929acc77d82dcd4123 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0020] OK  rvbdd6d222218447da854a544145d0a6b1 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0021] OK  rv27291f1fef6c4258b0894b82ed42d934 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0022] OK  rv7568d2e9cc7841ca8634d5b9537c6bda fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0023] OK  rv0a750e2c4061441fb5a21d2e7ebf8226 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0024] OK  rv23287b6f84b8454c91bed64cff32451c fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0025] OK  rv6b055a2cc91043a6a8521d2b7d58cf37 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0026] OK  rv5df449f6400f43c7a1d6eab61356550c fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0027] OK  rveb669db18f8c4c78b2ac41348ec02e9e fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0028] OK  rv689ac67daed143eb99d8fa74b7e0207f fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0029] OK  rv0bf92ab94535467b8af368a038bb12e7 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0030] OK  rvd79d39cea6744ee290aff91469108f39 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0031] OK  rvf67b064cbe1744f8b074e74acb4fabad fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0032] OK  rv2d3e004791aa4ec6847cd6963e4da7d8 fashion=True tpo=True q=2 lang=ko noise=none fm=['non_fashion_item', 'pii_leak']
+[0033] OK  rv76306ef142b54856828272862e988ba5 fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+[0034] OK  rvc042abad42ab495986023a7363578983 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0035] OK  rv38d938f2e66345bcaa33c56ed7fbef1c fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0036] OK  rvd8b2d53b4d1c4ccebf0ee5409faf6172 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0037] OK  rvde89deb0d47e43a181e633118c44d307 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0038] OK  rv8ff7ec39f06444149b7d627c344ee4ab fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0039] OK  rv4b8b23238b5f4a4381791b258d4db712 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0040] OK  rvda2fea1f578a48ad81ef68fbbc5e5bd4 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0041] OK  rv62f44d659de245e98b6f60878e1eaa6d fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0042] OK  rv74f6aba9eddd4c46919f7320a853752e fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0043] OK  rv3539a4ab74d149f18e37bf199d0f0d87 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0044] OK  rv4af95f96536042e2a441bbe3a9dd7844 fashion=True tpo=True q=3 lang=mixed noise=low fm=['non_fashion_item', 'pii_leak']
+[0045] OK  rv7dea4b4197f34f83869ba4ab400f2971 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0046] OK  rv42c735801bbf47868e45b891108fc2c1 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0047] OK  rv28d1136f442f4683820fb7ec62457dc0 fashion=True tpo=True q=3 lang=ko noise=none fm=['non_fashion_item']
+[0048] OK  rva02c6a3ad30a4ba88a3a76569a5c3c43 fashion=True tpo=True q=5 lang=ko noise=none fm=['pii_leak']
+[0049] OK  rvf13addfe443b4da381648a64e6119a2f fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0050] OK  rv9e93ac9dfb5f4a4abedbfbb7f85eb96f fashion=True tpo=True q=5 lang=ko noise=none fm=[]
+
+[done] ok=50 fail=0 time=85.5s
+  judge.jsonl: /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_2:deepseek] end rc=0 ---
+[stage_1_2:deepseek] DONE in 86.2s
+--- [stage_1_1:qwen3] begin ---
+[stage_1_1 judge] run_id=iter_13_combo_plus_attr_mention__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/output/stage_1_1_synthetic.jsonl total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_1/eval/runs/iter_13_combo_plus_attr_mention__qwen3
+[0001] OK  rv97463667d4c84ce4a98dd8952f3a807c fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0002] OK  rv91d6e441380f4c7c8ca8330932a7093b fash=False tspec=False tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_length_violation', 'title_format_violation']
+[0003] OK  rvc21d577ec51844c98361d3528a6486f1 fash=False tspec=True tleak=False nat=5 persona=5 fm=['non_fashion_item']
+[0004] OK  rvf89e5a617f1e49fa8fb80d9c3b46cdf4 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0005] OK  rv4fdac593181b46a690ad3ec70ca875c7 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation']
+[0006] OK  rvb1c80a28860546718d371611b2d989a3 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0007] OK  rv54203bf802a14fd3a147059a03694b49 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0008] OK  rv94d63a2d8b8a452ea7a0578f94d805a4 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0009] OK  rv10038dc10b864235bfac3fc90fca0250 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0010] OK  rvb60f6c4ed9da4bf78e3aa59039e8a6e7 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0011] OK  rvcf989e06c13b46dcb656247fa324ee3a fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0012] OK  rvc6b35775958a4369a3bb3e228a356263 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0013] OK  rv2d36b5cb32fc4ba8ae1a4880329ecbb0 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation', 'attr_ungrounded']
+[0014] OK  rv6d7512da28de40db9d350be7411c43d7 fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item']
+[0015] OK  rvbb0ccbce080d4e96a2305c05bf5e15db fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0016] OK  rv6a3966d598504f9da71e425e56bfa7a1 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0017] OK  rv4239470685cd4c3d81aa28607e533fb7 fash=True tspec=True tleak=False nat=5 persona=5 fm=['title_format_violation']
+[0018] OK  rve1534d42d1e6421ca607b8a8cb8efe92 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0019] OK  rvdba7855f63ab4b929acc77d82dcd4123 fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0020] OK  rvbdd6d222218447da854a544145d0a6b1 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0021] OK  rv27291f1fef6c4258b0894b82ed42d934 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0022] OK  rv7568d2e9cc7841ca8634d5b9537c6bda fash=False tspec=True tleak=False nat=5 persona=5 fm=['non_fashion_item']
+[0023] OK  rv0a750e2c4061441fb5a21d2e7ebf8226 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0024] OK  rv23287b6f84b8454c91bed64cff32451c fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0025] OK  rv6b055a2cc91043a6a8521d2b7d58cf37 fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0026] OK  rv5df449f6400f43c7a1d6eab61356550c fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0027] OK  rveb669db18f8c4c78b2ac41348ec02e9e fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0028] OK  rv689ac67daed143eb99d8fa74b7e0207f fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0029] OK  rv0bf92ab94535467b8af368a038bb12e7 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0030] OK  rvd79d39cea6744ee290aff91469108f39 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0031] OK  rvf67b064cbe1744f8b074e74acb4fabad fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0032] OK  rv2d3e004791aa4ec6847cd6963e4da7d8 fash=False tspec=False tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_length_violation', 'title_format_violation', 'missing_tpo']
+[0033] OK  rv76306ef142b54856828272862e988ba5 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0034] OK  rvc042abad42ab495986023a7363578983 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0035] OK  rv38d938f2e66345bcaa33c56ed7fbef1c fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0036] OK  rvd8b2d53b4d1c4ccebf0ee5409faf6172 fash=True tspec=False tleak=False nat=4 persona=4 fm=['title_length_violation', 'title_format_violation']
+[0037] OK  rvde89deb0d47e43a181e633118c44d307 fash=False tspec=False tleak=False nat=4 persona=5 fm=['non_fashion_item', 'title_length_violation', 'title_format_violation', 'attr_mono_value', 'attr_ungrounded']
+[0038] OK  rv8ff7ec39f06444149b7d627c344ee4ab fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0039] OK  rv4b8b23238b5f4a4381791b258d4db712 fash=False tspec=True tleak=False nat=4 persona=5 fm=['non_fashion_item']
+[0040] OK  rvda2fea1f578a48ad81ef68fbbc5e5bd4 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0041] OK  rv62f44d659de245e98b6f60878e1eaa6d fash=True tspec=True tleak=False nat=2 persona=5 fm=['title_format_violation', 'attr_mono_value', 'language_issue']
+[0042] OK  rv74f6aba9eddd4c46919f7320a853752e fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0043] OK  rv3539a4ab74d149f18e37bf199d0f0d87 fash=True tspec=False tleak=True nat=4 persona=5 fm=['title_reasoning_leak', 'title_length_violation', 'title_format_violation']
+[0044] OK  rv4af95f96536042e2a441bbe3a9dd7844 fash=True tspec=True tleak=False nat=4 persona=5 fm=['title_format_violation']
+[0045] OK  rv7dea4b4197f34f83869ba4ab400f2971 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0046] OK  rv42c735801bbf47868e45b891108fc2c1 fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0047] OK  rv28d1136f442f4683820fb7ec62457dc0 fash=True tspec=True tleak=False nat=5 persona=5 fm=[]
+[0048] OK  rva02c6a3ad30a4ba88a3a76569a5c3c43 fash=True tspec=False tleak=False nat=5 persona=5 fm=['title_length_violation', 'title_format_violation']
+[0049] OK  rvf13addfe443b4da381648a64e6119a2f fash=True tspec=True tleak=False nat=4 persona=5 fm=[]
+[0050] OK  rv9e93ac9dfb5f4a4abedbfbb7f85eb96f fash=True tspec=False tleak=False nat=4 persona=5 fm=['title_length_violation', 'title_format_violation']
+
+[stage_1_1 judge] ok=50 fail=0 duration=301.6s -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_1/eval/runs/iter_13_combo_plus_attr_mention__qwen3/report.md
+--- [stage_1_1:qwen3] end rc=0 ---
+[stage_1_1:qwen3] DONE in 302.2s
+--- [stage_1_2:qwen3] begin ---
+[stage_1_2 judge] run_id=iter_13_combo_plus_attr_mention__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  total=50 sampled=50
+  -> /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__qwen3
+[0001] OK  rv97463667d4c84ce4a98dd8952f3a807c fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0002] OK  rv91d6e441380f4c7c8ca8330932a7093b fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion游戏副本', 'language_issue']
+[0003] OK  rvc21d577ec51844c98361d3528a6486f1 fashion=True tpo=True q=1 lang=ko noise=none fm=[]
+[0004] OK  rvf89e5a617f1e49fa8fb80d9c3b46cdf4 fashion=True tpo=False q=5 lang=ko noise=none fm=[]
+[0005] OK  rv4fdac593181b46a690ad3ec70ca875c7 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0006] OK  rvb1c80a28860546718d371611b2d989a3 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0007] OK  rv54203bf802a14fd3a147059a03694b49 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0008] OK  rv94d63a2d8b8a452ea7a0578f94d805a4 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0009] OK  rv10038dc10b864235bfac3fc90fca0250 fashion=True tpo=True q=4 lang=ko noise=none fm=['pii_leak']
+[0010] OK  rvb60f6c4ed9da4bf78e3aa59039e8a6e7 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0011] OK  rvcf989e06c13b46dcb656247fa324ee3a fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0012] OK  rvc6b35775958a4369a3bb3e228a356263 fashion=True tpo=True q=3 lang=ko noise=none fm=[]
+[0013] OK  rv2d36b5cb32fc4ba8ae1a4880329ecbb0 fashion=True tpo=False q=4 lang=ko noise=low fm=[]
+[0014] OK  rv6d7512da28de40db9d350be7411c43d7 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item', 'pii_leak']
+[0015] OK  rvbb0ccbce080d4e96a2305c05bf5e15db fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0016] OK  rv6a3966d598504f9da71e425e56bfa7a1 fashion=True tpo=True q=1 lang=ko noise=none fm=['pii_leak']
+[0017] OK  rv4239470685cd4c3d81aa28607e533fb7 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0018] OK  rve1534d42d1e6421ca607b8a8cb8efe92 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0019] OK  rvdba7855f63ab4b929acc77d82dcd4123 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0020] OK  rvbdd6d222218447da854a544145d0a6b1 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0021] OK  rv27291f1fef6c4258b0894b82ed42d934 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0022] OK  rv7568d2e9cc7841ca8634d5b9537c6bda fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item', 'pii_leak']
+[0023] OK  rv0a750e2c4061441fb5a21d2e7ebf8226 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0024] OK  rv23287b6f84b8454c91bed64cff32451c fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0025] OK  rv6b055a2cc91043a6a8521d2b7d58cf37 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0026] OK  rv5df449f6400f43c7a1d6eab61356550c fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0027] OK  rveb669db18f8c4c78b2ac41348ec02e9e fashion=True tpo=False q=5 lang=ko noise=none fm=['pii_leak']
+[0028] OK  rv689ac67daed143eb99d8fa74b7e0207f fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0029] OK  rv0bf92ab94535467b8af368a038bb12e7 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0030] OK  rvd79d39cea6744ee290aff91469108f39 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0031] OK  rvf67b064cbe1744f8b074e74acb4fabad fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0032] OK  rv2d3e004791aa4ec6847cd6963e4da7d8 fashion=False tpo=False q=1 lang=ko noise=none fm=['non_fashion_item', 'language_issue']
+[0033] OK  rv76306ef142b54856828272862e988ba5 fashion=True tpo=False q=5 lang=ko noise=none fm=['pii_leak']
+[0034] OK  rvc042abad42ab495986023a7363578983 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0035] OK  rv38d938f2e66345bcaa33c56ed7fbef1c fashion=True tpo=True q=1 lang=ko noise=none fm=[]
+[0036] OK  rvd8b2d53b4d1c4ccebf0ee5409faf6172 fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0037] OK  rvde89deb0d47e43a181e633118c44d307 fashion=False tpo=False q=3 lang=ko noise=none fm=['non_fashion_item', 'pii_leak']
+[0038] OK  rv8ff7ec39f06444149b7d627c344ee4ab fashion=True tpo=True q=4 lang=ko noise=none fm=[]
+[0039] OK  rv4b8b23238b5f4a4381791b258d4db712 fashion=False tpo=False q=2 lang=ko noise=none fm=['non_fashion_item', 'pii_leak']
+[0040] OK  rvda2fea1f578a48ad81ef68fbbc5e5bd4 fashion=True tpo=False q=1 lang=ko noise=none fm=['pii_leak']
+[0041] OK  rv62f44d659de245e98b6f60878e1eaa6d fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0042] OK  rv74f6aba9eddd4c46919f7320a853752e fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0043] OK  rv3539a4ab74d149f18e37bf199d0f0d87 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0044] OK  rv4af95f96536042e2a441bbe3a9dd7844 fashion=False tpo=False q=2 lang=mixed noise=low fm=['non_fashion_item', 'pii_leak', 'language_issue']
+[0045] OK  rv7dea4b4197f34f83869ba4ab400f2971 fashion=True tpo=False q=4 lang=ko noise=low fm=['pii_leak']
+[0046] OK  rv42c735801bbf47868e45b891108fc2c1 fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+[0047] OK  rv28d1136f442f4683820fb7ec62457dc0 fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0048] OK  rva02c6a3ad30a4ba88a3a76569a5c3c43 fashion=True tpo=False q=5 lang=ko noise=none fm=['pii_leak']
+[0049] OK  rvf13addfe443b4da381648a64e6119a2f fashion=True tpo=False q=4 lang=ko noise=none fm=[]
+[0050] OK  rv9e93ac9dfb5f4a4abedbfbb7f85eb96f fashion=True tpo=False q=4 lang=ko noise=none fm=['pii_leak']
+
+[done] ok=50 fail=0 time=131.8s
+  judge.jsonl: /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/data_eval/stage_1_2/eval/runs/iter_13_combo_plus_attr_mention__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_1_2:qwen3] end rc=0 ---
+[stage_1_2:qwen3] DONE in 132.5s
+
+[tri_judge] wrote /home/nvidia/experiments_data/iter_13_combo_plus_attr_mention/judge_metrics.json  errors=0 duration=380.5s

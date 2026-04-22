@@ -1,0 +1,36 @@
+# Core requirements for the analyzed-data pipeline
+#
+# Tested on:
+#   - macOS CPU (hackathon laptop, Python 3.12 venv via uv)
+#   - Brev A100 GPU image (Ubuntu, Python 3.12 venv at ~/.venv,
+#     pre-installed: nemo-curator 1.1.0, torch (CUDA), ray, pyarrow,
+#     openai, pydantic, huggingface-hub)
+#
+# On the Brev image you MUST `source ~/.venv/bin/activate` first AND pass
+# `--ignore-installed` so pip writes into the venv and not into the
+# Python 3.10 user-site that the image happens to ship.
+
+# LLM client (NIM Cloud - OpenAI compatible)
+openai>=2.0
+httpx>=0.28
+
+# Schemas / validation
+pydantic>=2.0
+
+# Stage 2 embedding + clustering (CPU path)
+sentence-transformers>=5.0
+scikit-learn>=1.5
+numpy>=2.0
+
+# Transitive (listed for visibility, pulled by sentence-transformers):
+# transformers>=5.0
+# huggingface_hub>=1.0
+# tokenizers>=0.22
+# safetensors>=0.7
+
+# -- GPU / Brev image only (already installed, do NOT install on laptop) --
+# nemo-curator>=1.1     # Linux + CUDA only; preferred Stage 2 backend at scale
+# ray>=2.5              # Dask/Ray backend used by NeMo Curator
+# pyarrow>=23           # column store for Curator pipelines
+# torch>=2.9            # the Brev image ships a CUDA build; do not overwrite
+

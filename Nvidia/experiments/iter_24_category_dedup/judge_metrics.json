@@ -1,0 +1,223 @@
+{
+  "run_id": "iter_24_category_dedup",
+  "provider": "friendli",
+  "judges": [
+    "zai-org/GLM-5.1",
+    "deepseek-ai/DeepSeek-V3.2",
+    "Qwen/Qwen3-235B-A22B-Instruct-2507"
+  ],
+  "stages": [
+    "stage_1_0",
+    "stage_1_1",
+    "stage_1_1_5",
+    "stage_1_2"
+  ],
+  "max_workers": 4,
+  "duration_sec": 339.16,
+  "errors": [],
+  "ensemble": {
+    "stage_1_0": {
+      "avg_text_quality": {
+        "mean": 2.853,
+        "glm": 2.76,
+        "deepseek": 2.9,
+        "qwen3": 2.9,
+        "range": 0.14
+      },
+      "fashion_rate": {
+        "mean": 0.873,
+        "glm": 0.84,
+        "deepseek": 1.0,
+        "qwen3": 0.78,
+        "range": 0.22,
+        "agreement_approx": 0.78
+      },
+      "has_tpo_rate": {
+        "mean": 0.307,
+        "glm": 0.12,
+        "deepseek": 0.8,
+        "qwen3": 0.0,
+        "range": 0.8,
+        "agreement_approx": 0.2
+      },
+      "pii_rate": {
+        "mean": 0.26,
+        "glm": 0.0,
+        "deepseek": 0.78,
+        "qwen3": 0.0,
+        "range": 0.78,
+        "agreement_approx": 0.22
+      },
+      "n_evaluated": 50,
+      "failure_modes": {
+        "too_short": 17,
+        "non_fashion_item": 9,
+        "noise_text": 1,
+        "pii_leak": 0,
+        "language_issue": 1,
+        "duplicate_suspect": 0,
+        "non_fashion游戏副本": 2
+      }
+    },
+    "stage_1_1": {
+      "attr_grounded_rate": {
+        "mean": 1.0,
+        "glm": 1.0,
+        "deepseek": 1.0,
+        "qwen3": 1.0,
+        "range": 0.0
+      },
+      "avg_persona_reflection": {
+        "mean": 4.6,
+        "glm": 3.91,
+        "deepseek": 4.91,
+        "qwen3": 4.98,
+        "range": 1.07
+      },
+      "avg_raw_text_naturalness": {
+        "mean": 3.843,
+        "glm": 2.84,
+        "deepseek": 4.6,
+        "qwen3": 4.09,
+        "range": 1.76
+      },
+      "fashion_rate": {
+        "mean": 0.953,
+        "glm": 0.98,
+        "deepseek": 0.93,
+        "qwen3": 0.95,
+        "range": 0.05,
+        "agreement_approx": 0.95
+      },
+      "has_tpo_rate": {
+        "mean": 0.93,
+        "glm": 0.93,
+        "deepseek": 0.88,
+        "qwen3": 0.98,
+        "range": 0.1,
+        "agreement_approx": 0.9
+      },
+      "rating_sentiment_consistent_rate": {
+        "mean": 0.963,
+        "glm": 0.93,
+        "deepseek": 0.98,
+        "qwen3": 0.98,
+        "range": 0.05,
+        "agreement_approx": 0.95
+      },
+      "raw_text_within_spec_rate": {
+        "mean": 1.0,
+        "glm": 1.0,
+        "deepseek": 1.0,
+        "qwen3": 1.0,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "title_format_ok_rate": {
+        "mean": 0.473,
+        "glm": 0.35,
+        "deepseek": 0.6,
+        "qwen3": 0.47,
+        "range": 0.25,
+        "agreement_approx": 0.75
+      },
+      "title_reasoning_leak_rate": {
+        "mean": 0.1,
+        "glm": 0.16,
+        "deepseek": 0.02,
+        "qwen3": 0.12,
+        "range": 0.14,
+        "agreement_approx": 0.86
+      },
+      "title_within_spec_rate": {
+        "mean": 0.527,
+        "glm": 0.28,
+        "deepseek": 0.72,
+        "qwen3": 0.58,
+        "range": 0.44,
+        "agreement_approx": 0.56
+      },
+      "n_evaluated": 43,
+      "failure_modes": {
+        "title_format_violation": 28,
+        "title_length_violation": 23,
+        "persona_drift": 14,
+        "title_reasoning_leak": 7,
+        "language_issue": 19,
+        "attr_ungrounded": 4,
+        "missing_tpo": 7,
+        "non_fashion_item": 4,
+        "rating_sentiment_mismatch": 3,
+        "attr_mono_value": 2,
+        "length_violation": 0
+      }
+    },
+    "stage_1_1_5": {
+      "dedup_miss_rate": {
+        "mean": 0.132,
+        "glm": 0.211,
+        "deepseek": 0.079,
+        "qwen3": 0.105,
+        "range": 0.132
+      },
+      "dedup_reduction_rate": {
+        "mean": 0.116,
+        "glm": 0.116,
+        "deepseek": 0.116,
+        "qwen3": 0.116,
+        "range": 0.0
+      },
+      "dedup_in_count": 43,
+      "dedup_out_count": 38,
+      "dedup_miss_count": 8,
+      "largest_miss_cluster_size": 2,
+      "failure_modes": {
+        "near_duplicate_missed": 8,
+        "low_dedup_reduction": 0,
+        "wrong_removal": 0
+      }
+    },
+    "stage_1_2": {
+      "avg_text_quality": {
+        "mean": 3.93,
+        "glm": 4.08,
+        "deepseek": 4.26,
+        "qwen3": 3.45,
+        "range": 0.81
+      },
+      "fashion_rate": {
+        "mean": 0.98,
+        "glm": 0.97,
+        "deepseek": 1.0,
+        "qwen3": 0.97,
+        "range": 0.03,
+        "agreement_approx": 0.97
+      },
+      "has_tpo_rate": {
+        "mean": 0.737,
+        "glm": 0.97,
+        "deepseek": 1.0,
+        "qwen3": 0.24,
+        "range": 0.76,
+        "agreement_approx": 0.24
+      },
+      "pii_rate": {
+        "mean": 0.5,
+        "glm": 0.5,
+        "deepseek": 0.47,
+        "qwen3": 0.53,
+        "range": 0.06,
+        "agreement_approx": 0.94
+      },
+      "n_evaluated": 38,
+      "failure_modes": {
+        "pii_leak": 20,
+        "non_fashion_item": 1,
+        "too_short": 0,
+        "noise_text": 0,
+        "language_issue": 0,
+        "duplicate_suspect": 0
+      }
+    }
+  }
+}

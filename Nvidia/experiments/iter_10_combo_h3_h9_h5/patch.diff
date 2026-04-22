@@ -1,0 +1,49 @@
+--- experiments/iter_09_combo_h3_h9/pipeline_script.py	2026-04-22 02:59:33
++++ experiments/iter_10_combo_h3_h9_h5/pipeline_script.py	2026-04-22 03:12:02
+@@ -266,11 +266,42 @@
+     )
+     
+     # C. Generate Product Attributes (Structured JSON Output)
+-    attr_prompt = """For the fashion product '{{ product_title }}', provide attributes.
+-Color should be in Korean (e.g., 블랙, 화이트, 네이비).
+-Style should describe the fashion style (e.g., 캐주얼, 포멀, 스트릿).
+-Size should be a standard size (e.g., S, M, L, XL, FREE)."""
++    # H5v2: attack mode collapse on style/color BUT don't over-correct.
++    # iter_04 H5v1 said "한 가지 값(예: 캐주얼, 화이트)에 편중되지 마라"
++    # — the model interpreted that too literally and ELIMINATED
++    # 화이트/블랙 entirely (color_white_black_share went 0.72 → 0.0).
++    # v2 rewords: focus on "fit to product+persona" not "avoid the
++    # frequent colors". 화이트/블랙 remain valid choices if the product
++    # is actually white/black.
++    attr_prompt = """아래 상품과 페르소나에 어울리는 세부 속성을 JSON으로 출력하세요.
+ 
++[상품]: {{ product_title }}
++[참고 리뷰]: {{ seed_review }}
++[페르소나 나이]: {{ age }}세
++[페르소나 직업]: {{ occupation }}
++[페르소나 성별]: {{ sex }}
++
++속성 가이드라인:
++- color: 한국어 구체 색상명. 아래 모두 사용 가능하다 (화이트/블랙도 정당한 선택이다).
++  블랙, 화이트, 네이비, 그레이, 차콜, 베이지, 카멜, 브라운, 카키, 올리브,
++  머스터드, 크림, 아이보리, 레드, 와인, 버건디, 핑크, 민트, 민트그린,
++  블루, 스카이블루, 인디고, 라벤더, 퍼플, 플럼, 옐로우
++- style: 상품과 페르소나에 어울리는 스타일.
++  캐주얼, 미니멀, 스트릿, 포멀, 스포티, 클래식, 로맨틱, 빈티지, 프레피,
++  시크, 페미닌, 아메카지, 워크웨어, Y2K, 아웃도어
++- size: 상품 카테고리에 맞는 사이즈.
++  S, M, L, XL, XXL, FREE, 85, 90, 95, 100, 105, 110,
++  225, 230, 235, 240, 245, 250, 255, 260, 265, 270
++
++선택 원칙:
++1. 상품명과 [참고 리뷰]에 명시된/암시된 속성을 우선 반영하라.
++2. 상품 카테고리가 신발이면 size는 숫자 사이즈, 상의/하의면 S-XL, FREE는
++   원사이즈 상품에만.
++3. 페르소나 연령/직업과의 어울림도 고려하라. 70대 무직 노인에게 Y2K 같은
++   극단 선택을 굳이 붙이지 마라.
++
++JSON 외 텍스트 금지."""
++
+     builder.add_column(
+         name="product_attributes",
+         column_type="llm-structured",

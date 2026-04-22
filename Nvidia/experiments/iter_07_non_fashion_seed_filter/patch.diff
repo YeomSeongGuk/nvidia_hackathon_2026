@@ -1,0 +1,79 @@
+--- experiments/iter_00_baseline/pipeline_script.py	2026-04-22 00:18:59
++++ experiments/iter_07_non_fashion_seed_filter/pipeline_script.py	2026-04-22 02:33:18
+@@ -78,6 +78,23 @@
+     "점퍼", "가디건", "원피스", "구두", "운동화", "샌들", "슬리퍼", "백팩"
+ ]
+ 
++# H7: 2-layer fashion filter. The baseline include-list alone lets
++# non-fashion products slip through because words like "신발" appear
++# inside product-adjacent strings (e.g. "신발 정리 수납함", "신발장").
++# EXCLUDE_KEYWORDS rejects those rows.
++FASHION_EXCLUDE_KEYWORDS = [
++    # Storage / organizer accessories
++    "정리함", "정리 박스", "정리 바구니", "수납함", "수납 박스", "보관함",
++    "정리 수납", "선반", "신발장", "옷장 정리", "옷걸이", "행거",
++    # Cleaning / maintenance
++    "세탁볼", "세탁망", "섬유 탈취", "섬유탈취",
++    "세제", "린스", "탈취제", "방향제", "향수",
++    # Tools / unrelated
++    "드라이기", "고데기", "면도기",
++    # Pet / baby / non-apparel "가방"s
++    "기저귀 가방", "유아용", "반려견 가방",
++]
++
+ # ============================================================================
+ # 2. UTILITY FUNCTIONS
+ # ============================================================================
+@@ -125,28 +142,41 @@
+ # ============================================================================
+ 
+ def extract_seed_data(data_path: str, config: PipelineConfig) -> pd.DataFrame:
+-    """Loads, filters for fashion, and samples seed data."""
+-    print("\nStep 1: Loading & Filtering Fashion Seed Data (Stage 1.0)")
+-    
++    """Loads, filters for fashion, and samples seed data.
++
++    H7: two-layer keyword filter. Include-only was matching non-apparel
++    items whose descriptions happen to contain "신발" or "옷" (e.g. a
++    shoe organizer, laundry bag). Adding an exclude-list drops those.
++    """
++    print("\nStep 1: Loading & Filtering Fashion Seed Data (Stage 1.0) [H7 2-layer]")
++
+     # Load raw TSV
+     df = pd.read_csv(data_path, sep="\t", header=None, names=["rating", "text"])
+     df = df.dropna(subset=["text"])
+-    
+-    # Apply Fashion Filter
+-    mask = df["text"].str.contains("|".join(FASHION_KEYWORDS), na=False)
+-    fashion_df = df[mask].copy().reset_index(drop=True)
+-    
++
++    # Include filter
++    include_mask = df["text"].str.contains("|".join(FASHION_KEYWORDS), na=False)
++    # Exclude filter (reject any row that contains an excluded term)
++    exclude_mask = df["text"].str.contains("|".join(FASHION_EXCLUDE_KEYWORDS), na=False)
++
++    fashion_df = df[include_mask & (~exclude_mask)].copy().reset_index(drop=True)
++    print(
++        f"  Include matches: {int(include_mask.sum())}  "
++        f"Exclude drops: {int((include_mask & exclude_mask).sum())}  "
++        f"After 2-layer filter: {len(fashion_df)}"
++    )
++
+     # Sample seeds
+     random.seed(config.random_seed)
+     seed_df = fashion_df.sample(
+-        n=min(len(fashion_df), config.seed_data_size), 
++        n=min(len(fashion_df), config.seed_data_size),
+         random_state=config.random_seed
+     ).reset_index(drop=True)
+-    
++
+     # Save intermediate
+     os.makedirs(config.stage_1_0_dir, exist_ok=True)
+     seed_df.to_json(
+-        os.path.join(config.stage_1_0_dir, "seed_data.jsonl"), 
++        os.path.join(config.stage_1_0_dir, "seed_data.jsonl"),
+         orient="records", lines=True, force_ascii=False
+     )
+     return seed_df

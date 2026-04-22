@@ -1,0 +1,180 @@
+{
+  "run_id": "iter_08_persona_binding_prompt",
+  "provider": "friendli",
+  "judges": [
+    "zai-org/GLM-5.1",
+    "deepseek-ai/DeepSeek-V3.2",
+    "Qwen/Qwen3-235B-A22B-Instruct-2507"
+  ],
+  "stages": [
+    "stage_1_0",
+    "stage_1_1",
+    "stage_1_1_5",
+    "stage_1_2"
+  ],
+  "max_workers": 4,
+  "duration_sec": 325.47,
+  "errors": [
+    "stage_1_0:deepseek rc=1",
+    "stage_1_0:qwen3 rc=1",
+    "stage_1_0:glm rc=1"
+  ],
+  "ensemble": {
+    "stage_1_0": {
+      "failure_modes": {}
+    },
+    "stage_1_1": {
+      "attr_grounded_rate": {
+        "mean": 0.417,
+        "glm": 0.4,
+        "deepseek": 0.42,
+        "qwen3": 0.43,
+        "range": 0.03
+      },
+      "avg_persona_reflection": {
+        "mean": 4.507,
+        "glm": 3.94,
+        "deepseek": 4.72,
+        "qwen3": 4.86,
+        "range": 0.92
+      },
+      "avg_raw_text_naturalness": {
+        "mean": 3.833,
+        "glm": 2.88,
+        "deepseek": 4.48,
+        "qwen3": 4.14,
+        "range": 1.6
+      },
+      "fashion_rate": {
+        "mean": 0.84,
+        "glm": 0.88,
+        "deepseek": 0.82,
+        "qwen3": 0.82,
+        "range": 0.06,
+        "agreement_approx": 0.94
+      },
+      "has_tpo_rate": {
+        "mean": 0.927,
+        "glm": 0.96,
+        "deepseek": 0.84,
+        "qwen3": 0.98,
+        "range": 0.14,
+        "agreement_approx": 0.86
+      },
+      "rating_sentiment_consistent_rate": {
+        "mean": 1.0,
+        "glm": 1.0,
+        "deepseek": 1.0,
+        "qwen3": 1.0,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "raw_text_within_spec_rate": {
+        "mean": 0.98,
+        "glm": 0.98,
+        "deepseek": 0.98,
+        "qwen3": 0.98,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "title_format_ok_rate": {
+        "mean": 0.313,
+        "glm": 0.2,
+        "deepseek": 0.46,
+        "qwen3": 0.28,
+        "range": 0.26,
+        "agreement_approx": 0.74
+      },
+      "title_reasoning_leak_rate": {
+        "mean": 0.427,
+        "glm": 0.46,
+        "deepseek": 0.4,
+        "qwen3": 0.42,
+        "range": 0.06,
+        "agreement_approx": 0.94
+      },
+      "title_within_spec_rate": {
+        "mean": 0.3,
+        "glm": 0.18,
+        "deepseek": 0.42,
+        "qwen3": 0.3,
+        "range": 0.24,
+        "agreement_approx": 0.76
+      },
+      "n_evaluated": 50,
+      "failure_modes": {
+        "title_reasoning_leak": 23,
+        "title_format_violation": 39,
+        "language_issue": 16,
+        "non_fashion_item": 10,
+        "attr_ungrounded": 32,
+        "persona_drift": 13,
+        "title_length_violation": 33,
+        "length_violation": 2,
+        "missing_tpo": 12,
+        "attr_mono_value": 6,
+        "rating_sentiment_mismatch": 0
+      }
+    },
+    "stage_1_1_5": {
+      "dedup_miss_rate": {
+        "mean": 0.227,
+        "glm": 0.32,
+        "deepseek": 0.24,
+        "qwen3": 0.12,
+        "range": 0.2
+      },
+      "dedup_reduction_rate": {
+        "mean": 0.0,
+        "glm": 0.0,
+        "deepseek": 0.0,
+        "qwen3": 0.0,
+        "range": 0.0
+      },
+      "dedup_in_count": 50,
+      "dedup_out_count": 50,
+      "dedup_miss_count": 16,
+      "largest_miss_cluster_size": 3,
+      "failure_modes": {
+        "near_duplicate_missed": 10,
+        "low_dedup_reduction": 1,
+        "wrong_removal": 0
+      }
+    },
+    "stage_1_2": {
+      "fashion_rate": {
+        "mean": 0.0,
+        "glm": 0.0,
+        "deepseek": 0.0,
+        "qwen3": 0.0,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "has_tpo_rate": {
+        "mean": 0.0,
+        "glm": 0.0,
+        "deepseek": 0.0,
+        "qwen3": 0.0,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "pii_rate": {
+        "mean": 0.0,
+        "glm": 0.0,
+        "deepseek": 0.0,
+        "qwen3": 0.0,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "n_evaluated": 0,
+      "failure_modes": {
+        "non_fashion_item": 0,
+        "too_short": 0,
+        "noise_text": 0,
+        "pii_leak": 0,
+        "language_issue": 0,
+        "duplicate_suspect": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,1714 @@
+
+# --- iter_run_stage2 @ 2026-04-22T02:14:19+00:00 ---
+# iter=iter_00_baseline parent=
+# semdedup=off stage22_mode=full
+# pinned input sha256=sha256:5e513bc75b3e3133546abfc72529f59850812e9fc133708610916b846fb640b6
+
+$ brev exec coupang 'mkdir -p /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_1_2 /home/nvidia/experiments_data_stage2/iter_00_baseline/output /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval /home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot /home/nvidia/stage2_work/scripts /home/nvidia/stage2_work/pipelines'
+coupang
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/stage1_pinned/stage_1_2_processed.jsonl coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_1_2/stage_1_2_processed.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K2026/04/22 11:14:43 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/stage1_pinned/stage_1_2_processed.jsonl → coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_1_2/stage_1_2_processed.jsonl (1.701s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/pipeline_snapshot/stage_2_1_extract.py coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_1_extract.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:15:10 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+⡿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/pipeline_snapshot/stage_2_1_extract.py → coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_1_extract.py (1.683s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/pipeline_snapshot/stage_2_1_5_semdedup.py coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_1_5_semdedup.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K2026/04/22 11:15:48 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/pipeline_snapshot/stage_2_1_5_semdedup.py → coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_1_5_semdedup.py (1.642s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/pipeline_snapshot/stage_2_2_canonicalize.py coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_2_canonicalize.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:16:21 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/pipeline_snapshot/stage_2_2_canonicalize.py → coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_2_canonicalize.py (1.674s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/pipeline_snapshot/stage_2_3_aggregate.py coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_3_aggregate.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K2026/04/22 11:16:50 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/pipeline_snapshot/stage_2_3_aggregate.py → coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_3_aggregate.py (1.656s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/pipeline_snapshot/stage_2_4_expand.py coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_4_expand.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:17:19 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/pipeline_snapshot/stage_2_4_expand.py → coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_4_expand.py (1.63s)
+
+$ brev copy /Users/sgyeom/Nvidia/scripts/tri_judge_run_stage2.py coupang:/home/nvidia/stage2_work/scripts/tri_judge_run_stage2.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:17:46 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/scripts/tri_judge_run_stage2.py → coupang:/home/nvidia/stage2_work/scripts/tri_judge_run_stage2.py (1.959s)
+
+$ brev copy /Users/sgyeom/Nvidia/pipelines/stage_2_1_5_semdedup.py coupang:/home/nvidia/stage2_work/pipelines/stage_2_1_5_semdedup.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:18:13 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/pipelines/stage_2_1_5_semdedup.py → coupang:/home/nvidia/stage2_work/pipelines/stage_2_1_5_semdedup.py (2.349s)
+
+$ brev exec coupang 'set -euo pipefail; export LLM_PROVIDER=vllm; export VLLM_BASE_URL=http://localhost:5000/v1; export VLLM_MODEL=nemotron; export LLM_EXTRA_BODY='"'"'{"chat_template_kwargs":{"enable_thinking":false}}'"'"'; export STAGE_DATA_ROOT=/home/nvidia/experiments_data_stage2/iter_00_baseline/data; cd /home/nvidia/stage2_work && cp /home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_1_extract.py pipelines/stage_2_1_extract.py && cp /home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_1_5_semdedup.py pipelines/stage_2_1_5_semdedup.py && cp /home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_2_canonicalize.py pipelines/stage_2_2_canonicalize.py && cp /home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_3_aggregate.py pipelines/stage_2_3_aggregate.py && cp /home/nvidia/experiments_data_stage2/iter_00_baseline/snapshot/stage_2_4_expand.py pipelines/stage_2_4_expand.py && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_1_extract   --input  $STAGE_DATA_ROOT/stage_1_2   --output $STAGE_DATA_ROOT/stage_2_1_extracted.jsonl   --provider vllm && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_1_5_semdedup   --off   --input  $STAGE_DATA_ROOT/stage_2_1_extracted.jsonl   --output $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_2_canonicalize   --stage full --refine --cross-merge   --input  $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl   --output $STAGE_DATA_ROOT/stage_2_2_clusters.jsonl   --provider vllm && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_3_aggregate   --stage1 $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl   --stage2 $STAGE_DATA_ROOT/stage_2_2_clusters.jsonl   --output $STAGE_DATA_ROOT/stage_2_3_analyzed_intents.jsonl && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_4_expand   --force-fallback   --input  $STAGE_DATA_ROOT/stage_2_3_analyzed_intents.jsonl   --output $STAGE_DATA_ROOT/stage_2_4_expanded_intents.jsonl   --provider vllm && mkdir -p /home/nvidia/experiments_data_stage2/iter_00_baseline/output && cp $STAGE_DATA_ROOT/stage_2_1_extracted.jsonl       /home/nvidia/experiments_data_stage2/iter_00_baseline/output/ && cp $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl       /home/nvidia/experiments_data_stage2/iter_00_baseline/output/ && (cp $STAGE_DATA_ROOT/stage_2_1_5_deduped_stats.json /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_5_stats.json 2>/dev/null ||  cp $STAGE_DATA_ROOT/stage_2_1_5_stats.json         /home/nvidia/experiments_data_stage2/iter_00_baseline/output/ 2>/dev/null || true) && cp $STAGE_DATA_ROOT/stage_2_2_clusters.jsonl        /home/nvidia/experiments_data_stage2/iter_00_baseline/output/ && cp $STAGE_DATA_ROOT/stage_2_3_analyzed_intents.jsonl /home/nvidia/experiments_data_stage2/iter_00_baseline/output/ && cp $STAGE_DATA_ROOT/stage_2_4_expanded_intents.jsonl /home/nvidia/experiments_data_stage2/iter_00_baseline/output/ && wc -l /home/nvidia/experiments_data_stage2/iter_00_baseline/output/*.jsonl 2>&1 | tee /home/nvidia/experiments_data_stage2/iter_00_baseline/run_pipeline.log'
+[stage_2_1] provider=vllm base_url=http://localhost:5000/v1 model=nemotron api_key=dummy... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}} docs=42 concurrency=10
+[0042/42] ok=42 fail=0
+
+done: ok=42 fail=0 -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_2_1_extracted.jsonl
+[semdedup] loaded 42 ExtractedIntent rows from /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_2_1_extracted.jsonl
+[semdedup] pass-through: kept=42 stats=/home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_2_1_5_deduped_stats.json
+[load] 42 extracted intents from /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_2_1_5_deduped.jsonl
+[group] 30 unique intents
+[embed] loading BAAI/bge-m3 on cuda ...
+[embed] encoding 29 intents (e5_prefix=False, batch_size=64) ...
+[embed] done in 0.3s, shape=(29, 1024)
+[cluster] 19 primary clusters found
+  primary 0: ['일상', '일상 캐주얼', '일상용', '캐주얼 스타일']
+  primary 1: ['주말 LCK 보면서 편하게 입으려고', '주말 휴식용']
+  primary 2: ['목욕탕 갈 때', '중식당 갈 때']
+  primary 3: ['해질 무렵 오륙도 산책 후']
+  primary 4: ['시민공원 산책', '일상 산책', '주말 산책', '탄천 산책']
+  primary 5: ['풍경 사진 찍을 때']
+  primary 6: ['등산 후', '등산 후 편하게 입기', '일하며 등산']
+  primary 7: ['주말 무실동 단골 주점']
+  primary 8: ['출근복']
+  primary 9: ['여름 원피스']
+  primary 10: ['운전 업무']
+  primary 11: ['수락산 드라이브']
+  primary 12: ['주말 삼겹살 모임 후 거실에서 야구 중계 볼 때']
+  primary 13: ['주말 숲길 드라이브 후 일식집 데이트']
+  primary 14: ['데일리']
+  primary 15: ['일식집 만찬']
+  primary 16: ['주말 마당 수국 가꾸고 만경강변 산책']
+  primary 17: ['민요 춤 추러 갈 때']
+  primary 18: ['주짓수 스파링 후']
+[stage_2_2] provider=vllm base_url=http://localhost:5000/v1 model=nemotron api_key=dummy... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  [refine] split ['등산 후', '등산 후 편하게 입기', '일하며 등산'] -> [['등산 후', '등산 후 편하게 입기'], ['일하며 등산']]
+[refine] 19 -> 20 clusters
+[canonical] cluster_000: 일상  <= ['일상', '일상 캐주얼', '일상용', '캐주얼 스타일']
+[canonical] cluster_001: 홈웨어  <= ['주말 LCK 보면서 편하게 입으려고', '주말 휴식용']
+[canonical] cluster_002: 외출복  <= ['목욕탕 갈 때', '중식당 갈 때']
+[canonical] cluster_003: 해질녘  <= ['해질 무렵 오륙도 산책 후']
+[canonical] cluster_004: 산책룩  <= ['시민공원 산책', '일상 산책', '주말 산책', '탄천 산책']
+[canonical] cluster_005: 풍경사진  <= ['풍경 사진 찍을 때']
+[canonical] cluster_006: 등산복  <= ['등산 후', '등산 후 편하게 입기']
+[canonical] cluster_007: 등산복  <= ['일하며 등산']
+[canonical] cluster_008: 주점  <= ['주말 무실동 단골 주점']
+[canonical] cluster_009: 출근복  <= ['출근복']
+[canonical] cluster_010: 여름원피스  <= ['여름 원피스']
+[canonical] cluster_011: 운전복  <= ['운전 업무']
+[canonical] cluster_012: 수락산 드라이브  <= ['수락산 드라이브']
+[canonical] cluster_013: 홈웨어  <= ['주말 삼겹살 모임 후 거실에서 야구 중계 볼 때']
+[canonical] cluster_014: 주말데이트  <= ['주말 숲길 드라이브 후 일식집 데이트']
+[canonical] cluster_015: 데일리  <= ['데일리']
+[canonical] cluster_016: 일식집  <= ['일식집 만찬']
+[canonical] cluster_017: 주말나들이  <= ['주말 마당 수국 가꾸고 만경강변 산책']
+[canonical] cluster_018: 민요룩  <= ['민요 춤 추러 갈 때']
+[canonical] cluster_019: 주짓수복  <= ['주짓수 스파링 후']
+
+[cross-merge] reviewing 21 clusters ...
+  [cross-merge] ['일상', '데일리'] -> '일상' (evidence now 6)
+  [cross-merge] ['산책룩', '해질녘', '풍경사진', '주말나들이'] -> '산책룩' (evidence now 7)
+  [cross-merge] ['등산복', '등산복'] -> '등산복' (evidence now 1)
+  [cross-merge] ['주점', '일식집'] -> '주점' (evidence now 2)
+  [cross-merge] ['출근복', '운전복', '수락산 드라이브'] -> '출근복' (evidence now 3)
+  [cross-merge] ['홈웨어', '홈웨어'] -> '홈웨어' (evidence now 1)
+  [cross-merge] ['주말데이트', '주점'] -> '주점' (evidence now 3)
+[cross-merge] 21 -> 11 clusters
+
+[done] wrote 11 clusters -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_2_2_clusters.jsonl
+[load] 42 extracted, 11 clusters
+[aggregate] cluster_000 '일상': evidence=6 attrs=7
+[aggregate] cluster_013 '홈웨어': evidence=1 attrs=3
+[aggregate] cluster_002 '외출복': evidence=3 attrs=5
+[aggregate] cluster_004 '산책룩': evidence=7 attrs=8
+[aggregate] cluster_007 '등산복': evidence=1 attrs=3
+[aggregate] cluster_008 '주점': evidence=3 attrs=4
+[aggregate] cluster_009 '출근복': evidence=3 attrs=7
+[aggregate] cluster_010 '여름원피스': evidence=1 attrs=3
+[aggregate] cluster_018 '민요룩': evidence=1 attrs=2
+[aggregate] cluster_019 '주짓수복': evidence=1 attrs=3
+[aggregate] cluster_020 '일반': evidence=11 attrs=0
+
+[done] wrote 11 analyzed intents -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_2_3_analyzed_intents.jsonl
+[stage_2_4] loaded 11 analyzed intents
+[stage_2_4][fallback] provider=vllm base_url=http://localhost:5000/v1 model=nemotron api_key=dummy... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[1/11] expanding '일상'
+[2/11] expanding '홈웨어'
+[3/11] expanding '외출복'
+[4/11] expanding '산책룩'
+[5/11] expanding '등산복'
+[6/11] expanding '주점'
+[7/11] expanding '출근복'
+[8/11] expanding '여름원피스'
+[9/11] expanding '민요룩'
+[10/11] expanding '주짓수복'
+[11/11] expanding '일반'
+
+[stage_2_4] saved 11 expanded intents -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_2_4_expanded_intents.jsonl
+
+일상
+  - 데일리로 입기 좋은 면 티셔츠 추천해줘
+  - 슬림핏 청바지랑 어울리는 상의 뭐가 있을까?
+  - 루즈핏 원피스 편하게 입을 만한 거 찾아줘
+  - 베이지 컬러 바지 코디 추천해줘
+  - 화이트 셔츠 데일리룩으로 어떻게 입으면 좋을까?
+
+홈웨어
+  - 편하게 입을 수 있는 오버핏 홈웨어 블랙 색상 추천해줘
+  - 집에서 편하게 입고 싶은 블랙 캐주얼 홈웨어 있어?
+  - 오버핏 블랙 홈웨어로 캐주얼하게 입고 싶어
+  - 집콕할 때 입기 좋은 블랙 오버핏 홈웨어 추천
+  - 블랙 색상의 캐주얼한 오버핏 홈웨어 좀 보여줘
+
+외출복
+  - 오늘 외출할 때 흰색 티셔츠에 청바지 매치 어때?
+  - 베이지 색 니트 입고 나가려고 하는데 하의 추천해줘
+  - 아이보리 블라우스에 슬랙스 코디로 클래식하게 입고 싶어
+  - 캐주얼한 외출복으로 맨투맨과 조거팬즈 세트 보여줘
+  - 클래식 스타일로 트렌치코트 안에 뭐 입으면 좋을까?
+
+산책룩
+  - 오늘 산책 가려고 하는데 슬림핏 베이지 바지 추천해줘
+  - 와이드핏 화이트 트레이닝복으로 편하게 입고 싶어
+  - 살짝 딱 맞는 네이비 맨투맨으로 산책룩 코디해줘
+  - 베이지 색 슬림핏 원피스로 나들이룩 추천해줘
+  - 화이트 와이드핏 팬츠에 뭐 입으면 좋을까?
+
+등산복
+  - 등산갈 때 흰색 면 티셔츠 괜찮을까?
+  - 캐주얼하게 등산복 코디 추천해줘
+  - 흰색 면 옷 입고 등산해도 될까?
+  - 편안한 캐주얼 스타일 등산복 찾아줘
+  - 등산용 흰색 면 상의 있나요?
+
+주점
+  - 편하게 입을 수 있는 베이지 코튼 팬츠 추천해줘
+  - 블랙 컬러에 캐주얼한 스타일로 주점 갈 옷 뭐 입을까?
+  - 코튼 소재에 베이지 색상인 상의 추천해줘
+  - 주점 갈 때 캐주얼하게 블랙과 베이지 매치해서 입어볼까?
+  - 편안하면서도 스타일 좋은 코튼 캐주얼 옷으로 주점룩 추천해줘
+
+출근복
+  - 출근할 때 입기 좋은 베이지 코튼 셔츠 추천해줘
+  - 팔뚝에 딱 맞는 블랙 스포티한 디자인 옷 찾아줘
+  - 미니멀한 스타일의 출근복 뭐가 좋을까?
+  - 편안하면서도 깔끔한 코튼 소재 직장인 옷 추천
+  - 베이지나 블랙 중에 데일리로 입기 좋은 출근룩 알려줘
+
+여름원피스
+  - 여름에 입기 좋은 페미닌한 원피스 추천해줘
+  - 베이지 색 원피스 찾고 있어, 여성스러운 스타일로
+  - 휴가 갈 때 입을 가벼운 여름 원피스 뭐가 좋을까?
+  - 페미닌한 느낌의 베이지 원피스 있어?
+  - 여름 데이트룩으로 어울리는 원피스 알려줘
+
+민요룩
+  - 라벤더 색 로맨틱한 민요룩 추천해줘
+  - 로맨틱한 느낌의 라벤더 민요 코디 알려줘
+  - 민요 공연 갈 때 라벤더 색 로맨틱한 옷 어때?
+  - 라벤더 컬러에 로맨틱한 스타일 민요룩 찾아줘
+  - 민요 무대용으로 로맨틱한 라벤더 옷 추천해줘
+
+주짓수복
+  - 주짓수 연습할 때 입을 슬림핏 화이트 도복 추천해줘
+  - 화이트 색상의 캐주얼한 주짓수복 있어?
+  - 슬림핏으로 편하게 움직이는 주짓수복 찾고 있어
+  - 주짓수 입문용으로 화이트 색상 도복 알려줘
+  - 캐주얼 스타일의 슬림핏 주짓수복 추천해줘
+
+일반
+  - 편하게 입을 만한 옷 추천해줘
+  - 아무거나 괜찮은 데일리 룩 알려줘
+  - 뭐 입을지 모르겠을 때 무난한 거 추천
+  - 기본템 하나만 골라줘
+  - 평범한 일상복 코디 제안해줘
+   42 /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_5_deduped.jsonl
+   42 /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_extracted.jsonl
+   11 /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_2_clusters.jsonl
+   11 /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_3_analyzed_intents.jsonl
+   11 /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl
+  117 total
+coupang
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_extracted.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_1_extracted.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:19:20 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_extracted.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_1_extracted.jsonl (1.84s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_5_deduped.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_1_5_deduped.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K2026/04/22 11:19:48 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_5_deduped.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_1_5_deduped.jsonl (1.8s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_5_stats.json /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_1_5_stats.json
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K2026/04/22 11:20:16 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_5_stats.json → /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_1_5_stats.json (1.801s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_2_clusters.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_2_clusters.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K2026/04/22 11:20:44 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_2_clusters.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_2_clusters.jsonl (1.78s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_3_analyzed_intents.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_3_analyzed_intents.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:21:11 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_3_analyzed_intents.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_3_analyzed_intents.jsonl (1.924s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K2026/04/22 11:21:48 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl (1.889s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/run_pipeline.log /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/run_pipeline_remote.log
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:22:15 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/run_pipeline.log → /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/run_pipeline_remote.log (1.819s)
+
+$ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval; export LLM_EXTRA_BODY='"'"'{"chat_template_kwargs":{"enable_thinking":false}}'"'"'; mkdir -p $STAGE_DATA_ROOT; cd /home/nvidia/stage2_work && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python scripts/tri_judge_run_stage2.py   --output-dir    /home/nvidia/experiments_data_stage2/iter_00_baseline/output   --curated       /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_1_2/stage_1_2_processed.jsonl   --stage-data-root $STAGE_DATA_ROOT   --judge-raw-dir /home/nvidia/experiments_data_stage2/iter_00_baseline/judge_raw   --metrics-out   /home/nvidia/experiments_data_stage2/iter_00_baseline/judge_metrics.json   --provider friendli   --run-id iter_00_baseline --tag iter_00_baseline   --skip-on-error 2>&1 | tee -a /home/nvidia/experiments_data_stage2/iter_00_baseline/run_pipeline.log'
+[tri_judge_stage2] output_dir=/home/nvidia/experiments_data_stage2/iter_00_baseline/output
+                   curated=/home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_1_2/stage_1_2_processed.jsonl
+                   stage_data_root=/home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval
+                   judge_raw_dir=/home/nvidia/experiments_data_stage2/iter_00_baseline/judge_raw
+                   metrics_out=/home/nvidia/experiments_data_stage2/iter_00_baseline/judge_metrics.json
+                   stages=['stage_2_1', 'stage_2_2', 'stage_2_3', 'stage_2_4']  pairs=12  max_workers=4  run_id=iter_00_baseline
+[stage_2_1:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_1_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_00_baseline__glm --tag iter_00_baseline__glm --curated /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_1_2/stage_1_2_processed.jsonl --extracted /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_extracted.jsonl
+[stage_2_1:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_1_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_00_baseline__deepseek --tag iter_00_baseline__deepseek --curated /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_1_2/stage_1_2_processed.jsonl --extracted /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_extracted.jsonl
+[stage_2_1:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_1_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_00_baseline__qwen3 --tag iter_00_baseline__qwen3 --curated /home/nvidia/experiments_data_stage2/iter_00_baseline/data/stage_1_2/stage_1_2_processed.jsonl --extracted /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_1_extracted.jsonl
+[stage_2_2:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_00_baseline__glm --tag iter_00_baseline__glm --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_2_clusters.jsonl
+--- [stage_2_2:glm] begin ---
+[stage_2_2 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  clusters_total=10 sampled=10 (dropped '일반')
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__glm
+[0001] OK  cluster_000 '일상' coh=True fit=4 ko=True split=False fm=[]
+[0002] OK  cluster_013 '홈웨어' coh=True fit=4 ko=True split=False fm=[]
+[0003] OK  cluster_002 '외출복' coh=False fit=2 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0004] OK  cluster_004 '산책룩' coh=False fit=3 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0005] OK  cluster_007 '등산복' coh=True fit=3 ko=True split=False fm=['wrong_canonical']
+[0006] OK  cluster_008 '주점' coh=True fit=2 ko=True split=False fm=['wrong_canonical']
+[0007] OK  cluster_009 '출근복' coh=False fit=2 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0008] OK  cluster_010 '여름원피스' coh=True fit=5 ko=True split=False fm=[]
+[0009] OK  cluster_018 '민요룩' coh=True fit=5 ko=True split=False fm=[]
+[0010] OK  cluster_019 '주짓수복' coh=True fit=5 ko=True split=False fm=[]
+
+[stage_2_2 judge] cross-cluster duplicate pass ...
+  duplicate_pairs=0
+
+[done] clusters ok=10 fail=0 dup_pairs=0 time=16.3s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__glm/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_2:glm] end rc=0 ---
+[stage_2_2:glm] DONE in 17.0s
+[stage_2_2:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_00_baseline__deepseek --tag iter_00_baseline__deepseek --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_2_clusters.jsonl
+--- [stage_2_2:deepseek] begin ---
+[stage_2_2 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  clusters_total=10 sampled=10 (dropped '일반')
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__deepseek
+[0001] OK  cluster_000 '일상' coh=True fit=5 ko=True split=True fm=[]
+[0002] OK  cluster_013 '홈웨어' coh=True fit=5 ko=True split=True fm=[]
+[0003] OK  cluster_002 '외출복' coh=True fit=2 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0004] OK  cluster_004 '산책룩' coh=True fit=5 ko=True split=True fm=[]
+[0005] OK  cluster_007 '등산복' coh=True fit=5 ko=True split=True fm=[]
+[0006] OK  cluster_008 '주점' coh=True fit=2 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0007] OK  cluster_009 '출근복' coh=True fit=2 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0008] OK  cluster_010 '여름원피스' coh=True fit=5 ko=True split=True fm=[]
+[0009] OK  cluster_018 '민요룩' coh=True fit=5 ko=True split=True fm=[]
+[0010] OK  cluster_019 '주짓수복' coh=True fit=3 ko=True split=True fm=['wrong_canonical']
+
+[stage_2_2 judge] cross-cluster duplicate pass ...
+  duplicate_pairs=1
+
+[done] clusters ok=10 fail=0 dup_pairs=1 time=23.8s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_2:deepseek] end rc=0 ---
+[stage_2_2:deepseek] DONE in 24.5s
+[stage_2_2:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_00_baseline__qwen3 --tag iter_00_baseline__qwen3 --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_2_clusters.jsonl
+--- [stage_2_2:qwen3] begin ---
+[stage_2_2 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  clusters_total=10 sampled=10 (dropped '일반')
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__qwen3
+[0001] OK  cluster_000 '일상' coh=True fit=4 ko=True split=False fm=[]
+[0002] OK  cluster_013 '홈웨어' coh=True fit=1 ko=True split=False fm=['wrong_canonical']
+[0003] OK  cluster_002 '외출복' coh=False fit=2 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0004] OK  cluster_004 '산책룩' coh=True fit=4 ko=True split=False fm=[]
+[0005] OK  cluster_007 '등산복' coh=True fit=5 ko=True split=False fm=[]
+[0006] OK  cluster_008 '주점' coh=False fit=2 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0007] OK  cluster_009 '출근복' coh=False fit=2 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0008] OK  cluster_010 '여름원피스' coh=True fit=5 ko=True split=False fm=[]
+[0009] OK  cluster_018 '민요룩' coh=True fit=5 ko=True split=False fm=[]
+[0010] OK  cluster_019 '주짓수복' coh=True fit=5 ko=True split=False fm=[]
+
+[stage_2_2 judge] cross-cluster duplicate pass ...
+  duplicate_pairs=3
+
+[done] clusters ok=10 fail=0 dup_pairs=3 time=49.9s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_2/eval/runs/iter_00_baseline__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_2:qwen3] end rc=0 ---
+[stage_2_2:qwen3] DONE in 50.5s
+[stage_2_3:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_00_baseline__glm --tag iter_00_baseline__glm --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_3_analyzed_intents.jsonl
+--- [stage_2_3:glm] begin ---
+[stage_2_3 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  intents_total=11 sampled=11
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__glm
+[0001] OK  일상 use=5 reliable=True subj=0 wrong=0 dup=0 fm=[]
+[0002] OK  홈웨어 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0003] OK  외출복 use=4 reliable=True subj=0 wrong=0 dup=1 fm=['duplicate_values']
+[0004] OK  산책룩 use=5 reliable=True subj=1 wrong=0 dup=0 fm=['subjective_value']
+[0005] OK  등산복 use=2 reliable=True subj=0 wrong=2 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0006] OK  주점 use=2 reliable=True subj=0 wrong=0 dup=0 fm=['non_fashion_intent']
+[0007] OK  출근복 use=3 reliable=False subj=2 wrong=1 dup=0 fm=['subjective_value', 'wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0008] OK  여름원피스 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0009] OK  민요룩 use=2 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0010] OK  주짓수복 use=2 reliable=False subj=0 wrong=1 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0011] OK  일반 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['non_fashion_intent']
+
+[done] ok=11 fail=0 time=26.6s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__glm/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_3:glm] end rc=0 ---
+[stage_2_3:glm] DONE in 27.3s
+[stage_2_3:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_00_baseline__deepseek --tag iter_00_baseline__deepseek --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_3_analyzed_intents.jsonl
+--- [stage_2_1:glm] begin ---
+[stage_2_1 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  curated=42 extracted=42 sampled=42
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__glm
+[0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=5 tv=True fm=[] sr=True
+[0002] OK  rva4650f147f9e46ec85f3516ca5eccfce ig=5 tv=True fm=[] sr=True
+[0003] OK  rv843824fa41754a88ab1a21e1c53284e9 ig=5 tv=True fm=[] sr=True
+[0004] OK  rv5671d12bdf33429b85a9d48eae05386f ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0005] OK  rv24ebec26563743a2bc650d28a63fc8d1 ig=4 tv=True fm=[] sr=False
+[0006] OK  rv1f7d14343b4b4e37b5f33d81174ae295 ig=5 tv=True fm=[] sr=True
+[0007] OK  rv0e328acd2426471a9159d6fbfb9161ea ig=2 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0008] OK  rva5abc3e9e3074f389cda975a7c10a208 ig=4 tv=True fm=[] sr=True
+[0009] OK  rvd2943685b26348d1bff6d8f005fd7a92 ig=5 tv=True fm=[] sr=True
+[0010] OK  rvc8acf9c71e5f4651a504896d93f5ed26 ig=2 tv=False fm=['missed_tpo'] sr=True
+[0011] OK  rv2730eee7952c4a758c7f5559f2e1d003 ig=3 tv=False fm=['product_type_as_intent'] sr=False
+[0012] OK  rva8f9f650b86f494086e9300afee298ac ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0013] OK  rvce8c9f0f16d44480820dca41070af5b9 ig=5 tv=True fm=[] sr=True
+[0014] OK  rvc06b331842b347628cc5c7891b2d486c ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0015] OK  rv476b2025ac644acc8b81e06fedfbcf9e ig=4 tv=True fm=['missed_tpo'] sr=True
+[0016] OK  rv44a28ac8276e4a9eb45f7943428d890d ig=3 tv=True fm=['missed_tpo'] sr=True
+[0017] OK  rvc1a1c49b002241a3b375c8fa4f3448a2 ig=4 tv=True fm=[] sr=True
+[0018] OK  rvf0fa963d93274c80b0ccf5c37add2ac7 ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0019] OK  rvf14b11e8bf3247e389ada7f9bd9d6486 ig=5 tv=True fm=[] sr=True
+[0020] OK  rvdf08c60c8c3b4ea8baf05f8b5e514fe6 ig=5 tv=True fm=[] sr=True
+[0021] OK  rv7cf1d99d57c14cd7b965ddcc84b058dc ig=2 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0022] OK  rv84d469edd1154d52812c78b80d66139a ig=4 tv=True fm=[] sr=True
+[0023] OK  rv55c231c059c4400c875a613f24edbb5d ig=3 tv=False fm=['product_type_as_intent'] sr=True
+[0024] OK  rvf07984e5b8e14ffb8d3ff37a1adfd3dd ig=4 tv=True fm=['missed_tpo'] sr=True
+[0025] OK  rv9c5fd01eda8d44aa830d8ebabcc9f8ea ig=2 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0026] OK  rve4d4b13b14f249bc81268c89f574f909 ig=5 tv=True fm=[] sr=True
+[0027] OK  rv17e012851a644ab286770e7e3b69ab5e ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=False
+[0028] OK  rvbe2e2d5354ca40468e6141df99c53e72 ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0029] OK  rvb69fdda0c7984e8b892652c5c2da3918 ig=4 tv=True fm=['subjective_attribute_value'] sr=True
+[0030] OK  rv8e238d418abe4e5ab0bda5e0b513e466 ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0031] OK  rveeadcc569b5547acbfc84f8dce3547f5 ig=5 tv=True fm=['sentiment_rating_mismatch'] sr=False
+[0032] OK  rvc0e9dba431934ab98ecc8ee85e61247d ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0033] OK  rv940a4e51ef4b4c4bbf1dcf51f540381d ig=5 tv=True fm=[] sr=True
+[0034] OK  rvc3d7c0e4d7c248519db515dae689c893 ig=5 tv=True fm=[] sr=True
+[0035] OK  rvd2f37b8ec38b42d1b2ebc53eb372253e ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0036] OK  rv226411664fa8435ea2949f2d85e25fee ig=5 tv=True fm=[] sr=False
+[0037] OK  rvc0f720ef783c48fbbbebb39334f46f0e ig=5 tv=True fm=[] sr=True
+[0038] OK  rv308d1f2c267e49fdab815b533d14f43a ig=5 tv=True fm=[] sr=True
+[0039] OK  rvc9f22670d8924004a3f666e3d2a96c45 ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0040] OK  rvb8da9b3def464dab8a86f17da2d0bef3 ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0041] OK  rv5824ebb92beb4e39af75a212e3753901 ig=4 tv=True fm=[] sr=False
+[0042] OK  rv184844b3ceaa48c3856915dac87afeb2 ig=5 tv=True fm=[] sr=True
+
+[done] ok=42 fail=0 time=131.3s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__glm/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_1:glm] end rc=0 ---
+[stage_2_1:glm] DONE in 132.0s
+[stage_2_3:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_00_baseline__qwen3 --tag iter_00_baseline__qwen3 --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_3_analyzed_intents.jsonl
+--- [stage_2_3:deepseek] begin ---
+[stage_2_3 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  intents_total=11 sampled=11
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__deepseek
+[0001] OK  일상 use=1 reliable=True subj=0 wrong=0 dup=7 fm=['non_fashion_intent']
+[0002] OK  홈웨어 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+(stderr) Traceback (most recent call last):
+(stderr)   File "<frozen runpy>", line 198, in _run_module_as_main
+(stderr)   File "<frozen runpy>", line 88, in _run_code
+(stderr)   File "/home/nvidia/stage2_work/pipelines/eval/stage_2_3_judge.py", line 449, in <module>
+(stderr)     sys.exit(main())
+(stderr)              ^^^^^^
+(stderr)   File "/home/nvidia/stage2_work/pipelines/eval/stage_2_3_judge.py", line 386, in main
+(stderr)     judge = parse_judge_result(parsed, input_attrs)
+(stderr)             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(stderr)   File "/home/nvidia/stage2_work/pipelines/eval/stage_2_3_judge.py", line 113, in parse_judge_result
+(stderr)     failure_modes=[
+(stderr)                   ^
+(stderr) TypeError: 'int' object is not iterable
+--- [stage_2_3:deepseek] end rc=1 ---
+[stage_2_3:deepseek] FAILED rc=1 in 17.5s
+[stage_2_4:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_00_baseline__glm --tag iter_00_baseline__glm --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl
+--- [stage_2_1:deepseek] begin ---
+[stage_2_1 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  curated=42 extracted=42 sampled=42
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__deepseek
+[0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=1 tv=True fm=['invalid_input'] sr=True
+[0002] OK  rva4650f147f9e46ec85f3516ca5eccfce ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo'] sr=True
+[0003] OK  rv843824fa41754a88ab1a21e1c53284e9 ig=1 tv=True fm=['language_issue'] sr=True
+[0004] OK  rv5671d12bdf33429b85a9d48eae05386f ig=1 tv=True fm=['language_issue'] sr=True
+[0005] OK  rv24ebec26563743a2bc650d28a63fc8d1 ig=1 tv=True fm=['language_issue'] sr=False
+[0006] OK  rv1f7d14343b4b4e37b5f33d81174ae295 ig=1 tv=True fm=['language_issue'] sr=True
+[0007] OK  rv0e328acd2426471a9159d6fbfb9161ea ig=1 tv=True fm=['language_issue'] sr=True
+[0008] OK  rva5abc3e9e3074f389cda975a7c10a208 ig=1 tv=True fm=['language_issue'] sr=True
+[0009] OK  rvd2943685b26348d1bff6d8f005fd7a92 ig=1 tv=True fm=['language_issue'] sr=True
+[0010] OK  rvc8acf9c71e5f4651a504896d93f5ed26 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'language_issue'] sr=True
+[0011] OK  rv2730eee7952c4a758c7f5559f2e1d003 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo'] sr=False
+[0012] OK  rva8f9f650b86f494086e9300afee298ac ig=1 tv=True fm=['language_issue'] sr=True
+[0013] OK  rvce8c9f0f16d44480820dca41070af5b9 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'sentiment_rating_mismatch'] sr=True
+[0014] OK  rvc06b331842b347628cc5c7891b2d486c ig=1 tv=True fm=['language_issue'] sr=True
+[0015] OK  rv476b2025ac644acc8b81e06fedfbcf9e ig=1 tv=True fm=['language_issue'] sr=True
+[0016] OK  rv44a28ac8276e4a9eb45f7943428d890d ig=1 tv=True fm=['language_issue'] sr=True
+[0017] OK  rvc1a1c49b002241a3b375c8fa4f3448a2 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo'] sr=True
+[0018] OK  rvf0fa963d93274c80b0ccf5c37add2ac7 ig=1 tv=True fm=['language_issue'] sr=True
+[0019] OK  rvf14b11e8bf3247e389ada7f9bd9d6486 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'subjective_attribute_value', 'noise_attribute_value', 'missed_tpo', 'general_wear_with_attrs', 'sentiment_rating_mismatch', 'language_issue'] sr=True
+[0020] OK  rvdf08c60c8c3b4ea8baf05f8b5e514fe6 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo'] sr=True
+[0021] OK  rv7cf1d99d57c14cd7b965ddcc84b058dc ig=1 tv=True fm=['language_issue'] sr=True
+[0022] OK  rv84d469edd1154d52812c78b80d66139a ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'sentiment_rating_mismatch'] sr=True
+[0023] OK  rv55c231c059c4400c875a613f24edbb5d ig=1 tv=True fm=['language_issue'] sr=True
+[0024] OK  rvf07984e5b8e14ffb8d3ff37a1adfd3dd ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo'] sr=True
+[0025] OK  rv9c5fd01eda8d44aa830d8ebabcc9f8ea ig=1 tv=True fm=['language_issue'] sr=True
+[0026] OK  rve4d4b13b14f249bc81268c89f574f909 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'subjective_attribute_value', 'noise_attribute_value', 'missed_tpo', 'general_wear_with_attrs', 'sentiment_rating_mismatch', 'language_issue'] sr=True
+[0027] OK  rv17e012851a644ab286770e7e3b69ab5e ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'sentiment_rating_mismatch'] sr=False
+[0028] OK  rvbe2e2d5354ca40468e6141df99c53e72 ig=1 tv=True fm=['language_issue'] sr=True
+[0029] OK  rvb69fdda0c7984e8b892652c5c2da3918 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'subjective_attribute_value', 'noise_attribute_value', 'missed_tpo'] sr=True
+[0030] OK  rv8e238d418abe4e5ab0bda5e0b513e466 ig=1 tv=True fm=['language_issue'] sr=True
+[0031] OK  rveeadcc569b5547acbfc84f8dce3547f5 ig=1 tv=True fm=['language_issue'] sr=False
+[0032] OK  rvc0e9dba431934ab98ecc8ee85e61247d ig=1 tv=True fm=['language_issue'] sr=True
+[0033] OK  rv940a4e51ef4b4c4bbf1dcf51f540381d ig=1 tv=True fm=['language_issue'] sr=True
+[0034] OK  rvc3d7c0e4d7c248519db515dae689c893 ig=1 tv=True fm=['language_issue'] sr=True
+[0035] OK  rvd2f37b8ec38b42d1b2ebc53eb372253e ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'subjective_attribute_value', 'noise_attribute_value', 'missed_tpo', 'general_wear_with_attrs', 'sentiment_rating_mismatch', 'language_issue'] sr=True
+[0036] OK  rv226411664fa8435ea2949f2d85e25fee ig=1 tv=True fm=['language_issue'] sr=False
+[0037] OK  rvc0f720ef783c48fbbbebb39334f46f0e ig=1 tv=True fm=['language_issue'] sr=True
+[0038] OK  rv308d1f2c267e49fdab815b533d14f43a ig=1 tv=True fm=['language_issue'] sr=True
+[0039] OK  rvc9f22670d8924004a3f666e3d2a96c45 ig=1 tv=True fm=['language_issue'] sr=True
+[0040] OK  rvb8da9b3def464dab8a86f17da2d0bef3 ig=1 tv=True fm=['language_issue'] sr=True
+[0041] OK  rv5824ebb92beb4e39af75a212e3753901 ig=1 tv=True fm=['language_issue'] sr=False
+[0042] OK  rv184844b3ceaa48c3856915dac87afeb2 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'language_issue'] sr=True
+
+[done] ok=42 fail=0 time=157.1s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_1:deepseek] end rc=0 ---
+[stage_2_1:deepseek] DONE in 157.8s
+[stage_2_4:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_00_baseline__deepseek --tag iter_00_baseline__deepseek --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl
+--- [stage_2_4:glm] begin ---
+[stage_2_4 judge] run_id=iter_00_baseline__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl total=11 sampled=11
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_4/eval/runs/iter_00_baseline__glm
+[0001] OK  일상 use=4 div=4 weave=4 fm=[]
+[0002] OK  홈웨어 use=2 div=2 weave=2 fm=['attribute_overlisting', 'low_query_diversity']
+[0003] OK  외출복 use=4 div=4 weave=4 fm=[]
+[0004] OK  산책룩 use=4 div=4 weave=5 fm=[]
+[0005] OK  등산복 use=4 div=3 weave=4 fm=[]
+[0006] OK  주점 use=2 div=3 weave=2 fm=['attribute_overlisting', 'wrong_intent']
+[0007] OK  출근복 use=4 div=4 weave=4 fm=[]
+[0008] OK  여름원피스 use=4 div=4 weave=4 fm=[]
+[0009] OK  민요룩 use=2 div=2 weave=1 fm=['canonical_name_repeat', 'attribute_overlisting', 'low_query_diversity']
+[0010] OK  주짓수복 use=3 div=3 weave=3 fm=['attribute_overlisting']
+[0011] OK  일반 use=4 div=4 weave=3 fm=[]
+
+[stage_2_4 judge] ok=11 fail=0 duration=45.1s -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_4/eval/runs/iter_00_baseline__glm/report.md
+--- [stage_2_4:glm] end rc=0 ---
+[stage_2_4:glm] DONE in 45.8s
+[stage_2_4:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_00_baseline__qwen3 --tag iter_00_baseline__qwen3 --input /home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl
+--- [stage_2_3:qwen3] begin ---
+[stage_2_3 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  intents_total=11 sampled=11
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__qwen3
+[0001] OK  일상 use=5 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0002] OK  홈웨어 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0003] OK  외출복 use=5 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0004] OK  산책룩 use=5 reliable=True subj=1 wrong=0 dup=0 fm=['subjective_value']
+[0005] OK  등산복 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0006] OK  주점 use=1 reliable=False subj=0 wrong=4 dup=0 fm=['wrong_attribute_for_intent', 'non_fashion_intent', 'low_evidence_high_weight']
+[0007] OK  출근복 use=3 reliable=False subj=1 wrong=2 dup=0 fm=['subjective_value', 'wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0008] OK  여름원피스 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0009] OK  민요룩 use=1 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0010] OK  주짓수복 use=3 reliable=False subj=0 wrong=1 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0011] OK  일반 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['non_fashion_intent']
+
+[done] ok=11 fail=0 time=105.0s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_3/eval/runs/iter_00_baseline__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_3:qwen3] end rc=0 ---
+[stage_2_3:qwen3] DONE in 105.7s
+--- [stage_2_4:deepseek] begin ---
+[stage_2_4 judge] run_id=iter_00_baseline__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl total=11 sampled=11
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_4/eval/runs/iter_00_baseline__deepseek
+[0001] OK  일상 use=4 div=4 weave=1 fm=['attribute_ungrounded']
+[0002] OK  홈웨어 use=3 div=3 weave=1 fm=['attribute_overlisting', 'low_query_diversity', 'too_generic']
+[0003] OK  외출복 use=4 div=4 weave=1 fm=[]
+[0004] OK  산책룩 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0005] OK  등산복 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0006] OK  주점 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0007] OK  출근복 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0008] OK  여름원피스 use=4 div=4 weave=1 fm=[]
+[0009] OK  민요룩 use=3 div=3 weave=1 fm=['canonical_name_repeat', 'attribute_overlisting']
+[0010] OK  주짓수복 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0011] OK  일반 use=4 div=4 weave=3 fm=['too_generic']
+
+[stage_2_4 judge] ok=11 fail=0 duration=89.8s -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_4/eval/runs/iter_00_baseline__deepseek/report.md
+--- [stage_2_4:deepseek] end rc=0 ---
+[stage_2_4:deepseek] DONE in 90.5s
+--- [stage_2_1:qwen3] begin ---
+[stage_2_1 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  curated=42 extracted=42 sampled=42
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__qwen3
+[0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=5 tv=True fm=[] sr=True
+[0002] OK  rva4650f147f9e46ec85f3516ca5eccfce ig=4 tv=True fm=['subjective_attribute_value'] sr=True
+[0003] OK  rv843824fa41754a88ab1a21e1c53284e9 ig=5 tv=True fm=[] sr=True
+[0004] OK  rv5671d12bdf33429b85a9d48eae05386f ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0005] OK  rv24ebec26563743a2bc650d28a63fc8d1 ig=5 tv=True fm=[] sr=False
+[0006] OK  rv1f7d14343b4b4e37b5f33d81174ae295 ig=5 tv=True fm=[] sr=True
+[0007] OK  rv0e328acd2426471a9159d6fbfb9161ea ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0008] OK  rva5abc3e9e3074f389cda975a7c10a208 ig=5 tv=True fm=[] sr=True
+[0009] OK  rvd2943685b26348d1bff6d8f005fd7a92 ig=3 tv=False fm=['product_type_as_intent'] sr=True
+[0010] OK  rvc8acf9c71e5f4651a504896d93f5ed26 ig=5 tv=True fm=[] sr=True
+[0011] OK  rv2730eee7952c4a758c7f5559f2e1d003 ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=False
+[0012] OK  rva8f9f650b86f494086e9300afee298ac ig=3 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0013] OK  rvce8c9f0f16d44480820dca41070af5b9 ig=5 tv=True fm=[] sr=True
+[0014] OK  rvc06b331842b347628cc5c7891b2d486c ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0015] OK  rv476b2025ac644acc8b81e06fedfbcf9e ig=3 tv=True fm=[] sr=True
+[0016] OK  rv44a28ac8276e4a9eb45f7943428d890d ig=5 tv=True fm=[] sr=True
+[0017] OK  rvc1a1c49b002241a3b375c8fa4f3448a2 ig=4 tv=True fm=[] sr=True
+[0018] OK  rvf0fa963d93274c80b0ccf5c37add2ac7 ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0019] OK  rvf14b11e8bf3247e389ada7f9bd9d6486 ig=5 tv=True fm=[] sr=True
+[0020] OK  rvdf08c60c8c3b4ea8baf05f8b5e514fe6 ig=5 tv=True fm=[] sr=True
+[0021] OK  rv7cf1d99d57c14cd7b965ddcc84b058dc ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0022] OK  rv84d469edd1154d52812c78b80d66139a ig=5 tv=True fm=[] sr=True
+[0023] OK  rv55c231c059c4400c875a613f24edbb5d ig=3 tv=False fm=['product_type_as_intent'] sr=True
+[0024] OK  rvf07984e5b8e14ffb8d3ff37a1adfd3dd ig=5 tv=True fm=[] sr=True
+[0025] OK  rv9c5fd01eda8d44aa830d8ebabcc9f8ea ig=5 tv=True fm=['general_wear_with_attrs'] sr=True
+[0026] OK  rve4d4b13b14f249bc81268c89f574f909 ig=2 tv=False fm=['product_type_as_intent', 'subjective_attribute_value'] sr=True
+[0027] OK  rv17e012851a644ab286770e7e3b69ab5e ig=5 tv=True fm=[] sr=False
+[0028] OK  rvbe2e2d5354ca40468e6141df99c53e72 ig=3 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0029] OK  rvb69fdda0c7984e8b892652c5c2da3918 ig=5 tv=True fm=['subjective_attribute_value'] sr=True
+[0030] OK  rv8e238d418abe4e5ab0bda5e0b513e466 ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0031] OK  rveeadcc569b5547acbfc84f8dce3547f5 ig=5 tv=True fm=[] sr=False
+[0032] OK  rvc0e9dba431934ab98ecc8ee85e61247d ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0033] OK  rv940a4e51ef4b4c4bbf1dcf51f540381d ig=5 tv=True fm=['subjective_attribute_value'] sr=True
+[0034] OK  rvc3d7c0e4d7c248519db515dae689c893 ig=5 tv=True fm=['sentiment_rating_mismatch'] sr=True
+[0035] OK  rvd2f37b8ec38b42d1b2ebc53eb372253e ig=2 tv=False fm=['product_type_as_intent', 'subjective_attribute_value'] sr=True
+[0036] OK  rv226411664fa8435ea2949f2d85e25fee ig=5 tv=True fm=[] sr=False
+[0037] OK  rvc0f720ef783c48fbbbebb39334f46f0e ig=5 tv=True fm=[] sr=True
+[0038] OK  rv308d1f2c267e49fdab815b533d14f43a ig=5 tv=True fm=[] sr=True
+[0039] OK  rvc9f22670d8924004a3f666e3d2a96c45 ig=3 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0040] OK  rvb8da9b3def464dab8a86f17da2d0bef3 ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0041] OK  rv5824ebb92beb4e39af75a212e3753901 ig=5 tv=True fm=[] sr=False
+[0042] OK  rv184844b3ceaa48c3856915dac87afeb2 ig=5 tv=True fm=[] sr=True
+
+[done] ok=42 fail=0 time=297.5s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_1/eval/runs/iter_00_baseline__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_1:qwen3] end rc=0 ---
+[stage_2_1:qwen3] DONE in 298.2s
+--- [stage_2_4:qwen3] begin ---
+[stage_2_4 judge] run_id=iter_00_baseline__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data_stage2/iter_00_baseline/output/stage_2_4_expanded_intents.jsonl total=11 sampled=11
+  -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_4/eval/runs/iter_00_baseline__qwen3
+[0001] OK  일상 use=5 div=4 weave=4 fm=[]
+[0002] OK  홈웨어 use=5 div=4 weave=5 fm=[]
+[0003] OK  외출복 use=5 div=4 weave=5 fm=[]
+[0004] OK  산책룩 use=4 div=4 weave=5 fm=['canonical_name_repeat']
+[0005] OK  등산복 use=5 div=4 weave=5 fm=[]
+[0006] OK  주점 use=5 div=4 weave=5 fm=[]
+[0007] OK  출근복 use=5 div=4 weave=5 fm=['canonical_name_repeat']
+[0008] OK  여름원피스 use=5 div=4 weave=4 fm=[]
+[0009] OK  민요룩 use=4 div=3 weave=5 fm=['canonical_name_repeat']
+[0010] OK  주짓수복 use=5 div=4 weave=5 fm=[]
+[0011] OK  일반 use=4 div=4 weave=1 fm=['unnatural_korean']
+
+[stage_2_4 judge] ok=11 fail=0 duration=119.4s -> /home/nvidia/experiments_data_stage2/iter_00_baseline/data_eval/stage_2_4/eval/runs/iter_00_baseline__qwen3/report.md
+--- [stage_2_4:qwen3] end rc=0 ---
+[stage_2_4:qwen3] DONE in 120.1s
+
+[tri_judge_stage2] wrote /home/nvidia/experiments_data_stage2/iter_00_baseline/judge_metrics.json  errors=1 duration=302.7s
+coupang
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/judge_metrics.json /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/judge_metrics.json
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K2026/04/22 11:27:49 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/judge_metrics.json → /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/judge_metrics.json (2.165s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/judge_raw /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/judge_raw
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:28:18 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_00_baseline/judge_raw → /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/judge_raw (10.521s)
+
+$ /Users/sgyeom/Nvidia/.venv/bin/python /Users/sgyeom/Nvidia/scripts/quant_stage2_report.py --mode iter --output-dir /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/output --json-out /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/quant_metrics.json --md-out /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/quant_report.md
+[quant_stage2_report] wrote /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/quant_report.md
+$ /Users/sgyeom/Nvidia/.venv/bin/python /Users/sgyeom/Nvidia/scripts/make_comparison.py --this /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/metrics.json --out /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/comparison.md --summary /Users/sgyeom/Nvidia/experiments_stage2/summary.md
+[make_comparison] wrote /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/comparison.md
+[make_comparison] updated leaderboard: /Users/sgyeom/Nvidia/experiments_stage2/summary.md
+
+# --- iter_run_stage2 done in 861.5s ---

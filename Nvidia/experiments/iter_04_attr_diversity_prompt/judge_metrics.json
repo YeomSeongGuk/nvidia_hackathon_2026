@@ -1,0 +1,176 @@
+{
+  "run_id": "iter_04_attr_diversity_prompt",
+  "provider": "friendli",
+  "judges": [
+    "zai-org/GLM-5.1",
+    "deepseek-ai/DeepSeek-V3.2",
+    "Qwen/Qwen3-235B-A22B-Instruct-2507"
+  ],
+  "stages": [
+    "stage_1_0",
+    "stage_1_1",
+    "stage_1_1_5",
+    "stage_1_2"
+  ],
+  "max_workers": 4,
+  "duration_sec": 352.93,
+  "errors": [],
+  "ensemble": {
+    "stage_1_0": {
+      "failure_modes": {}
+    },
+    "stage_1_1": {
+      "attr_grounded_rate": {
+        "mean": 0.593,
+        "glm": 0.59,
+        "deepseek": 0.59,
+        "qwen3": 0.6,
+        "range": 0.01
+      },
+      "avg_persona_reflection": {
+        "mean": 3.973,
+        "glm": 3.68,
+        "deepseek": 3.86,
+        "qwen3": 4.38,
+        "range": 0.7
+      },
+      "avg_raw_text_naturalness": {
+        "mean": 3.98,
+        "glm": 3.46,
+        "deepseek": 4.22,
+        "qwen3": 4.26,
+        "range": 0.8
+      },
+      "fashion_rate": {
+        "mean": 0.88,
+        "glm": 0.88,
+        "deepseek": 0.88,
+        "qwen3": 0.88,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "has_tpo_rate": {
+        "mean": 0.973,
+        "glm": 0.98,
+        "deepseek": 0.96,
+        "qwen3": 0.98,
+        "range": 0.02,
+        "agreement_approx": 0.98
+      },
+      "rating_sentiment_consistent_rate": {
+        "mean": 0.72,
+        "glm": 0.72,
+        "deepseek": 0.72,
+        "qwen3": 0.72,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "raw_text_within_spec_rate": {
+        "mean": 0.933,
+        "glm": 0.9,
+        "deepseek": 0.92,
+        "qwen3": 0.98,
+        "range": 0.08,
+        "agreement_approx": 0.92
+      },
+      "title_format_ok_rate": {
+        "mean": 0.4,
+        "glm": 0.3,
+        "deepseek": 0.54,
+        "qwen3": 0.36,
+        "range": 0.24,
+        "agreement_approx": 0.76
+      },
+      "title_reasoning_leak_rate": {
+        "mean": 0.42,
+        "glm": 0.42,
+        "deepseek": 0.4,
+        "qwen3": 0.44,
+        "range": 0.04,
+        "agreement_approx": 0.96
+      },
+      "title_within_spec_rate": {
+        "mean": 0.313,
+        "glm": 0.16,
+        "deepseek": 0.48,
+        "qwen3": 0.3,
+        "range": 0.32,
+        "agreement_approx": 0.68
+      },
+      "n_evaluated": 50,
+      "failure_modes": {
+        "title_reasoning_leak": 22,
+        "attr_ungrounded": 23,
+        "non_fashion_item": 6,
+        "title_format_violation": 35,
+        "title_length_violation": 35,
+        "persona_drift": 13,
+        "missing_tpo": 9,
+        "rating_sentiment_mismatch": 14,
+        "attr_mono_value": 4,
+        "language_issue": 8,
+        "length_violation": 5
+      }
+    },
+    "stage_1_1_5": {
+      "dedup_miss_rate": {
+        "mean": 0.16,
+        "glm": 0.22,
+        "deepseek": 0.12,
+        "qwen3": 0.14,
+        "range": 0.1
+      },
+      "dedup_reduction_rate": {
+        "mean": 0.0,
+        "glm": 0.0,
+        "deepseek": 0.0,
+        "qwen3": 0.0,
+        "range": 0.0
+      },
+      "dedup_in_count": 50,
+      "dedup_out_count": 50,
+      "dedup_miss_count": 11,
+      "largest_miss_cluster_size": 4,
+      "failure_modes": {
+        "near_duplicate_missed": 8,
+        "low_dedup_reduction": 1,
+        "wrong_removal": 0
+      }
+    },
+    "stage_1_2": {
+      "fashion_rate": {
+        "mean": 0.0,
+        "glm": 0.0,
+        "deepseek": 0.0,
+        "qwen3": 0.0,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "has_tpo_rate": {
+        "mean": 0.0,
+        "glm": 0.0,
+        "deepseek": 0.0,
+        "qwen3": 0.0,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "pii_rate": {
+        "mean": 0.0,
+        "glm": 0.0,
+        "deepseek": 0.0,
+        "qwen3": 0.0,
+        "range": 0.0,
+        "agreement_approx": 1.0
+      },
+      "n_evaluated": 0,
+      "failure_modes": {
+        "non_fashion_item": 0,
+        "too_short": 0,
+        "noise_text": 0,
+        "pii_leak": 0,
+        "language_issue": 0,
+        "duplicate_suspect": 0
+      }
+    }
+  }
+}

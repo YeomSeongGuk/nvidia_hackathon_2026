@@ -1,0 +1,94 @@
+--- experiments/iter_17_postgen_fashion_filter/pipeline_script.py	2026-04-22 06:13:55
++++ experiments/iter_18_h1_title_prompt_stack/pipeline_script.py	2026-04-22 06:15:56
+@@ -261,16 +261,33 @@
+     )
+     
+     # B. Generate Product Title
+-    title_prompt = """리뷰 내용을 참고하여 해당 패션 상품의 제목을 생성하세요.
++    # H1 (iter_01 validated): rewrite to avoid char-count self-
++    # verification reasoning leak.
++    # - drop explicit 15-30 char rule
++    # - show concrete good/bad examples
++    # - tell it explicitly NOT to self-check, explain, or output multi lines
++    # H1 alone drops judge leak rate 0.47 → 0.12; stacked with H3v3
++    # regex + 30-char cap, this should put leak ≤ 0.02.
++    title_prompt = """리뷰를 보고 해당 패션 상품의 제목을 한 줄로만 작성하세요.
+ 
+-[리뷰 내용]: {{ seed_review }}
++[리뷰]: {{ seed_review }}
+ 
+-요구사항:
+-1. 반드시 한국어로 작성
+-2. 브랜드명 + 상품 종류 + 특징 형식 (예: "유니클로 오버핏 니트 스웨터", "자라 슬림핏 청바지")
+-3. 15-30자 이내
+-4. 상품 제목만 출력 (설명 없이)"""
++좋은 예시 (이 형식 그대로):
++- 유니클로 오버핏 니트 스웨터
++- 자라 슬림핏 블랙 청바지
++- 무신사 기본 면 티셔츠
++- H&M 플리츠 미디 원피스
+ 
++절대 하지 말 것:
++- 글자수 세기나 "(18자)" 같은 표기
++- 수정 사항, 설명, 주석, 번호 매기기
++- 여러 줄 출력 (줄바꿈 금지)
++- 이유, 근거, 분석 등 reasoning 출력
++- "브랜드명이 제공되지 않았다" 같은 meta-comment
++- 리뷰 내용에 대한 평가나 판단
++
++출력은 한국어 상품명 한 줄만. 다른 텍스트 금지."""
++
+     builder.add_column(
+         name="product_title",
+         column_type="llm-text",
+@@ -401,7 +418,10 @@
+     #   - "...(165cm 키 추천)" (parenthetical size notes)
+     #   - "...28자" or "(28자)"
+     #   - "(키 165 기준)"
+-    # H3v3 adds three more regexes on top of the existing leak suffix +
++    # iter_18 H3v4 adds prose-reasoning detection:
++    #   - "브랜드명이 제공되지..." / "알 수 없..." / "따라서..."
++    #   - Any title starting with "이 상품" / "해당 상품" / "리뷰"
++    # H3v4 adds three more regexes on top of the existing leak suffix +
+     # arrow + markdown kills; keeps 30-char hard cap (iter_13's H3).
+     _LEAK_SUFFIX_RE = re.compile(r"\s*[\(\[]\s*\d+\s*자\s*[\)\]]\s*$")
+     _LEAK_BARE_CHARCOUNT_RE = re.compile(r"\s+\d+\s*자\s*$")  # no parens
+@@ -411,10 +431,17 @@
+     )
+     _ARROW_RE = re.compile(r"\s*(?:→|->|=>)\s*.*$", re.DOTALL)
+     _MARKDOWN_META_RE = re.compile(r"\s*\*\*[^*]+\*\*.*$", re.DOTALL)
++    # Prose-reasoning trigger phrases anywhere in title → replace with fallback
++    _PROSE_REASONING_PATTERNS = [
++        "제공되지 않", "알 수 없", "따라서", "그러므로",
++        "라고 할 수", "일반적인 패션", "가상의 브랜드",
++        "주어지지 않", "명시되지 않", "유추할 수",
++        "해당 상품의", "이 상품의 제목",
++    ]
+ 
+     def _clean_title(raw: Any) -> str:
+         if not isinstance(raw, str):
+-            return ""
++            return "패션 상품"
+         s = raw.strip()
+         # First non-empty line only.
+         for line in s.splitlines():
+@@ -432,10 +459,18 @@
+         s = _LEAK_PAREN_SIZE_NOTE_RE.sub("", s)
+         # Strip markdown emphasis wrappers.
+         s = s.strip("*_`\"' ").strip()
++        # Prose-reasoning detection: if any trigger phrase is present,
++        # the title is reasoning text — replace with fallback.
++        for pat in _PROSE_REASONING_PATTERNS:
++            if pat in s:
++                return "패션 상품"
++        # Also replace if title starts with verb-like conversational markers
++        if s.startswith(("이 상품", "해당 상품", "리뷰에서", "브랜드가")):
++            return "패션 상품"
+         # Cap to 30 chars — hard stop (matches iter_13 H3 original).
+         if len(s) > 30:
+             s = s[:30]
+-        return s.strip()
++        return s.strip() if s.strip() else "패션 상품"
+ 
+     if "product_title" in result_df.columns:
+         result_df["product_title"] = result_df["product_title"].map(_clean_title)

@@ -1,0 +1,2485 @@
+
+# --- iter_run_stage2 @ 2026-04-22T02:55:01+00:00 ---
+# iter=iter_01_semdedup_intent_cosine_75 parent=iter_00_baseline
+# semdedup=0.75 stage22_mode=full
+# pinned input sha256=sha256:5e513bc75b3e3133546abfc72529f59850812e9fc133708610916b846fb640b6
+
+$ brev exec coupang 'mkdir -p /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2 /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot /home/nvidia/stage2_work/scripts /home/nvidia/stage2_work/pipelines'
+coupang
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/stage1_pinned/stage_1_2_processed.jsonl coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K2026/04/22 11:55:16 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+⡿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/stage1_pinned/stage_1_2_processed.jsonl → coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl (1.727s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/pipeline_snapshot/stage_2_1_extract.py coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_1_extract.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:55:44 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/pipeline_snapshot/stage_2_1_extract.py → coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_1_extract.py (1.709s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/pipeline_snapshot/stage_2_1_5_semdedup.py coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_1_5_semdedup.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:56:11 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/pipeline_snapshot/stage_2_1_5_semdedup.py → coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_1_5_semdedup.py (1.664s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/pipeline_snapshot/stage_2_2_canonicalize.py coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_2_canonicalize.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K2026/04/22 11:56:41 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/pipeline_snapshot/stage_2_2_canonicalize.py → coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_2_canonicalize.py (1.71s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/pipeline_snapshot/stage_2_3_aggregate.py coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_3_aggregate.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:57:08 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/pipeline_snapshot/stage_2_3_aggregate.py → coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_3_aggregate.py (1.671s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/pipeline_snapshot/stage_2_4_expand.py coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_4_expand.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:57:59 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/pipeline_snapshot/stage_2_4_expand.py → coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_4_expand.py (1.663s)
+
+$ brev copy /Users/sgyeom/Nvidia/scripts/tri_judge_run_stage2.py coupang:/home/nvidia/stage2_work/scripts/tri_judge_run_stage2.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 11:59:04 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/scripts/tri_judge_run_stage2.py → coupang:/home/nvidia/stage2_work/scripts/tri_judge_run_stage2.py (2.165s)
+
+$ brev copy /Users/sgyeom/Nvidia/pipelines/stage_2_1_5_semdedup.py coupang:/home/nvidia/stage2_work/pipelines/stage_2_1_5_semdedup.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K2026/04/22 11:59:32 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/pipelines/stage_2_1_5_semdedup.py → coupang:/home/nvidia/stage2_work/pipelines/stage_2_1_5_semdedup.py (2.058s)
+
+$ brev exec coupang 'set -euo pipefail; export LLM_PROVIDER=vllm; export VLLM_BASE_URL=http://localhost:5000/v1; export VLLM_MODEL=nemotron; export LLM_EXTRA_BODY='"'"'{"chat_template_kwargs":{"enable_thinking":false}}'"'"'; export STAGE_DATA_ROOT=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data; cd /home/nvidia/stage2_work && cp /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_1_extract.py pipelines/stage_2_1_extract.py && cp /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_1_5_semdedup.py pipelines/stage_2_1_5_semdedup.py && cp /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_2_canonicalize.py pipelines/stage_2_2_canonicalize.py && cp /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_3_aggregate.py pipelines/stage_2_3_aggregate.py && cp /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/snapshot/stage_2_4_expand.py pipelines/stage_2_4_expand.py && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_1_extract   --input  $STAGE_DATA_ROOT/stage_1_2   --output $STAGE_DATA_ROOT/stage_2_1_extracted.jsonl   --provider vllm && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_1_5_semdedup   --threshold 0.75   --input  $STAGE_DATA_ROOT/stage_2_1_extracted.jsonl   --output $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_2_canonicalize   --stage full --refine --cross-merge   --input  $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl   --output $STAGE_DATA_ROOT/stage_2_2_clusters.jsonl   --provider vllm && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_3_aggregate   --stage1 $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl   --stage2 $STAGE_DATA_ROOT/stage_2_2_clusters.jsonl   --output $STAGE_DATA_ROOT/stage_2_3_analyzed_intents.jsonl && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_4_expand   --force-fallback   --input  $STAGE_DATA_ROOT/stage_2_3_analyzed_intents.jsonl   --output $STAGE_DATA_ROOT/stage_2_4_expanded_intents.jsonl   --provider vllm && mkdir -p /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output && cp $STAGE_DATA_ROOT/stage_2_1_extracted.jsonl       /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/ && cp $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl       /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/ && (cp $STAGE_DATA_ROOT/stage_2_1_5_deduped_stats.json /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_5_stats.json 2>/dev/null ||  cp $STAGE_DATA_ROOT/stage_2_1_5_stats.json         /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/ 2>/dev/null || true) && cp $STAGE_DATA_ROOT/stage_2_2_clusters.jsonl        /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/ && cp $STAGE_DATA_ROOT/stage_2_3_analyzed_intents.jsonl /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/ && cp $STAGE_DATA_ROOT/stage_2_4_expanded_intents.jsonl /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/ && wc -l /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/*.jsonl 2>&1 | tee /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/run_pipeline.log'
+[stage_2_1] provider=vllm base_url=http://localhost:5000/v1 model=nemotron api_key=dummy... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}} docs=42 concurrency=10
+[0042/42] ok=42 fail=0
+
+done: ok=42 fail=0 -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_2_1_extracted.jsonl
+[semdedup] loaded 42 ExtractedIntent rows from /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_2_1_extracted.jsonl
+[semdedup] loading BAAI/bge-m3 on cuda ...
+[semdedup] encoded 42 sigs in 0.4s shape=(42, 1024)
+[semdedup] DONE kept=33 removed=9 reduction=0.214 pairs>=thr=24 threshold=0.75 builder=full avg_cos_kept=0.6982
+[semdedup] wrote /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_2_1_5_deduped.jsonl  stats /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_2_1_5_deduped_stats.json
+[load] 33 extracted intents from /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_2_1_5_deduped.jsonl
+[group] 28 unique intents
+[embed] loading BAAI/bge-m3 on cuda ...
+[embed] encoding 27 intents (e5_prefix=False, batch_size=64) ...
+[embed] done in 0.3s, shape=(27, 1024)
+[cluster] 20 primary clusters found
+  primary 0: ['주말 시장 탐방', '주말 휴식용']
+  primary 1: ['주말 숲길 드라이브 후 일식집 데이트', '주말 평창 숲길']
+  primary 2: ['풍경 사진 찍을 때']
+  primary 3: ['등산 후', '등산 후 편하게 입기']
+  primary 4: ['산책길', '시민공원 산책', '일상 산책', '탄천 산책']
+  primary 5: ['중식당 갈 때']
+  primary 6: ['출근복']
+  primary 7: ['등산 후 목욕탕 갈 때', '목욕탕 갈 때']
+  primary 8: ['일상 착용']
+  primary 9: ['해질 무렵 오륙도 산책 후']
+  primary 10: ['주말 무실동 단골 주점']
+  primary 11: ['배드민턴']
+  primary 12: ['잠옷']
+  primary 13: ['주말 마당 수국 가꾸고 만경강변 산책']
+  primary 14: ['주말 삼겹살 모임 후 거실에서 야구 중계 볼 때']
+  primary 15: ['수락산 드라이브']
+  primary 16: ['주짓수 스파링']
+  primary 17: ['민요 춤 추러 갈 때']
+  primary 18: ['운전 업무']
+  primary 19: ['여름 원피스']
+[stage_2_2] provider=vllm base_url=http://localhost:5000/v1 model=nemotron api_key=dummy... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[refine] 20 -> 20 clusters
+[canonical] cluster_000: 주말룩  <= ['주말 시장 탐방', '주말 휴식용']
+[canonical] cluster_001: 주말데이트  <= ['주말 숲길 드라이브 후 일식집 데이트', '주말 평창 숲길']
+[canonical] cluster_002: 풍경사진  <= ['풍경 사진 찍을 때']
+[canonical] cluster_003: 등산복  <= ['등산 후', '등산 후 편하게 입기']
+[canonical] cluster_004: 산책  <= ['산책길', '시민공원 산책', '일상 산책', '탄천 산책']
+[canonical] cluster_005: 중식당룩  <= ['중식당 갈 때']
+[canonical] cluster_006: 출근복  <= ['출근복']
+[canonical] cluster_007: 목욕복  <= ['등산 후 목욕탕 갈 때', '목욕탕 갈 때']
+[canonical] cluster_008: 데일리룩  <= ['일상 착용']
+[canonical] cluster_009: 해질녘산책  <= ['해질 무렵 오륙도 산책 후']
+[canonical] cluster_010: 주점  <= ['주말 무실동 단골 주점']
+[canonical] cluster_011: 배드민턴  <= ['배드민턴']
+[canonical] cluster_012: 잠옷  <= ['잠옷']
+[canonical] cluster_013: 주말나들이  <= ['주말 마당 수국 가꾸고 만경강변 산책']
+[canonical] cluster_014: 홈캠  <= ['주말 삼겹살 모임 후 거실에서 야구 중계 볼 때']
+[canonical] cluster_015: 드라이브룩  <= ['수락산 드라이브']
+[canonical] cluster_016: 주짓수  <= ['주짓수 스파링']
+[canonical] cluster_017: 민요룩  <= ['민요 춤 추러 갈 때']
+[canonical] cluster_018: 운전복  <= ['운전 업무']
+[canonical] cluster_019: 여름원피스  <= ['여름 원피스']
+
+[cross-merge] reviewing 21 clusters ...
+[cross-merge] 21 -> 21 clusters
+
+[done] wrote 21 clusters -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_2_2_clusters.jsonl
+[load] 33 extracted, 21 clusters
+[aggregate] cluster_000 '주말룩': evidence=2 attrs=5
+[aggregate] cluster_001 '주말데이트': evidence=2 attrs=4
+[aggregate] cluster_002 '풍경사진': evidence=1 attrs=3
+[aggregate] cluster_003 '등산복': evidence=2 attrs=5
+[aggregate] cluster_004 '산책': evidence=4 attrs=4
+[aggregate] cluster_005 '중식당룩': evidence=1 attrs=2
+[aggregate] cluster_006 '출근복': evidence=1 attrs=3
+[aggregate] cluster_007 '목욕복': evidence=3 attrs=6
+[aggregate] cluster_008 '데일리룩': evidence=1 attrs=2
+[aggregate] cluster_009 '해질녘산책': evidence=1 attrs=3
+[aggregate] cluster_010 '주점': evidence=1 attrs=3
+[aggregate] cluster_011 '배드민턴': evidence=1 attrs=2
+[aggregate] cluster_012 '잠옷': evidence=1 attrs=2
+[aggregate] cluster_013 '주말나들이': evidence=1 attrs=3
+[aggregate] cluster_014 '홈캠': evidence=1 attrs=3
+[aggregate] cluster_015 '드라이브룩': evidence=1 attrs=2
+[aggregate] cluster_016 '주짓수': evidence=1 attrs=3
+[aggregate] cluster_017 '민요룩': evidence=1 attrs=2
+[aggregate] cluster_018 '운전복': evidence=1 attrs=3
+[aggregate] cluster_019 '여름원피스': evidence=1 attrs=3
+[aggregate] cluster_020 '일반': evidence=5 attrs=0
+
+[done] wrote 21 analyzed intents -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_2_3_analyzed_intents.jsonl
+[stage_2_4] loaded 21 analyzed intents
+[stage_2_4][fallback] provider=vllm base_url=http://localhost:5000/v1 model=nemotron api_key=dummy... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[1/21] expanding '주말룩'
+[2/21] expanding '주말데이트'
+[3/21] expanding '풍경사진'
+[4/21] expanding '등산복'
+[5/21] expanding '산책'
+[6/21] expanding '중식당룩'
+[7/21] expanding '출근복'
+[8/21] expanding '목욕복'
+[9/21] expanding '데일리룩'
+[10/21] expanding '해질녘산책'
+[11/21] expanding '주점'
+[12/21] expanding '배드민턴'
+[13/21] expanding '잠옷'
+[14/21] expanding '주말나들이'
+[15/21] expanding '홈캠'
+[16/21] expanding '드라이브룩'
+[17/21] expanding '주짓수'
+[18/21] expanding '민요룩'
+[19/21] expanding '운전복'
+[20/21] expanding '여름원피스'
+[21/21] expanding '일반'
+
+[stage_2_4] saved 21 expanded intents -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_2_4_expanded_intents.jsonl
+
+주말룩
+  - 주말에 편하게 입을 수 있는 와이드핏 팬츠 추천해줘
+  - 네이비 와이드핏 청바지에 어울리는 상의 뭐가 좋을까?
+  - 블랙 와이드핏 슬랙스로 시크한 주말룩 완성하고 싶어
+  - 캐주얼한 주말룩에 미니 크로스백 매치해볼까?
+  - 주말 데이트룩으로 와이드핏과 네이비 조합 어때?
+
+주말데이트
+  - 주말에 데이트 갈 때 편하게 입을 만한 옷 추천해줘
+  - 베이지 색 캐주얼룩으로 주말 데이트 코디 짜줘
+  - 검정색 스포티 스타일로 주말 나들이 옷 뭐가 좋을까?
+  - 주말 데이트룩으로 캐주얼하면서도 깔끔한 거 추천해줘
+  - 편안한 스포티룩으로 주말 데이트 갈 옷 고민 중이야
+
+풍경사진
+  - 네이비 색 슬림핏 캐주얼 바지 추천해줘
+  - 슬림핏에 네이비 색 캐주얼 스타일 옷 찾아줘
+  - 데일리로 입기 좋은 네이비 슬림핏 캐주얼 코디
+  - 네이비 바지 슬림핏 캐주얼로 입고 싶어
+  - 슬림핏 네이비 색 캐주얼 옷 추천
+
+등산복
+  - 등산할 때 입기 좋은 슬림핏 니트 추천해줘
+  - 네이비 색상의 클래식 스타일 등산복 찾고 있어
+  - 베이지 컬러에 슬림핏인 등산용 니트 있나?
+  - 등산 갈 때 무난하게 입을 만한 클래식 니트 추천
+  - 슬림핏 네이비 등산복으로 스타일 좋고 편한 거 알려줘
+
+산책
+  - 편하게 산책하기 좋은 와이드팬츠 추천해줘
+  - 베이지 컬러 캐주얼룩으로 산책 코디 어때?
+  - 화이트 티에 와이드핏 바지 매치해서 산책 가려고 하는데 추천점
+  - 캐주얼 스타일로 산책 갈 때 편한 옷 찾아줘
+  - 산책용으로 와이드핏 베이지 바지 있어?
+
+중식당룩
+  - 중식당 가서 입기 좋은 흰색 캐주얼 코디 추천해줘
+  - 화이트 컬러에 편한 스타일로 중식당 데이트룩 뭐 입을까?
+  - 중식당 갈 때 흰색 티에 청바지 조합 어때?
+  - 깔끔한 흰색 상의로 캐주얼하게 중식당 코디해줘
+  - 중식당 모임에 어울리는 흰색 캐주얼 옷 추천
+
+출근복
+  - 출근할 때 편하게 입을 수 있는 코튼 베이지 캐주얼룩 추천해줘
+  - 베이지 색 코튼 팬츠에 어울리는 캐주얼한 출근복 뭐가 있을까?
+  - 편안한 코튼 소재로 된 베이지 톤 캐주얼 출근룩 찾아줘
+  - 출근용으로 캐주얼하면서도 깔끔한 베이지 코디 추천해줘
+  - 코튼 소재에 베이지 색인 캐주얼한 출근 옷 뭐가 좋아?
+
+목욕복
+  - 목욕 후 편하게 입을 면 원피스 추천해줘
+  - 베이지 색 가운 같은 거 있나요?
+  - 아이보리 색 목욕가운 클래식 스타일로 찾아줘
+  - 흰색 면 목욕복 캐주얼하게 입고 싶어
+  - 목욕할 때 입기 좋은 클래식한 가운 보여줘
+
+데일리룩
+  - 화이트 티셔츠에 청바지 조합으로 데일리룩 추천해줘
+  - 캐주얼한 흰색 상의 코디 알려줘
+  - 평소에 입을 만한 흰색 캐주얼룩 뭐가 좋을까?
+  - 데일리로 흰색 티 입고 싶은데 하의 매칭 추천
+  - 캐주얼 스타일에 화이트 컬러 위주로 코디 제안해줘
+
+해질녘산책
+  - 해질녘 산책하기 좋은 슬림핏 화이트 옷 추천해줘
+  - 화이트 슬림핏 클래식 스타일로 산책룩 코디해줘
+  - 저녁 산책할 때 입기 좋은 깔끔한 흰색 슬림바지 있어?
+  - 해질녘에 어울리는 슬림핏 화이트 자켓이나 코디 알려줘
+  - 클래식한 화이트 슬림핏으로 산책 나갈 옷 뭐 입지?
+
+주점
+  - 편하게 입을 수 있는 베이지 코튼 바지 추천해줘
+  - 캐주얼한 주점룩으로 뭐 입을까?
+  - 베이지 색 코튼 셔츠로 주점 데이트 코디 가능해?
+  - 주점 갈 때 캐주얼하고 편한 옷 추천
+  - 코튼 소재에 베이지 색상인 캐주얼 스타일 옷 찾아줘
+
+배드민턴
+  - 배드민턴 칠 때 입을만한 블랙 스포티한 옷 추천해줘
+  - 스포티한 블랙 배드민턴 웨어 뭐가 좋을까?
+  - 배드민턴복 블랙 컬러로 스포티하게 입고 싶어
+  - 블랙 색상의 스포티한 배드민턴 의상 알려줘
+  - 배드민턴 할 때 편하고 스포티한 블랙 옷 찾아줘
+
+잠옷
+  - 보라색 파자마 세트 찾아줘
+  - 클래식한 디자인의 잠옷 추천해줘
+  - 보라빛 수면복 편한 거로
+  - 고급스러운 보라색 슬립웨어 보여줘
+  - 클래식 스타일의 파자마 세트 있나요?
+
+주말나들이
+  - 주말에 나들이 갈 때 살짝 딱 맞는 흰 티셔츠 찾고 있어
+  - 화이트 컬러에 캐주얼한 스타일로 주말 외출복 추천해줘
+  - 살짝 핏 감도는 흰 상의로 데일리룩 코디해줘
+  - 주말 나들이용 깔끔한 흰 캐주얼 옷 좀 골라줘
+  - 화이트 톤에 편안하면서도 ligeramente 딱 맞는 스타일로 주말룩 추천
+
+홈캠
+  - 집에서 편하게 입을 오버핏 블랙 티셔츠 추천해줘
+  - 오버핏 블랙 캐주얼룩 홈웨어로 괜찮은 거 있나?
+  - 블랙 오버핏 후드티 집에서도 입고 싶어
+  - 캐주얼 스타일에 오버핏 블랙 맨투맨 찾고 있어
+  - 집콕할 때 입기 좋은 오버핏 블랙 옷 추천
+
+드라이브룩
+  - 드라이브 갈 때 베이지 톤으로 깔끔하게 입고 싶어
+  - 미니멀 스타일에 베이지 컬러 옷 추천해줘
+  - 장거리 운전할 때 편하고 깔끔한 드라이브룩 뭐가 좋을까?
+  - 베이지 색 미니멀한 코디로 드라이브 가고 싶어
+  - 운전할 때 튀지 않고 세련된 베이지 옷 추천해줘
+
+주짓수
+  - 주짓수 할 때 슬림핏 티셔츠 추천해줘
+  - 화이트 색상의 캐주얼한 주짓수복 있나요?
+  - 슬림핏에 흰색인 주짓수 옷 찾아볼 수 있을까요?
+  - 주짓수 연습용으로 캐주얼 스타일의 흰색 상의 추천
+  - 화이트 컬러에 슬림핏인 주짓수용 티 있나요?
+
+민요룩
+  - 라벤더 색 원피스 로맨틱하게 입으려고 하는데 추천해줄 수 있어?
+  - 민요 페스티벌 갈 때 라벤더 톤의 여성스러운 옷 뭐 입지?
+  - 로맨틱한 스타일에 보라빛 계열 옷 찾고 있어, 민요룩으로 어때?
+  - 라벤더 컬러 치마에 블라우스 매치해서 민속 공연 보러 갈 옷 추천해줘
+  - 민요 콘서트 갈 때 여성스럽고 은은한 보라색 코디 제안해줘
+
+운전복
+  - 운전할 때 팔뚝에 딱 맞는 블랙 스포티한 옷 추천해줘
+  - 블랙 색상에 스포티한 스타일, 팔뚝 맞게 딱 맞는 운전복 찾아줘
+  - 운전복 중에 팔뚝 타이트하고 블랙인 스포티한 거 없어?
+  - 블랙이고 스포티한 운전복, 팔뚝에 꼭 맞는 걸로 보여줘
+  - 운전할 때 입기 좋은 블랙 스포티한 스타일, 팔뚝 맞게 딱 맞는 옷 있어?
+
+여름원피스
+  - 여름에 입기 좋은 페미닌한 원피스 추천해줘
+  - 베이지 컬러 원피스 찾고 있어, 여성스러운 스타일로
+  - 더운 날씨에 어울리는 원피스 뭐가 있을까?
+  - 여름 원피스 중에 페미닌한 디자인 보여줘
+  - 베이지 색 원피스, 여름에 입기 좋은 거 추천
+
+일반
+  - 편하게 입을 만한 옷 추천해줘
+  - 아무거나 괜찮은 데일리 룩 알려줘
+  - 뭐 입을지 모르겠을 때 무난한 거
+  - 기본템 하나 추천해줘
+  - 평범한 일상복 뭐가 좋을까?
+   33 /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_5_deduped.jsonl
+   42 /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_extracted.jsonl
+   21 /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_2_clusters.jsonl
+   21 /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_3_analyzed_intents.jsonl
+   21 /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl
+  138 total
+coupang
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_extracted.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_extracted.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:00:59 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_extracted.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_extracted.jsonl (2.065s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_5_deduped.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_5_deduped.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:01:28 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+⡿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_5_deduped.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_5_deduped.jsonl (1.924s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_5_stats.json /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_5_stats.json
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:01:57 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_5_stats.json → /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_5_stats.json (1.942s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_2_clusters.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_2_clusters.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K2026/04/22 12:02:26 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+⡿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_2_clusters.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_2_clusters.jsonl (1.891s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_3_analyzed_intents.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_3_analyzed_intents.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:02:54 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+⡿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_3_analyzed_intents.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_3_analyzed_intents.jsonl (1.857s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:03:22 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+⡿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl (1.876s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/run_pipeline.log /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/run_pipeline_remote.log
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:03:49 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/run_pipeline.log → /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/run_pipeline_remote.log (1.843s)
+
+$ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval; export LLM_EXTRA_BODY='"'"'{"chat_template_kwargs":{"enable_thinking":false}}'"'"'; mkdir -p $STAGE_DATA_ROOT; cd /home/nvidia/stage2_work && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python scripts/tri_judge_run_stage2.py   --output-dir    /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output   --curated       /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl   --stage-data-root $STAGE_DATA_ROOT   --judge-raw-dir /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_raw   --metrics-out   /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json   --provider friendli   --run-id iter_01_semdedup_intent_cosine_75 --tag iter_01_semdedup_intent_cosine_75   --skip-on-error 2>&1 | tee -a /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/run_pipeline.log'
+[tri_judge_stage2] output_dir=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output
+                   curated=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl
+                   stage_data_root=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval
+                   judge_raw_dir=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_raw
+                   metrics_out=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json
+                   stages=['stage_2_1', 'stage_2_2', 'stage_2_3', 'stage_2_4']  pairs=12  max_workers=4  run_id=iter_01_semdedup_intent_cosine_75
+[stage_2_1:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_1_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_01_semdedup_intent_cosine_75__glm --tag iter_01_semdedup_intent_cosine_75__glm --curated /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl --extracted /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_extracted.jsonl
+[stage_2_1:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_1_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_01_semdedup_intent_cosine_75__deepseek --tag iter_01_semdedup_intent_cosine_75__deepseek --curated /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl --extracted /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_extracted.jsonl
+[stage_2_1:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_1_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_01_semdedup_intent_cosine_75__qwen3 --tag iter_01_semdedup_intent_cosine_75__qwen3 --curated /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl --extracted /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_extracted.jsonl
+[stage_2_2:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_01_semdedup_intent_cosine_75__glm --tag iter_01_semdedup_intent_cosine_75__glm --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_2_clusters.jsonl
+--- [stage_2_2:glm] begin ---
+[stage_2_2 judge] run_id=iter_01_semdedup_intent_cosine_75__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  clusters_total=20 sampled=20 (dropped '일반')
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__glm
+[0001] OK  cluster_000 '주말룩' coh=True fit=5 ko=True split=False fm=[]
+[0002] OK  cluster_001 '주말데이트' coh=False fit=2 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0003] OK  cluster_002 '풍경사진' coh=True fit=5 ko=True split=False fm=[]
+[0004] OK  cluster_003 '등산복' coh=True fit=3 ko=True split=False fm=['wrong_canonical']
+[0005] OK  cluster_004 '산책' coh=True fit=5 ko=True split=False fm=[]
+[0006] OK  cluster_005 '중식당룩' coh=True fit=5 ko=True split=False fm=[]
+[0007] OK  cluster_006 '출근복' coh=True fit=5 ko=True split=False fm=[]
+[0008] OK  cluster_007 '목욕복' coh=True fit=5 ko=True split=False fm=[]
+[0009] OK  cluster_008 '데일리룩' coh=True fit=5 ko=True split=False fm=[]
+[0010] OK  cluster_009 '해질녘산책' coh=True fit=5 ko=True split=False fm=[]
+[0011] OK  cluster_010 '주점' coh=True fit=5 ko=True split=False fm=[]
+[0012] OK  cluster_011 '배드민턴' coh=True fit=5 ko=True split=False fm=[]
+[0013] OK  cluster_012 '잠옷' coh=True fit=5 ko=True split=False fm=[]
+[0014] OK  cluster_013 '주말나들이' coh=True fit=4 ko=True split=False fm=[]
+[0015] OK  cluster_014 '홈캠' coh=True fit=1 ko=True split=False fm=['wrong_canonical']
+[0016] OK  cluster_015 '드라이브룩' coh=True fit=2 ko=True split=False fm=['wrong_canonical']
+[0017] OK  cluster_016 '주짓수' coh=True fit=5 ko=True split=False fm=[]
+[0018] OK  cluster_017 '민요룩' coh=True fit=5 ko=True split=False fm=[]
+[0019] OK  cluster_018 '운전복' coh=True fit=5 ko=True split=False fm=[]
+[0020] OK  cluster_019 '여름원피스' coh=True fit=5 ko=True split=False fm=[]
+
+[stage_2_2 judge] cross-cluster duplicate pass ...
+  duplicate_pairs=3
+
+[done] clusters ok=20 fail=0 dup_pairs=3 time=46.4s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__glm/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_2:glm] end rc=0 ---
+[stage_2_2:glm] DONE in 47.1s
+[stage_2_2:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_01_semdedup_intent_cosine_75__deepseek --tag iter_01_semdedup_intent_cosine_75__deepseek --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_2_clusters.jsonl
+--- [stage_2_2:deepseek] begin ---
+[stage_2_2 judge] run_id=iter_01_semdedup_intent_cosine_75__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  clusters_total=20 sampled=20 (dropped '일반')
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek
+[0001] OK  cluster_000 '주말룩' coh=True fit=5 ko=True split=True fm=[]
+[0002] OK  cluster_001 '주말데이트' coh=True fit=4 ko=True split=True fm=[]
+[0003] OK  cluster_002 '풍경사진' coh=True fit=5 ko=True split=True fm=[]
+[0004] OK  cluster_003 '등산복' coh=True fit=5 ko=True split=True fm=[]
+[0005] OK  cluster_004 '산책' coh=True fit=5 ko=True split=True fm=[]
+[0006] OK  cluster_005 '중식당룩' coh=True fit=5 ko=True split=True fm=[]
+[0007] OK  cluster_006 '출근복' coh=True fit=5 ko=True split=True fm=[]
+[0008] OK  cluster_007 '목욕복' coh=True fit=5 ko=True split=True fm=[]
+[0009] OK  cluster_008 '데일리룩' coh=True fit=5 ko=True split=True fm=[]
+[0010] OK  cluster_009 '해질녘산책' coh=True fit=5 ko=True split=True fm=[]
+[0011] OK  cluster_010 '주점' coh=True fit=5 ko=True split=True fm=[]
+[0012] OK  cluster_011 '배드민턴' coh=True fit=5 ko=True split=False fm=[]
+[0013] OK  cluster_012 '잠옷' coh=True fit=5 ko=True split=True fm=[]
+[0014] OK  cluster_013 '주말나들이' coh=True fit=5 ko=True split=True fm=[]
+[0015] OK  cluster_014 '홈캠' coh=True fit=3 ko=True split=True fm=['wrong_canonical']
+[0016] OK  cluster_015 '드라이브룩' coh=True fit=5 ko=True split=True fm=[]
+[0017] OK  cluster_016 '주짓수' coh=True fit=5 ko=True split=True fm=[]
+[0018] OK  cluster_017 '민요룩' coh=True fit=5 ko=True split=True fm=[]
+[0019] OK  cluster_018 '운전복' coh=True fit=3 ko=True split=True fm=['wrong_canonical']
+[0020] OK  cluster_019 '여름원피스' coh=True fit=5 ko=True split=True fm=[]
+
+[stage_2_2 judge] cross-cluster duplicate pass ...
+  duplicate_pairs=3
+
+[done] clusters ok=20 fail=0 dup_pairs=3 time=33.7s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_2:deepseek] end rc=0 ---
+[stage_2_2:deepseek] DONE in 34.4s
+[stage_2_2:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_01_semdedup_intent_cosine_75__qwen3 --tag iter_01_semdedup_intent_cosine_75__qwen3 --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_2_clusters.jsonl
+--- [stage_2_1:glm] begin ---
+[stage_2_1 judge] run_id=iter_01_semdedup_intent_cosine_75__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  curated=42 extracted=42 sampled=42
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__glm
+[0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=5 tv=True fm=[] sr=True
+[0002] OK  rva4650f147f9e46ec85f3516ca5eccfce ig=3 tv=False fm=['product_type_as_intent'] sr=True
+[0003] OK  rv24ebec26563743a2bc650d28a63fc8d1 ig=2 tv=False fm=['product_type_as_intent'] sr=False
+[0004] OK  rv0e328acd2426471a9159d6fbfb9161ea ig=2 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0005] OK  rv843824fa41754a88ab1a21e1c53284e9 ig=5 tv=True fm=[] sr=True
+[0006] OK  rv5671d12bdf33429b85a9d48eae05386f ig=5 tv=True fm=[] sr=True
+[0007] OK  rv1f7d14343b4b4e37b5f33d81174ae295 ig=5 tv=True fm=[] sr=True
+[0008] OK  rva5abc3e9e3074f389cda975a7c10a208 ig=4 tv=True fm=[] sr=True
+[0009] OK  rvc8acf9c71e5f4651a504896d93f5ed26 ig=2 tv=False fm=['product_type_as_intent'] sr=True
+[0010] OK  rvd2943685b26348d1bff6d8f005fd7a92 ig=5 tv=False fm=['product_type_as_intent'] sr=True
+[0011] OK  rvc06b331842b347628cc5c7891b2d486c ig=2 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0012] OK  rv2730eee7952c4a758c7f5559f2e1d003 ig=5 tv=True fm=['product_type_as_intent', 'subjective_attribute_value'] sr=False
+[0013] OK  rva8f9f650b86f494086e9300afee298ac ig=3 tv=False fm=['product_type_as_intent'] sr=True
+[0014] OK  rvce8c9f0f16d44480820dca41070af5b9 ig=5 tv=True fm=[] sr=True
+[0015] OK  rv476b2025ac644acc8b81e06fedfbcf9e ig=3 tv=True fm=['missed_tpo'] sr=True
+[0016] OK  rvf14b11e8bf3247e389ada7f9bd9d6486 ig=5 tv=True fm=[] sr=True
+[0017] OK  rv44a28ac8276e4a9eb45f7943428d890d ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0018] OK  rvc1a1c49b002241a3b375c8fa4f3448a2 ig=4 tv=True fm=[] sr=True
+[0019] OK  rvf0fa963d93274c80b0ccf5c37add2ac7 ig=2 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0020] OK  rvdf08c60c8c3b4ea8baf05f8b5e514fe6 ig=4 tv=True fm=[] sr=True
+[0021] OK  rv84d469edd1154d52812c78b80d66139a ig=4 tv=True fm=[] sr=True
+[0022] OK  rv7cf1d99d57c14cd7b965ddcc84b058dc ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0023] OK  rv17e012851a644ab286770e7e3b69ab5e ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=False
+[0024] OK  rv9c5fd01eda8d44aa830d8ebabcc9f8ea ig=5 tv=True fm=[] sr=True
+[0025] OK  rvf07984e5b8e14ffb8d3ff37a1adfd3dd ig=4 tv=True fm=[] sr=True
+[0026] OK  rve4d4b13b14f249bc81268c89f574f909 ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0027] OK  rvb69fdda0c7984e8b892652c5c2da3918 ig=5 tv=True fm=[] sr=True
+[0028] OK  rv55c231c059c4400c875a613f24edbb5d ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0029] OK  rvbe2e2d5354ca40468e6141df99c53e72 ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0030] OK  rv8e238d418abe4e5ab0bda5e0b513e466 ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0031] OK  rveeadcc569b5547acbfc84f8dce3547f5 ig=4 tv=True fm=[] sr=True
+[0032] OK  rvc0e9dba431934ab98ecc8ee85e61247d ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0033] OK  rv226411664fa8435ea2949f2d85e25fee ig=5 tv=True fm=[] sr=True
+[0034] OK  rvc0f720ef783c48fbbbebb39334f46f0e ig=4 tv=True fm=[] sr=True
+[0035] OK  rvc3d7c0e4d7c248519db515dae689c893 ig=5 tv=True fm=[] sr=True
+[0036] OK  rv308d1f2c267e49fdab815b533d14f43a ig=5 tv=True fm=[] sr=True
+[0037] OK  rvd2f37b8ec38b42d1b2ebc53eb372253e ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0038] OK  rv940a4e51ef4b4c4bbf1dcf51f540381d ig=5 tv=True fm=[] sr=True
+[0039] OK  rvb8da9b3def464dab8a86f17da2d0bef3 ig=3 tv=False fm=['product_type_as_intent'] sr=True
+[0040] OK  rvc9f22670d8924004a3f666e3d2a96c45 ig=5 tv=True fm=[] sr=True
+[0041] OK  rv5824ebb92beb4e39af75a212e3753901 ig=5 tv=True fm=[] sr=False
+[0042] OK  rv184844b3ceaa48c3856915dac87afeb2 ig=5 tv=True fm=[] sr=True
+
+[done] ok=42 fail=0 time=116.1s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__glm/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_1:glm] end rc=0 ---
+[stage_2_1:glm] DONE in 116.8s
+[stage_2_3:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_01_semdedup_intent_cosine_75__glm --tag iter_01_semdedup_intent_cosine_75__glm --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_3_analyzed_intents.jsonl
+--- [stage_2_2:qwen3] begin ---
+[stage_2_2 judge] run_id=iter_01_semdedup_intent_cosine_75__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  clusters_total=20 sampled=20 (dropped '일반')
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3
+[0001] OK  cluster_000 '주말룩' coh=False fit=2 ko=True split=True fm=['heterogeneous_cluster', 'should_split']
+[0002] OK  cluster_001 '주말데이트' coh=True fit=4 ko=True split=False fm=[]
+[0003] OK  cluster_002 '풍경사진' coh=True fit=5 ko=True split=False fm=[]
+[0004] OK  cluster_003 '등산복' coh=False fit=1 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0005] OK  cluster_004 '산책' coh=True fit=5 ko=True split=False fm=[]
+[0006] OK  cluster_005 '중식당룩' coh=True fit=5 ko=True split=False fm=[]
+[0007] OK  cluster_006 '출근복' coh=True fit=5 ko=True split=False fm=[]
+[0008] OK  cluster_007 '목욕복' coh=False fit=1 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0009] OK  cluster_008 '데일리룩' coh=True fit=5 ko=True split=False fm=[]
+[0010] OK  cluster_009 '해질녘산책' coh=True fit=4 ko=True split=False fm=[]
+[0011] OK  cluster_010 '주점' coh=True fit=5 ko=True split=False fm=[]
+[0012] OK  cluster_011 '배드민턴' coh=True fit=5 ko=True split=False fm=[]
+[0013] OK  cluster_012 '잠옷' coh=True fit=5 ko=True split=False fm=[]
+[0014] OK  cluster_013 '주말나들이' coh=True fit=5 ko=True split=False fm=[]
+[0015] OK  cluster_014 '홈캠' coh=True fit=3 ko=True split=False fm=['too_broad_canonical']
+[0016] OK  cluster_015 '드라이브룩' coh=True fit=5 ko=True split=False fm=[]
+[0017] OK  cluster_016 '주짓수' coh=True fit=5 ko=True split=False fm=[]
+[0018] OK  cluster_017 '민요룩' coh=True fit=5 ko=True split=False fm=[]
+[0019] OK  cluster_018 '운전복' coh=True fit=5 ko=True split=False fm=[]
+[0020] OK  cluster_019 '여름원피스' coh=True fit=5 ko=True split=False fm=[]
+
+[stage_2_2 judge] cross-cluster duplicate pass ...
+  duplicate_pairs=4
+
+[done] clusters ok=20 fail=0 dup_pairs=4 time=38.1s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_2:qwen3] end rc=0 ---
+[stage_2_2:qwen3] DONE in 38.7s
+[stage_2_3:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_01_semdedup_intent_cosine_75__deepseek --tag iter_01_semdedup_intent_cosine_75__deepseek --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_3_analyzed_intents.jsonl
+--- [stage_2_1:deepseek] begin ---
+[stage_2_1 judge] run_id=iter_01_semdedup_intent_cosine_75__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  curated=42 extracted=42 sampled=42
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek
+[0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=1 tv=True fm=['invalid_input_format'] sr=True
+[0002] OK  rva4650f147f9e46ec85f3516ca5eccfce ig=1 tv=True fm=['invalid_input'] sr=True
+[0003] OK  rv24ebec26563743a2bc650d28a63fc8d1 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'general_wear_with_attrs'] sr=False
+[0004] OK  rv0e328acd2426471a9159d6fbfb9161ea ig=1 tv=True fm=['language_issue'] sr=True
+[0005] OK  rv843824fa41754a88ab1a21e1c53284e9 ig=1 tv=True fm=['language_issue'] sr=True
+[0006] OK  rv5671d12bdf33429b85a9d48eae05386f ig=1 tv=True fm=['language_issue'] sr=True
+[0007] OK  rv1f7d14343b4b4e37b5f33d81174ae295 ig=1 tv=True fm=['language_issue'] sr=True
+[0008] OK  rva5abc3e9e3074f389cda975a7c10a208 ig=1 tv=True fm=['language_issue'] sr=True
+[0009] OK  rvc8acf9c71e5f4651a504896d93f5ed26 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'noise_attribute_value', 'sentiment_rating_mismatch', 'language_issue'] sr=True
+[0010] OK  rvd2943685b26348d1bff6d8f005fd7a92 ig=1 tv=True fm=['invalid_input_format'] sr=True
+[0011] OK  rvc06b331842b347628cc5c7891b2d486c ig=1 tv=True fm=['language_issue'] sr=True
+[0012] OK  rv2730eee7952c4a758c7f5559f2e1d003 ig=1 tv=True fm=['language_issue'] sr=False
+[0013] OK  rva8f9f650b86f494086e9300afee298ac ig=1 tv=True fm=['language_issue'] sr=True
+[0014] OK  rvce8c9f0f16d44480820dca41070af5b9 ig=1 tv=True fm=['invalid_input'] sr=True
+[0015] OK  rv476b2025ac644acc8b81e06fedfbcf9e ig=1 tv=True fm=['language_issue'] sr=True
+[0016] OK  rvf14b11e8bf3247e389ada7f9bd9d6486 ig=1 tv=True fm=['invalid_input'] sr=True
+[0017] OK  rv44a28ac8276e4a9eb45f7943428d890d ig=1 tv=True fm=['language_issue'] sr=True
+[0018] OK  rvc1a1c49b002241a3b375c8fa4f3448a2 ig=1 tv=True fm=['language_issue'] sr=True
+[0019] OK  rvf0fa963d93274c80b0ccf5c37add2ac7 ig=1 tv=True fm=['language_issue'] sr=True
+[0020] OK  rvdf08c60c8c3b4ea8baf05f8b5e514fe6 ig=1 tv=True fm=['language_issue'] sr=True
+[0021] OK  rv84d469edd1154d52812c78b80d66139a ig=1 tv=True fm=['language_issue'] sr=True
+[0022] OK  rv7cf1d99d57c14cd7b965ddcc84b058dc ig=1 tv=True fm=['language_issue'] sr=True
+[0023] OK  rv17e012851a644ab286770e7e3b69ab5e ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'sentiment_rating_mismatch'] sr=False
+[0024] OK  rv9c5fd01eda8d44aa830d8ebabcc9f8ea ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo'] sr=True
+[0025] OK  rvf07984e5b8e14ffb8d3ff37a1adfd3dd ig=1 tv=True fm=['language_issue'] sr=True
+[0026] OK  rve4d4b13b14f249bc81268c89f574f909 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'sentiment_rating_mismatch'] sr=True
+[0027] OK  rvb69fdda0c7984e8b892652c5c2da3918 ig=1 tv=True fm=['language_issue'] sr=True
+[0028] OK  rv55c231c059c4400c875a613f24edbb5d ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'sentiment_rating_mismatch'] sr=True
+[0029] OK  rvbe2e2d5354ca40468e6141df99c53e72 ig=1 tv=True fm=['language_issue'] sr=True
+[0030] OK  rv8e238d418abe4e5ab0bda5e0b513e466 ig=1 tv=True fm=['invalid_input'] sr=True
+[0031] OK  rveeadcc569b5547acbfc84f8dce3547f5 ig=1 tv=True fm=['language_issue'] sr=True
+[0032] OK  rvc0e9dba431934ab98ecc8ee85e61247d ig=1 tv=True fm=['language_issue'] sr=True
+[0033] OK  rv226411664fa8435ea2949f2d85e25fee ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'subjective_attribute_value', 'noise_attribute_value', 'missed_tpo', 'general_wear_with_attrs', 'sentiment_rating_mismatch', 'language_issue'] sr=True
+[0034] OK  rvc0f720ef783c48fbbbebb39334f46f0e ig=1 tv=True fm=['language_issue'] sr=True
+[0035] OK  rvc3d7c0e4d7c248519db515dae689c893 ig=1 tv=True fm=['system_error'] sr=True
+[0036] OK  rv308d1f2c267e49fdab815b533d14f43a ig=1 tv=True fm=['language_issue'] sr=True
+[0037] OK  rvd2f37b8ec38b42d1b2ebc53eb372253e ig=1 tv=True fm=['language_issue'] sr=True
+[0038] OK  rv940a4e51ef4b4c4bbf1dcf51f540381d ig=1 tv=True fm=['language_issue'] sr=True
+[0039] OK  rvb8da9b3def464dab8a86f17da2d0bef3 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo'] sr=True
+[0040] OK  rvc9f22670d8924004a3f666e3d2a96c45 ig=1 tv=True fm=['language_issue'] sr=True
+[0041] OK  rv5824ebb92beb4e39af75a212e3753901 ig=1 tv=True fm=['language_issue'] sr=False
+[0042] OK  rv184844b3ceaa48c3856915dac87afeb2 ig=1 tv=True fm=['language_issue'] sr=True
+
+[done] ok=42 fail=0 time=135.3s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_1:deepseek] end rc=0 ---
+[stage_2_1:deepseek] DONE in 136.1s
+[stage_2_3:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_01_semdedup_intent_cosine_75__qwen3 --tag iter_01_semdedup_intent_cosine_75__qwen3 --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_3_analyzed_intents.jsonl
+--- [stage_2_1:qwen3] begin ---
+[stage_2_1 judge] run_id=iter_01_semdedup_intent_cosine_75__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  curated=42 extracted=42 sampled=42
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3
+[0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=5 tv=True fm=[] sr=True
+[0002] OK  rva4650f147f9e46ec85f3516ca5eccfce ig=4 tv=True fm=['missed_tpo'] sr=True
+[0003] OK  rv24ebec26563743a2bc650d28a63fc8d1 ig=5 tv=True fm=['subjective_attribute_value'] sr=False
+[0004] OK  rv0e328acd2426471a9159d6fbfb9161ea ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0005] OK  rv843824fa41754a88ab1a21e1c53284e9 ig=5 tv=True fm=[] sr=True
+[0006] OK  rv5671d12bdf33429b85a9d48eae05386f ig=5 tv=True fm=[] sr=True
+[0007] OK  rv1f7d14343b4b4e37b5f33d81174ae295 ig=5 tv=True fm=[] sr=True
+[0008] OK  rva5abc3e9e3074f389cda975a7c10a208 ig=5 tv=True fm=[] sr=True
+[0009] OK  rvc8acf9c71e5f4651a504896d93f5ed26 ig=5 tv=True fm=[] sr=True
+[0010] OK  rvd2943685b26348d1bff6d8f005fd7a92 ig=5 tv=False fm=['product_type_as_intent'] sr=True
+[0011] OK  rvc06b331842b347628cc5c7891b2d486c ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0012] OK  rv2730eee7952c4a758c7f5559f2e1d003 ig=4 tv=True fm=['subjective_attribute_value'] sr=False
+[0013] OK  rva8f9f650b86f494086e9300afee298ac ig=4 tv=False fm=['product_type_as_intent'] sr=True
+[0014] OK  rvce8c9f0f16d44480820dca41070af5b9 ig=5 tv=True fm=['subjective_attribute_value'] sr=True
+[0015] OK  rv476b2025ac644acc8b81e06fedfbcf9e ig=1 tv=True fm=[] sr=True
+[0016] OK  rvf14b11e8bf3247e389ada7f9bd9d6486 ig=5 tv=True fm=['subjective_attribute_value'] sr=True
+[0017] OK  rv44a28ac8276e4a9eb45f7943428d890d ig=5 tv=True fm=[] sr=True
+[0018] OK  rvc1a1c49b002241a3b375c8fa4f3448a2 ig=4 tv=True fm=[] sr=True
+[0019] OK  rvf0fa963d93274c80b0ccf5c37add2ac7 ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0020] OK  rvdf08c60c8c3b4ea8baf05f8b5e514fe6 ig=5 tv=True fm=[] sr=True
+[0021] OK  rv84d469edd1154d52812c78b80d66139a ig=5 tv=True fm=[] sr=True
+[0022] OK  rv7cf1d99d57c14cd7b965ddcc84b058dc ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0023] OK  rv17e012851a644ab286770e7e3b69ab5e ig=5 tv=True fm=[] sr=False
+[0024] OK  rv9c5fd01eda8d44aa830d8ebabcc9f8ea ig=5 tv=True fm=[] sr=True
+[0025] OK  rvf07984e5b8e14ffb8d3ff37a1adfd3dd ig=5 tv=True fm=[] sr=True
+[0026] OK  rve4d4b13b14f249bc81268c89f574f909 ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0027] OK  rvb69fdda0c7984e8b892652c5c2da3918 ig=5 tv=True fm=['subjective_attribute_value'] sr=True
+[0028] OK  rv55c231c059c4400c875a613f24edbb5d ig=4 tv=True fm=[] sr=True
+[0029] OK  rvbe2e2d5354ca40468e6141df99c53e72 ig=3 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0030] OK  rv8e238d418abe4e5ab0bda5e0b513e466 ig=1 tv=False fm=['product_type_as_intent', 'subjective_attribute_value'] sr=True
+[0031] OK  rveeadcc569b5547acbfc84f8dce3547f5 ig=5 tv=True fm=[] sr=True
+[0032] OK  rvc0e9dba431934ab98ecc8ee85e61247d ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0033] OK  rv226411664fa8435ea2949f2d85e25fee ig=5 tv=True fm=[] sr=True
+[0034] OK  rvc0f720ef783c48fbbbebb39334f46f0e ig=5 tv=True fm=[] sr=True
+[0035] OK  rvc3d7c0e4d7c248519db515dae689c893 ig=5 tv=True fm=[] sr=True
+[0036] OK  rv308d1f2c267e49fdab815b533d14f43a ig=5 tv=True fm=[] sr=True
+[0037] OK  rvd2f37b8ec38b42d1b2ebc53eb372253e ig=2 tv=False fm=['product_type_as_intent', 'subjective_attribute_value'] sr=True
+[0038] OK  rv940a4e51ef4b4c4bbf1dcf51f540381d ig=5 tv=True fm=['hallucinated_intent'] sr=True
+[0039] OK  rvb8da9b3def464dab8a86f17da2d0bef3 ig=5 tv=True fm=[] sr=True
+[0040] OK  rvc9f22670d8924004a3f666e3d2a96c45 ig=5 tv=True fm=[] sr=True
+[0041] OK  rv5824ebb92beb4e39af75a212e3753901 ig=5 tv=True fm=[] sr=False
+[0042] OK  rv184844b3ceaa48c3856915dac87afeb2 ig=5 tv=True fm=[] sr=True
+
+[done] ok=42 fail=0 time=158.9s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_1:qwen3] end rc=0 ---
+[stage_2_1:qwen3] DONE in 159.5s
+[stage_2_4:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_01_semdedup_intent_cosine_75__glm --tag iter_01_semdedup_intent_cosine_75__glm --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl
+--- [stage_2_3:glm] begin ---
+[stage_2_3 judge] run_id=iter_01_semdedup_intent_cosine_75__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  intents_total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__glm
+[0001] OK  주말룩 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0002] OK  주말데이트 use=4 reliable=True subj=0 wrong=0 dup=0 fm=[]
+[0003] OK  풍경사진 use=1 reliable=False subj=0 wrong=3 dup=0 fm=['non_fashion_intent', 'wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0004] OK  등산복 use=3 reliable=False subj=1 wrong=2 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0005] OK  산책 use=5 reliable=True subj=0 wrong=0 dup=0 fm=[]
+[0006] OK  중식당룩 use=2 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0007] OK  출근복 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0008] OK  목욕복 use=3 reliable=True subj=0 wrong=2 dup=2 fm=['wrong_attribute_for_intent', 'duplicate_values']
+[0009] OK  데일리룩 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0010] OK  해질녘산책 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0011] OK  주점 use=2 reliable=False subj=0 wrong=3 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0012] OK  배드민턴 use=2 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0013] OK  잠옷 use=2 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0014] OK  주말나들이 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0015] OK  홈캠 use=1 reliable=False subj=0 wrong=3 dup=0 fm=['non_fashion_intent', 'wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0016] OK  드라이브룩 use=2 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0017] OK  주짓수 use=2 reliable=False subj=0 wrong=2 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0018] OK  민요룩 use=2 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0019] OK  운전복 use=2 reliable=False subj=2 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0020] OK  여름원피스 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0021] OK  일반 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['non_fashion_intent']
+
+[done] ok=21 fail=0 time=57.2s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__glm/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_3:glm] end rc=0 ---
+[stage_2_3:glm] DONE in 57.9s
+[stage_2_4:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_01_semdedup_intent_cosine_75__deepseek --tag iter_01_semdedup_intent_cosine_75__deepseek --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl
+--- [stage_2_3:qwen3] begin ---
+[stage_2_3 judge] run_id=iter_01_semdedup_intent_cosine_75__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  intents_total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3
+[0001] OK  주말룩 use=3 reliable=False subj=1 wrong=1 dup=0 fm=['subjective_value', 'wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0002] OK  주말데이트 use=5 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0003] OK  풍경사진 use=1 reliable=False subj=0 wrong=3 dup=0 fm=['wrong_attribute_for_intent', 'non_fashion_intent', 'low_evidence_high_weight']
+[0004] OK  등산복 use=3 reliable=False subj=0 wrong=1 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0005] OK  산책 use=5 reliable=True subj=0 wrong=0 dup=0 fm=[]
+[0006] OK  중식당룩 use=1 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0007] OK  출근복 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0008] OK  목욕복 use=5 reliable=True subj=0 wrong=0 dup=2 fm=['duplicate_values']
+[0009] OK  데일리룩 use=5 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0010] OK  해질녘산책 use=1 reliable=False subj=0 wrong=0 dup=0 fm=['non_fashion_intent', 'low_evidence_high_weight']
+[0011] OK  주점 use=1 reliable=False subj=0 wrong=3 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight', 'non_fashion_intent']
+[0012] OK  배드민턴 use=1 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight', 'non_fashion_intent']
+[0013] OK  잠옷 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0014] OK  주말나들이 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0015] OK  홈캠 use=1 reliable=False subj=0 wrong=3 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight', 'non_fashion_intent']
+[0016] OK  드라이브룩 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0017] OK  주짓수 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0018] OK  민요룩 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0019] OK  운전복 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0020] OK  여름원피스 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0021] OK  일반 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['non_fashion_intent']
+
+[done] ok=21 fail=0 time=67.8s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_3:qwen3] end rc=0 ---
+[stage_2_3:qwen3] DONE in 68.4s
+[stage_2_4:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_01_semdedup_intent_cosine_75__qwen3 --tag iter_01_semdedup_intent_cosine_75__qwen3 --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl
+--- [stage_2_3:deepseek] begin ---
+[stage_2_3 judge] run_id=iter_01_semdedup_intent_cosine_75__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  intents_total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek
+[0001] OK  주말룩 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0002] OK  주말데이트 use=1 reliable=True subj=0 wrong=0 dup=4 fm=['low_evidence_high_weight']
+[0003] OK  풍경사진 use=1 reliable=True subj=0 wrong=0 dup=3 fm=['non_fashion_intent']
+[0004] OK  등산복 use=1 reliable=True subj=0 wrong=0 dup=5 fm=['non_fashion_intent']
+[0005] OK  산책 use=1 reliable=True subj=0 wrong=0 dup=4 fm=['non_fashion_intent']
+[0006] OK  중식당룩 use=1 reliable=True subj=0 wrong=0 dup=2 fm=['non_fashion_intent']
+[0007] OK  출근복 use=1 reliable=True subj=0 wrong=0 dup=3 fm=['low_evidence_high_weight']
+[0008] OK  목욕복 use=1 reliable=True subj=0 wrong=0 dup=6 fm=['non_fashion_intent']
+[0009] OK  데일리룩 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0010] OK  해질녘산책 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0011] OK  주점 use=1 reliable=True subj=0 wrong=0 dup=3 fm=['non_fashion_intent']
+[0012] OK  배드민턴 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight', 'non_fashion_intent']
+[0013] OK  잠옷 use=1 reliable=True subj=0 wrong=0 dup=2 fm=['low_evidence_high_weight']
+[0014] OK  주말나들이 use=1 reliable=True subj=0 wrong=0 dup=3 fm=['low_evidence_high_weight']
+[0015] OK  홈캠 use=1 reliable=True subj=0 wrong=0 dup=3 fm=['non_fashion_intent']
+[0016] OK  드라이브룩 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0017] OK  주짓수 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight', 'non_fashion_intent']
+[0018] OK  민요룩 use=1 reliable=True subj=0 wrong=0 dup=2 fm=['non_fashion_intent']
+[0019] OK  운전복 use=1 reliable=True subj=0 wrong=0 dup=3 fm=['low_evidence_high_weight']
+[0020] OK  여름원피스 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0021] OK  일반 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['non_fashion_intent']
+
+[done] ok=21 fail=0 time=84.7s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_3:deepseek] end rc=0 ---
+[stage_2_3:deepseek] DONE in 85.3s
+
+# --- iter_run_stage2 @ 2026-04-22T03:08:46+00:00 ---
+# iter=iter_01_semdedup_intent_cosine_75 parent=iter_00_baseline
+# semdedup=0.75 stage22_mode=full
+# pinned input sha256=sha256:5e513bc75b3e3133546abfc72529f59850812e9fc133708610916b846fb640b6
+
+$ brev exec coupang 'set -euo pipefail; export STAGE_DATA_ROOT=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval; export LLM_EXTRA_BODY='"'"'{"chat_template_kwargs":{"enable_thinking":false}}'"'"'; mkdir -p $STAGE_DATA_ROOT; cd /home/nvidia/stage2_work && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python scripts/tri_judge_run_stage2.py   --output-dir    /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output   --curated       /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl   --stage-data-root $STAGE_DATA_ROOT   --judge-raw-dir /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_raw   --metrics-out   /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json   --provider friendli   --run-id iter_01_semdedup_intent_cosine_75 --tag iter_01_semdedup_intent_cosine_75   --skip-on-error 2>&1 | tee -a /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/run_pipeline.log'
+[tri_judge_stage2] output_dir=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output
+                   curated=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl
+                   stage_data_root=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval
+                   judge_raw_dir=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_raw
+                   metrics_out=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json
+                   stages=['stage_2_1', 'stage_2_2', 'stage_2_3', 'stage_2_4']  pairs=12  max_workers=4  run_id=iter_01_semdedup_intent_cosine_75
+[stage_2_1:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_1_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_01_semdedup_intent_cosine_75__glm --tag iter_01_semdedup_intent_cosine_75__glm --curated /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl --extracted /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_extracted.jsonl
+[stage_2_1:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_1_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_01_semdedup_intent_cosine_75__deepseek --tag iter_01_semdedup_intent_cosine_75__deepseek --curated /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl --extracted /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_extracted.jsonl
+[stage_2_1:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_1_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_01_semdedup_intent_cosine_75__qwen3 --tag iter_01_semdedup_intent_cosine_75__qwen3 --curated /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data/stage_1_2/stage_1_2_processed.jsonl --extracted /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_1_extracted.jsonl
+[stage_2_2:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_01_semdedup_intent_cosine_75__glm --tag iter_01_semdedup_intent_cosine_75__glm --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_2_clusters.jsonl
+--- [stage_2_2:glm] begin ---
+[stage_2_2 judge] run_id=iter_01_semdedup_intent_cosine_75__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  clusters_total=20 sampled=20 (dropped '일반')
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__glm
+[0001] OK  cluster_000 '주말룩' coh=True fit=5 ko=True split=False fm=[]
+[0002] OK  cluster_001 '주말데이트' coh=False fit=2 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0003] OK  cluster_002 '풍경사진' coh=True fit=5 ko=True split=False fm=[]
+[0004] OK  cluster_003 '등산복' coh=True fit=3 ko=True split=False fm=['wrong_canonical']
+[0005] OK  cluster_004 '산책' coh=True fit=5 ko=True split=False fm=[]
+[0006] OK  cluster_005 '중식당룩' coh=True fit=5 ko=True split=False fm=[]
+[0007] OK  cluster_006 '출근복' coh=True fit=5 ko=True split=False fm=[]
+[0008] OK  cluster_007 '목욕복' coh=True fit=5 ko=True split=False fm=[]
+[0009] OK  cluster_008 '데일리룩' coh=True fit=5 ko=True split=False fm=[]
+[0010] OK  cluster_009 '해질녘산책' coh=True fit=5 ko=True split=False fm=[]
+[0011] OK  cluster_010 '주점' coh=True fit=5 ko=True split=False fm=[]
+[0012] OK  cluster_011 '배드민턴' coh=True fit=5 ko=True split=False fm=[]
+[0013] OK  cluster_012 '잠옷' coh=True fit=5 ko=True split=False fm=[]
+[0014] OK  cluster_013 '주말나들이' coh=True fit=4 ko=True split=False fm=[]
+[0015] OK  cluster_014 '홈캠' coh=True fit=3 ko=True split=False fm=['wrong_canonical']
+[0016] OK  cluster_015 '드라이브룩' coh=True fit=2 ko=True split=False fm=['wrong_canonical']
+[0017] OK  cluster_016 '주짓수' coh=True fit=5 ko=True split=False fm=[]
+[0018] OK  cluster_017 '민요룩' coh=True fit=5 ko=True split=False fm=[]
+[0019] OK  cluster_018 '운전복' coh=True fit=5 ko=True split=False fm=[]
+[0020] OK  cluster_019 '여름원피스' coh=True fit=5 ko=True split=False fm=[]
+
+[stage_2_2 judge] cross-cluster duplicate pass ...
+  duplicate_pairs=3
+
+[done] clusters ok=20 fail=0 dup_pairs=3 time=29.0s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__glm/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_2:glm] end rc=0 ---
+[stage_2_2:glm] DONE in 29.7s
+[stage_2_2:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_01_semdedup_intent_cosine_75__deepseek --tag iter_01_semdedup_intent_cosine_75__deepseek --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_2_clusters.jsonl
+--- [stage_2_4:deepseek] begin ---
+[stage_2_4 judge] run_id=iter_01_semdedup_intent_cosine_75__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek
+[0001] OK  주말룩 use=4 div=4 weave=1 fm=[]
+[0002] OK  주말데이트 use=4 div=4 weave=1 fm=[]
+[0003] OK  풍경사진 use=1 div=2 weave=1 fm=['low_query_diversity', 'attribute_overlisting', 'wrong_intent', 'too_generic']
+[0004] OK  등산복 use=3 div=4 weave=1 fm=['attribute_overlisting', 'attribute_ungrounded']
+[0005] OK  산책 use=4 div=4 weave=1 fm=[]
+[0006] OK  중식당룩 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0007] OK  출근복 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0008] OK  목욕복 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0009] OK  데일리룩 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0010] OK  해질녘산책 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0011] OK  주점 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0012] OK  배드민턴 use=3 div=3 weave=1 fm=['low_query_diversity', 'attribute_overlisting', 'too_generic']
+[0013] OK  잠옷 use=4 div=4 weave=1 fm=['attribute_ungrounded']
+[0014] OK  주말나들이 use=3 div=4 weave=1 fm=['unnatural_korean', 'not_korean']
+[0015] OK  홈캠 use=3 div=4 weave=1 fm=['attribute_overlisting', 'too_generic']
+[0016] OK  드라이브룩 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0017] OK  주짓수 use=3 div=3 weave=1 fm=['attribute_overlisting', 'low_query_diversity']
+[0018] OK  민요룩 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0019] OK  운전복 use=2 div=2 weave=1 fm=['canonical_name_repeat', 'low_query_diversity', 'attribute_overlisting']
+[0020] OK  여름원피스 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0021] OK  일반 use=3 div=4 weave=1 fm=['too_generic']
+
+[stage_2_4 judge] ok=21 fail=0 duration=147.4s -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/report.md
+--- [stage_2_4:deepseek] end rc=0 ---
+[stage_2_4:deepseek] DONE in 148.0s
+--- [stage_2_4:glm] begin ---
+[stage_2_4 judge] run_id=iter_01_semdedup_intent_cosine_75__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__glm
+[0001] OK  주말룩 use=4 div=4 weave=4 fm=[]
+[0002] OK  주말데이트 use=4 div=4 weave=4 fm=[]
+[0003] OK  풍경사진 use=1 div=1 weave=1 fm=['wrong_intent', 'attribute_overlisting', 'low_query_diversity']
+[0004] OK  등산복 use=4 div=4 weave=4 fm=[]
+[0005] OK  산책 use=4 div=4 weave=4 fm=[]
+[0006] OK  중식당룩 use=4 div=4 weave=4 fm=[]
+[0007] OK  출근복 use=2 div=2 weave=1 fm=['attribute_overlisting', 'low_query_diversity']
+[0008] OK  목욕복 use=4 div=4 weave=4 fm=[]
+[0009] OK  데일리룩 use=4 div=4 weave=4 fm=[]
+[0010] OK  해질녘산책 use=3 div=3 weave=2 fm=['attribute_overlisting']
+[0011] OK  주점 use=4 div=3 weave=3 fm=['attribute_overlisting']
+[0012] OK  배드민턴 use=2 div=2 weave=2 fm=['low_query_diversity', 'attribute_overlisting']
+[0013] OK  잠옷 use=4 div=4 weave=4 fm=[]
+[0014] OK  주말나들이 use=3 div=4 weave=4 fm=['not_korean']
+[0015] OK  홈캠 use=3 div=3 weave=2 fm=['attribute_overlisting']
+[0016] OK  드라이브룩 use=4 div=4 weave=4 fm=[]
+[0017] OK  주짓수 use=4 div=3 weave=4 fm=['attribute_overlisting']
+[0018] OK  민요룩 use=4 div=4 weave=4 fm=['canonical_name_repeat']
+[0019] OK  운전복 use=2 div=2 weave=1 fm=['canonical_name_repeat', 'attribute_overlisting', 'low_query_diversity']
+[0020] OK  여름원피스 use=4 div=4 weave=4 fm=[]
+[0021] OK  일반 use=4 div=4 weave=1 fm=[]
+
+[stage_2_4 judge] ok=21 fail=0 duration=172.9s -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__glm/report.md
+--- [stage_2_4:glm] end rc=0 ---
+[stage_2_4:glm] DONE in 173.6s
+--- [stage_2_2:deepseek] begin ---
+[stage_2_2 judge] run_id=iter_01_semdedup_intent_cosine_75__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  clusters_total=20 sampled=20 (dropped '일반')
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek
+[0001] OK  cluster_000 '주말룩' coh=True fit=5 ko=True split=True fm=[]
+[0002] OK  cluster_001 '주말데이트' coh=True fit=4 ko=True split=True fm=[]
+[0003] OK  cluster_002 '풍경사진' coh=True fit=5 ko=True split=True fm=[]
+[0004] OK  cluster_003 '등산복' coh=True fit=5 ko=True split=False fm=[]
+[0005] OK  cluster_004 '산책' coh=True fit=5 ko=True split=True fm=[]
+[0006] OK  cluster_005 '중식당룩' coh=True fit=5 ko=True split=True fm=[]
+[0007] OK  cluster_006 '출근복' coh=True fit=5 ko=True split=True fm=[]
+[0008] OK  cluster_007 '목욕복' coh=True fit=5 ko=True split=True fm=[]
+[0009] OK  cluster_008 '데일리룩' coh=True fit=5 ko=True split=True fm=[]
+[0010] OK  cluster_009 '해질녘산책' coh=True fit=5 ko=True split=True fm=[]
+[0011] OK  cluster_010 '주점' coh=True fit=5 ko=True split=False fm=[]
+[0012] OK  cluster_011 '배드민턴' coh=True fit=5 ko=True split=True fm=[]
+[0013] OK  cluster_012 '잠옷' coh=True fit=5 ko=True split=True fm=[]
+[0014] OK  cluster_013 '주말나들이' coh=True fit=5 ko=True split=True fm=[]
+[0015] OK  cluster_014 '홈캠' coh=True fit=3 ko=True split=True fm=['wrong_canonical']
+[0016] OK  cluster_015 '드라이브룩' coh=True fit=5 ko=True split=True fm=[]
+[0017] OK  cluster_016 '주짓수' coh=True fit=5 ko=True split=True fm=[]
+[0018] OK  cluster_017 '민요룩' coh=True fit=5 ko=True split=True fm=[]
+[0019] OK  cluster_018 '운전복' coh=True fit=5 ko=True split=True fm=[]
+[0020] OK  cluster_019 '여름원피스' coh=True fit=5 ko=True split=True fm=[]
+
+[stage_2_2 judge] cross-cluster duplicate pass ...
+  duplicate_pairs=3
+
+[done] clusters ok=20 fail=0 dup_pairs=3 time=35.3s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_2:deepseek] end rc=0 ---
+[stage_2_2:deepseek] DONE in 36.0s
+[stage_2_2:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_2_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_01_semdedup_intent_cosine_75__qwen3 --tag iter_01_semdedup_intent_cosine_75__qwen3 --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_2_clusters.jsonl
+--- [stage_2_1:glm] begin ---
+[stage_2_1 judge] run_id=iter_01_semdedup_intent_cosine_75__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  curated=42 extracted=42 sampled=42
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__glm
+[0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=5 tv=True fm=[] sr=True
+[0002] OK  rva4650f147f9e46ec85f3516ca5eccfce ig=3 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0003] OK  rv24ebec26563743a2bc650d28a63fc8d1 ig=2 tv=False fm=['product_type_as_intent'] sr=False
+[0004] OK  rv0e328acd2426471a9159d6fbfb9161ea ig=2 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0005] OK  rv843824fa41754a88ab1a21e1c53284e9 ig=5 tv=True fm=[] sr=True
+[0006] OK  rv5671d12bdf33429b85a9d48eae05386f ig=5 tv=True fm=[] sr=True
+[0007] OK  rv1f7d14343b4b4e37b5f33d81174ae295 ig=5 tv=True fm=[] sr=True
+[0008] OK  rva5abc3e9e3074f389cda975a7c10a208 ig=4 tv=True fm=[] sr=True
+[0009] OK  rvc8acf9c71e5f4651a504896d93f5ed26 ig=2 tv=False fm=['product_type_as_intent'] sr=True
+[0010] OK  rvd2943685b26348d1bff6d8f005fd7a92 ig=5 tv=False fm=['product_type_as_intent'] sr=True
+[0011] OK  rvc06b331842b347628cc5c7891b2d486c ig=2 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0012] OK  rv2730eee7952c4a758c7f5559f2e1d003 ig=4 tv=True fm=['product_type_as_intent', 'subjective_attribute_value'] sr=False
+[0013] OK  rva8f9f650b86f494086e9300afee298ac ig=3 tv=False fm=['product_type_as_intent'] sr=True
+[0014] OK  rvce8c9f0f16d44480820dca41070af5b9 ig=5 tv=True fm=[] sr=True
+[0015] OK  rv476b2025ac644acc8b81e06fedfbcf9e ig=3 tv=True fm=['missed_tpo'] sr=True
+[0016] OK  rvf14b11e8bf3247e389ada7f9bd9d6486 ig=5 tv=True fm=[] sr=True
+[0017] OK  rv44a28ac8276e4a9eb45f7943428d890d ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0018] OK  rvc1a1c49b002241a3b375c8fa4f3448a2 ig=4 tv=True fm=[] sr=True
+[0019] OK  rvf0fa963d93274c80b0ccf5c37add2ac7 ig=2 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0020] OK  rvdf08c60c8c3b4ea8baf05f8b5e514fe6 ig=4 tv=False fm=['product_type_as_intent'] sr=True
+[0021] OK  rv84d469edd1154d52812c78b80d66139a ig=5 tv=True fm=[] sr=True
+[0022] OK  rv7cf1d99d57c14cd7b965ddcc84b058dc ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0023] OK  rv17e012851a644ab286770e7e3b69ab5e ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=False
+[0024] OK  rv9c5fd01eda8d44aa830d8ebabcc9f8ea ig=5 tv=True fm=[] sr=True
+[0025] OK  rvf07984e5b8e14ffb8d3ff37a1adfd3dd ig=5 tv=True fm=[] sr=True
+[0026] OK  rve4d4b13b14f249bc81268c89f574f909 ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0027] OK  rvb69fdda0c7984e8b892652c5c2da3918 ig=5 tv=True fm=[] sr=True
+[0028] OK  rv55c231c059c4400c875a613f24edbb5d ig=2 tv=False fm=['product_type_as_intent'] sr=True
+[0029] OK  rvbe2e2d5354ca40468e6141df99c53e72 ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0030] OK  rv8e238d418abe4e5ab0bda5e0b513e466 ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0031] OK  rveeadcc569b5547acbfc84f8dce3547f5 ig=5 tv=True fm=[] sr=True
+[0032] OK  rvc0e9dba431934ab98ecc8ee85e61247d ig=1 tv=True gw_fn=True fm=['missed_tpo'] sr=True
+[0033] OK  rv226411664fa8435ea2949f2d85e25fee ig=5 tv=True fm=[] sr=True
+[0034] OK  rvc0f720ef783c48fbbbebb39334f46f0e ig=4 tv=True fm=[] sr=True
+[0035] OK  rvc3d7c0e4d7c248519db515dae689c893 ig=5 tv=True fm=[] sr=True
+[0036] OK  rv308d1f2c267e49fdab815b533d14f43a ig=5 tv=True fm=[] sr=True
+[0037] OK  rvd2f37b8ec38b42d1b2ebc53eb372253e ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0038] OK  rv940a4e51ef4b4c4bbf1dcf51f540381d ig=5 tv=True fm=[] sr=True
+[0039] OK  rvb8da9b3def464dab8a86f17da2d0bef3 ig=3 tv=False fm=['product_type_as_intent'] sr=True
+[0040] OK  rvc9f22670d8924004a3f666e3d2a96c45 ig=5 tv=True fm=[] sr=True
+[0041] OK  rv5824ebb92beb4e39af75a212e3753901 ig=5 tv=True fm=[] sr=False
+[0042] OK  rv184844b3ceaa48c3856915dac87afeb2 ig=5 tv=True fm=[] sr=True
+
+[done] ok=42 fail=0 time=92.8s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__glm/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_1:glm] end rc=0 ---
+[stage_2_1:glm] DONE in 93.5s
+[stage_2_3:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_01_semdedup_intent_cosine_75__glm --tag iter_01_semdedup_intent_cosine_75__glm --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_3_analyzed_intents.jsonl
+--- [stage_2_4:qwen3] begin ---
+[stage_2_4 judge] run_id=iter_01_semdedup_intent_cosine_75__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3
+[0001] OK  주말룩 use=5 div=5 weave=5 fm=[]
+[0002] OK  주말데이트 use=5 div=4 weave=5 fm=[]
+[0003] OK  풍경사진 use=1 div=2 weave=5 fm=['wrong_intent', 'canonical_name_repeat', 'low_query_diversity', 'attribute_overlisting']
+[0004] OK  등산복 use=5 div=4 weave=5 fm=[]
+[0005] OK  산책 use=4 div=4 weave=5 fm=['unnatural_korean']
+[0006] OK  중식당룩 use=5 div=4 weave=5 fm=[]
+[0007] OK  출근복 use=5 div=4 weave=5 fm=[]
+[0008] OK  목욕복 use=5 div=4 weave=5 fm=[]
+[0009] OK  데일리룩 use=5 div=4 weave=5 fm=[]
+[0010] OK  해질녘산책 use=5 div=4 weave=5 fm=[]
+[0011] OK  주점 use=4 div=3 weave=4 fm=['canonical_name_repeat']
+[0012] OK  배드민턴 use=5 div=4 weave=5 fm=[]
+[0013] OK  잠옷 use=5 div=4 weave=5 fm=[]
+[0014] OK  주말나들이 use=4 div=4 weave=4 fm=['not_korean']
+[0015] OK  홈캠 use=5 div=4 weave=5 fm=[]
+[0016] OK  드라이브룩 use=5 div=4 weave=5 fm=[]
+[0017] OK  주짓수 use=5 div=4 weave=5 fm=[]
+[0018] OK  민요룩 use=4 div=4 weave=5 fm=['garbled_output', 'canonical_name_repeat']
+[0019] OK  운전복 use=5 div=3 weave=5 fm=[]
+[0020] OK  여름원피스 use=5 div=4 weave=4 fm=[]
+[0021] OK  일반 use=5 div=4 weave=1 fm=[]
+
+[stage_2_4 judge] ok=21 fail=0 duration=178.7s -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/report.md
+--- [stage_2_4:qwen3] end rc=0 ---
+[stage_2_4:qwen3] DONE in 179.3s
+
+[tri_judge_stage2] wrote /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json  errors=0 duration=383.8s
+coupang
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:10:41 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json → /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json (1.825s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_raw /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+--- [stage_2_3:glm] begin ---
+[stage_2_3 judge] run_id=iter_01_semdedup_intent_cosine_75__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  intents_total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__glm
+[0001] OK  주말룩 use=4 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0002] OK  주말데이트 use=4 reliable=True subj=0 wrong=0 dup=0 fm=[]
+[0003] OK  풍경사진 use=1 reliable=False subj=0 wrong=3 dup=0 fm=['non_fashion_intent', 'wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0004] OK  등산복 use=3 reliable=False subj=0 wrong=2 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0005] OK  산책 use=5 reliable=True subj=0 wrong=0 dup=0 fm=[]
+[0006] OK  중식당룩 use=2 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0007] OK  출근복 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0008] OK  목욕복 use=2 reliable=True subj=0 wrong=6 dup=2 fm=['wrong_attribute_for_intent', 'duplicate_values']
+[0009] OK  데일리룩 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0010] OK  해질녘산책 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0011] OK  주점 use=2 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0012] OK  배드민턴 use=2 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0013] OK  잠옷 use=2 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0014] OK  주말나들이 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0015] OK  홈캠 use=1 reliable=False subj=0 wrong=3 dup=0 fm=['non_fashion_intent', 'wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0016] OK  드라이브룩 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0017] OK  주짓수 use=2 reliable=False subj=0 wrong=2 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0018] OK  민요룩 use=2 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0019] OK  운전복 use=2 reliable=False subj=2 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0020] OK  여름원피스 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0021] OK  일반 use=1 reliable=False subj=0 wrong=0 dup=0 fm=['non_fashion_intent']
+
+[done] ok=21 fail=0 time=43.0s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__glm/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__glm/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__glm/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_3:glm] end rc=0 ---
+[stage_2_3:glm] DONE in 43.6s
+[stage_2_3:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_01_semdedup_intent_cosine_75__deepseek --tag iter_01_semdedup_intent_cosine_75__deepseek --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_3_analyzed_intents.jsonl
+--- [stage_2_1:deepseek] begin ---
+[stage_2_1 judge] run_id=iter_01_semdedup_intent_cosine_75__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  curated=42 extracted=42 sampled=42
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek
+[0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=1 tv=True fm=['language_issue'] sr=True
+[0002] OK  rva4650f147f9e46ec85f3516ca5eccfce ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'general_wear_with_attrs'] sr=True
+[0003] OK  rv24ebec26563743a2bc650d28a63fc8d1 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'general_wear_with_attrs'] sr=False
+[0004] OK  rv0e328acd2426471a9159d6fbfb9161ea ig=1 tv=True fm=['language_issue'] sr=True
+[0005] OK  rv843824fa41754a88ab1a21e1c53284e9 ig=1 tv=True fm=['invalid_input'] sr=True
+[0006] OK  rv5671d12bdf33429b85a9d48eae05386f ig=1 tv=True fm=['language_issue'] sr=True
+[0007] OK  rv1f7d14343b4b4e37b5f33d81174ae295 ig=1 tv=True fm=['language_issue'] sr=True
+[0008] OK  rva5abc3e9e3074f389cda975a7c10a208 ig=1 tv=True fm=['language_issue'] sr=True
+[0009] OK  rvc8acf9c71e5f4651a504896d93f5ed26 ig=1 tv=True fm=['language_issue'] sr=True
+[0010] OK  rvd2943685b26348d1bff6d8f005fd7a92 ig=1 tv=True fm=['invalid_input_format'] sr=True
+[0011] OK  rvc06b331842b347628cc5c7891b2d486c ig=1 tv=True fm=['language_issue'] sr=True
+[0012] OK  rv2730eee7952c4a758c7f5559f2e1d003 ig=1 tv=True fm=['language_issue'] sr=False
+[0013] OK  rva8f9f650b86f494086e9300afee298ac ig=1 tv=True fm=['language_issue'] sr=True
+[0014] OK  rvce8c9f0f16d44480820dca41070af5b9 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo'] sr=True
+[0015] OK  rv476b2025ac644acc8b81e06fedfbcf9e ig=1 tv=True fm=['language_issue'] sr=True
+[0016] OK  rvf14b11e8bf3247e389ada7f9bd9d6486 ig=1 tv=True fm=['invalid_input'] sr=True
+[0017] OK  rv44a28ac8276e4a9eb45f7943428d890d ig=1 tv=True fm=['language_issue'] sr=True
+[0018] OK  rvc1a1c49b002241a3b375c8fa4f3448a2 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'general_wear_with_attrs'] sr=True
+[0019] OK  rvf0fa963d93274c80b0ccf5c37add2ac7 ig=1 tv=True fm=['language_issue'] sr=True
+[0020] OK  rvdf08c60c8c3b4ea8baf05f8b5e514fe6 ig=1 tv=True fm=['language_issue'] sr=True
+[0021] OK  rv84d469edd1154d52812c78b80d66139a ig=1 tv=True fm=['language_issue'] sr=True
+[0022] OK  rv7cf1d99d57c14cd7b965ddcc84b058dc ig=1 tv=True fm=['language_issue'] sr=True
+[0023] OK  rv17e012851a644ab286770e7e3b69ab5e ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'sentiment_rating_mismatch'] sr=False
+[0024] OK  rv9c5fd01eda8d44aa830d8ebabcc9f8ea ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo'] sr=True
+[0025] OK  rvf07984e5b8e14ffb8d3ff37a1adfd3dd ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo'] sr=True
+[0026] OK  rve4d4b13b14f249bc81268c89f574f909 ig=1 tv=True fm=['language_issue'] sr=True
+[0027] OK  rvb69fdda0c7984e8b892652c5c2da3918 ig=1 tv=True fm=['invalid_input_format'] sr=True
+[0028] OK  rv55c231c059c4400c875a613f24edbb5d ig=1 tv=True fm=['language_issue'] sr=True
+[0029] OK  rvbe2e2d5354ca40468e6141df99c53e72 ig=1 tv=True fm=['language_issue'] sr=True
+[0030] OK  rv8e238d418abe4e5ab0bda5e0b513e466 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'subjective_attribute_value', 'missed_tpo'] sr=True
+[0031] OK  rveeadcc569b5547acbfc84f8dce3547f5 ig=1 tv=True fm=['language_issue'] sr=True
+[0032] OK  rvc0e9dba431934ab98ecc8ee85e61247d ig=1 tv=True fm=['language_issue'] sr=True
+[0033] OK  rv226411664fa8435ea2949f2d85e25fee ig=1 tv=True fm=['language_issue'] sr=True
+[0034] OK  rvc0f720ef783c48fbbbebb39334f46f0e ig=1 tv=True fm=['language_issue'] sr=True
+[0035] OK  rvc3d7c0e4d7c248519db515dae689c893 ig=1 tv=True fm=['language_issue'] sr=True
+[0036] OK  rv308d1f2c267e49fdab815b533d14f43a ig=1 tv=True fm=['language_issue'] sr=True
+[0037] OK  rvd2f37b8ec38b42d1b2ebc53eb372253e ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'subjective_attribute_value', 'noise_attribute_value', 'missed_tpo', 'general_wear_with_attrs', 'sentiment_rating_mismatch', 'language_issue'] sr=True
+[0038] OK  rv940a4e51ef4b4c4bbf1dcf51f540381d ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'sentiment_rating_mismatch'] sr=True
+[0039] OK  rvb8da9b3def464dab8a86f17da2d0bef3 ig=1 tv=True fm=['hallucinated_intent', 'product_type_as_intent', 'missed_tpo', 'sentiment_rating_mismatch'] sr=True
+[0040] OK  rvc9f22670d8924004a3f666e3d2a96c45 ig=1 tv=True fm=['language_issue'] sr=True
+[0041] OK  rv5824ebb92beb4e39af75a212e3753901 ig=1 tv=True fm=['language_issue'] sr=False
+[0042] OK  rv184844b3ceaa48c3856915dac87afeb2 ig=1 tv=True fm=['language_issue'] sr=True
+
+[done] ok=42 fail=0 time=138.7s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_1:deepseek] end rc=0 ---
+[stage_2_1:deepseek] DONE in 139.4s
+[stage_2_3:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_3_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_01_semdedup_intent_cosine_75__qwen3 --tag iter_01_semdedup_intent_cosine_75__qwen3 --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_3_analyzed_intents.jsonl
+⣽ waiting for instance to be ready... [K2026/04/22 12:11:09 external nodes: skipping (list failed): not_found: not found
+--- [stage_2_2:qwen3] begin ---
+[stage_2_2 judge] run_id=iter_01_semdedup_intent_cosine_75__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  clusters_total=20 sampled=20 (dropped '일반')
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3
+[0001] OK  cluster_000 '주말룩' coh=True fit=4 ko=True split=False fm=[]
+[0002] OK  cluster_001 '주말데이트' coh=True fit=4 ko=True split=False fm=[]
+[0003] OK  cluster_002 '풍경사진' coh=True fit=5 ko=True split=False fm=[]
+[0004] OK  cluster_003 '등산복' coh=False fit=1 ko=True split=False fm=['heterogeneous_cluster', 'wrong_canonical']
+[0005] OK  cluster_004 '산책' coh=True fit=5 ko=True split=False fm=[]
+[0006] OK  cluster_005 '중식당룩' coh=True fit=5 ko=True split=False fm=[]
+[0007] OK  cluster_006 '출근복' coh=True fit=5 ko=True split=False fm=[]
+[0008] OK  cluster_007 '목욕복' coh=False fit=1 ko=True split=True fm=['heterogeneous_cluster', 'wrong_canonical', 'should_split']
+[0009] OK  cluster_008 '데일리룩' coh=True fit=5 ko=True split=False fm=[]
+[0010] OK  cluster_009 '해질녘산책' coh=True fit=4 ko=True split=False fm=[]
+[0011] OK  cluster_010 '주점' coh=True fit=5 ko=True split=False fm=[]
+[0012] OK  cluster_011 '배드민턴' coh=True fit=5 ko=True split=False fm=[]
+[0013] OK  cluster_012 '잠옷' coh=True fit=5 ko=True split=False fm=[]
+[0014] OK  cluster_013 '주말나들이' coh=True fit=5 ko=True split=False fm=[]
+[0015] OK  cluster_014 '홈캠' coh=True fit=3 ko=True split=False fm=[]
+[0016] OK  cluster_015 '드라이브룩' coh=True fit=5 ko=True split=False fm=[]
+[0017] OK  cluster_016 '주짓수' coh=True fit=5 ko=True split=False fm=[]
+[0018] OK  cluster_017 '민요룩' coh=True fit=5 ko=True split=False fm=[]
+[0019] OK  cluster_018 '운전복' coh=True fit=4 ko=True split=False fm=[]
+[0020] OK  cluster_019 '여름원피스' coh=True fit=5 ko=True split=False fm=[]
+
+[stage_2_2 judge] cross-cluster duplicate pass ...
+  duplicate_pairs=3
+
+[done] clusters ok=20 fail=0 dup_pairs=3 time=77.0s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_2/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_2:qwen3] end rc=0 ---
+[stage_2_2:qwen3] DONE in 77.6s
+[stage_2_4:glm] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model zai-org/GLM-5.1 --run-id iter_01_semdedup_intent_cosine_75__glm --tag iter_01_semdedup_intent_cosine_75__glm --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_raw → /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75 (10.36s)
+
+$ /Users/sgyeom/Nvidia/.venv/bin/python /Users/sgyeom/Nvidia/scripts/quant_stage2_report.py --mode iter --output-dir /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output --json-out /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/quant_metrics.json --md-out /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/quant_report.md
+[quant_stage2_report] wrote /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/quant_report.md
+$ /Users/sgyeom/Nvidia/.venv/bin/python /Users/sgyeom/Nvidia/scripts/make_comparison.py --this /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/metrics.json --out /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/comparison.md --summary /Users/sgyeom/Nvidia/experiments_stage2/summary.md --parent /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/metrics.json
+[make_comparison] wrote /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/comparison.md
+[make_comparison] updated leaderboard: /Users/sgyeom/Nvidia/experiments_stage2/summary.md
+
+# --- iter_run_stage2 done in 989.8s ---
+--- [stage_2_3:deepseek] begin ---
+[stage_2_3 judge] run_id=iter_01_semdedup_intent_cosine_75__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  intents_total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek
+[0001] OK  주말룩 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['subjective_value', 'wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0002] OK  주말데이트 use=1 reliable=True subj=0 wrong=0 dup=4 fm=['low_evidence_high_weight']
+[0003] OK  풍경사진 use=1 reliable=True subj=0 wrong=0 dup=3 fm=['non_fashion_intent']
+[0004] OK  등산복 use=1 reliable=True subj=0 wrong=0 dup=5 fm=['non_fashion_intent']
+[0005] OK  산책 use=1 reliable=True subj=0 wrong=0 dup=4 fm=['non_fashion_intent']
+[0006] OK  중식당룩 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight', 'non_fashion_intent']
+[0007] OK  출근복 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0008] OK  목욕복 use=1 reliable=True subj=0 wrong=0 dup=6 fm=['non_fashion_intent']
+[0009] OK  데일리룩 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0010] OK  해질녘산책 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0011] OK  주점 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['non_fashion_intent', 'wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0012] OK  배드민턴 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight', 'subjective_value']
+[0013] OK  잠옷 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0014] OK  주말나들이 use=1 reliable=True subj=0 wrong=0 dup=3 fm=['non_fashion_intent']
+[0015] OK  홈캠 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['non_fashion_intent', 'low_evidence_high_weight', 'wrong_attribute_for_intent']
+[0016] OK  드라이브룩 use=1 reliable=True subj=0 wrong=0 dup=2 fm=['low_evidence_high_weight']
+[0017] OK  주짓수 use=1 reliable=True subj=0 wrong=0 dup=3 fm=['non_fashion_intent']
+[0018] OK  민요룩 use=1 reliable=True subj=0 wrong=0 dup=2 fm=['non_fashion_intent']
+[0019] OK  운전복 use=1 reliable=True subj=0 wrong=0 dup=3 fm=['non_fashion_intent', 'low_evidence_high_weight']
+[0020] OK  여름원피스 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0021] OK  일반 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['non_fashion_intent']
+
+[done] ok=21 fail=0 time=60.9s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_3:deepseek] end rc=0 ---
+[stage_2_3:deepseek] DONE in 61.5s
+[stage_2_4:deepseek] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model deepseek-ai/DeepSeek-V3.2 --run-id iter_01_semdedup_intent_cosine_75__deepseek --tag iter_01_semdedup_intent_cosine_75__deepseek --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl
+--- [stage_2_3:qwen3] begin ---
+[stage_2_3 judge] run_id=iter_01_semdedup_intent_cosine_75__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  intents_total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3
+[0001] OK  주말룩 use=3 reliable=False subj=1 wrong=1 dup=0 fm=['subjective_value', 'wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0002] OK  주말데이트 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0003] OK  풍경사진 use=1 reliable=False subj=0 wrong=3 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight', 'non_fashion_intent']
+[0004] OK  등산복 use=3 reliable=False subj=0 wrong=1 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0005] OK  산책 use=5 reliable=True subj=0 wrong=0 dup=0 fm=[]
+[0006] OK  중식당룩 use=1 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0007] OK  출근복 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0008] OK  목욕복 use=5 reliable=True subj=0 wrong=0 dup=2 fm=['duplicate_values']
+[0009] OK  데일리룩 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0010] OK  해질녘산책 use=1 reliable=False subj=0 wrong=0 dup=0 fm=['non_fashion_intent', 'low_evidence_high_weight']
+[0011] OK  주점 use=1 reliable=False subj=0 wrong=3 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight', 'non_fashion_intent']
+[0012] OK  배드민턴 use=1 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight', 'non_fashion_intent']
+[0013] OK  잠옷 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0014] OK  주말나들이 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0015] OK  홈캠 use=1 reliable=False subj=0 wrong=3 dup=0 fm=['wrong_attribute_for_intent', 'non_fashion_intent', 'low_evidence_high_weight']
+[0016] OK  드라이브룩 use=3 reliable=False subj=0 wrong=0 dup=0 fm=['low_evidence_high_weight']
+[0017] OK  주짓수 use=3 reliable=False subj=0 wrong=1 dup=0 fm=['wrong_attribute_for_intent', 'low_evidence_high_weight']
+[0018] OK  민요룩 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0019] OK  운전복 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0020] OK  여름원피스 use=3 reliable=False subj=1 wrong=0 dup=0 fm=['subjective_value', 'low_evidence_high_weight']
+[0021] OK  일반 use=1 reliable=True subj=0 wrong=0 dup=0 fm=['non_fashion_intent']
+
+[done] ok=21 fail=0 time=87.3s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_3/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_3:qwen3] end rc=0 ---
+[stage_2_3:qwen3] DONE in 87.9s
+[stage_2_4:qwen3] $ /home/nvidia/coupang/.venv/bin/python -m pipelines.eval.stage_2_4_judge --provider friendli --judge-model Qwen/Qwen3-235B-A22B-Instruct-2507 --run-id iter_01_semdedup_intent_cosine_75__qwen3 --tag iter_01_semdedup_intent_cosine_75__qwen3 --input /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl
+--- [stage_2_1:qwen3] begin ---
+[stage_2_1 judge] run_id=iter_01_semdedup_intent_cosine_75__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  curated=42 extracted=42 sampled=42
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3
+[0001] OK  rv358069fd873c482d9a7c6f8a2a4be83e ig=5 tv=True fm=[] sr=True
+[0002] OK  rva4650f147f9e46ec85f3516ca5eccfce ig=4 tv=True fm=['missed_tpo'] sr=True
+[0003] OK  rv24ebec26563743a2bc650d28a63fc8d1 ig=5 tv=True fm=[] sr=False
+[0004] OK  rv0e328acd2426471a9159d6fbfb9161ea ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0005] OK  rv843824fa41754a88ab1a21e1c53284e9 ig=5 tv=True fm=[] sr=True
+[0006] OK  rv5671d12bdf33429b85a9d48eae05386f ig=5 tv=True fm=[] sr=True
+[0007] OK  rv1f7d14343b4b4e37b5f33d81174ae295 ig=5 tv=True fm=[] sr=True
+[0008] OK  rva5abc3e9e3074f389cda975a7c10a208 ig=5 tv=True fm=[] sr=True
+[0009] OK  rvc8acf9c71e5f4651a504896d93f5ed26 ig=5 tv=True fm=[] sr=True
+[0010] OK  rvd2943685b26348d1bff6d8f005fd7a92 ig=3 tv=False fm=['product_type_as_intent'] sr=True
+[0011] OK  rvc06b331842b347628cc5c7891b2d486c ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0012] OK  rv2730eee7952c4a758c7f5559f2e1d003 ig=4 tv=True fm=['subjective_attribute_value'] sr=False
+[0013] OK  rva8f9f650b86f494086e9300afee298ac ig=3 tv=False fm=['product_type_as_intent'] sr=True
+[0014] OK  rvce8c9f0f16d44480820dca41070af5b9 ig=5 tv=True fm=['subjective_attribute_value'] sr=True
+[0015] OK  rv476b2025ac644acc8b81e06fedfbcf9e ig=3 tv=True fm=[] sr=True
+[0016] OK  rvf14b11e8bf3247e389ada7f9bd9d6486 ig=5 tv=True fm=['subjective_attribute_value'] sr=True
+[0017] OK  rv44a28ac8276e4a9eb45f7943428d890d ig=5 tv=True fm=[] sr=True
+[0018] OK  rvc1a1c49b002241a3b375c8fa4f3448a2 ig=4 tv=True fm=[] sr=True
+[0019] OK  rvf0fa963d93274c80b0ccf5c37add2ac7 ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0020] OK  rvdf08c60c8c3b4ea8baf05f8b5e514fe6 ig=5 tv=True fm=[] sr=True
+[0021] OK  rv84d469edd1154d52812c78b80d66139a ig=5 tv=True fm=['subjective_attribute_value'] sr=True
+[0022] OK  rv7cf1d99d57c14cd7b965ddcc84b058dc ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0023] OK  rv17e012851a644ab286770e7e3b69ab5e ig=5 tv=True fm=[] sr=False
+[0024] OK  rv9c5fd01eda8d44aa830d8ebabcc9f8ea ig=5 tv=True fm=[] sr=True
+[0025] OK  rvf07984e5b8e14ffb8d3ff37a1adfd3dd ig=5 tv=True fm=[] sr=True
+[0026] OK  rve4d4b13b14f249bc81268c89f574f909 ig=3 tv=False fm=['product_type_as_intent', 'subjective_attribute_value'] sr=True
+[0027] OK  rvb69fdda0c7984e8b892652c5c2da3918 ig=5 tv=True fm=['subjective_attribute_value'] sr=True
+[0028] OK  rv55c231c059c4400c875a613f24edbb5d ig=4 tv=True fm=[] sr=True
+[0029] OK  rvbe2e2d5354ca40468e6141df99c53e72 ig=3 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0030] OK  rv8e238d418abe4e5ab0bda5e0b513e466 ig=1 tv=False fm=['hallucinated_intent', 'product_type_as_intent', 'subjective_attribute_value'] sr=True
+[0031] OK  rveeadcc569b5547acbfc84f8dce3547f5 ig=5 tv=True fm=['subjective_attribute_value'] sr=True
+[0032] OK  rvc0e9dba431934ab98ecc8ee85e61247d ig=1 tv=True gw_fn=True fm=['missed_tpo', 'general_wear_with_attrs'] sr=True
+[0033] OK  rv226411664fa8435ea2949f2d85e25fee ig=5 tv=True fm=[] sr=True
+[0034] OK  rvc0f720ef783c48fbbbebb39334f46f0e ig=5 tv=True fm=[] sr=True
+[0035] OK  rvc3d7c0e4d7c248519db515dae689c893 ig=5 tv=True fm=['subjective_attribute_value'] sr=True
+[0036] OK  rv308d1f2c267e49fdab815b533d14f43a ig=5 tv=True fm=[] sr=True
+[0037] OK  rvd2f37b8ec38b42d1b2ebc53eb372253e ig=2 tv=False fm=['product_type_as_intent', 'missed_tpo'] sr=True
+[0038] OK  rv940a4e51ef4b4c4bbf1dcf51f540381d ig=5 tv=True fm=['hallucinated_intent'] sr=True
+[0039] OK  rvb8da9b3def464dab8a86f17da2d0bef3 ig=5 tv=True fm=[] sr=True
+[0040] OK  rvc9f22670d8924004a3f666e3d2a96c45 ig=5 tv=True fm=[] sr=True
+[0041] OK  rv5824ebb92beb4e39af75a212e3753901 ig=5 tv=True fm=[] sr=False
+[0042] OK  rv184844b3ceaa48c3856915dac87afeb2 ig=5 tv=True fm=[] sr=True
+
+[done] ok=42 fail=0 time=248.1s
+  judge.jsonl: /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/judge.jsonl
+  report.md  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/report.md
+  meta.json  : /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_1/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/meta.json
+  summary row appended at eval/summary.jsonl
+--- [stage_2_1:qwen3] end rc=0 ---
+[stage_2_1:qwen3] DONE in 248.8s
+--- [stage_2_4:glm] begin ---
+[stage_2_4 judge] run_id=iter_01_semdedup_intent_cosine_75__glm provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=zai-org/GLM-5.1 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__glm
+[0001] OK  주말룩 use=4 div=4 weave=4 fm=[]
+[0002] OK  주말데이트 use=4 div=4 weave=4 fm=[]
+[0003] OK  풍경사진 use=1 div=1 weave=1 fm=['wrong_intent', 'attribute_overlisting', 'low_query_diversity']
+[0004] OK  등산복 use=4 div=3 weave=4 fm=[]
+[0005] OK  산책 use=4 div=4 weave=4 fm=[]
+[0006] OK  중식당룩 use=4 div=3 weave=2 fm=['attribute_overlisting']
+[0007] OK  출근복 use=2 div=2 weave=1 fm=['attribute_overlisting', 'low_query_diversity']
+[0008] OK  목욕복 use=4 div=4 weave=4 fm=[]
+[0009] OK  데일리룩 use=4 div=4 weave=4 fm=[]
+[0010] OK  해질녘산책 use=3 div=3 weave=2 fm=['attribute_overlisting']
+[0011] OK  주점 use=3 div=3 weave=2 fm=['attribute_overlisting']
+[0012] OK  배드민턴 use=3 div=2 weave=2 fm=['attribute_overlisting']
+[0013] OK  잠옷 use=4 div=4 weave=4 fm=[]
+[0014] OK  주말나들이 use=3 div=3 weave=3 fm=['not_korean', 'unnatural_korean']
+[0015] OK  홈캠 use=3 div=2 weave=2 fm=['attribute_overlisting', 'low_query_diversity']
+[0016] OK  드라이브룩 use=4 div=4 weave=4 fm=[]
+[0017] OK  주짓수 use=2 div=2 weave=2 fm=['attribute_overlisting', 'low_query_diversity']
+[0018] OK  민요룩 use=4 div=4 weave=4 fm=[]
+[0019] OK  운전복 use=2 div=2 weave=1 fm=['attribute_overlisting', 'low_query_diversity']
+[0020] OK  여름원피스 use=4 div=4 weave=4 fm=[]
+[0021] OK  일반 use=4 div=4 weave=3 fm=[]
+
+[stage_2_4 judge] ok=21 fail=0 duration=155.5s -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__glm/report.md
+--- [stage_2_4:glm] end rc=0 ---
+[stage_2_4:glm] DONE in 156.2s
+--- [stage_2_4:qwen3] begin ---
+[stage_2_4 judge] run_id=iter_01_semdedup_intent_cosine_75__qwen3 provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=Qwen/Qwen3-235B-A22B-Instruct-2507 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3
+[0001] OK  주말룩 use=5 div=5 weave=5 fm=[]
+[0002] OK  주말데이트 use=5 div=4 weave=5 fm=[]
+[0003] OK  풍경사진 use=1 div=3 weave=5 fm=['wrong_intent', 'canonical_name_repeat']
+[0004] OK  등산복 use=5 div=4 weave=5 fm=[]
+[0005] OK  산책 use=5 div=4 weave=5 fm=[]
+[0006] OK  중식당룩 use=5 div=4 weave=5 fm=[]
+[0007] OK  출근복 use=5 div=4 weave=5 fm=[]
+[0008] OK  목욕복 use=5 div=4 weave=5 fm=[]
+[0009] OK  데일리룩 use=5 div=4 weave=5 fm=[]
+[0010] OK  해질녘산책 use=5 div=4 weave=5 fm=[]
+[0011] OK  주점 use=4 div=3 weave=4 fm=['canonical_name_repeat']
+[0012] OK  배드민턴 use=5 div=4 weave=5 fm=[]
+[0013] OK  잠옷 use=5 div=4 weave=5 fm=[]
+[0014] OK  주말나들이 use=3 div=4 weave=4 fm=['unnatural_korean', 'not_korean']
+[0015] OK  홈캠 use=5 div=4 weave=5 fm=[]
+[0016] OK  드라이브룩 use=5 div=4 weave=5 fm=[]
+[0017] OK  주짓수 use=5 div=4 weave=5 fm=[]
+[0018] OK  민요룩 use=5 div=4 weave=5 fm=['canonical_name_repeat']
+[0019] OK  운전복 use=4 div=3 weave=5 fm=[]
+[0020] OK  여름원피스 use=5 div=4 weave=4 fm=[]
+[0021] OK  일반 use=5 div=4 weave=1 fm=[]
+
+[stage_2_4 judge] ok=21 fail=0 duration=97.7s -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__qwen3/report.md
+--- [stage_2_4:qwen3] end rc=0 ---
+[stage_2_4:qwen3] DONE in 98.3s
+--- [stage_2_4:deepseek] begin ---
+[stage_2_4 judge] run_id=iter_01_semdedup_intent_cosine_75__deepseek provider=friendli base_url=https://api.friendli.ai/serverless/v1 model=deepseek-ai/DeepSeek-V3.2 api_key=flp_zYT0... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+  input=/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/output/stage_2_4_expanded_intents.jsonl total=21 sampled=21
+  -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek
+[0001] OK  주말룩 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0002] OK  주말데이트 use=4 div=4 weave=1 fm=[]
+[0003] OK  풍경사진 use=1 div=2 weave=1 fm=['wrong_intent', 'low_query_diversity', 'attribute_overlisting']
+[0004] OK  등산복 use=3 div=4 weave=1 fm=['attribute_overlisting', 'attribute_ungrounded']
+[0005] OK  산책 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0006] OK  중식당룩 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0007] OK  출근복 use=4 div=3 weave=1 fm=['attribute_overlisting']
+[0008] OK  목욕복 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0009] OK  데일리룩 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0010] OK  해질녘산책 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0011] OK  주점 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0012] OK  배드민턴 use=3 div=3 weave=1 fm=['low_query_diversity', 'attribute_overlisting', 'too_generic']
+[0013] OK  잠옷 use=4 div=4 weave=1 fm=['attribute_ungrounded']
+[0014] OK  주말나들이 use=3 div=4 weave=1 fm=['not_korean', 'attribute_overlisting']
+[0015] OK  홈캠 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0016] OK  드라이브룩 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0017] OK  주짓수 use=3 div=3 weave=1 fm=['attribute_overlisting']
+[0018] OK  민요룩 use=4 div=4 weave=1 fm=['attribute_overlisting']
+[0019] OK  운전복 use=2 div=2 weave=1 fm=['canonical_name_repeat', 'low_query_diversity', 'attribute_overlisting', 'too_generic']
+[0020] OK  여름원피스 use=4 div=4 weave=1 fm=[]
+[0021] OK  일반 use=3 div=4 weave=1 fm=['too_generic']
+
+[stage_2_4 judge] ok=21 fail=0 duration=142.4s -> /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/data_eval/stage_2_4/eval/runs/iter_01_semdedup_intent_cosine_75__deepseek/report.md
+--- [stage_2_4:deepseek] end rc=0 ---
+[stage_2_4:deepseek] DONE in 143.0s
+
+[tri_judge_stage2] wrote /home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json  errors=0 duration=341.7s
+coupang
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K2026/04/22 12:14:44 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json → /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/judge_metrics.json (1.845s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_raw /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:15:12 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_01_semdedup_intent_cosine_75/judge_raw → /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75 (10.453s)
+
+$ /Users/sgyeom/Nvidia/.venv/bin/python /Users/sgyeom/Nvidia/scripts/quant_stage2_report.py --mode iter --output-dir /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/output --json-out /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/quant_metrics.json --md-out /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/quant_report.md
+[quant_stage2_report] wrote /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/quant_report.md
+$ /Users/sgyeom/Nvidia/.venv/bin/python /Users/sgyeom/Nvidia/scripts/make_comparison.py --this /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/metrics.json --out /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/comparison.md --summary /Users/sgyeom/Nvidia/experiments_stage2/summary.md --parent /Users/sgyeom/Nvidia/experiments_stage2/iter_00_baseline/metrics.json
+[make_comparison] wrote /Users/sgyeom/Nvidia/experiments_stage2/iter_01_semdedup_intent_cosine_75/comparison.md
+[make_comparison] updated leaderboard: /Users/sgyeom/Nvidia/experiments_stage2/summary.md
+
+# --- iter_run_stage2 done in 410.2s ---

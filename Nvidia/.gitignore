@@ -1,0 +1,52 @@
+# --- env / editor ---
+.env
+.env.*
+.venv/
+venv/
+.DS_Store
+.idea/
+.vscode/
+.devin/
+.playwright-mcp/
+
+# --- python ---
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.pkl
+
+# --- large regenerable data (never commit) ---
+data/
+brev_snapshot/
+artifacts/
+cache/
+fuzzy_cache/
+*.jsonl
+*.tar.gz
+*.zip
+*.parquet
+nvidia_shopping.txt
+
+# --- experiments: keep the meta & reports, skip heavy payloads ---
+# (individual per-iteration folders can override via `!hypothesis.md` etc.)
+experiments/**/output/
+experiments/**/pipeline_run/
+experiments/**/judge_raw/
+experiments/**/*.jsonl
+experiments/**/*.jsonl.gz
+experiments/**/*.parquet
+
+# --- experiments_stage2: same rules + pin Stage-1 input externally ---
+experiments_stage2/**/output/
+experiments_stage2/**/pipeline_run/
+experiments_stage2/**/judge_raw/
+experiments_stage2/**/*.jsonl
+experiments_stage2/**/*.jsonl.gz
+experiments_stage2/**/*.parquet
+experiments_stage2/stage1_pinned/
+experiments_stage2/winners/
+
+# --- local notebook checkpoints ---
+.ipynb_checkpoints/
+

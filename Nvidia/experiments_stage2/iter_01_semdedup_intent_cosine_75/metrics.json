@@ -1,0 +1,364 @@
+{
+  "iter_id": "iter_01_semdedup_intent_cosine_75",
+  "parent_iter": "iter_00_baseline",
+  "timestamp": "2026-04-22T03:15:36+00:00",
+  "run_id": "iter_01_semdedup_intent_cosine_75",
+  "tag": "iter_01_semdedup_intent_cosine_75",
+  "semdedup": "0.75",
+  "stage22_mode": "full",
+  "output_hashes": {
+    "stage_2_1_extracted.jsonl": "sha256:b6b7baa96a6ade2d9ebf3b0c79fac14d54c5d5f13c2f972a89aa7f3a9806d12f",
+    "stage_2_1_5_deduped.jsonl": "sha256:d05725373242e6f4d953f4d10eff7ec5b03aed5de2e607a7431f634e62c502b9",
+    "stage_2_1_5_stats.json": "sha256:d66b127561b539e135aa5f9dfacbe38aba1510032503adf3d2110f243bd30d24",
+    "stage_2_2_clusters.jsonl": "sha256:2da4ae1de3a90f025a6e378c11eda47692b12f84c7ac6fb14ad9fa9c2e81f0a9",
+    "stage_2_3_analyzed_intents.jsonl": "sha256:7ea6c756dec474e1e8d728060e10fe218fbc717f0cdab49617efbaddb9970245",
+    "stage_2_4_expanded_intents.jsonl": "sha256:7a0f4da9119590c9498e189a2a913c583148661d58b97a22632b31b05cb6aed5"
+  },
+  "stage_2_1": {
+    "avg_intent_groundedness": {
+      "mean": 2.88,
+      "glm": 3.62,
+      "deepseek": 1.0,
+      "qwen3": 4.02,
+      "range": 3.02
+    },
+    "general_wear_false_negative_rate": {
+      "mean": 0.667,
+      "glm": 1.0,
+      "deepseek": 0.0,
+      "qwen3": 1.0,
+      "range": 1.0,
+      "agreement_approx": 0.0
+    },
+    "general_wear_rate": {
+      "mean": 0.14,
+      "glm": 0.14,
+      "deepseek": 0.14,
+      "qwen3": 0.14,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "intent_type_valid_rate": {
+      "mean": 0.857,
+      "glm": 0.69,
+      "deepseek": 1.0,
+      "qwen3": 0.88,
+      "range": 0.31,
+      "agreement_approx": 0.69
+    },
+    "sentiment_rating_agreement_rate": {
+      "mean": 0.9,
+      "glm": 0.9,
+      "deepseek": 0.9,
+      "qwen3": 0.9,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "n_evaluated": 42,
+    "failure_modes": {
+      "product_type_as_intent": 14,
+      "missed_tpo": 13,
+      "subjective_attribute_value": 9,
+      "hallucinated_intent": 11,
+      "noise_attribute_value": 1,
+      "general_wear_with_attrs": 6,
+      "sentiment_rating_mismatch": 4,
+      "language_issue": 28,
+      "invalid_input": 2,
+      "invalid_input_format": 2
+    }
+  },
+  "stage_2_2": {
+    "avg_canonical_fit": {
+      "mean": 4.533,
+      "glm": 4.45,
+      "deepseek": 4.85,
+      "qwen3": 4.3,
+      "range": 0.55
+    },
+    "coherent_rate": {
+      "mean": 0.95,
+      "glm": 0.95,
+      "deepseek": 1.0,
+      "qwen3": 0.9,
+      "range": 0.1,
+      "agreement_approx": 0.9
+    },
+    "duplicate_pairs_found": {
+      "mean": 3.0,
+      "glm": 3.0,
+      "deepseek": 3.0,
+      "qwen3": 3.0,
+      "range": 0.0
+    },
+    "non_korean_canonical_count": {
+      "mean": 0.0,
+      "glm": 0.0,
+      "deepseek": 0.0,
+      "qwen3": 0.0,
+      "range": 0.0
+    },
+    "should_split_count": {
+      "mean": 6.667,
+      "glm": 1.0,
+      "deepseek": 18.0,
+      "qwen3": 1.0,
+      "range": 17.0
+    },
+    "n_clusters": 20,
+    "failure_modes": {
+      "heterogeneous_cluster": 2,
+      "wrong_canonical": 4,
+      "should_split": 1,
+      "non_korean_canonical": 0,
+      "too_broad_canonical": 0,
+      "duplicate_with_other": 0
+    }
+  },
+  "stage_2_3": {
+    "attr_concrete_rate": {
+      "mean": 0.923,
+      "glm": 0.87,
+      "deepseek": 1.0,
+      "qwen3": 0.9,
+      "range": 0.13
+    },
+    "attr_fits_intent_rate": {
+      "mean": 0.853,
+      "glm": 0.75,
+      "deepseek": 1.0,
+      "qwen3": 0.81,
+      "range": 0.25,
+      "agreement_approx": 0.75
+    },
+    "avg_overall_usefulness": {
+      "mean": 2.013,
+      "glm": 2.52,
+      "deepseek": 1.0,
+      "qwen3": 2.52,
+      "range": 1.52
+    },
+    "duplicate_value_count": {
+      "mean": 13.0,
+      "glm": 2.0,
+      "deepseek": 35.0,
+      "qwen3": 2.0,
+      "range": 33.0
+    },
+    "evidence_reliable_rate": {
+      "mean": 0.427,
+      "glm": 0.14,
+      "deepseek": 1.0,
+      "qwen3": 0.14,
+      "range": 0.86
+    },
+    "n_intents": 21,
+    "failure_modes": {
+      "subjective_value": 7,
+      "low_evidence_high_weight": 18,
+      "non_fashion_intent": 12,
+      "wrong_attribute_for_intent": 6,
+      "duplicate_values": 1,
+      "noise_value": 0
+    }
+  },
+  "stage_2_4": {
+    "avg_attribute_weaving": {
+      "mean": 2.857,
+      "glm": 2.9,
+      "deepseek": 1.0,
+      "qwen3": 4.67,
+      "range": 3.67
+    },
+    "avg_canonical_coverage": {
+      "mean": 3.777,
+      "glm": 3.52,
+      "deepseek": 3.33,
+      "qwen3": 4.48,
+      "range": 1.15
+    },
+    "avg_overall_usefulness": {
+      "mean": 3.823,
+      "glm": 3.33,
+      "deepseek": 3.52,
+      "qwen3": 4.62,
+      "range": 1.29
+    },
+    "avg_query_diversity": {
+      "mean": 3.57,
+      "glm": 3.14,
+      "deepseek": 3.67,
+      "qwen3": 3.9,
+      "range": 0.76
+    },
+    "canonical_repeat_rate": {
+      "mean": 0.013,
+      "glm": 0.01,
+      "deepseek": 0.0,
+      "qwen3": 0.03,
+      "range": 0.03
+    },
+    "garbled_count": {
+      "mean": 0.0,
+      "glm": 0.0,
+      "deepseek": 0.0,
+      "qwen3": 0.0,
+      "range": 0.0
+    },
+    "n_queries_total": {
+      "mean": 105.0,
+      "glm": 105.0,
+      "deepseek": 105.0,
+      "qwen3": 105.0,
+      "range": 0.0
+    },
+    "per_query_fits_intent_rate": {
+      "mean": 0.95,
+      "glm": 0.95,
+      "deepseek": 0.95,
+      "qwen3": 0.95,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "per_query_natural_rate": {
+      "mean": 0.99,
+      "glm": 0.99,
+      "deepseek": 0.99,
+      "qwen3": 0.99,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "n_intents": 21,
+    "failure_modes": {
+      "wrong_intent": 1,
+      "attribute_overlisting": 17,
+      "low_query_diversity": 5,
+      "not_korean": 1,
+      "unnatural_korean": 1,
+      "canonical_name_repeat": 3,
+      "attribute_ungrounded": 2,
+      "garbled_output": 0,
+      "too_generic": 3,
+      "product_listing": 0
+    }
+  },
+  "quant": {
+    "stage_2_1": {
+      "n": 42,
+      "general_wear_rate": 0.143,
+      "attr_concrete_rate": {
+        "material": 0.119,
+        "fit": 0.262,
+        "color": 0.857,
+        "style": 0.81,
+        "season": 0.024
+      },
+      "avg_keywords_per_doc": 4.67
+    },
+    "stage_2_1_5": {
+      "input_rows": 42,
+      "kept_rows": 33,
+      "semdedup_retention_rate": 0.786,
+      "semdedup_removed_count": 9,
+      "semdedup_pairs_above_threshold": 24,
+      "semdedup_avg_cosine_of_kept": 0.6982,
+      "semdedup_selected_threshold": 0.75,
+      "semdedup_signature_builder_used": "full",
+      "semdedup_mode": "active"
+    },
+    "stage_2_2": {
+      "n": 21,
+      "n_real_clusters": 20,
+      "canonical_count": 21,
+      "canonical_hangul_pure_rate": 1.0,
+      "canonical_suffix_compliance_rate": 0.45,
+      "canonical_non_fashion_rate": 0.05,
+      "canonical_non_fashion_count": 1,
+      "evidence_one_count": 15,
+      "canonical_names": [
+        "주말룩",
+        "주말데이트",
+        "풍경사진",
+        "등산복",
+        "산책",
+        "중식당룩",
+        "출근복",
+        "목욕복",
+        "데일리룩",
+        "해질녘산책",
+        "주점",
+        "배드민턴",
+        "잠옷",
+        "주말나들이",
+        "홈캠",
+        "드라이브룩",
+        "주짓수",
+        "민요룩",
+        "운전복",
+        "여름원피스"
+      ]
+    },
+    "stage_2_3": {
+      "n": 21,
+      "total_attr_count": 63,
+      "avg_attrs_per_intent": 3.0,
+      "duplicate_value_count": 0
+    },
+    "stage_2_4": {
+      "n_intents": 21,
+      "total_queries": 105,
+      "query_dedup_ratio": 1.0,
+      "query_repeat_within_intent_count": 0,
+      "query_avg_length_chars": 25.4,
+      "query_non_hangul_chars_count": 1,
+      "query_non_hangul_chars_rate": 0.01,
+      "garbled_count": 0,
+      "canonical_repeat_rate": 0.0
+    },
+    "e2e": {
+      "rows_by_stage": [
+        42,
+        33,
+        21,
+        21,
+        21
+      ]
+    }
+  },
+  "e2e": {
+    "rows_by_stage": [
+      42,
+      33,
+      21,
+      21,
+      21
+    ]
+  },
+  "judges": [
+    "zai-org/GLM-5.1",
+    "deepseek-ai/DeepSeek-V3.2",
+    "Qwen/Qwen3-235B-A22B-Instruct-2507"
+  ],
+  "judge_duration_sec": 341.75,
+  "judge_errors": [],
+  "high_variance": true,
+  "promote": false,
+  "promote_checks": {
+    "stage_2_1.avg_intent_groundedness_ge_4.0": false,
+    "stage_2_1.intent_type_valid_rate_ge_0.90": false,
+    "stage_2_1.attribute_concrete_material_ge_0.80": false,
+    "stage_2_2.coherent_rate_ge_0.85": true,
+    "stage_2_2.avg_canonical_fit_ge_4.0": true,
+    "stage_2_2.non_korean_canonical_count_eq_0": true,
+    "stage_2_2.duplicate_pairs_found_le_1": false,
+    "stage_2_2.canonical_non_fashion_rate_le_0.05": true,
+    "stage_2_3.avg_overall_usefulness_ge_4.0": false,
+    "stage_2_3.attr_fits_intent_rate_ge_0.85": true,
+    "stage_2_3.duplicate_value_count_le_2": true,
+    "stage_2_4.avg_overall_usefulness_ge_4.0": false,
+    "stage_2_4.per_query_natural_rate_ge_0.90": true,
+    "stage_2_4.avg_query_diversity_ge_3.5": true,
+    "stage_2_4.canonical_repeat_rate_le_0.10": true,
+    "stage_2_4.garbled_count_eq_0": true
+  }
+}

@@ -1,0 +1,63 @@
+--- experiments/iter_10_combo_h3_h9_h5/pipeline_script.py	2026-04-22 03:12:02
++++ experiments/iter_11_combo_h3_h9_h5_h8/pipeline_script.py	2026-04-22 04:08:48
+@@ -311,29 +311,49 @@
+     )
+ 
+     # D. Generate Personalized Review
+-    review_prompt = """당신은 아래 페르소나의 입장에서 패션 상품 리뷰를 작성해야 합니다.
++    # H8: force persona binding. Baseline prompt said "페르소나의 성격,
++    # 취미, 직업을 반영한 어투" (abstract). Model complies loosely —
++    # often references 1 field but not multiple, and sometimes the
++    # review could plausibly be written by any persona ("딱 좋아요").
++    # New prompt:
++    #   - explicit instruction to cite 2+ specific persona fields
++    #   - numbered rules tightened
++    #   - give a tiny good-example block
++    review_prompt = """당신은 아래 페르소나의 입장에서 이 패션 상품을 직접 사용해본 리뷰를 작성합니다.
+ 
+-[페르소나 정보]
++[페르소나]
+ - 나이: {{ age }}세
+ - 성별: {{ sex }}
+ - 직업: {{ occupation }}
+-- 거주지: {{ province }}
++- 거주지: {{ province }} {{ district }}
+ - 성격: {{ persona }}
+ - 취미: {{ hobbies_and_interests }}
+ 
+-[상품 정보]
++[상품]
+ - 상품명: {{ product_title }}
+ - 속성: {{ product_attributes }}
+ 
+-[참고 리뷰]: '{{ seed_review }}' ({{ seed_rating }}점)
++[참고할 진짜 리뷰 톤]: '{{ seed_review }}' ({{ seed_rating }}점)
+ 
+-[작성 요구사항]
+-1. 반드시 한국어로 작성
+-2. 페르소나의 성격, 취미, 직업을 반영한 어투와 관점으로 작성
+-3. 구매 의도를 포함 (예: 출근용, 데이트용, 운동용, 여행용 등)
+-4. 20-80자 이내
+-5. 리뷰 텍스트만 출력 (설명 없이)"""
++[규칙]
++1. 한국어 한 문단 (50-150자). 여러 줄/번호 목록 금지.
++2. 반드시 다음 페르소나 정보 중 **2개 이상**을 구체적으로 언급하라:
++   - 취미 (예: "탄천 산책", "관악산 등산", "홈메이드 파스타")
++   - 직업 맥락 (예: "회계 사무원 출근복으로", "강구조물 가공 작업복 아래")
++   - 거주지 (예: "분당 정갈한 동네", "영주 촌에서")
++   - 연령대 감성 (예: "70대 시선에는", "30대 직장인의 눈으로")
++3. 착용 상황 하나를 구체적으로 (출근, 등산, 데이트, 여행, 운동 중 택1).
++4. 평점({{ seed_rating }}점) 감성과 일관된 톤. 1-2점은 불만 포인트를, 4-5점은
++   좋은 점을 중심으로.
++5. 리뷰 본문만 출력. 메타 설명/주석/"(N자)" 같은 표기 금지.
+ 
++좋은 예시:
++- "40대 분당 주민인데 탄천 산책길에 들고 가기 편한 가벼운 크로스백이에요.
++  회계 사무원 점심시간 외출용으로도 딱 맞네요."
++- "70대 경북 영주 살면서 고추밭 일하고 입기 좋은 두꺼운 면 셔츠입니다.
++  투박한 손에도 소매가 걸리지 않아 좋습니다."
++"""
++
+     builder.add_column(
+         name="raw_text",
+         column_type="llm-text",

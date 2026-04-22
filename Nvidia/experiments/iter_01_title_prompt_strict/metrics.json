@@ -1,0 +1,267 @@
+{
+  "iter_id": "iter_01_title_prompt_strict",
+  "parent_iter": "iter_00_baseline",
+  "timestamp": "2026-04-21T17:29:22+00:00",
+  "run_id": "iter_01_title_prompt_strict",
+  "tag": "iter_01_title_prompt_strict",
+  "output_hashes": {
+    "stage_1_0_seed.jsonl": "sha256:42dbc866bdb796968ee245e4fca0d480683ae7889fc81b44787e23c507f4c738",
+    "stage_1_1_synthetic.jsonl": "sha256:c7b177ce998ff67a9fa65f7c4ae9b80c083309d1aa447ffb63fbb4f798528c29",
+    "stage_1_1_5_deduped.jsonl": "sha256:c7b177ce998ff67a9fa65f7c4ae9b80c083309d1aa447ffb63fbb4f798528c29",
+    "stage_1_2_processed.jsonl": "sha256:c0bc8a6b34dbb894de1f5827703a901675c86ef58d22dc657837c4bb314e1e99"
+  },
+  "stage_1_0": {
+    "failure_modes": {}
+  },
+  "stage_1_1": {
+    "attr_grounded_rate": {
+      "mean": 0.43,
+      "glm": 0.43,
+      "deepseek": 0.43,
+      "qwen3": 0.43,
+      "range": 0.0
+    },
+    "avg_persona_reflection": {
+      "mean": 4.0,
+      "glm": 3.74,
+      "deepseek": 3.88,
+      "qwen3": 4.38,
+      "range": 0.64
+    },
+    "avg_raw_text_naturalness": {
+      "mean": 4.133,
+      "glm": 3.8,
+      "deepseek": 4.12,
+      "qwen3": 4.48,
+      "range": 0.68
+    },
+    "fashion_rate": {
+      "mean": 0.827,
+      "glm": 0.86,
+      "deepseek": 0.8,
+      "qwen3": 0.82,
+      "range": 0.06,
+      "agreement_approx": 0.94
+    },
+    "has_tpo_rate": {
+      "mean": 0.98,
+      "glm": 0.98,
+      "deepseek": 0.98,
+      "qwen3": 0.98,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "rating_sentiment_consistent_rate": {
+      "mean": 0.66,
+      "glm": 0.64,
+      "deepseek": 0.68,
+      "qwen3": 0.66,
+      "range": 0.04,
+      "agreement_approx": 0.96
+    },
+    "raw_text_within_spec_rate": {
+      "mean": 0.92,
+      "glm": 0.9,
+      "deepseek": 0.88,
+      "qwen3": 0.98,
+      "range": 0.1,
+      "agreement_approx": 0.9
+    },
+    "title_format_ok_rate": {
+      "mean": 0.14,
+      "glm": 0.1,
+      "deepseek": 0.18,
+      "qwen3": 0.14,
+      "range": 0.08,
+      "agreement_approx": 0.92
+    },
+    "title_reasoning_leak_rate": {
+      "mean": 0.12,
+      "glm": 0.22,
+      "deepseek": 0.06,
+      "qwen3": 0.08,
+      "range": 0.16,
+      "agreement_approx": 0.84
+    },
+    "title_within_spec_rate": {
+      "mean": 0.36,
+      "glm": 0.08,
+      "deepseek": 0.58,
+      "qwen3": 0.42,
+      "range": 0.5,
+      "agreement_approx": 0.5
+    },
+    "n_evaluated": 50,
+    "failure_modes": {
+      "title_length_violation": 31,
+      "title_format_violation": 45,
+      "non_fashion_item": 10,
+      "title_reasoning_leak": 11,
+      "attr_ungrounded": 36,
+      "attr_mono_value": 6,
+      "persona_drift": 10,
+      "rating_sentiment_mismatch": 18,
+      "length_violation": 6,
+      "language_issue": 5,
+      "missing_tpo": 18
+    }
+  },
+  "stage_1_1_5": {
+    "dedup_miss_rate": {
+      "mean": 0.227,
+      "glm": 0.36,
+      "deepseek": 0.2,
+      "qwen3": 0.12,
+      "range": 0.24
+    },
+    "dedup_reduction_rate": {
+      "mean": 0.0,
+      "glm": 0.0,
+      "deepseek": 0.0,
+      "qwen3": 0.0,
+      "range": 0.0
+    },
+    "dedup_in_count": 50,
+    "dedup_out_count": 50,
+    "dedup_miss_count": 18,
+    "largest_miss_cluster_size": 4,
+    "failure_modes": {
+      "near_duplicate_missed": 11,
+      "low_dedup_reduction": 1,
+      "wrong_removal": 0
+    }
+  },
+  "stage_1_2": {
+    "avg_text_quality": {
+      "mean": 3.0,
+      "glm": 3.0,
+      "deepseek": 3.0,
+      "qwen3": 3.0,
+      "range": 0.0
+    },
+    "fashion_rate": {
+      "mean": 1.0,
+      "glm": 1.0,
+      "deepseek": 1.0,
+      "qwen3": 1.0,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "has_tpo_rate": {
+      "mean": 0.333,
+      "glm": 1.0,
+      "deepseek": 0.0,
+      "qwen3": 0.0,
+      "range": 1.0,
+      "agreement_approx": 0.0
+    },
+    "pii_rate": {
+      "mean": 0.0,
+      "glm": 0.0,
+      "deepseek": 0.0,
+      "qwen3": 0.0,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "n_evaluated": 1,
+    "failure_modes": {
+      "non_fashion_item": 0,
+      "too_short": 0,
+      "noise_text": 0,
+      "pii_leak": 0,
+      "language_issue": 0,
+      "duplicate_suspect": 0
+    }
+  },
+  "quant": {
+    "stage_1_0": {
+      "n": 50,
+      "rating_hist": {
+        "1": 10,
+        "2": 16,
+        "4": 3,
+        "5": 21
+      },
+      "rating_3_share": 0.0
+    },
+    "stage_1_1": {
+      "n": 50,
+      "title_len_min": 8,
+      "title_len_median": 16,
+      "title_len_p90": 31,
+      "title_len_p99": 410,
+      "title_len_max": 880,
+      "title_reasoning_leak_rate": 0.08,
+      "title_newline_rate": 0.08,
+      "raw_text_len_min": 58,
+      "raw_text_len_median": 100,
+      "raw_text_len_p90": 147,
+      "raw_text_len_max": 270,
+      "rating_hist": {
+        "1": 12,
+        "2": 17,
+        "4": 3,
+        "5": 18
+      },
+      "rating_3_share": 0.0,
+      "style_unique": 2,
+      "style_top1_value": "캐주얼",
+      "style_top1_share": 0.96,
+      "color_unique": 7,
+      "color_top2_share": 0.68,
+      "color_white_black_share": 0.68,
+      "size_unique": 5,
+      "size_suspicious_rate": 0.06
+    },
+    "stage_1_1_5": {
+      "dedup_in_count": 50,
+      "dedup_out_count": 50,
+      "dedup_reduction_rate": 0.0
+    },
+    "stage_1_2": {
+      "n": 1,
+      "retention_from_stage_1_1_5": 0.02
+    },
+    "e2e": {
+      "input_rows_seed": 50,
+      "output_rows_by_stage": [
+        50,
+        50,
+        50,
+        1
+      ],
+      "e2e_retention": 0.02
+    }
+  },
+  "e2e": {
+    "input_rows_seed": 50,
+    "output_rows_by_stage": [
+      50,
+      50,
+      50,
+      1
+    ],
+    "e2e_retention": 0.02
+  },
+  "judges": [
+    "zai-org/GLM-5.1",
+    "deepseek-ai/DeepSeek-V3.2",
+    "Qwen/Qwen3-235B-A22B-Instruct-2507"
+  ],
+  "judge_duration_sec": 410.86,
+  "judge_errors": [],
+  "high_variance": true,
+  "promote": false,
+  "promote_checks": {
+    "stage_1_0.fashion_rate_ge_0.90": false,
+    "stage_1_0.avg_text_quality_ge_3.5": false,
+    "stage_1_1.title_leak_le_0.02": false,
+    "stage_1_1.fashion_rate_ge_0.95": false,
+    "stage_1_1.attr_grounded_ge_0.70": false,
+    "stage_1_1.persona_ge_3.5": true,
+    "quant.rating_3_share_gt_0": false,
+    "stage_1_1_5.dedup_miss_rate_le_0.05": false,
+    "stage_1_2.retention_ge_0.85": false,
+    "stage_1_2.fashion_rate_ge_0.95": true
+  }
+}

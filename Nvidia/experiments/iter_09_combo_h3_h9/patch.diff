@@ -1,0 +1,64 @@
+--- experiments/iter_03_title_postprocess/pipeline_script.py	2026-04-22 02:18:19
++++ experiments/iter_09_combo_h3_h9/pipeline_script.py	2026-04-22 02:59:33
+@@ -414,28 +414,40 @@
+ # ============================================================================
+ 
+ def run_quality_filtering(df: pd.DataFrame, config: PipelineConfig) -> pd.DataFrame:
+-    """Applies NeMo Curator filters to ensure text quality."""
+-    print("\nStep 4: Quality Filtering (Stage 1.2)")
+-    
+-    from nemo_curator.stages.text.modules import ScoreFilter
+-    from nemo_curator.stages.text.filters.heuristic_filter import WordCountFilter, NonAlphaNumericFilter
+-    
+-    batch = DocumentBatch(task_id="f", dataset_name="s", data=df)
+-    
+-    # Filter definitions
+-    filters = [
+-        (WordCountFilter(min_words=5, lang="ko"), "wc"),
+-        (NonAlphaNumericFilter(max_non_alpha_numeric_to_text_ratio=0.85), "na")
+-    ]
+-    
+-    for f, s in filters:
+-        batch = ScoreFilter(filter_obj=f, text_field=config.text_field, score_field=s).process(batch)
+-        print(f"  After {f.__class__.__name__}: {batch.num_items} records.")
+-    
+-    return batch.to_pandas().drop(
+-        columns=[c for c in batch.to_pandas().columns if c.endswith("_score")], 
+-        errors="ignore"
++    """Applies Korean-aware quality filters to ensure text quality.
++
++    H9: the baseline used `NonAlphaNumericFilter(max=0.85)` which treats
++    Hangul codepoints as non-alphanumeric. ~99% of Korean reviews were
++    dropped as a result (iter_00 e2e retention = 0). Replace with:
++      - min 20 Hangul characters (keeps only substantive Korean text)
++      - max 500 chars (drops runaway reasoning leaks)
++      - drop empty / non-string records
++    WordCountFilter is removed too — Korean has no whitespace-separated
++    word boundaries, so `min_words=5` was arbitrary anyway.
++    """
++    print("\nStep 4: Quality Filtering (Stage 1.2)")
++    before = len(df)
++    HANGUL_RE = re.compile(r"[\u3131-\u318E\uAC00-\uD7A3]")
++
++    def _ok(txt):
++        if not isinstance(txt, str):
++            return False
++        s = txt.strip()
++        if not s:
++            return False
++        if len(s) > 500:
++            return False
++        if len(HANGUL_RE.findall(s)) < 20:
++            return False
++        return True
++
++    mask = df[config.text_field].apply(_ok)
++    filtered_df = df[mask].reset_index(drop=True)
++    print(
++        f"  After Korean-aware quality filter: {len(filtered_df)} records "
++        f"(dropped {before - len(filtered_df)})."
+     )
++    return filtered_df
+ 
+ # ============================================================================
+ # 7. MAIN ORCHESTRATOR

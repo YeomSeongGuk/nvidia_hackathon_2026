@@ -1,0 +1,43 @@
+--- experiments/iter_00_baseline/pipeline_script.py	2026-04-22 00:18:59
++++ experiments/iter_03_title_postprocess/pipeline_script.py	2026-04-22 02:18:19
+@@ -320,7 +320,39 @@
+     # 4. Execute
+     stage = DataDesignerStage(builder, config.llm_base_url, config.llm_api_key, config.generate_size)
+     result_df = stage.process(DocumentBatch(task_id="g", dataset_name="f", data=pd.DataFrame())).to_pandas()
+-    
++
++    # H3: deterministic title postprocessor.
++    # Removes the reasoning-leak that slips past even a well-constrained
++    # title_prompt. The model tends to append "(22자)" or a multi-line
++    # "**수정 사항:**" block. Keep the first non-empty line, strip the
++    # char-count annotation, and truncate to 30 chars.
++    _LEAK_SUFFIX_RE = re.compile(r"\s*[\(\[]\s*\d+\s*자\s*[\)\]]\s*$")
++    _ARROW_RE = re.compile(r"\s*(?:→|->|=>)\s*.*$", re.DOTALL)
++
++    def _clean_title(raw: Any) -> str:
++        if not isinstance(raw, str):
++            return ""
++        s = raw.strip()
++        # First non-empty line only.
++        for line in s.splitlines():
++            line = line.strip()
++            if line:
++                s = line
++                break
++        # Drop anything after a "→" or "->" arrow (reasoning chain).
++        s = _ARROW_RE.sub("", s)
++        # Drop trailing char-count annotation.
++        s = _LEAK_SUFFIX_RE.sub("", s)
++        # Strip markdown emphasis wrappers.
++        s = s.strip("*_`\"' ").strip()
++        # Cap to 30 chars — hard stop to prevent runaway.
++        if len(s) > 30:
++            s = s[:30]
++        return s.strip()
++
++    if "product_title" in result_df.columns:
++        result_df["product_title"] = result_df["product_title"].map(_clean_title)
++
+     # 5. Save intermediate
+     os.makedirs(config.stage_1_1_dir, exist_ok=True)
+     save_to_jsonl(result_df, os.path.join(config.stage_1_1_dir, "synthetic_data.jsonl"), config.text_field)

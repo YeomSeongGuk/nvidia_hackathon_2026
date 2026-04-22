@@ -1,0 +1,113 @@
+--- experiments/iter_17_postgen_fashion_filter/pipeline_script.py	2026-04-22 06:13:55
++++ experiments/iter_19_python_near_dedup/pipeline_script.py	2026-04-22 06:39:31
+@@ -480,18 +480,26 @@
+ # ============================================================================
+ 
+ def run_fuzzy_deduplication(df: pd.DataFrame, config: PipelineConfig) -> pd.DataFrame:
+-    """Identifies and removes duplicate reviews using MinHash LSH."""
++    """Identifies and removes duplicate reviews.
++
++    H14: Python-side Jaccard near-dedup fallback when cudf is missing.
++    iter_17 observed `dedup_miss_rate = 0.167` — judges consistently
++    flag near-duplicate pairs in the synthesis output that the
++    baseline's exact dedup (`drop_duplicates`) doesn't catch. The
++    real fix is H10 (install cudf + SemDedup workflow), but in the
++    absence of that, a pure-Python Jaccard-on-whitespace-tokens
++    approach at n=50 is O(n²) = 2500 set-ops, trivial to run
++    locally and catches tokens-in-common dups.
++    """
+     print("\nStep 3: Fuzzy Deduplication (Stage 1.1.5)")
+     try:
+         from nemo_curator.stages.deduplication.fuzzy.workflow import FuzzyDeduplicationWorkflow
+         from nemo_curator.backends.experimental.ray_actor_pool.executor import RayActorPoolExecutor
+-        
+-        # Prepare input parquet
++
+         input_path = os.path.join(config.cache_dir, "fuzzy_input")
+         os.makedirs(input_path, exist_ok=True)
+         df.to_parquet(os.path.join(input_path, "data.parquet"), index=False)
+-        
+-        # Setup workflow
++
+         workflow = FuzzyDeduplicationWorkflow(
+             cache_path=os.path.join(config.cache_dir, "fuzzy_cache"),
+             output_path=os.path.join(config.stage_1_1_5_dir, "fuzzy_output"),
+@@ -501,30 +509,55 @@
+             seed=config.random_seed,
+             char_ngrams=24,
+             num_bands=20,
+-            minhashes_per_band=13
++            minhashes_per_band=13,
+         )
+-        
++
+         import ray
+         if not ray.is_initialized():
+             ray.init(ignore_reinit_error=True)
+-        
+         workflow.run(executor=RayActorPoolExecutor())
+-        
+-        # Load removal IDs
++
+         dup_ids_path = os.path.join(config.stage_1_1_5_dir, "fuzzy_output", "IdentifyDuplicatesStage")
+         if os.path.exists(dup_ids_path):
+             dup_ids = set()
+             for f in os.listdir(dup_ids_path):
+                 if f.endswith(".parquet"):
+                     dup_ids.update(pd.read_parquet(os.path.join(dup_ids_path, f))["doc_id"].tolist())
+-            
+             deduped_df = df[~df["doc_id"].isin(dup_ids)].reset_index(drop=True)
+             print(f"  Fuzzy Dedup removed {len(df) - len(deduped_df)} duplicates.")
+             return deduped_df
+         return df
+     except Exception as e:
+-        print(f"[Warning] Fuzzy Dedup fallback (Exact Dedup): {e}")
+-        return df.drop_duplicates(subset=[config.text_field]).reset_index(drop=True)
++        print(f"[Warning] Fuzzy Dedup fallback (Jaccard near-dedup): {e}")
++        # H14 Python near-dedup: Jaccard on whitespace-tokenized raw_text.
++        before = len(df)
++        texts = df[config.text_field].fillna("").tolist()
++        token_sets = [set(t.split()) for t in texts]
++        keep = [True] * len(df)
++        JACCARD_THRESHOLD = 0.55
++        for i in range(len(df)):
++            if not keep[i]:
++                continue
++            for j in range(i + 1, len(df)):
++                if not keep[j]:
++                    continue
++                a, b = token_sets[i], token_sets[j]
++                if not a or not b:
++                    continue
++                inter = len(a & b)
++                union = len(a | b)
++                if union > 0 and inter / union >= JACCARD_THRESHOLD:
++                    keep[j] = False
++        deduped_df = df[keep].reset_index(drop=True)
++        deduped_df = deduped_df.drop_duplicates(
++            subset=[config.text_field]
++        ).reset_index(drop=True)
++        print(
++            f"  Python Jaccard near-dedup removed "
++            f"{before - len(deduped_df)} records "
++            f"(threshold={JACCARD_THRESHOLD})."
++        )
++        return deduped_df
+ 
+ # ============================================================================
+ # 6. STAGE 1.2: QUALITY FILTERING
+@@ -585,6 +618,14 @@
+     # 1.1.5 Fuzzy Dedup
+     deduped_df = run_fuzzy_deduplication(synthetic_df, config)
+     print(f"[Volume] Stage 1.1.5 (Deduped Data): {len(deduped_df):,}")
++    # Persist deduped output so iter_run.py can pull it as the
++    # canonical stage_1_1_5 artifact (instead of copying 1.1 synthetic).
++    os.makedirs(config.stage_1_1_5_dir, exist_ok=True)
++    save_to_jsonl(
++        deduped_df,
++        os.path.join(config.stage_1_1_5_dir, "deduped.jsonl"),
++        config.text_field,
++    )
+     
+     # 1.2 Quality Filters
+     filtered_df = run_quality_filtering(deduped_df, config)

@@ -1,0 +1,41 @@
+--- experiments/iter_17_postgen_fashion_filter/pipeline_script.py	2026-04-22 06:13:55
++++ experiments/iter_22_h1_prompt_only/pipeline_script.py	2026-04-22 07:07:17
+@@ -261,15 +261,31 @@
+     )
+     
+     # B. Generate Product Title
+-    title_prompt = """리뷰 내용을 참고하여 해당 패션 상품의 제목을 생성하세요.
++    # H1 (iter_01 validated, retested here alone): rewrite prompt to
++    # discourage char-count self-verification and reasoning leakage.
++    # iter_01 dropped leak 0.473 → 0.12 just from this prompt; we
++    # stack it on iter_17's proven combo (H3 regex + H12 post-gen
++    # filter + rest) WITHOUT the iter_18/20 prose-fallback + min-10
++    # filter changes that collapsed title_format_ok_rate.
++    title_prompt = """리뷰를 보고 해당 패션 상품의 제목을 한 줄로만 작성하세요.
+ 
+-[리뷰 내용]: {{ seed_review }}
++[리뷰]: {{ seed_review }}
+ 
+-요구사항:
+-1. 반드시 한국어로 작성
+-2. 브랜드명 + 상품 종류 + 특징 형식 (예: "유니클로 오버핏 니트 스웨터", "자라 슬림핏 청바지")
+-3. 15-30자 이내
+-4. 상품 제목만 출력 (설명 없이)"""
++좋은 예시 (이 형식 그대로):
++- 유니클로 오버핏 니트 스웨터
++- 자라 슬림핏 블랙 청바지
++- 무신사 기본 면 티셔츠
++- H&M 플리츠 미디 원피스
++
++절대 하지 말 것:
++- 글자수 세기나 "(18자)" 같은 표기
++- 수정 사항, 설명, 주석, 번호 매기기
++- 여러 줄 출력 (줄바꿈 금지)
++- 이유, 근거, 분석 등 reasoning 출력
++- "브랜드명이 제공되지 않았다" 같은 meta-comment
++- 리뷰 내용에 대한 평가나 판단
++
++출력은 한국어 상품명 한 줄만. 다른 텍스트 금지."""
+ 
+     builder.add_column(
+         name="product_title",

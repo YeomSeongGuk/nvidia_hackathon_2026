@@ -1,0 +1,61 @@
+{
+  "stage_1_0": {
+    "n": 50,
+    "rating_hist": {
+      "1": 10,
+      "2": 16,
+      "4": 3,
+      "5": 21
+    },
+    "rating_3_share": 0.0
+  },
+  "stage_1_1": {
+    "n": 43,
+    "title_len_min": 11,
+    "title_len_median": 22,
+    "title_len_p90": 30,
+    "title_len_p99": 30,
+    "title_len_max": 30,
+    "title_reasoning_leak_rate": 0.0,
+    "title_newline_rate": 0.0,
+    "raw_text_len_min": 96,
+    "raw_text_len_median": 160,
+    "raw_text_len_p90": 201,
+    "raw_text_len_max": 260,
+    "rating_hist": {
+      "1": 6,
+      "2": 12,
+      "3": 10,
+      "4": 6,
+      "5": 9
+    },
+    "rating_3_share": 0.233,
+    "style_unique": 8,
+    "style_top1_value": "캐주얼",
+    "style_top1_share": 0.512,
+    "color_unique": 8,
+    "color_top2_share": 0.512,
+    "color_white_black_share": 0.349,
+    "size_unique": 8,
+    "size_suspicious_rate": 0.116
+  },
+  "stage_1_1_5": {
+    "dedup_in_count": 43,
+    "dedup_out_count": 31,
+    "dedup_reduction_rate": 0.279
+  },
+  "stage_1_2": {
+    "n": 31,
+    "retention_from_stage_1_1_5": 1.0
+  },
+  "e2e": {
+    "input_rows_seed": 50,
+    "output_rows_by_stage": [
+      50,
+      43,
+      31,
+      31
+    ],
+    "e2e_retention": 0.62
+  }
+}

@@ -1,0 +1,154 @@
+--- experiments/iter_17_postgen_fashion_filter/pipeline_script.py	2026-04-22 09:07:36
++++ experiments/iter_24_category_dedup/pipeline_script.py	2026-04-22 09:28:09
+@@ -480,18 +480,30 @@
+ # ============================================================================
+ 
+ def run_fuzzy_deduplication(df: pd.DataFrame, config: PipelineConfig) -> pd.DataFrame:
+-    """Identifies and removes duplicate reviews using MinHash LSH."""
++    """Identifies and removes duplicate reviews.
++
++    H14v4: category-based signature dedup.
++    iter_23 H14v3 used `last_word_of_title + attrs` as signature.
++    The last-word was extremely noisy (titles overflow 30-char cap
++    and end with junk like "(면소재)", "때,", "불만입") so all 44
++    records had unique signatures and 0 removals.
++
++    H14v4 instead extracts a canonical fashion category by scanning
++    the title for any of a fixed set of category words (티셔츠,
++    셔츠, 원피스, 바지, 가방, 신발, etc.). If found, the category +
++    color + style + size becomes the signature. If no category is
++    found, the signature falls back to (color, style, size) — still
++    enough to catch judges' dedup clusters.
++    """
+     print("\nStep 3: Fuzzy Deduplication (Stage 1.1.5)")
+     try:
+         from nemo_curator.stages.deduplication.fuzzy.workflow import FuzzyDeduplicationWorkflow
+         from nemo_curator.backends.experimental.ray_actor_pool.executor import RayActorPoolExecutor
+-        
+-        # Prepare input parquet
++
+         input_path = os.path.join(config.cache_dir, "fuzzy_input")
+         os.makedirs(input_path, exist_ok=True)
+         df.to_parquet(os.path.join(input_path, "data.parquet"), index=False)
+-        
+-        # Setup workflow
++
+         workflow = FuzzyDeduplicationWorkflow(
+             cache_path=os.path.join(config.cache_dir, "fuzzy_cache"),
+             output_path=os.path.join(config.stage_1_1_5_dir, "fuzzy_output"),
+@@ -501,31 +513,92 @@
+             seed=config.random_seed,
+             char_ngrams=24,
+             num_bands=20,
+-            minhashes_per_band=13
++            minhashes_per_band=13,
+         )
+-        
++
+         import ray
+         if not ray.is_initialized():
+             ray.init(ignore_reinit_error=True)
+-        
+         workflow.run(executor=RayActorPoolExecutor())
+-        
+-        # Load removal IDs
++
+         dup_ids_path = os.path.join(config.stage_1_1_5_dir, "fuzzy_output", "IdentifyDuplicatesStage")
+         if os.path.exists(dup_ids_path):
+             dup_ids = set()
+             for f in os.listdir(dup_ids_path):
+                 if f.endswith(".parquet"):
+                     dup_ids.update(pd.read_parquet(os.path.join(dup_ids_path, f))["doc_id"].tolist())
+-            
+             deduped_df = df[~df["doc_id"].isin(dup_ids)].reset_index(drop=True)
+             print(f"  Fuzzy Dedup removed {len(df) - len(deduped_df)} duplicates.")
+             return deduped_df
+         return df
+     except Exception as e:
+-        print(f"[Warning] Fuzzy Dedup fallback (Exact Dedup): {e}")
+-        return df.drop_duplicates(subset=[config.text_field]).reset_index(drop=True)
++        print(f"[Warning] Fuzzy Dedup fallback (H14v4 category-signature): {e}")
+ 
++        _FASHION_CATEGORIES = [
++            # tops
++            "티셔츠", "셔츠", "블라우스", "니트", "스웨터", "가디건", "자켓", "재킷",
++            "코트", "패딩", "점퍼", "후디", "후드티", "후드집업", "집업", "맨투맨",
++            # bottoms
++            "청바지", "바지", "슬랙스", "반바지", "레깅스", "조거팬츠", "팬츠",
++            "스커트", "치마",
++            # dresses
++            "원피스", "드레스",
++            # shoes
++            "운동화", "스니커즈", "구두", "로퍼", "샌들", "슬리퍼", "부츠", "슈즈", "신발",
++            # bags
++            "백팩", "토트백", "크로스백", "클러치", "미니백", "가방", "숄더백", "버킷백",
++            # accessories
++            "모자", "캡", "비니", "스카프", "머플러", "벨트", "장갑", "양말",
++        ]
++
++        def _extract_category(title: str) -> str:
++            if not isinstance(title, str):
++                return ""
++            for cat in _FASHION_CATEGORIES:
++                if cat in title:
++                    return cat
++            return ""
++
++        def _signature(row) -> str:
++            t = str(row.get("product_title") or "").strip()
++            cat = _extract_category(t)
++            attrs = row.get("product_attributes") or {}
++            if not isinstance(attrs, dict):
++                try:
++                    attrs = json.loads(attrs) if isinstance(attrs, str) else {}
++                except Exception:
++                    attrs = {}
++            color = str(attrs.get("color") or "").strip()
++            style = str(attrs.get("style") or "").strip()
++            size = str(attrs.get("size") or "").strip()
++            return f"{cat}|{color}|{style}|{size}"
++
++        before = len(df)
++        records = df.to_dict("records")
++        signatures = [_signature(r) for r in records]
++        seen: set = set()
++        keep: list = []
++        for sig in signatures:
++            if sig in seen:
++                keep.append(False)
++            else:
++                keep.append(True)
++                seen.add(sig)
++        deduped_df = df[keep].reset_index(drop=True)
++        deduped_df = deduped_df.drop_duplicates(
++            subset=[config.text_field]
++        ).reset_index(drop=True)
++        # Log distinct signatures for visibility
++        from collections import Counter as _Counter
++        sig_counts = _Counter(signatures)
++        top_dup_sigs = [(s, n) for s, n in sig_counts.most_common(5) if n > 1]
++        print(
++            f"  H14v4 category-signature dedup removed "
++            f"{before - len(deduped_df)} records "
++            f"(distinct signatures: {len(seen)}; top dup sigs: {top_dup_sigs})."
++        )
++        return deduped_df
++
+ # ============================================================================
+ # 6. STAGE 1.2: QUALITY FILTERING
+ # ============================================================================
+@@ -585,6 +658,14 @@
+     # 1.1.5 Fuzzy Dedup
+     deduped_df = run_fuzzy_deduplication(synthetic_df, config)
+     print(f"[Volume] Stage 1.1.5 (Deduped Data): {len(deduped_df):,}")
++    # Persist deduped output so iter_run.py can pull it as the
++    # canonical stage_1_1_5 artifact (instead of copying 1.1 synthetic).
++    os.makedirs(config.stage_1_1_5_dir, exist_ok=True)
++    save_to_jsonl(
++        deduped_df,
++        os.path.join(config.stage_1_1_5_dir, "deduped.jsonl"),
++        config.text_field,
++    )
+     
+     # 1.2 Quality Filters
+     filtered_df = run_quality_filtering(deduped_df, config)

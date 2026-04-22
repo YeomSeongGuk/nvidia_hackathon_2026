@@ -1,0 +1,1 @@
+iter_00_baseline: frozen pipeline snapshot (pipelines/stage_2_*.py at d321d87), SD off, full Option A on coupang, 42 pinned input rows. Establishes the reference point for subsequent SD/C/E/A/X iterations per experiments_stage2/PLAN.md §5.

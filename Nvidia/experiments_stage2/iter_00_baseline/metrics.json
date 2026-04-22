@@ -1,0 +1,355 @@
+{
+  "iter_id": "iter_00_baseline",
+  "parent_iter": "",
+  "timestamp": "2026-04-22T02:28:40+00:00",
+  "run_id": "iter_00_baseline",
+  "tag": "iter_00_baseline",
+  "semdedup": "off",
+  "stage22_mode": "full",
+  "output_hashes": {
+    "stage_2_1_extracted.jsonl": "sha256:d941a0b6a3adb074e71d32904266bd507428d8139a51d439acace2f4b770cd21",
+    "stage_2_1_5_deduped.jsonl": "sha256:d941a0b6a3adb074e71d32904266bd507428d8139a51d439acace2f4b770cd21",
+    "stage_2_1_5_stats.json": "sha256:0ebfa6a376d24c1fb709cbbead8e121a72cba4af152c5900b433d6b4cde2e6e8",
+    "stage_2_2_clusters.jsonl": "sha256:f16a18278b31d04a31ab911295899a7b9b09cea8bbf19ad72c7330ae7a75b112",
+    "stage_2_3_analyzed_intents.jsonl": "sha256:9b755aaab8531554d285db6888e66b29eca596ac5a0675fcf54fd96ec63a31f1",
+    "stage_2_4_expanded_intents.jsonl": "sha256:039370a767b6c2eea4a3f3f301cec43c5d376ae8b4f319c46a60d889b2250b7d"
+  },
+  "stage_2_1": {
+    "avg_intent_groundedness": {
+      "mean": 2.703,
+      "glm": 3.4,
+      "deepseek": 1.0,
+      "qwen3": 3.71,
+      "range": 2.71
+    },
+    "general_wear_false_negative_rate": {
+      "mean": 0.637,
+      "glm": 1.0,
+      "deepseek": 0.0,
+      "qwen3": 0.91,
+      "range": 1.0,
+      "agreement_approx": 0.0
+    },
+    "general_wear_rate": {
+      "mean": 0.26,
+      "glm": 0.26,
+      "deepseek": 0.26,
+      "qwen3": 0.26,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "intent_type_valid_rate": {
+      "mean": 0.907,
+      "glm": 0.86,
+      "deepseek": 1.0,
+      "qwen3": 0.86,
+      "range": 0.14,
+      "agreement_approx": 0.86
+    },
+    "sentiment_rating_agreement_rate": {
+      "mean": 0.86,
+      "glm": 0.86,
+      "deepseek": 0.86,
+      "qwen3": 0.86,
+      "range": 0.0,
+      "agreement_approx": 1.0
+    },
+    "n_evaluated": 42,
+    "failure_modes": {
+      "missed_tpo": 18,
+      "general_wear_with_attrs": 11,
+      "product_type_as_intent": 14,
+      "subjective_attribute_value": 5,
+      "sentiment_rating_mismatch": 6,
+      "hallucinated_intent": 14,
+      "noise_attribute_value": 4,
+      "language_issue": 32,
+      "invalid_input": 1
+    }
+  },
+  "stage_2_2": {
+    "avg_canonical_fit": {
+      "mean": 3.633,
+      "glm": 3.5,
+      "deepseek": 3.9,
+      "qwen3": 3.5,
+      "range": 0.4
+    },
+    "coherent_rate": {
+      "mean": 0.8,
+      "glm": 0.7,
+      "deepseek": 1.0,
+      "qwen3": 0.7,
+      "range": 0.3,
+      "agreement_approx": 0.7
+    },
+    "duplicate_pairs_found": {
+      "mean": 1.333,
+      "glm": 0.0,
+      "deepseek": 1.0,
+      "qwen3": 3.0,
+      "range": 3.0
+    },
+    "non_korean_canonical_count": {
+      "mean": 0.0,
+      "glm": 0.0,
+      "deepseek": 0.0,
+      "qwen3": 0.0,
+      "range": 0.0
+    },
+    "should_split_count": {
+      "mean": 5.333,
+      "glm": 3.0,
+      "deepseek": 10.0,
+      "qwen3": 3.0,
+      "range": 7.0
+    },
+    "n_clusters": 10,
+    "failure_modes": {
+      "heterogeneous_cluster": 3,
+      "wrong_canonical": 5,
+      "should_split": 3,
+      "non_korean_canonical": 0,
+      "too_broad_canonical": 0,
+      "duplicate_with_other": 0
+    }
+  },
+  "stage_2_3": {
+    "attr_concrete_rate": {
+      "mean": 0.9,
+      "glm": 0.89,
+      "deepseek": null,
+      "qwen3": 0.91,
+      "range": 0.02
+    },
+    "attr_fits_intent_rate": {
+      "mean": 0.875,
+      "glm": 0.91,
+      "deepseek": null,
+      "qwen3": 0.84,
+      "range": 0.07,
+      "agreement_approx": 0.93
+    },
+    "avg_overall_usefulness": {
+      "mean": 2.955,
+      "glm": 2.91,
+      "deepseek": null,
+      "qwen3": 3.0,
+      "range": 0.09
+    },
+    "duplicate_value_count": {
+      "mean": 0.5,
+      "glm": 1.0,
+      "deepseek": null,
+      "qwen3": 0.0,
+      "range": 1.0
+    },
+    "evidence_reliable_rate": {
+      "mean": 0.365,
+      "glm": 0.55,
+      "deepseek": null,
+      "qwen3": 0.18,
+      "range": 0.37
+    },
+    "n_intents": 11,
+    "failure_modes": {
+      "low_evidence_high_weight": 9,
+      "duplicate_values": 1,
+      "subjective_value": 4,
+      "wrong_attribute_for_intent": 3,
+      "non_fashion_intent": 2,
+      "noise_value": 0
+    }
+  },
+  "stage_2_4": {
+    "avg_attribute_weaving": {
+      "mean": 2.967,
+      "glm": 3.27,
+      "deepseek": 1.18,
+      "qwen3": 4.45,
+      "range": 3.27
+    },
+    "avg_canonical_coverage": {
+      "mean": 3.817,
+      "glm": 3.45,
+      "deepseek": 3.27,
+      "qwen3": 4.73,
+      "range": 1.46
+    },
+    "avg_overall_usefulness": {
+      "mean": 3.97,
+      "glm": 3.36,
+      "deepseek": 3.82,
+      "qwen3": 4.73,
+      "range": 1.37
+    },
+    "avg_query_diversity": {
+      "mean": 3.697,
+      "glm": 3.36,
+      "deepseek": 3.82,
+      "qwen3": 3.91,
+      "range": 0.55
+    },
+    "canonical_repeat_rate": {
+      "mean": 0.053,
+      "glm": 0.05,
+      "deepseek": 0.04,
+      "qwen3": 0.07,
+      "range": 0.03
+    },
+    "garbled_count": {
+      "mean": 0.0,
+      "glm": 0.0,
+      "deepseek": 0.0,
+      "qwen3": 0.0,
+      "range": 0.0
+    },
+    "n_queries_total": {
+      "mean": 55.0,
+      "glm": 55.0,
+      "deepseek": 55.0,
+      "qwen3": 55.0,
+      "range": 0.0
+    },
+    "per_query_fits_intent_rate": {
+      "mean": 0.987,
+      "glm": 0.96,
+      "deepseek": 1.0,
+      "qwen3": 1.0,
+      "range": 0.04,
+      "agreement_approx": 0.96
+    },
+    "per_query_natural_rate": {
+      "mean": 0.993,
+      "glm": 1.0,
+      "deepseek": 1.0,
+      "qwen3": 0.98,
+      "range": 0.02,
+      "agreement_approx": 0.98
+    },
+    "n_intents": 11,
+    "failure_modes": {
+      "attribute_overlisting": 7,
+      "low_query_diversity": 2,
+      "wrong_intent": 1,
+      "canonical_name_repeat": 3,
+      "unnatural_korean": 1,
+      "attribute_ungrounded": 1,
+      "not_korean": 0,
+      "garbled_output": 0,
+      "too_generic": 2,
+      "product_listing": 0
+    }
+  },
+  "quant": {
+    "stage_2_1": {
+      "n": 42,
+      "general_wear_rate": 0.262,
+      "attr_concrete_rate": {
+        "material": 0.119,
+        "fit": 0.262,
+        "color": 0.738,
+        "style": 0.69,
+        "season": 0.024
+      },
+      "avg_keywords_per_doc": 4.71
+    },
+    "stage_2_1_5": {
+      "input_rows": 42,
+      "kept_rows": 42,
+      "semdedup_retention_rate": 1.0,
+      "semdedup_removed_count": 0,
+      "semdedup_pairs_above_threshold": 0,
+      "semdedup_avg_cosine_of_kept": null,
+      "semdedup_selected_threshold": 0.9,
+      "semdedup_signature_builder_used": "full",
+      "semdedup_mode": "pass_through"
+    },
+    "stage_2_2": {
+      "n": 11,
+      "n_real_clusters": 10,
+      "canonical_count": 11,
+      "canonical_hangul_pure_rate": 1.0,
+      "canonical_suffix_compliance_rate": 0.7,
+      "canonical_non_fashion_rate": 0.0,
+      "canonical_non_fashion_count": 0,
+      "evidence_one_count": 5,
+      "canonical_names": [
+        "일상",
+        "홈웨어",
+        "외출복",
+        "산책룩",
+        "등산복",
+        "주점",
+        "출근복",
+        "여름원피스",
+        "민요룩",
+        "주짓수복"
+      ]
+    },
+    "stage_2_3": {
+      "n": 11,
+      "total_attr_count": 45,
+      "avg_attrs_per_intent": 4.09,
+      "duplicate_value_count": 0
+    },
+    "stage_2_4": {
+      "n_intents": 11,
+      "total_queries": 55,
+      "query_dedup_ratio": 1.0,
+      "query_repeat_within_intent_count": 0,
+      "query_avg_length_chars": 23.7,
+      "query_non_hangul_chars_count": 0,
+      "query_non_hangul_chars_rate": 0.0,
+      "garbled_count": 0,
+      "canonical_repeat_rate": 0.0
+    },
+    "e2e": {
+      "rows_by_stage": [
+        42,
+        42,
+        11,
+        11,
+        11
+      ]
+    }
+  },
+  "e2e": {
+    "rows_by_stage": [
+      42,
+      42,
+      11,
+      11,
+      11
+    ]
+  },
+  "judges": [
+    "zai-org/GLM-5.1",
+    "deepseek-ai/DeepSeek-V3.2",
+    "Qwen/Qwen3-235B-A22B-Instruct-2507"
+  ],
+  "judge_duration_sec": 302.69,
+  "judge_errors": [
+    "stage_2_3:deepseek rc=1"
+  ],
+  "high_variance": true,
+  "promote": false,
+  "promote_checks": {
+    "stage_2_1.avg_intent_groundedness_ge_4.0": false,
+    "stage_2_1.intent_type_valid_rate_ge_0.90": true,
+    "stage_2_1.attribute_concrete_material_ge_0.80": false,
+    "stage_2_2.coherent_rate_ge_0.85": false,
+    "stage_2_2.avg_canonical_fit_ge_4.0": false,
+    "stage_2_2.non_korean_canonical_count_eq_0": true,
+    "stage_2_2.duplicate_pairs_found_le_1": false,
+    "stage_2_2.canonical_non_fashion_rate_le_0.05": true,
+    "stage_2_3.avg_overall_usefulness_ge_4.0": false,
+    "stage_2_3.attr_fits_intent_rate_ge_0.85": true,
+    "stage_2_3.duplicate_value_count_le_2": true,
+    "stage_2_4.avg_overall_usefulness_ge_4.0": false,
+    "stage_2_4.per_query_natural_rate_ge_0.90": true,
+    "stage_2_4.avg_query_diversity_ge_3.5": true,
+    "stage_2_4.canonical_repeat_rate_le_0.10": true,
+    "stage_2_4.garbled_count_eq_0": true
+  }
+}

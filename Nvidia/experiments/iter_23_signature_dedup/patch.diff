@@ -1,0 +1,122 @@
+--- experiments/iter_17_postgen_fashion_filter/pipeline_script.py	2026-04-22 06:13:55
++++ experiments/iter_23_signature_dedup/pipeline_script.py	2026-04-22 07:20:52
+@@ -480,18 +480,25 @@
+ # ============================================================================
+ 
+ def run_fuzzy_deduplication(df: pd.DataFrame, config: PipelineConfig) -> pd.DataFrame:
+-    """Identifies and removes duplicate reviews using MinHash LSH."""
++    """Identifies and removes duplicate reviews.
++
++    H14v3: signature-based exact dedup (no fuzzy similarity).
++    Judges flag near-duplicate groups where records share the SAME
++    (product category + color + style + size) combination — e.g. two
++    beige+casual+FREE토트백 reviews, two black+formal+L코트 reviews.
++    Instead of trying to define fuzzy similarity thresholds, we
++    compute a canonical signature = `last-word-of-title + color +
++    style + size` and drop records whose signature already appeared.
++    """
+     print("\nStep 3: Fuzzy Deduplication (Stage 1.1.5)")
+     try:
+         from nemo_curator.stages.deduplication.fuzzy.workflow import FuzzyDeduplicationWorkflow
+         from nemo_curator.backends.experimental.ray_actor_pool.executor import RayActorPoolExecutor
+-        
+-        # Prepare input parquet
++
+         input_path = os.path.join(config.cache_dir, "fuzzy_input")
+         os.makedirs(input_path, exist_ok=True)
+         df.to_parquet(os.path.join(input_path, "data.parquet"), index=False)
+-        
+-        # Setup workflow
++
+         workflow = FuzzyDeduplicationWorkflow(
+             cache_path=os.path.join(config.cache_dir, "fuzzy_cache"),
+             output_path=os.path.join(config.stage_1_1_5_dir, "fuzzy_output"),
+@@ -501,31 +508,65 @@
+             seed=config.random_seed,
+             char_ngrams=24,
+             num_bands=20,
+-            minhashes_per_band=13
++            minhashes_per_band=13,
+         )
+-        
++
+         import ray
+         if not ray.is_initialized():
+             ray.init(ignore_reinit_error=True)
+-        
+         workflow.run(executor=RayActorPoolExecutor())
+-        
+-        # Load removal IDs
++
+         dup_ids_path = os.path.join(config.stage_1_1_5_dir, "fuzzy_output", "IdentifyDuplicatesStage")
+         if os.path.exists(dup_ids_path):
+             dup_ids = set()
+             for f in os.listdir(dup_ids_path):
+                 if f.endswith(".parquet"):
+                     dup_ids.update(pd.read_parquet(os.path.join(dup_ids_path, f))["doc_id"].tolist())
+-            
+             deduped_df = df[~df["doc_id"].isin(dup_ids)].reset_index(drop=True)
+             print(f"  Fuzzy Dedup removed {len(df) - len(deduped_df)} duplicates.")
+             return deduped_df
+         return df
+     except Exception as e:
+-        print(f"[Warning] Fuzzy Dedup fallback (Exact Dedup): {e}")
+-        return df.drop_duplicates(subset=[config.text_field]).reset_index(drop=True)
++        print(f"[Warning] Fuzzy Dedup fallback (H14v3 signature-exact): {e}")
+ 
++        def _signature(row) -> str:
++            t = str(row.get("product_title") or "").strip()
++            words = t.split()
++            cat = words[-1] if words else ""
++            attrs = row.get("product_attributes") or {}
++            if not isinstance(attrs, dict):
++                try:
++                    attrs = json.loads(attrs) if isinstance(attrs, str) else {}
++                except Exception:
++                    attrs = {}
++            color = str(attrs.get("color") or "").strip()
++            style = str(attrs.get("style") or "").strip()
++            size = str(attrs.get("size") or "").strip()
++            return f"{cat}|{color}|{style}|{size}"
++
++        before = len(df)
++        records = df.to_dict("records")
++        seen: set = set()
++        keep: list = []
++        for rec in records:
++            sig = _signature(rec)
++            if sig in seen:
++                keep.append(False)
++            else:
++                keep.append(True)
++                seen.add(sig)
++        deduped_df = df[keep].reset_index(drop=True)
++        # Also drop exact-text duplicates (safety net)
++        deduped_df = deduped_df.drop_duplicates(
++            subset=[config.text_field]
++        ).reset_index(drop=True)
++        print(
++            f"  H14v3 signature-exact dedup removed "
++            f"{before - len(deduped_df)} records "
++            f"(distinct signatures: {len(seen)})."
++        )
++        return deduped_df
++
+ # ============================================================================
+ # 6. STAGE 1.2: QUALITY FILTERING
+ # ============================================================================
+@@ -585,6 +626,14 @@
+     # 1.1.5 Fuzzy Dedup
+     deduped_df = run_fuzzy_deduplication(synthetic_df, config)
+     print(f"[Volume] Stage 1.1.5 (Deduped Data): {len(deduped_df):,}")
++    # Persist deduped output so iter_run.py can pull it as the
++    # canonical stage_1_1_5 artifact (instead of copying 1.1 synthetic).
++    os.makedirs(config.stage_1_1_5_dir, exist_ok=True)
++    save_to_jsonl(
++        deduped_df,
++        os.path.join(config.stage_1_1_5_dir, "deduped.jsonl"),
++        config.text_field,
++    )
+     
+     # 1.2 Quality Filters
+     filtered_df = run_quality_filtering(deduped_df, config)

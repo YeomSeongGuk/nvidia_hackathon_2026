@@ -1,0 +1,61 @@
+--- experiments/iter_11_combo_h3_h9_h5_h8/pipeline_script.py	2026-04-22 04:08:48
++++ experiments/iter_12_combo_all_plus_rating_sampler/pipeline_script.py	2026-04-22 04:10:11
+@@ -245,6 +245,19 @@
+         column_type="custom", 
+         generator_function=inject_naver_review, 
+         generator_params=NaverContextParams(reviews=seed_df.to_dict(orient="records"))
++    )
++
++    # A2. H4v2: sample rating uniformly from 1..5. The raw Naver corpus
++    # has NO rating=3 rows (verified: 0 rating-3 reviews in ~200k total),
++    # so seed-side stratification (H4v1 iter_06) cannot produce them.
++    # Detach synthetic rating from seed_rating entirely and assign it
++    # via a category sampler. The review_prompt below is updated to
++    # reference {{ rating }} (not seed_rating) so sentiment matches.
++    builder.add_column(
++        name="rating",
++        column_type="sampler",
++        sampler_type="category",
++        params={"values": [1, 2, 3, 4, 5]},
+     )
+     
+     # B. Generate Product Title
+@@ -333,7 +346,8 @@
+ - 상품명: {{ product_title }}
+ - 속성: {{ product_attributes }}
+ 
+-[참고할 진짜 리뷰 톤]: '{{ seed_review }}' ({{ seed_rating }}점)
++[참고할 진짜 리뷰 톤]: '{{ seed_review }}' (원본 {{ seed_rating }}점)
++[당신의 평점]: {{ rating }}점
+ 
+ [규칙]
+ 1. 한국어 한 문단 (50-150자). 여러 줄/번호 목록 금지.
+@@ -343,8 +357,12 @@
+    - 거주지 (예: "분당 정갈한 동네", "영주 촌에서")
+    - 연령대 감성 (예: "70대 시선에는", "30대 직장인의 눈으로")
+ 3. 착용 상황 하나를 구체적으로 (출근, 등산, 데이트, 여행, 운동 중 택1).
+-4. 평점({{ seed_rating }}점) 감성과 일관된 톤. 1-2점은 불만 포인트를, 4-5점은
+-   좋은 점을 중심으로.
++4. 반드시 {{ rating }}점 평점의 감성과 일치하는 톤:
++   - 1점: 강한 불만, 반품 의사
++   - 2점: 아쉬움 위주 (단점>장점)
++   - 3점: 장단점 혼재, 호불호 명확히 언급
++   - 4점: 대체로 만족, 작은 아쉬움
++   - 5점: 강한 만족, 재구매 의사
+ 5. 리뷰 본문만 출력. 메타 설명/주석/"(N자)" 같은 표기 금지.
+ 
+ 좋은 예시:
+@@ -362,11 +380,11 @@
+         system_prompt="당신은 패션 리뷰 전문가입니다. 주어진 페르소나의 성격, 취미, 성별, 직업에 맞춰 자연스러운 리뷰를 창작하세요. 입력 문장을 그대로 복사하지 마세요."
+     )
+     
+-    # E. Samplers & Expressions
++    # E. Samplers & Expressions (rating moved above; synthetic `rating`
++    # now comes from the category sampler, not seed_rating.)
+     builder.add_column(name="doc_id", column_type="sampler", sampler_type="uuid", params={"prefix": "rv"})
+     builder.add_column(name="product_id", column_type="sampler", sampler_type="uuid", params={"prefix": "P_", "short_form": True})
+     builder.add_column(name="timestamp", column_type="sampler", sampler_type="datetime", params={"start": "2024-04-21", "end": "2026-04-21", "unit": "s"})
+-    builder.add_column(name="rating", column_type="expression", expr="{{ seed_rating }}")
+     
+     # 4. Execute
+     stage = DataDesignerStage(builder, config.llm_base_url, config.llm_api_key, config.generate_size)

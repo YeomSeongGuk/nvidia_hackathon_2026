@@ -1,0 +1,52 @@
+--- experiments/iter_13_combo_plus_attr_mention/pipeline_script.py	2026-04-22 04:49:27
++++ experiments/iter_16_tighter_leak_regex/pipeline_script.py	2026-04-22 06:01:39
+@@ -394,13 +394,23 @@
+     stage = DataDesignerStage(builder, config.llm_base_url, config.llm_api_key, config.generate_size)
+     result_df = stage.process(DocumentBatch(task_id="g", dataset_name="f", data=pd.DataFrame())).to_pandas()
+ 
+-    # H3: deterministic title postprocessor.
+-    # Removes the reasoning-leak that slips past even a well-constrained
+-    # title_prompt. The model tends to append "(22자)" or a multi-line
+-    # "**수정 사항:**" block. Keep the first non-empty line, strip the
+-    # char-count annotation, and truncate to 30 chars.
++    # H3v3: tighter leak regex on top of H3's 30-char hard cap.
++    # Analysis of iter_13/14 leaky titles shows patterns the iter_13
++    # regex misses:
++    #   - "...선물용 29자" (trailing digit+자 without parens)
++    #   - "...(165cm 키 추천)" (parenthetical size notes)
++    #   - "...28자" or "(28자)"
++    #   - "(키 165 기준)"
++    # H3v3 adds three more regexes on top of the existing leak suffix +
++    # arrow + markdown kills; keeps 30-char hard cap (iter_13's H3).
+     _LEAK_SUFFIX_RE = re.compile(r"\s*[\(\[]\s*\d+\s*자\s*[\)\]]\s*$")
++    _LEAK_BARE_CHARCOUNT_RE = re.compile(r"\s+\d+\s*자\s*$")  # no parens
++    _LEAK_PAREN_SIZE_NOTE_RE = re.compile(
++        r"\s*\([^\)]*(?:cm|키|기준|추천|권장|size|사이즈)[^\)]*\)\s*$",
++        re.IGNORECASE,
++    )
+     _ARROW_RE = re.compile(r"\s*(?:→|->|=>)\s*.*$", re.DOTALL)
++    _MARKDOWN_META_RE = re.compile(r"\s*\*\*[^*]+\*\*.*$", re.DOTALL)
+ 
+     def _clean_title(raw: Any) -> str:
+         if not isinstance(raw, str):
+@@ -412,13 +422,17 @@
+             if line:
+                 s = line
+                 break
+-        # Drop anything after a "→" or "->" arrow (reasoning chain).
++        # Kill reasoning-chain tails first.
+         s = _ARROW_RE.sub("", s)
+-        # Drop trailing char-count annotation.
++        s = _MARKDOWN_META_RE.sub("", s)
++        # Kill char-count annotations (with and without parens).
+         s = _LEAK_SUFFIX_RE.sub("", s)
++        s = _LEAK_BARE_CHARCOUNT_RE.sub("", s)
++        # Kill parenthetical size/추천/키 notes at end.
++        s = _LEAK_PAREN_SIZE_NOTE_RE.sub("", s)
+         # Strip markdown emphasis wrappers.
+         s = s.strip("*_`\"' ").strip()
+-        # Cap to 30 chars — hard stop to prevent runaway.
++        # Cap to 30 chars — hard stop (matches iter_13 H3 original).
+         if len(s) > 30:
+             s = s[:30]
+         return s.strip()

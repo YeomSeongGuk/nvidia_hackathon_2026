@@ -1,0 +1,43 @@
+--- experiments/iter_00_baseline/pipeline_script.py	2026-04-22 00:18:59
++++ experiments/iter_05_title_max_tokens_short/pipeline_script.py	2026-04-22 02:30:18
+@@ -229,12 +229,30 @@
+         inference_parameters=ChatCompletionInferenceParams(
+             temperature=0.8, 
+             max_tokens=500, 
++            max_parallel_requests=32,
++            extra_body={"chat_template_kwargs": {"enable_thinking": False}},
++        )
++    )
++
++    # H2: a second alias with a tight token budget for the title column.
++    # max_tokens=80 forces the model to output a short title without
++    # having room to append "(22자)" explanations or a multi-line
++    # "**수정 사항:**" block. Temperature is also dropped (0.3) because
++    # title generation should be grounded, not creative.
++    model_config_short = ModelConfig(
++        alias="nemotron_short",
++        model=config.llm_model,
++        provider="friendli",
++        skip_health_check=True,
++        inference_parameters=ChatCompletionInferenceParams(
++            temperature=0.3,
++            max_tokens=80,
+             max_parallel_requests=32,
+             extra_body={"chat_template_kwargs": {"enable_thinking": False}},
+         )
+     )
+     
+-    builder = dd.DataDesignerConfigBuilder(model_configs=[model_config])
++    builder = dd.DataDesignerConfigBuilder(model_configs=[model_config, model_config_short])
+     builder.with_seed_dataset(dd.DataFrameSeedSource(df=persona_df))
+     
+     # 3. Setup Data-Designer Schema
+@@ -261,7 +279,7 @@
+     builder.add_column(
+         name="product_title",
+         column_type="llm-text",
+-        model_alias=config.llm_model,
++        model_alias="nemotron_short",
+         prompt=title_prompt
+     )
+     

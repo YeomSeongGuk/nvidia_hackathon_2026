@@ -1,0 +1,1178 @@
+
+# --- iter_run_stage2 @ 2026-04-22T03:18:47+00:00 ---
+# iter=iter_02_semdedup_strict_70 parent=iter_00_baseline
+# semdedup=0.70 stage22_mode=full
+# pinned input sha256=sha256:5e513bc75b3e3133546abfc72529f59850812e9fc133708610916b846fb640b6
+
+$ brev exec coupang 'mkdir -p /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data/stage_1_2 /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data_eval /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot /home/nvidia/stage2_work/scripts /home/nvidia/stage2_work/pipelines'
+coupang
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/stage1_pinned/stage_1_2_processed.jsonl coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data/stage_1_2/stage_1_2_processed.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:19:02 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/stage1_pinned/stage_1_2_processed.jsonl → coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data/stage_1_2/stage_1_2_processed.jsonl (1.697s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/pipeline_snapshot/stage_2_1_extract.py coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_1_extract.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:19:29 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/pipeline_snapshot/stage_2_1_extract.py → coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_1_extract.py (1.676s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/pipeline_snapshot/stage_2_1_5_semdedup.py coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_1_5_semdedup.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K2026/04/22 12:19:55 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/pipeline_snapshot/stage_2_1_5_semdedup.py → coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_1_5_semdedup.py (1.703s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/pipeline_snapshot/stage_2_2_canonicalize.py coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_2_canonicalize.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:20:22 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/pipeline_snapshot/stage_2_2_canonicalize.py → coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_2_canonicalize.py (1.691s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/pipeline_snapshot/stage_2_3_aggregate.py coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_3_aggregate.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:20:50 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/pipeline_snapshot/stage_2_3_aggregate.py → coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_3_aggregate.py (1.651s)
+
+$ brev copy /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/pipeline_snapshot/stage_2_4_expand.py coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_4_expand.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:21:17 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/pipeline_snapshot/stage_2_4_expand.py → coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_4_expand.py (1.662s)
+
+$ brev copy /Users/sgyeom/Nvidia/scripts/tri_judge_run_stage2.py coupang:/home/nvidia/stage2_work/scripts/tri_judge_run_stage2.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:21:45 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/scripts/tri_judge_run_stage2.py → coupang:/home/nvidia/stage2_work/scripts/tri_judge_run_stage2.py (1.678s)
+
+$ brev copy /Users/sgyeom/Nvidia/pipelines/stage_2_1_5_semdedup.py coupang:/home/nvidia/stage2_work/pipelines/stage_2_1_5_semdedup.py
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:22:11 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied /Users/sgyeom/Nvidia/pipelines/stage_2_1_5_semdedup.py → coupang:/home/nvidia/stage2_work/pipelines/stage_2_1_5_semdedup.py (1.724s)
+
+$ brev exec coupang 'set -euo pipefail; export LLM_PROVIDER=vllm; export VLLM_BASE_URL=http://localhost:5000/v1; export VLLM_MODEL=nemotron; export LLM_EXTRA_BODY='"'"'{"chat_template_kwargs":{"enable_thinking":false}}'"'"'; export STAGE_DATA_ROOT=/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data; cd /home/nvidia/stage2_work && cp /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_1_extract.py pipelines/stage_2_1_extract.py && cp /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_1_5_semdedup.py pipelines/stage_2_1_5_semdedup.py && cp /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_2_canonicalize.py pipelines/stage_2_2_canonicalize.py && cp /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_3_aggregate.py pipelines/stage_2_3_aggregate.py && cp /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/snapshot/stage_2_4_expand.py pipelines/stage_2_4_expand.py && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_1_extract   --input  $STAGE_DATA_ROOT/stage_1_2   --output $STAGE_DATA_ROOT/stage_2_1_extracted.jsonl   --provider vllm && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_1_5_semdedup   --threshold 0.7   --input  $STAGE_DATA_ROOT/stage_2_1_extracted.jsonl   --output $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_2_canonicalize   --stage full --refine --cross-merge   --input  $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl   --output $STAGE_DATA_ROOT/stage_2_2_clusters.jsonl   --provider vllm && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_3_aggregate   --stage1 $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl   --stage2 $STAGE_DATA_ROOT/stage_2_2_clusters.jsonl   --output $STAGE_DATA_ROOT/stage_2_3_analyzed_intents.jsonl && PYTHONPATH=. /home/nvidia/coupang/.venv/bin/python -m pipelines.stage_2_4_expand   --force-fallback   --input  $STAGE_DATA_ROOT/stage_2_3_analyzed_intents.jsonl   --output $STAGE_DATA_ROOT/stage_2_4_expanded_intents.jsonl   --provider vllm && mkdir -p /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output && cp $STAGE_DATA_ROOT/stage_2_1_extracted.jsonl       /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/ && cp $STAGE_DATA_ROOT/stage_2_1_5_deduped.jsonl       /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/ && (cp $STAGE_DATA_ROOT/stage_2_1_5_deduped_stats.json /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_1_5_stats.json 2>/dev/null ||  cp $STAGE_DATA_ROOT/stage_2_1_5_stats.json         /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/ 2>/dev/null || true) && cp $STAGE_DATA_ROOT/stage_2_2_clusters.jsonl        /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/ && cp $STAGE_DATA_ROOT/stage_2_3_analyzed_intents.jsonl /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/ && cp $STAGE_DATA_ROOT/stage_2_4_expanded_intents.jsonl /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/ && wc -l /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/*.jsonl 2>&1 | tee /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/run_pipeline.log'
+[stage_2_1] provider=vllm base_url=http://localhost:5000/v1 model=nemotron api_key=dummy... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}} docs=42 concurrency=10
+[0042/42] ok=42 fail=0
+
+done: ok=42 fail=0 -> /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data/stage_2_1_extracted.jsonl
+[semdedup] loaded 42 ExtractedIntent rows from /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data/stage_2_1_extracted.jsonl
+[semdedup] loading BAAI/bge-m3 on cuda ...
+[semdedup] encoded 42 sigs in 0.3s shape=(42, 1024)
+[semdedup] DONE kept=26 removed=16 reduction=0.381 pairs>=thr=62 threshold=0.7 builder=full avg_cos_kept=0.6642
+[semdedup] wrote /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data/stage_2_1_5_deduped.jsonl  stats /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data/stage_2_1_5_deduped_stats.json
+[load] 26 extracted intents from /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data/stage_2_1_5_deduped.jsonl
+[group] 24 unique intents
+[embed] loading BAAI/bge-m3 on cuda ...
+[embed] encoding 23 intents (e5_prefix=False, batch_size=64) ...
+[embed] done in 0.3s, shape=(23, 1024)
+[cluster] 18 primary clusters found
+  primary 0: ['주말 시장 탐방', '주말 휴식용']
+  primary 1: ['목욕탕 갈 때', '중식당 갈 때']
+  primary 2: ['산책길', '일상 산책', '탄천 산책']
+  primary 3: ['해질 무렵 오륙도 산책 후']
+  primary 4: ['일상 착용', '일상 캐주얼']
+  primary 5: ['풍경 사진 찍을 때']
+  primary 6: ['출근복']
+  primary 7: ['주말 삼겹살 모임 후 거실에서 야구 중계 볼 때']
+  primary 8: ['주말 평창 숲길']
+  primary 9: ['일식집 데이트']
+  primary 10: ['잠옷']
+  primary 11: ['수락산 드라이브']
+  primary 12: ['주말 마당 수국 가꾸고 만경강변 산책']
+  primary 13: ['등산 후 편하게 입기']
+  primary 14: ['주짓수 스파링']
+  primary 15: ['배드민턴']
+  primary 16: ['민요 춤 추러 갈 때']
+  primary 17: ['스포티 스타일']
+[stage_2_2] provider=vllm base_url=http://localhost:5000/v1 model=nemotron api_key=dummy... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[refine] 18 -> 18 clusters
+[canonical] cluster_000: 주말룩  <= ['주말 시장 탐방', '주말 휴식용']
+[canonical] cluster_001: 외출복  <= ['목욕탕 갈 때', '중식당 갈 때']
+[canonical] cluster_002: 산책룩  <= ['산책길', '일상 산책', '탄천 산책']
+[canonical] cluster_003: 해질녘산책  <= ['해질 무렵 오륙도 산책 후']
+[canonical] cluster_004: 일상캐주얼  <= ['일상 착용', '일상 캐주얼']
+[canonical] cluster_005: 풍경사진  <= ['풍경 사진 찍을 때']
+[canonical] cluster_006: 출근복  <= ['출근복']
+[canonical] cluster_007: 홈웨어  <= ['주말 삼겹살 모임 후 거실에서 야구 중계 볼 때']
+[canonical] cluster_008: 주말 숲길  <= ['주말 평창 숲길']
+[canonical] cluster_009: 데이트룩  <= ['일식집 데이트']
+[canonical] cluster_010: 잠옷  <= ['잠옷']
+[canonical] cluster_011: 수락산 드라이브  <= ['수락산 드라이브']
+[canonical] cluster_012: 주말나들이  <= ['주말 마당 수국 가꾸고 만경강변 산책']
+[canonical] cluster_013: 등산복  <= ['등산 후 편하게 입기']
+[canonical] cluster_014: 주짓수  <= ['주짓수 스파링']
+[canonical] cluster_015: 배드민턴  <= ['배드민턴']
+[canonical] cluster_016: 민요룩  <= ['민요 춤 추러 갈 때']
+[canonical] cluster_017: 스포티룩  <= ['스포티 스타일']
+
+[cross-merge] reviewing 19 clusters ...
+  [cross-merge] ['주말룩', '주말 숲길', '주말나들이'] -> '주말룩' (evidence now 4)
+  [cross-merge] ['산책룩', '해질녘산책'] -> '산책룩' (evidence now 4)
+  [cross-merge] ['일상캐주얼', '외출복'] -> '외출복' (evidence now 5)
+[cross-merge] 19 -> 15 clusters
+
+[done] wrote 15 clusters -> /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data/stage_2_2_clusters.jsonl
+[load] 26 extracted, 15 clusters
+[aggregate] cluster_000 '주말룩': evidence=4 attrs=6
+[aggregate] cluster_001 '외출복': evidence=5 attrs=8
+[aggregate] cluster_002 '산책룩': evidence=4 attrs=6
+[aggregate] cluster_005 '풍경사진': evidence=1 attrs=3
+[aggregate] cluster_006 '출근복': evidence=1 attrs=3
+[aggregate] cluster_007 '홈웨어': evidence=1 attrs=3
+[aggregate] cluster_009 '데이트룩': evidence=1 attrs=2
+[aggregate] cluster_010 '잠옷': evidence=1 attrs=2
+[aggregate] cluster_011 '수락산 드라이브': evidence=1 attrs=2
+[aggregate] cluster_013 '등산복': evidence=1 attrs=2
+[aggregate] cluster_014 '주짓수': evidence=1 attrs=3
+[aggregate] cluster_015 '배드민턴': evidence=1 attrs=1
+[aggregate] cluster_016 '민요룩': evidence=1 attrs=2
+[aggregate] cluster_017 '스포티룩': evidence=1 attrs=1
+[aggregate] cluster_018 '일반': evidence=2 attrs=0
+
+[done] wrote 15 analyzed intents -> /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data/stage_2_3_analyzed_intents.jsonl
+[stage_2_4] loaded 15 analyzed intents
+[stage_2_4][fallback] provider=vllm base_url=http://localhost:5000/v1 model=nemotron api_key=dummy... max_tokens=2048 verify_ssl=False extra_body={'chat_template_kwargs': {'enable_thinking': False}}
+[1/15] expanding '주말룩'
+[2/15] expanding '외출복'
+[3/15] expanding '산책룩'
+[4/15] expanding '풍경사진'
+[5/15] expanding '출근복'
+[6/15] expanding '홈웨어'
+[7/15] expanding '데이트룩'
+[8/15] expanding '잠옷'
+[9/15] expanding '수락산 드라이브'
+[10/15] expanding '등산복'
+[11/15] expanding '주짓수'
+[12/15] expanding '배드민턴'
+[13/15] expanding '민요룩'
+[14/15] expanding '스포티룩'
+[15/15] expanding '일반'
+
+[stage_2_4] saved 15 expanded intents -> /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/data/stage_2_4_expanded_intents.jsonl
+
+주말룩
+  - 주말에 편하게 입을 수 있는 와이드핏 바지 추천해줘
+  - 캐주얼한 네이비 티셔츠 찾아줘
+  - 주말 데이트룩으로 깔끔한 블랙 코디 어때?
+  - 화이트 와이드팬츠로 캐주얼룩 완성하고 싶어
+  - 주말에 딱 맞는 핏의 옷 입고 싶어요
+
+외출복
+  - 외출할 때 편하게 입을 루즈핏 옷 추천해줘
+  - 베이지 색상의 캐주얼 외출복 코디해줘
+  - 화이트 아이보리 톤으로 클래식한 외출룩 추천
+  - 외출복으로 루즈핏 베이지색 옷 괜찮은 거 있나?
+  - 캐주얼하면서도 클래식한 외출용 옷 알려줘
+
+산책룩
+  - 오늘 산책하기 좋은 슬림핏 바지 추천해줘
+  - 와이드핏 청바지에 뭐 입으면 캐주얼하게 어울릴까?
+  - 베이지 색 자켓으로 클래식한 산책룩 코디해줘
+  - 화이트 티셔츠랑 매치하기 좋은 편한 바지 찾아줘
+  - 캐주얼하게 입고 산책 갈 옷 추천해줘
+
+풍경사진
+  - 네이비 색 슬림핏 캐주얼 바지 추천해줘
+  - 슬림핏에 네이비 컬러인 캐주얼 스타일 옷 찾아봐
+  - 깔끔하게 네이비 슬림핏 캐주얼룩 코디 알려줘
+  - 네이비 바지 중에 슬림핏 캐주얼 스타일 뭐 있어?
+  - 슬림핏 네이비 색 캐주얼하게 입을 수 있는 옷 추천
+
+출근복
+  - 출근할 때 편하게 입을 수 있는 코튼 베이지 옷 추천해줘
+  - 캐주얼한 출근룩으로 베이지 색 코튼 바지 괜찮은 거 있나요?
+  - 오늘 출근인데 편안하면서도 neat해 보이는 코튼 세트 추천해줘
+  - 베이지 색 코튼 원피스로 출근해도 괜찮을까? 캐주얼하게 입으려고요
+  - 출근용으로 캐주얼한 느낌의 베이지 코튼 셔츠나 블라우스 찾아줘
+
+홈웨어
+  - 집에서 편하게 입을 오버핏 블랙 홈웨어 추천해줘
+  - 블랙 색상에 오버핏 캐주얼 홈웨어 찾고 있어
+  - 편안한 오버핏 블랙 홈웨어 세트 보여줘
+  - 캐주얼 스타일의 블랙 오버핏 홈웨어 있어?
+  - 집콕할 때 입기 좋은 오버핏 블랙 홈웨어 알려줘
+
+데이트룩
+  - 데이트 갈 때 베이지 색 캐주얼룩 추천해줘
+  - 베이지 톤으로 편하게 입을 수 있는 데이트 코디 있어?
+  - 캐주얼한 데이트룩으로 베이지 색 옷 조합 알려줘
+  - 데이트할 때 부담 없는 베이지 캐주얼 스타일 추천
+  - 베이지 색 상의로 캐주얼하게 데이트 갈 옷 뭐가 좋을까?
+
+잠옷
+  - 보라색 파자마 세트 추천해줘
+  - 클래식 스타일 잠옷 찾고 있어
+  - 보라빛 수면복 편한 거로 보여줘
+  - 클래식한 디자인 잠옷 추천
+  - 보라색 파자마 잠옷 어디에 파?
+
+수락산 드라이브
+  - 수락산 드라이브 갈 때 베이지 색 미니멀 스타일 옷 추천해줘
+  - 드라이브룩으로 베이지 톤 미니멀하게 입으려고 하는데 뭐가 좋을까?
+  - 수락산 가는 길에 편안하면서도 깔끔한 베이지 미니멀 코디 알려줘
+  - 미니멀한 베이지 옷으로 드라이브 패션 완성하고 싶어
+  - 주말 드라이브용으로 베이지 색 미니멀 스타일 추천좀
+
+등산복
+  - 등산갈 때 니트 소재 베이지 색 옷 추천해줘
+  - 베이지 니트 등산복 편한 거 있니?
+  - 니트 재질에 베이지 컬러 등산용 상의 찾아줘
+  - 등산할 때 입을 베이지 니트 옷 보여줘
+  - 니트 소재 베이지 색 등산룩 추천
+
+주짓수
+  - 주짓수 할 때 입을 슬림핏 티 찾고 있어
+  - 화이트 색상의 캐주얼한 주짓수복 추천해줘
+  - 슬림핏에 화이트인 주짓수 옷 있어?
+  - 캐주얼 스타일의 주짓수복, 흰색으로 가능해?
+  - 주짓수 연습용으로 슬림하고 흰색인 옷 보여줘
+
+배드민턴
+  - 배드민턴 칠 때 검정색 옷 추천해줘
+  - 블랙 배드민턴 웨어 뭐가 좋나요?
+  - 배드민턴복 검은색으로 찾아주세요
+  - 운동할 때 검정색 티셔츠와 바지 세트 보여줘
+  - 배드민턴용 블랙 상의 추천 좀
+
+민요룩
+  - 라벤더 색 로맨틱한 옷으로 데이트룩 추천해줘
+  - 민요룩 느낌 나는 라벤드 원피스 있어?
+  - 로맨틱한 스타일에 라벤드 색 블라우스 찾아줘
+  - 라벤드 컬러로 여성스럽고 로맨틱한 코디 알려줘
+  - 민요 분위기 나는 라벤드 스커트 추천
+
+스포티룩
+  - 운동 갈 때 블랙 트레이닝복 세트 추천해줘
+  - 블랙 색상의 편한 스포츠웨어 찾아줘
+  - 요가할 때 입을 블랙 레깅스랑 티 추천
+  - 블랙 후드티랑 조거팬츠 세트 있어?
+  - 스포티하게 블랙으로 맞춘 옷 코디 알려줘
+
+일반
+  - 편하게 입을 만한 옷 추천해줘
+  - 아무거나 괜찮은 데일리룩 알려줘
+  - 뭐 입을지 모르겠을 때 무난한 거 추천
+  - 기본템 하나만 골라줘
+  - 평범한 일상복 코디 제안해줘
+   26 /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_1_5_deduped.jsonl
+   42 /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_1_extracted.jsonl
+   15 /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_2_clusters.jsonl
+   15 /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_3_analyzed_intents.jsonl
+   15 /home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_4_expanded_intents.jsonl
+  113 total
+coupang
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_1_extracted.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_1_extracted.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K2026/04/22 12:23:35 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_1_extracted.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_1_extracted.jsonl (1.829s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_1_5_deduped.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_1_5_deduped.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:24:03 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_1_5_deduped.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_1_5_deduped.jsonl (1.882s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_1_5_stats.json /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_1_5_stats.json
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:24:29 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_1_5_stats.json → /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_1_5_stats.json (1.825s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_2_clusters.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_2_clusters.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:24:58 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_2_clusters.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_2_clusters.jsonl (1.798s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_3_analyzed_intents.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_3_analyzed_intents.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K2026/04/22 12:25:26 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_3_analyzed_intents.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_3_analyzed_intents.jsonl (1.816s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_4_expanded_intents.jsonl /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_4_expanded_intents.jsonl
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K2026/04/22 12:25:53 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K
+⢿ waiting for SSH connection to be available [K
+✓ Successfully copied coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/output/stage_2_4_expanded_intents.jsonl → /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/output/stage_2_4_expanded_intents.jsonl (1.959s)
+
+$ brev copy coupang:/home/nvidia/experiments_data_stage2/iter_02_semdedup_strict_70/run_pipeline.log /Users/sgyeom/Nvidia/experiments_stage2/iter_02_semdedup_strict_70/run_pipeline_remote.log
+[K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K
+⣽ waiting for instance to be ready... [K
+⣾ waiting for instance to be ready... [K
+⣷ waiting for instance to be ready... [K
+⣯ waiting for instance to be ready... [K
+⣟ waiting for instance to be ready... [K
+⡿ waiting for instance to be ready... [K
+⢿ waiting for instance to be ready... [K
+⣻ waiting for instance to be ready... [K2026/04/22 12:26:20 external nodes: skipping (list failed): not_found: not found
+[K
+⣾ waiting for SSH connection to be available [K
+⣽ waiting for SSH connection to be available [K
+⣻ waiting for SSH connection to be available [K

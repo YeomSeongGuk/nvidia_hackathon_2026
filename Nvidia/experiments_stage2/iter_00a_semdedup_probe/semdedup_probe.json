@@ -1,0 +1,67 @@
+{
+  "input_path": "/tmp/iter_00a_probe_input.jsonl",
+  "input_rows": 42,
+  "embed_model": "BAAI/bge-m3",
+  "device_used": "cuda",
+  "signature_builder": "full",
+  "thresholds_probed": [
+    0.95,
+    0.9,
+    0.85,
+    0.8,
+    0.75,
+    0.7
+  ],
+  "sweep": [
+    {
+      "threshold": 0.95,
+      "pairs_above_threshold": 0,
+      "removed_count": 0,
+      "kept_count": 42,
+      "removed_rate": 0.0,
+      "avg_cosine_of_kept": 0.7309
+    },
+    {
+      "threshold": 0.9,
+      "pairs_above_threshold": 0,
+      "removed_count": 0,
+      "kept_count": 42,
+      "removed_rate": 0.0,
+      "avg_cosine_of_kept": 0.7309
+    },
+    {
+      "threshold": 0.85,
+      "pairs_above_threshold": 2,
+      "removed_count": 2,
+      "kept_count": 40,
+      "removed_rate": 0.048,
+      "avg_cosine_of_kept": 0.7174
+    },
+    {
+      "threshold": 0.8,
+      "pairs_above_threshold": 2,
+      "removed_count": 2,
+      "kept_count": 40,
+      "removed_rate": 0.048,
+      "avg_cosine_of_kept": 0.7174
+    },
+    {
+      "threshold": 0.75,
+      "pairs_above_threshold": 14,
+      "removed_count": 5,
+      "kept_count": 37,
+      "removed_rate": 0.119,
+      "avg_cosine_of_kept": 0.702
+    },
+    {
+      "threshold": 0.7,
+      "pairs_above_threshold": 52,
+      "removed_count": 16,
+      "kept_count": 26,
+      "removed_rate": 0.381,
+      "avg_cosine_of_kept": 0.6727
+    }
+  ],
+  "recommended_threshold": 0.75,
+  "recommendation_rule": "smallest threshold in [0.10, 0.25] removed_rate; fallback = smallest threshold with any removal <= 0.25"
+}

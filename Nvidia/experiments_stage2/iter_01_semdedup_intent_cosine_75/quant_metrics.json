@@ -1,0 +1,83 @@
+{
+  "stage_2_1": {
+    "n": 42,
+    "general_wear_rate": 0.143,
+    "attr_concrete_rate": {
+      "material": 0.119,
+      "fit": 0.262,
+      "color": 0.857,
+      "style": 0.81,
+      "season": 0.024
+    },
+    "avg_keywords_per_doc": 4.67
+  },
+  "stage_2_1_5": {
+    "input_rows": 42,
+    "kept_rows": 33,
+    "semdedup_retention_rate": 0.786,
+    "semdedup_removed_count": 9,
+    "semdedup_pairs_above_threshold": 24,
+    "semdedup_avg_cosine_of_kept": 0.6982,
+    "semdedup_selected_threshold": 0.75,
+    "semdedup_signature_builder_used": "full",
+    "semdedup_mode": "active"
+  },
+  "stage_2_2": {
+    "n": 21,
+    "n_real_clusters": 20,
+    "canonical_count": 21,
+    "canonical_hangul_pure_rate": 1.0,
+    "canonical_suffix_compliance_rate": 0.45,
+    "canonical_non_fashion_rate": 0.05,
+    "canonical_non_fashion_count": 1,
+    "evidence_one_count": 15,
+    "canonical_names": [
+      "주말룩",
+      "주말데이트",
+      "풍경사진",
+      "등산복",
+      "산책",
+      "중식당룩",
+      "출근복",
+      "목욕복",
+      "데일리룩",
+      "해질녘산책",
+      "주점",
+      "배드민턴",
+      "잠옷",
+      "주말나들이",
+      "홈캠",
+      "드라이브룩",
+      "주짓수",
+      "민요룩",
+      "운전복",
+      "여름원피스"
+    ]
+  },
+  "stage_2_3": {
+    "n": 21,
+    "total_attr_count": 63,
+    "avg_attrs_per_intent": 3.0,
+    "duplicate_value_count": 0
+  },
+  "stage_2_4": {
+    "n_intents": 21,
+    "total_queries": 105,
+    "query_dedup_ratio": 1.0,
+    "query_repeat_within_intent_count": 0,
+    "query_avg_length_chars": 25.4,
+    "query_non_hangul_chars_count": 1,
+    "query_non_hangul_chars_rate": 0.01,
+    "garbled_count": 0,
+    "canonical_repeat_rate": 0.0
+  },
+  "e2e": {
+    "rows_by_stage": [
+      42,
+      33,
+      21,
+      21,
+      21
+    ]
+  }
+}

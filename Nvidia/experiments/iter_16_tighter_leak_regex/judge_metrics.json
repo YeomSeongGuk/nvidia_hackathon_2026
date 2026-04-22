@@ -1,0 +1,224 @@
+{
+  "run_id": "iter_16_tighter_leak_regex",
+  "provider": "friendli",
+  "judges": [
+    "zai-org/GLM-5.1",
+    "deepseek-ai/DeepSeek-V3.2",
+    "Qwen/Qwen3-235B-A22B-Instruct-2507"
+  ],
+  "stages": [
+    "stage_1_0",
+    "stage_1_1",
+    "stage_1_1_5",
+    "stage_1_2"
+  ],
+  "max_workers": 4,
+  "duration_sec": 344.49,
+  "errors": [],
+  "ensemble": {
+    "stage_1_0": {
+      "avg_text_quality": {
+        "mean": 2.807,
+        "glm": 2.72,
+        "deepseek": 2.8,
+        "qwen3": 2.9,
+        "range": 0.18
+      },
+      "fashion_rate": {
+        "mean": 0.88,
+        "glm": 0.84,
+        "deepseek": 0.98,
+        "qwen3": 0.82,
+        "range": 0.16,
+        "agreement_approx": 0.84
+      },
+      "has_tpo_rate": {
+        "mean": 0.293,
+        "glm": 0.14,
+        "deepseek": 0.74,
+        "qwen3": 0.0,
+        "range": 0.74,
+        "agreement_approx": 0.26
+      },
+      "pii_rate": {
+        "mean": 0.247,
+        "glm": 0.0,
+        "deepseek": 0.74,
+        "qwen3": 0.0,
+        "range": 0.74,
+        "agreement_approx": 0.26
+      },
+      "n_evaluated": 50,
+      "failure_modes": {
+        "non_fashion_item": 8,
+        "too_short": 17,
+        "noise_text": 1,
+        "pii_leak": 0,
+        "language_issue": 0,
+        "duplicate_suspect": 0,
+        "non_fashion游戏副本": 3
+      }
+    },
+    "stage_1_1": {
+      "attr_grounded_rate": {
+        "mean": 0.983,
+        "glm": 0.99,
+        "deepseek": 0.97,
+        "qwen3": 0.99,
+        "range": 0.02
+      },
+      "avg_persona_reflection": {
+        "mean": 4.493,
+        "glm": 3.78,
+        "deepseek": 4.74,
+        "qwen3": 4.96,
+        "range": 1.18
+      },
+      "avg_raw_text_naturalness": {
+        "mean": 3.873,
+        "glm": 2.92,
+        "deepseek": 4.48,
+        "qwen3": 4.22,
+        "range": 1.56
+      },
+      "fashion_rate": {
+        "mean": 0.867,
+        "glm": 0.88,
+        "deepseek": 0.84,
+        "qwen3": 0.88,
+        "range": 0.04,
+        "agreement_approx": 0.96
+      },
+      "has_tpo_rate": {
+        "mean": 0.967,
+        "glm": 0.98,
+        "deepseek": 0.92,
+        "qwen3": 1.0,
+        "range": 0.08,
+        "agreement_approx": 0.92
+      },
+      "rating_sentiment_consistent_rate": {
+        "mean": 0.98,
+        "glm": 0.94,
+        "deepseek": 1.0,
+        "qwen3": 1.0,
+        "range": 0.06,
+        "agreement_approx": 0.94
+      },
+      "raw_text_within_spec_rate": {
+        "mean": 0.993,
+        "glm": 1.0,
+        "deepseek": 0.98,
+        "qwen3": 1.0,
+        "range": 0.02,
+        "agreement_approx": 0.98
+      },
+      "title_format_ok_rate": {
+        "mean": 0.38,
+        "glm": 0.28,
+        "deepseek": 0.5,
+        "qwen3": 0.36,
+        "range": 0.22,
+        "agreement_approx": 0.78
+      },
+      "title_reasoning_leak_rate": {
+        "mean": 0.04,
+        "glm": 0.06,
+        "deepseek": 0.0,
+        "qwen3": 0.06,
+        "range": 0.06,
+        "agreement_approx": 0.94
+      },
+      "title_within_spec_rate": {
+        "mean": 0.48,
+        "glm": 0.3,
+        "deepseek": 0.74,
+        "qwen3": 0.4,
+        "range": 0.44,
+        "agreement_approx": 0.56
+      },
+      "n_evaluated": 50,
+      "failure_modes": {
+        "title_format_violation": 36,
+        "persona_drift": 14,
+        "language_issue": 15,
+        "non_fashion_item": 8,
+        "title_length_violation": 30,
+        "rating_sentiment_mismatch": 3,
+        "title_reasoning_leak": 3,
+        "missing_tpo": 8,
+        "attr_ungrounded": 7,
+        "attr_mono_value": 3,
+        "length_violation": 0
+      }
+    },
+    "stage_1_1_5": {
+      "dedup_miss_rate": {
+        "mean": 0.147,
+        "glm": 0.18,
+        "deepseek": 0.12,
+        "qwen3": 0.14,
+        "range": 0.06
+      },
+      "dedup_reduction_rate": {
+        "mean": 0.0,
+        "glm": 0.0,
+        "deepseek": 0.0,
+        "qwen3": 0.0,
+        "range": 0.0
+      },
+      "dedup_in_count": 50,
+      "dedup_out_count": 50,
+      "dedup_miss_count": 9,
+      "largest_miss_cluster_size": 3,
+      "failure_modes": {
+        "near_duplicate_missed": 8,
+        "low_dedup_reduction": 1,
+        "wrong_removal": 0
+      }
+    },
+    "stage_1_2": {
+      "avg_text_quality": {
+        "mean": 3.88,
+        "glm": 3.88,
+        "deepseek": 4.2,
+        "qwen3": 3.56,
+        "range": 0.64
+      },
+      "fashion_rate": {
+        "mean": 0.927,
+        "glm": 0.88,
+        "deepseek": 1.0,
+        "qwen3": 0.9,
+        "range": 0.12,
+        "agreement_approx": 0.88
+      },
+      "has_tpo_rate": {
+        "mean": 0.667,
+        "glm": 0.88,
+        "deepseek": 1.0,
+        "qwen3": 0.12,
+        "range": 0.88,
+        "agreement_approx": 0.12
+      },
+      "pii_rate": {
+        "mean": 0.507,
+        "glm": 0.46,
+        "deepseek": 0.6,
+        "qwen3": 0.46,
+        "range": 0.14,
+        "agreement_approx": 0.86
+      },
+      "n_evaluated": 50,
+      "failure_modes": {
+        "pii_leak": 23,
+        "non_fashion_item": 6,
+        "too_short": 1,
+        "noise_text": 0,
+        "language_issue": 3,
+        "duplicate_suspect": 0,
+        "non_fashion游戏副本": 2
+      }
+    }
+  }
+}

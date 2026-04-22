@@ -1,0 +1,117 @@
+# Comparison: iter_11_combo_h3_h9_h5_h8 vs iter_10_combo_h3_h9_h5
+
+- this   iter: `iter_11_combo_h3_h9_h5_h8`
+- parent iter: `iter_10_combo_h3_h9_h5`
+- this timestamp : 2026-04-21T19:46:49+00:00
+- promote flag   : False  high_variance: False
+
+## Metric diff
+
+| metric | parent | this | Δ | direction |
+|---|---|---|---|---|
+| `e2e.e2e_retention` | 1 | 1 | +0 | · |
+| `e2e.input_rows_seed` | 50 | 50 | +0 | · |
+| `e2e.output_rows_by_stage` | <list len=4> | <list len=4> | — | · |
+| `quant.e2e.e2e_retention` | 1 | 1 | +0 | · |
+| `quant.e2e.input_rows_seed` | 50 | 50 | +0 | · |
+| `quant.e2e.output_rows_by_stage` | <list len=4> | <list len=4> | — | · |
+| `quant.stage_1_0.n` | 50 | 50 | +0 | · |
+| `quant.stage_1_0.rating_3_share` | 0 | 0 | +0 | · |
+| `quant.stage_1_0.rating_hist.1` | 10 | 10 | +0 | · |
+| `quant.stage_1_0.rating_hist.2` | 16 | 16 | +0 | · |
+| `quant.stage_1_0.rating_hist.4` | 3 | 3 | +0 | · |
+| `quant.stage_1_0.rating_hist.5` | 21 | 21 | +0 | · |
+| `quant.stage_1_1.color_top2_share` | 0.54 | 0.56 | +0.02 | ↑ bad |
+| `quant.stage_1_1.color_unique` | 7 | 9 | +2 | ↑ good |
+| `quant.stage_1_1.color_white_black_share` | 0.48 | 0.44 | -0.04 | ↓ good |
+| `quant.stage_1_1.n` | 50 | 50 | +0 | · |
+| `quant.stage_1_1.rating_3_share` | 0 | 0 | +0 | · |
+| `quant.stage_1_1.rating_hist.1` | 12 | 12 | +0 | · |
+| `quant.stage_1_1.rating_hist.2` | 17 | 17 | +0 | · |
+| `quant.stage_1_1.rating_hist.4` | 3 | 3 | +0 | · |
+| `quant.stage_1_1.rating_hist.5` | 18 | 18 | +0 | · |
+| `quant.stage_1_1.raw_text_len_max` | 334 | 275 | -59 | ↓ bad |
+| `quant.stage_1_1.raw_text_len_median` | 92 | 143 | +51 | ↑ good |
+| `quant.stage_1_1.raw_text_len_min` | 41 | 85 | +44 | ↑ good |
+| `quant.stage_1_1.raw_text_len_p90` | 159 | 196 | +37 | ↑ good |
+| `quant.stage_1_1.size_suspicious_rate` | 0.08 | 0.1 | +0.02 | ↑ bad |
+| `quant.stage_1_1.size_unique` | 9 | 8 | -1 | ↓ bad |
+| `quant.stage_1_1.style_top1_share` | 0.4 | 0.56 | +0.16 | ↑ bad |
+| `quant.stage_1_1.style_top1_value` | 캐주얼 | 캐주얼 | — | · |
+| `quant.stage_1_1.style_unique` | 7 | 7 | +0 | · |
+| `quant.stage_1_1.title_len_max` | 30 | 30 | +0 | · |
+| `quant.stage_1_1.title_len_median` | 22 | 24 | +2 | ↑ good |
+| `quant.stage_1_1.title_len_min` | 11 | 14 | +3 | ↑ good |
+| `quant.stage_1_1.title_len_p90` | 30 | 30 | +0 | · |
+| `quant.stage_1_1.title_len_p99` | 30 | 30 | +0 | · |
+| `quant.stage_1_1.title_newline_rate` | 0 | 0 | +0 | · |
+| `quant.stage_1_1.title_reasoning_leak_rate` | 0 | 0 | +0 | · |
+| `quant.stage_1_1_5.dedup_in_count` | 50 | 50 | +0 | · |
+| `quant.stage_1_1_5.dedup_out_count` | 50 | 50 | +0 | · |
+| `quant.stage_1_1_5.dedup_reduction_rate` | 0 | 0 | +0 | · |
+| `quant.stage_1_2.n` | 50 | 50 | +0 | · |
+| `quant.stage_1_2.retention_from_stage_1_1_5` | 1 | 1 | +0 | · |
+| `stage_1_0.avg_text_quality` | 2.793 | 2.8 | +0.007 | ↑ good |
+| `stage_1_0.failure_modes.duplicate_suspect` | 0 | 0 | +0 | · |
+| `stage_1_0.failure_modes.language_issue` | 0 | 2 | +2 | ↑ good |
+| `stage_1_0.failure_modes.noise_text` | 1 | 1 | +0 | · |
+| `stage_1_0.failure_modes.non_fashion_item` | 9 | 8 | -1 | ↓ bad |
+| `stage_1_0.failure_modes.non_fashion游戏副本` | 1 | 1 | +0 | · |
+| `stage_1_0.failure_modes.pii_leak` | 0 | 0 | +0 | · |
+| `stage_1_0.failure_modes.too_short` | 17 | 18 | +1 | ↑ good |
+| `stage_1_0.fashion_rate` | 0.88 | 0.893 | +0.013 | ↑ good |
+| `stage_1_0.has_tpo_rate` | 0.3 | 0.3 | +0 | · |
+| `stage_1_0.n_evaluated` | 50 | 50 | +0 | · |
+| `stage_1_0.pii_rate` | 0.247 | 0.247 | +0 | · |
+| `stage_1_1.attr_grounded_rate` | 0.51 | 0.353 | -0.157 | ↓ bad |
+| `stage_1_1.avg_persona_reflection` | 3.827 | 4.633 | +0.806 | ↑ good |
+| `stage_1_1.avg_raw_text_naturalness` | 4.067 | 3.94 | -0.127 | ↓ bad |
+| `stage_1_1.failure_modes.attr_mono_value` | 7 | 6 | -1 | ↓ bad |
+| `stage_1_1.failure_modes.attr_ungrounded` | 35 | 38 | +3 | ↑ good |
+| `stage_1_1.failure_modes.language_issue` | 6 | 5 | -1 | ↓ bad |
+| `stage_1_1.failure_modes.length_violation` | 9 | 1 | -8 | ↓ bad |
+| `stage_1_1.failure_modes.missing_tpo` | 16 | 18 | +2 | ↑ good |
+| `stage_1_1.failure_modes.non_fashion_item` | 8 | 9 | +1 | ↑ good |
+| `stage_1_1.failure_modes.persona_drift` | 15 | 9 | -6 | ↓ bad |
+| `stage_1_1.failure_modes.rating_sentiment_mismatch` | 15 | 2 | -13 | ↓ bad |
+| `stage_1_1.failure_modes.title_format_violation` | 39 | 40 | +1 | ↑ good |
+| `stage_1_1.failure_modes.title_length_violation` | 28 | 30 | +2 | ↑ good |
+| `stage_1_1.failure_modes.title_reasoning_leak` | 5 | 5 | +0 | · |
+| `stage_1_1.fashion_rate` | 0.867 | 0.853 | -0.014 | ↓ bad |
+| `stage_1_1.has_tpo_rate` | 0.947 | 0.94 | -0.007 | ↓ bad |
+| `stage_1_1.n_evaluated` | 50 | 50 | +0 | · |
+| `stage_1_1.rating_sentiment_consistent_rate` | 0.713 | 0.967 | +0.254 | ↑ good |
+| `stage_1_1.raw_text_within_spec_rate` | 0.86 | 0.993 | +0.133 | ↑ good |
+| `stage_1_1.title_format_ok_rate` | 0.267 | 0.327 | +0.06 | ↑ good |
+| `stage_1_1.title_reasoning_leak_rate` | 0.067 | 0.073 | +0.006 | ↑ bad |
+| `stage_1_1.title_within_spec_rate` | 0.473 | 0.447 | -0.026 | ↓ bad |
+| `stage_1_1_5.dedup_in_count` | 50 | 50 | +0 | · |
+| `stage_1_1_5.dedup_miss_count` | 9 | 12 | +3 | ↑ bad |
+| `stage_1_1_5.dedup_miss_rate` | 0.153 | 0.2 | +0.047 | ↑ bad |
+| `stage_1_1_5.dedup_out_count` | 50 | 50 | +0 | · |
+| `stage_1_1_5.dedup_reduction_rate` | 0 | 0 | +0 | · |
+| `stage_1_1_5.failure_modes.low_dedup_reduction` | 1 | 1 | +0 | · |
+| `stage_1_1_5.failure_modes.near_duplicate_missed` | 7 | 9 | +2 | ↑ good |
+| `stage_1_1_5.failure_modes.wrong_removal` | 0 | 0 | +0 | · |
+| `stage_1_1_5.largest_miss_cluster_size` | 4 | 3 | -1 | ↓ good |
+| `stage_1_2.avg_text_quality` | 3.9 | 3.58 | -0.32 | ↓ bad |
+| `stage_1_2.failure_modes.duplicate_suspect` | 1 | 0 | -1 | ↓ bad |
+| `stage_1_2.failure_modes.language_issue` | 1 | 1 | +0 | · |
+| `stage_1_2.failure_modes.noise_text` | 1 | 0 | -1 | ↓ bad |
+| `stage_1_2.failure_modes.non_fashion_item` | 5 | 9 | +4 | ↑ good |
+| `stage_1_2.failure_modes.non_fashion游戏副本` | 1 | 3 | +2 | ↑ good |
+| `stage_1_2.failure_modes.pii_leak` | 2 | 27 | +25 | ↑ good |
+| `stage_1_2.failure_modes.too_short` | 4 | 4 | +0 | · |
+| `stage_1_2.fashion_rate` | 0.947 | 0.893 | -0.054 | ↓ bad |
+| `stage_1_2.has_tpo_rate` | 0.7 | 0.66 | -0.04 | ↓ bad |
+| `stage_1_2.n_evaluated` | 50 | 50 | +0 | · |
+| `stage_1_2.pii_rate` | 0.18 | 0.507 | +0.327 | ↑ bad |
+
+## Output hashes
+
+| file | sha256 |
+|---|---|
+| `stage_1_0_seed.jsonl` | `sha256:42dbc866bdb796968ee245e4fca0d480683ae7889fc81b44787e23c507f4c738` |
+| `stage_1_1_synthetic.jsonl` | `sha256:a500ffe888f83bb41c95ec05d8568c85bc8350afb96e5cddc965f46ffe995913` |
+| `stage_1_1_5_deduped.jsonl` | `sha256:a500ffe888f83bb41c95ec05d8568c85bc8350afb96e5cddc965f46ffe995913` |
+| `stage_1_2_processed.jsonl` | `sha256:a500ffe888f83bb41c95ec05d8568c85bc8350afb96e5cddc965f46ffe995913` |

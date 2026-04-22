@@ -1,0 +1,76 @@
+--- experiments/iter_00_baseline/pipeline_script.py	2026-04-22 00:18:59
++++ experiments/iter_06_seed_rating_3_injection/pipeline_script.py	2026-04-22 02:32:37
+@@ -125,28 +125,61 @@
+ # ============================================================================
+ 
+ def extract_seed_data(data_path: str, config: PipelineConfig) -> pd.DataFrame:
+-    """Loads, filters for fashion, and samples seed data."""
+-    print("\nStep 1: Loading & Filtering Fashion Seed Data (Stage 1.0)")
+-    
++    """Loads, filters for fashion, and samples seed data.
++
++    H4: stratify by rating so the 50-row seed covers 1..5 evenly. The
++    baseline `DataFrame.sample(n=50, random_state=...)` draws a random
++    slice that happens to omit rating=3 entirely (and produces only 3
++    rating=4 rows). Data Designer faithfully copies `seed_rating` into
++    the synthetic record's rating, so the pipeline never produces a
++    rating=3 review. Stratification fixes that at Stage 1.0.
++    """
++    print("\nStep 1: Loading & Filtering Fashion Seed Data (Stage 1.0) [H4 stratified]")
++
+     # Load raw TSV
+     df = pd.read_csv(data_path, sep="\t", header=None, names=["rating", "text"])
+     df = df.dropna(subset=["text"])
+-    
++
+     # Apply Fashion Filter
+     mask = df["text"].str.contains("|".join(FASHION_KEYWORDS), na=False)
+     fashion_df = df[mask].copy().reset_index(drop=True)
+-    
+-    # Sample seeds
+-    random.seed(config.random_seed)
+-    seed_df = fashion_df.sample(
+-        n=min(len(fashion_df), config.seed_data_size), 
+-        random_state=config.random_seed
++
++    # Stratified sample: aim for N/5 per rating 1..5.
++    per_rating = max(1, config.seed_data_size // 5)
++    rng_seed = config.random_seed
++    samples: list[pd.DataFrame] = []
++    used_idx: set[int] = set()
++    for rating in [1, 2, 3, 4, 5]:
++        g = fashion_df[fashion_df["rating"] == rating]
++        n = min(len(g), per_rating)
++        if n == 0:
++            continue
++        s = g.sample(n=n, random_state=rng_seed + int(rating))
++        samples.append(s)
++        used_idx.update(s.index.tolist())
++
++    # Fill remainder if any rating was sparse.
++    total_so_far = sum(len(s) for s in samples)
++    if total_so_far < config.seed_data_size:
++        remaining = config.seed_data_size - total_so_far
++        rest = fashion_df.drop(list(used_idx), errors="ignore")
++        if len(rest) > 0:
++            fill = rest.sample(n=min(len(rest), remaining), random_state=rng_seed)
++            samples.append(fill)
++
++    seed_df = pd.concat(samples).sample(
++        frac=1.0, random_state=rng_seed
+     ).reset_index(drop=True)
+-    
++
++    print(
++        f"  Stratified seed rating histogram: "
++        f"{dict(seed_df['rating'].value_counts().sort_index())}"
++    )
++
+     # Save intermediate
+     os.makedirs(config.stage_1_0_dir, exist_ok=True)
+     seed_df.to_json(
+-        os.path.join(config.stage_1_0_dir, "seed_data.jsonl"), 
++        os.path.join(config.stage_1_0_dir, "seed_data.jsonl"),
+         orient="records", lines=True, force_ascii=False
+     )
+     return seed_df
